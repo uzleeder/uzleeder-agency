@@ -1,0 +1,19 @@
+# Not deployed to Vercel
+archive/
+netlify/
+netlify.toml
+server/
+.claude/
+*.bat
+README.md
+ADMIN-SETUP.md
+PARTNER-PROGRAM.md
+.env.example
+.gitignore
+node_modules/
+.env
+.env.*
+*.ps1
+setup-vercel.cjs
+build/
+dist/

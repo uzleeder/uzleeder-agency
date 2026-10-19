@@ -1,0 +1,189 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": false,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/partners/apply",
+      "destination": "/partner-apply.html"
+    },
+    {
+      "source": "/partners/apply/",
+      "destination": "/partner-apply.html"
+    },
+    {
+      "source": "/partners",
+      "destination": "/partners.html"
+    },
+    {
+      "source": "/partners/",
+      "destination": "/partners.html"
+    },
+    {
+      "source": "/workspace/partners",
+      "destination": "/partner-workspace.html"
+    },
+    {
+      "source": "/workspace/partners/",
+      "destination": "/partner-workspace.html"
+    },
+    {
+      "source": "/admin",
+      "destination": "/admin.html"
+    },
+    {
+      "source": "/admin/",
+      "destination": "/admin.html"
+    },
+    {
+      "source": "/:lang(en|uz|ru|fa|ar)",
+      "destination": "/:lang.html"
+    },
+    {
+      "source": "/certified",
+      "destination": "/certified.html"
+    },
+    {
+      "source": "/workspace",
+      "destination": "/workspace.html"
+    },
+    {
+      "source": "/workspace/",
+      "destination": "/workspace.html"
+    },
+    {
+      "source": "/agi",
+      "destination": "/agi.html"
+    },
+    {
+      "source": "/card",
+      "destination": "/card/index.html"
+    },
+    {
+      "source": "/card/",
+      "destination": "/card/index.html"
+    },
+    {
+      "source": "/verify",
+      "destination": "/verify.html"
+    },
+    {
+      "source": "/verify/:number",
+      "destination": "/verify.html"
+    },
+    {
+      "source": "/startups",
+      "destination": "/startups.html"
+    },
+    {
+      "source": "/startups/",
+      "destination": "/startups.html"
+    },
+    {
+      "source": "/startups/:slug",
+      "destination": "/startups.html"
+    }
+  ],
+  "functions": {
+    "api/**/*.js": {
+      "maxDuration": 60,
+      "includeFiles": "api/_lib/fonts/**"
+    }
+  },
+  "headers": [
+    {
+      "source": "/(workspace/partners|partner-workspace.html)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        },
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "no-referrer"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        }
+      ]
+    },
+    {
+      "source": "/(index.html|en|uz|ru|fa|ar)?",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/card",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/(style.css|script.js)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
+      ]
+    },
+    {
+      "source": "/(projects|certs)/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800"
+        }
+      ]
+    },
+    {
+      "source": "/(admin|workspace)(.html|/)?",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/startups/uzport",
+      "destination": "/startups/t-port",
+      "permanent": true
+    }
+  ]
+}

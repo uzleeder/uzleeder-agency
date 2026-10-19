@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>UzLeeder — Admin</title>
+<style>
+:root{--bg:#07090d;--card:#10141c;--card2:#151a24;--line:rgba(255,255,255,.1);--text:#f2f4f8;--muted:#9098a8;--gold:#e5243b;--gold2:#f0384e;--danger:#ef4444;--ok:#10b981}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;padding:0}
+a{color:var(--gold2)}
+.wrap{max-width:960px;margin:0 auto;padding:1.5rem}
+h1{font-size:1.3rem;font-weight:800;display:flex;align-items:center;gap:.5rem}
+h2{font-size:1rem;font-weight:800;color:var(--gold2);margin:1.6rem 0 .8rem;text-transform:uppercase;letter-spacing:.04em}
+label{display:block;font-size:.78rem;font-weight:700;color:var(--muted);margin:.5rem 0 .25rem}
+input,textarea,select{width:100%;font-family:inherit;font-size:.9rem;color:var(--text);background:var(--card2);border:1px solid var(--line);border-radius:9px;padding:.55rem .7rem}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--gold)}
+textarea{min-height:66px;resize:vertical}
+.btn{display:inline-flex;align-items:center;gap:.4rem;font-weight:700;font-size:.88rem;border:1px solid transparent;border-radius:999px;padding:.6rem 1.2rem;cursor:pointer}
+.btn-gold{background:var(--gold);color:#fff}
+.btn-outline{background:transparent;border-color:var(--line);color:var(--gold2)}
+.btn-danger{background:transparent;border:1px solid rgba(239,68,68,.5);color:#f87171;padding:.4rem .8rem;font-size:.8rem}
+.btn-sm{padding:.4rem .8rem;font-size:.8rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.2rem;margin-bottom:1rem}
+.row4{display:grid;grid-template-columns:repeat(2,1fr);gap:.6rem}
+.field{margin-bottom:.9rem}
+.langtag{font-size:.68rem;font-weight:800;color:var(--gold);text-transform:uppercase}
+.topbar{position:sticky;top:0;z-index:10;background:rgba(7,9,13,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:.8rem 0;margin-bottom:1rem}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:0;padding-bottom:0}
+.tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem}
+.tab{padding:.5rem 1rem;border-radius:999px;border:1px solid var(--line);background:var(--card2);color:var(--muted);font-weight:700;font-size:.85rem;cursor:pointer}
+.tab.active{background:rgba(229,36,59,.14);color:var(--gold2);border-color:rgba(229,36,59,.4)}
+.hidden{display:none}
+.muted{color:var(--muted);font-size:.82rem}
+.grp{border:1px solid var(--line);border-radius:12px;margin-bottom:.8rem;overflow:hidden}
+.grp>summary{cursor:pointer;padding:.8rem 1rem;font-weight:700;background:var(--card2);list-style:none}
+.grp>summary::-webkit-details-marker{display:none}
+.grp[open]>summary{border-bottom:1px solid var(--line)}
+.grp-body{padding:1rem}
+.proj-item{background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:1rem;margin-bottom:.9rem}
+.thumb{width:100%;max-height:150px;object-fit:cover;border-radius:8px;border:1px solid var(--line);margin-top:.4rem;display:none}
+.toast{position:fixed;bottom:1.2rem;left:50%;transform:translateX(-50%);background:var(--card);border:1px solid var(--line);border-left:4px solid var(--ok);border-radius:10px;padding:.7rem 1.1rem;font-weight:600;font-size:.9rem;box-shadow:0 14px 34px rgba(0,0,0,.4);opacity:0;transition:.3s;pointer-events:none}
+.toast.show{opacity:1}
+.toast.err{border-left-color:var(--danger)}
+#login{max-width:340px;margin:12vh auto;text-align:center}
+#login .logo{width:76px;height:76px;border-radius:20px;margin:0 auto .6rem;display:block;box-shadow:0 12px 30px rgba(229,36,59,.28)}
+@media(max-width:560px){.row4{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login" class="card">
+  <img class="logo" src="/icon.svg" alt="UzLeeder"/>
+  <h1 style="justify-content:center;margin:.4rem 0 1rem">UzLeeder Admin</h1>
+  <label for="pw">Password</label>
+  <input type="password" id="pw" autocomplete="current-password" placeholder="Admin password"/>
+  <button class="btn btn-gold" style="width:100%;justify-content:center;margin-top:.9rem" onclick="doLogin()">Sign in</button>
+  <p class="muted" id="loginMsg" style="margin-top:.7rem"></p>
+</div>
+
+<!-- PANEL -->
+<div id="panel" class="hidden">
+  <div class="topbar"><div class="wrap">
+    <h1><img src="/icon.svg" alt="" style="width:26px;height:26px;border-radius:7px;vertical-align:-.35em"/> UzLeeder Admin</h1>
+    <div style="display:flex;gap:.5rem">
+      <button class="btn btn-gold btn-sm" onclick="saveAll()">💾 Save</button>
+      <button class="btn btn-outline btn-sm" onclick="logout()">Log out</button>
+    </div>
+  </div></div>
+
+  <div class="wrap">
+    <div class="tabs">
+      <div class="tab active" data-tab="projects" onclick="showTab('projects')">Projects</div>
+      <div class="tab" data-tab="texts" onclick="showTab('texts')">Texts</div>
+      <div class="tab" data-tab="prices" onclick="showTab('prices')">Prices</div>
+    </div>
+    <p class="muted" style="margin-bottom:1rem">An empty field = the site's original text is used. Type to override it. Click <b>Save</b> when done.</p>
+
+    <div id="tab-projects">
+      <div id="projList"></div>
+      <button class="btn btn-outline" onclick="addProject()">+ New project</button>
+      <p class="muted" style="margin-top:.6rem">When you add projects here, they replace the default Selected Work entries (and their case studies) on the site.</p>
+    </div>
+
+    <div id="tab-texts" class="hidden"></div>
+    <div id="tab-prices" class="hidden"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const LANGS = ["en","uz","fa","ar"];
+const LANGLABEL = { en:"EN", uz:"UZ", fa:"FA", ar:"AR" };
+let TOKEN = sessionStorage.getItem("uz_admin_token") || "";
+let content = { overrides: { en:{}, uz:{}, fa:{}, ar:{} }, projects: [] };
+
+// ---- editable text schema ----
+const TEXT_GROUPS = [
+  { t:"Hero", fields:[ ["hero_title","Headline — wrap words in &lt;em&gt;…&lt;/em&gt; to make them red",0],["hero_desc","Hero description",1] ] },
+  { t:"Max (founder)", fields:[ ["max_quote","Quote",1],["about_p1","Paragraph 1",1],["about_p2","Paragraph 2",1],["about_p3","Paragraph 3",1] ] },
+  { t:"UzLeeder brand", fields:[ ["brand_title","Title",0],["brand_lead","Lead text",1] ] },
+  { t:"Section subtitles", fields:[ ["port_sub","Selected work",1],["ai_sub","AI engineering",0],["stack_sub","Technology",0],["certs_sub","Certificates",0],["price_sub","Pricing",0],["contact_title","Contact title",0],["contact_sub","Contact text",1] ] },
+  { t:"Services (title + description)", fields:[
+    ["svc1_title","Academy — title",0],["svc1","Academy — description",1],
+    ["svc2_title","Websites — title",0],["svc2","Websites — description",1],
+    ["svc3_title","Design — title",0],["svc3","Design — description",1],
+    ["svc9_title","AI Agent — title",0],["svc9","AI Agent — description",1],
+    ["svc10_title","B2B — title",0],["svc10","B2B — description",1],
+    ["svc11_title","Bot — title",0],["svc11","Bot — description",1] ] }
+];
+const PRICE_GROUPS = [
+  { t:"Plans", fields:[ ["price_starter","Starter",0],["price_pro","Professional",0],["price_custom","Custom",0],["price_ent","Enterprise",0] ] },
+  { t:"Service prices", fields:[ ["price_academy","Academy",0],["price_web","Websites",0],["price_ai","AI Agent",0],["price_b2b","B2B",0],["price_bot","Bot",0],["from250","Custom design",0],["from15","Logo",0],["from10","AI Video",0] ] }
+];
+
+function toast(msg, err){ const t=document.getElementById("toast"); t.textContent=msg; t.className="toast show"+(err?" err":""); setTimeout(()=>t.className="toast"+(err?" err":""),2600); }
+
+async function api(path, opts){ opts=opts||{}; opts.headers=Object.assign({"Content-Type":"application/json"},opts.headers||{}); if(TOKEN) opts.headers.Authorization="Bearer "+TOKEN; const r=await fetch(path,opts); let d={}; try{d=await r.json();}catch(e){} return {ok:r.ok, status:r.status, data:d}; }
+
+async function doLogin(){
+  const pw=document.getElementById("pw").value;
+  const msg=document.getElementById("loginMsg"); msg.textContent="...";
+  const r=await api("/api/login",{method:"POST",body:JSON.stringify({password:pw})});
+  if(r.ok && r.data.token){ TOKEN=r.data.token; sessionStorage.setItem("uz_admin_token",TOKEN); openPanel(); }
+  else { msg.textContent = r.data.error || "Wrong password"; }
+}
+function logout(){ TOKEN=""; sessionStorage.removeItem("uz_admin_token"); location.reload(); }
+
+async function openPanel(){
+  document.getElementById("login").classList.add("hidden");
+  document.getElementById("panel").classList.remove("hidden");
+  const r=await fetch("/api/content",{cache:"no-store"});
+  try{ const c=await r.json(); if(c && typeof c==="object"){ content.overrides=Object.assign({en:{},uz:{},fa:{},ar:{}}, c.overrides||{}); LANGS.forEach(l=>content.overrides[l]=content.overrides[l]||{}); content.projects=Array.isArray(c.projects)?c.projects:[]; } }catch(e){}
+  buildTexts(); buildPrices(); buildProjects();
+}
+
+function fieldBlock(key, label, multi){
+  const div=document.createElement("div"); div.className="field";
+  div.innerHTML='<label>'+label+' <span class="muted">('+key+')</span></label>';
+  LANGS.forEach(l=>{
+    const wrap=document.createElement("div"); wrap.style.display="flex"; wrap.style.gap=".4rem"; wrap.style.alignItems="flex-start"; wrap.style.marginBottom=".3rem";
+    const tag=document.createElement("span"); tag.className="langtag"; tag.style.minWidth="24px"; tag.style.paddingTop=".55rem"; tag.textContent=LANGLABEL[l];
+    const inp=document.createElement(multi?"textarea":"input");
+    inp.value=(content.overrides[l] && content.overrides[l][key])||"";
+    inp.setAttribute("data-k",key); inp.setAttribute("data-l",l); inp.dir="auto";
+    wrap.appendChild(tag); wrap.appendChild(inp); div.appendChild(wrap);
+  });
+  return div;
+}
+function buildGroups(container, groups){
+  container.innerHTML="";
+  groups.forEach(g=>{
+    const d=document.createElement("details"); d.className="grp";
+    const s=document.createElement("summary"); s.textContent=g.t; d.appendChild(s);
+    const body=document.createElement("div"); body.className="grp-body";
+    g.fields.forEach(f=>body.appendChild(fieldBlock(f[0],f[1],f[2])));
+    d.appendChild(body); container.appendChild(d);
+  });
+}
+function buildTexts(){ buildGroups(document.getElementById("tab-texts"), TEXT_GROUPS); }
+function buildPrices(){ buildGroups(document.getElementById("tab-prices"), PRICE_GROUPS); }
+
+function collectTexts(){
+  document.querySelectorAll("#tab-texts [data-k],#tab-prices [data-k]").forEach(inp=>{
+    const k=inp.getAttribute("data-k"), l=inp.getAttribute("data-l"), v=inp.value.trim();
+    if(v) content.overrides[l][k]=v; else delete content.overrides[l][k];
+  });
+}
+
+// ---- projects ----
+function buildProjects(){
+  const list=document.getElementById("projList"); list.innerHTML="";
+  content.projects.forEach((p,i)=>list.appendChild(projItem(p,i)));
+}
+function projItem(p,i){
+  const d=document.createElement("div"); d.className="proj-item";
+  d.innerHTML=`
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem">
+      <b>Project #${i+1}</b>
+      <div style="display:flex;gap:.4rem">
+        <button class="btn btn-outline btn-sm" onclick="moveProj(${i},-1)">↑</button>
+        <button class="btn btn-outline btn-sm" onclick="moveProj(${i},1)">↓</button>
+        <button class="btn btn-danger" onclick="delProject(${i})">Delete</button>
+      </div>
+    </div>
+    <div class="row4">
+      <div><label>Tag</label><select data-p="${i}" data-f="tag">
+        <option value="live">Live</option><option value="sale">For Sale</option><option value="soon">Coming Soon</option></select></div>
+      <div><label>Title</label><input data-p="${i}" data-f="title" value=""/></div>
+    </div>
+    <div class="row4">
+      <div><label>Link</label><input data-p="${i}" data-f="link" placeholder="https://..." value=""/></div>
+      <div><label>Tech (comma-separated)</label><input data-p="${i}" data-f="tech" placeholder="React, Node.js" value=""/></div>
+    </div>
+    <label>Image (URL or upload)</label>
+    <div style="display:flex;gap:.4rem"><input data-p="${i}" data-f="image" placeholder="/api/media/... or https://..." value=""/>
+      <button class="btn btn-outline btn-sm" onclick="document.getElementById('file${i}').click()">Upload</button>
+      <input type="file" id="file${i}" accept="image/*" class="hidden" onchange="uploadImg(${i},this)"/></div>
+    <img class="thumb" id="thumb${i}"/>
+    <div style="margin-top:.7rem"><label>Description (per language)</label>
+      ${LANGS.map(l=>`<div style="display:flex;gap:.4rem;margin-bottom:.3rem"><span class="langtag" style="min-width:24px;padding-top:.55rem">${LANGLABEL[l]}</span><textarea data-p="${i}" data-f="desc" data-l="${l}" dir="auto"></textarea></div>`).join("")}
+    </div>`;
+  // fill values
+  setTimeout(()=>{
+    d.querySelector('[data-f="tag"]').value=p.tag||"live";
+    d.querySelector('[data-f="title"]').value=p.title||"";
+    d.querySelector('[data-f="link"]').value=p.link||"";
+    d.querySelector('[data-f="tech"]').value=(p.tech||[]).join(", ");
+    d.querySelector('[data-f="image"]').value=p.image||"";
+    if(p.image){ const t=d.querySelector('#thumb'+i); t.src=p.image; t.style.display="block"; }
+    LANGS.forEach(l=>{ const ta=d.querySelector('[data-f="desc"][data-l="'+l+'"]'); if(ta) ta.value=(p.desc&&p.desc[l])||""; });
+  },0);
+  return d;
+}
+function collectProjects(){
+  const arr=[];
+  document.querySelectorAll("#projList .proj-item").forEach((item,i)=>{
+    const g=(f,l)=>{ const el=item.querySelector('[data-f="'+f+'"]'+(l?'[data-l="'+l+'"]':'')); return el?el.value.trim():""; };
+    const desc={}; LANGS.forEach(l=>{ const v=g("desc",l); if(v)desc[l]=v; });
+    arr.push({ tag:g("tag")||"live", title:g("title"), link:g("link"), image:g("image"),
+      tech:g("tech").split(",").map(s=>s.trim()).filter(Boolean), desc });
+  });
+  content.projects=arr;
+}
+function addProject(){ collectProjects(); content.projects.push({tag:"live",title:"",desc:{},tech:[],link:"",image:""}); buildProjects(); }
+function delProject(i){ collectProjects(); content.projects.splice(i,1); buildProjects(); }
+function moveProj(i,dir){ collectProjects(); const j=i+dir; if(j<0||j>=content.projects.length)return; const t=content.projects[i]; content.projects[i]=content.projects[j]; content.projects[j]=t; buildProjects(); }
+
+async function uploadImg(i,input){
+  const f=input.files[0]; if(!f) return;
+  if(f.size>3*1024*1024){ toast("Image too large (max 3MB)",true); return; }   // Vercel caps request bodies at 4.5MB
+  toast("Uploading...");
+  const dataUrl=await new Promise(res=>{ const r=new FileReader(); r.onload=()=>res(r.result); r.readAsDataURL(f); });
+  const r=await api("/api/upload",{method:"POST",body:JSON.stringify({dataUrl})});
+  if(r.ok && r.data.url){ collectProjects(); content.projects[i].image=r.data.url; buildProjects(); toast("Image uploaded ✓"); }
+  else toast(r.data.error||"Upload failed",true);
+}
+
+async function saveAll(){
+  collectTexts(); collectProjects();
+  toast("Saving...");
+  const r=await api("/api/save",{method:"POST",body:JSON.stringify(content)});
+  if(r.ok) toast("Saved ✓ — refresh the site");
+  else toast(r.data.error||"Save failed ("+r.status+")",true);
+}
+
+function showTab(name){
+  document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("active",t.dataset.tab===name));
+  ["projects","texts","prices"].forEach(n=>document.getElementById("tab-"+n).classList.toggle("hidden",n!==name));
+}
+
+document.getElementById("pw").addEventListener("keydown",e=>{ if(e.key==="Enter") doLogin(); });
+if(TOKEN) openPanel();
+</script>
+</body>
+</html>

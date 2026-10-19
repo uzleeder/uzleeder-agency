@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Startups &amp; Ventures | UzLeeder</title>
+<meta name="description" content="Explore UzLeeder ventures, emerging technology initiatives, and digital products being developed for the AI era."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://uzleeder.vercel.app/startups"/>
+<meta name="theme-color" content="#07090d"/>
+<link rel="icon" type="image/svg+xml" href="/icon.svg"/>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+<link rel="manifest" href="/manifest.webmanifest"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="UzLeeder"/>
+<meta property="og:title" content="Startups &amp; Ventures | UzLeeder"/>
+<meta property="og:description" content="Explore UzLeeder ventures, emerging technology initiatives, and digital products being developed for the AI era."/>
+<meta property="og:url" content="https://uzleeder.vercel.app/startups"/>
+<meta property="og:image" content="https://uzleeder.vercel.app/og-image.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Startups &amp; Ventures | UzLeeder"/>
+<meta name="twitter:description" content="Explore UzLeeder ventures, emerging technology initiatives, and digital products being developed for the AI era."/>
+<meta name="twitter:image" content="https://uzleeder.vercel.app/og-image.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&text=CAIBERLearn2.0%20&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Michroma&text=T-PORT2.0%20&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/style.css?v=/*__CSSV__*/"/>
+<script>
+  // same pre-paint step as the homepage: Control Center design + saved theme, no colour flash
+  (function () {
+    var d = document.documentElement;
+    d.classList.add("js");
+    try {
+      var ds = JSON.parse(localStorage.getItem("uzleeder_design") || "null");
+      if (ds && ds.css) { var st = document.createElement("style"); st.id = "cmsDesign"; st.textContent = ds.css; document.head.appendChild(st); }
+      if (ds && ds.attrs) for (var an in ds.attrs) if (/^data-ds-[a-z]+$/.test(an) && /^[a-z]+$/.test(ds.attrs[an])) d.setAttribute(an, ds.attrs[an]);
+      if (ds && ds.fontHref) { var fl = document.createElement("link"); fl.rel = "stylesheet"; fl.href = ds.fontHref; document.head.appendChild(fl); }
+      var t = localStorage.getItem("uzleeder_theme");
+      if (t !== "light" && t !== "dark") t = ds && (ds.mode === "light" || ds.mode === "dark") ? ds.mode : window.matchMedia && matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+      d.setAttribute("data-theme", t);
+    } catch (e) {}
+  })();
+</script>
+<style>
+  /* /startups — page layer; the section, card and detail styles are shared with the homepage (style.css) */
+  main{padding-top:72px}
+  .su-page .su-hero{border-top:0}
+  .su-detail-page{padding:clamp(28px,5vw,56px) 0 clamp(64px,9vw,110px)}
+  .su-detail-page .container{max-width:980px}
+  .su-back{display:inline-flex;align-items:center;min-height:44px;font-size:.9rem;font-weight:600;color:var(--muted);margin-bottom:14px}
+  .su-back:hover{color:var(--text)}
+  .su-page-head{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--surface)}
+  .su-page-head .su-brand{min-height:clamp(150px,22vw,220px);padding:clamp(24px,4vw,44px)}
+  .su-page-head .su-brand-mark{width:72px;height:72px}
+  .su-page-head .su-brand[data-font="michroma"] .su-brand-mark{width:88px;height:68px}
+  .su-page-head .su-word{font-size:clamp(2.2rem,5.5vw,3.8rem)}
+  .su-page-head .su-brand[data-font="michroma"] .su-word{font-size:clamp(1.7rem,4.4vw,3rem)}
+  @media (max-width:560px){.su-page-head .su-brand{flex-direction:column;align-items:flex-start;gap:14px}.su-page-head .su-brand[data-font="michroma"] .su-word{font-size:clamp(1.5rem,8.4vw,2.2rem)}.su-page-head .su-word{font-size:clamp(1.9rem,10vw,2.6rem)}}
+  .su-d-plain h1{font-size:clamp(2.2rem,5.5vw,3.6rem);letter-spacing:-.03em;overflow-wrap:anywhere}
+  .su-page-meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;padding:20px clamp(20px,3vw,34px) 0}
+  .su-page-tag{padding:12px clamp(20px,3vw,34px) 0;font-size:clamp(1.08rem,1.9vw,1.35rem);font-weight:600;max-width:52ch}
+  .su-page-acts{padding:16px clamp(20px,3vw,34px) 24px;margin:0}
+  .su-page-body{margin-top:8px;padding:0}
+  .su-page-body .su-d-sec h2{font-family:var(--mono);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+  .su-notfound{padding:40px 0}
+  .su-notfound h1{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:12px}
+  .preview-bar{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:200;padding:8px 14px;border-radius:999px;font-size:.85rem;font-weight:700;background:var(--accent);color:var(--on-accent)}
+  .preview-bar.err{background:#b91c1c}
+  [hidden]{display:none!important}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+  <symbol id="brand-mark" viewBox="0 0 48 44"><path d="M4 41 24 5l20 36" style="fill:none;stroke:var(--accent);stroke-width:7;stroke-miterlimit:10"/><path d="M14 41 24 23l10 18" style="fill:none;stroke:var(--mark-inner);stroke-width:5.5;stroke-miterlimit:10"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+</defs></svg>
+<a class="skip-link" href="#main" data-p="skip">Skip to content</a>
+
+<header class="nav" id="navbar">
+  <a href="/" class="logo" aria-label="UzLeeder — home">
+    <svg class="logo-mark" width="30" height="28" aria-hidden="true"><use href="#brand-mark"/></svg>
+    <span class="logo-text"><span class="logo-word"><span class="uz">Uz</span><span class="lee">Leeder</span></span><span class="logo-tag">For Leaders</span></span>
+  </a>
+  <nav class="nav-menu" id="navMenu" aria-label="Primary">
+    <a href="/#services" data-p="nav_services">Services</a>
+    <a href="/#work" data-p="nav_work">Work</a>
+    <a href="/startups" class="active" aria-current="page" data-p="nav_startups" data-su-link="">Startups</a>
+    <a href="/#process" data-p="nav_how">How it works</a>
+    <a href="/#about" data-p="nav_about">About</a>
+    <a href="/#contact" data-p="nav_contact">Contact</a>
+    <a href="/#contact" class="nav-cta" data-p="btn_discuss">Discuss your project</a>
+  </nav>
+  <div class="nav-tools">
+    <div class="lang" id="langWrap">
+      <button class="lang-btn" id="langBtn" type="button" aria-label="Select language" aria-haspopup="true" aria-expanded="false"><svg class="ico" aria-hidden="true"><use href="#i-globe"/></svg><span id="langLabel">EN</span><svg class="ico chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+      <div class="lang-menu" role="menu" aria-label="Language">
+        <button type="button" class="lang-opt" data-lang="en" role="menuitemradio" aria-checked="true">English</button>
+        <button type="button" class="lang-opt" data-lang="uz" role="menuitemradio" aria-checked="false">O'zbek</button>
+        <button type="button" class="lang-opt" data-lang="ru" role="menuitemradio" aria-checked="false" lang="ru">Русский</button>
+      </div>
+    </div>
+    <button class="theme-btn" id="themeToggle" type="button" aria-label="Toggle dark and light theme"><svg class="ico sun" aria-hidden="true"><use href="#i-sun"/></svg><svg class="ico moon" aria-hidden="true"><use href="#i-moon"/></svg></button>
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-controls="navMenu" aria-expanded="false"><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="main" class="su-home su-page" tabindex="-1">
+  <div id="suDirectory">
+    <!-- A · HERO -->
+    <section class="su-hero" aria-labelledby="suTitle">
+      <svg class="su-peak" viewBox="0 0 48 44" aria-hidden="true"><path d="M4 41 24 5l20 36" style="stroke:var(--accent);stroke-width:7"/><path d="M14 41 24 23l10 18" style="stroke:var(--text);stroke-width:5.5"/></svg>
+      <div class="container">
+        <p class="su-eyebrow"><i aria-hidden="true"></i><span data-p="eyebrow">UzLeeder Ventures</span></p>
+        <h1 class="su-hero-h" id="suTitle" data-p="h1" data-html="1">Building What <em>Comes Next.</em></h1>
+        <p class="su-lead" data-p="lead">We build and explore technology ventures designed to solve real problems, create useful digital products, and open new possibilities for the AI era.</p>
+        <div class="su-actions">
+          <a href="#ventures" class="btn btn-primary"><span data-p="cta1">Explore Startups</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a href="/#contact" class="btn btn-ghost" data-p="cta2">Discuss a Venture</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- B · FOUNDER'S VISION -->
+    <section class="su-sec" aria-labelledby="suVision">
+      <div class="container">
+        <p class="su-k" data-p="v_k">Founder's vision</p>
+        <h2 class="su-h" id="suVision" data-p="v_h">Ideas become products. Products become possibilities.</h2>
+        <p class="su-intro" data-p="v_p">Every venture begins with a problem worth solving. Our approach is to explore the opportunity, design a practical solution, build the product, and improve it through real-world feedback.</p>
+        <ol class="su-principles">
+          <li><b>01</b><h3 data-p="p1_t">Identify</h3><p data-p="p1_d">Discover meaningful problems and underserved opportunities.</p></li>
+          <li><b>02</b><h3 data-p="p2_t">Build</h3><p data-p="p2_d">Turn validated concepts into usable products through thoughtful engineering and product design.</p></li>
+          <li><b>03</b><h3 data-p="p3_t">Evolve</h3><p data-p="p3_d">Test, learn, improve, and expand when the evidence supports the next step.</p></li>
+        </ol>
+        <p class="su-era" lang="en">SALAAM NEW ERA.</p>
+      </div>
+    </section>
+
+    <!-- C · STARTUP DIRECTORY -->
+    <section class="su-sec" id="ventures" aria-labelledby="suVentures">
+      <div class="container">
+        <p class="su-k" data-p="d_k">Directory</p>
+        <h2 class="su-h" id="suVentures" data-p="d_h">Our Ventures</h2>
+        <p class="su-intro" data-p="d_p">Explore the products and initiatives we are developing, researching, and bringing to life.</p>
+        <div class="su-filters" id="suFilters" role="group" aria-label="Filter by category" hidden></div>
+        <div class="su-grid" id="suGrid" aria-live="polite"><!--__CARDS__--></div>
+        <p class="su-note-line" data-p="note">“Research” means there is no public product yet. Figures in the decks are hypotheses, not results.</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- D · VENTURE PAGE (/startups/<slug>, rendered from the same data) -->
+  <article class="su-detail-page" id="suDetail" hidden><div class="container" id="suDetailBody"></div></article>
+</main>
+
+<footer class="su-foot">
+  <div class="container">
+    <a href="/" class="logo" aria-label="UzLeeder — home"><svg class="logo-mark" width="28" height="26" aria-hidden="true"><use href="#brand-mark"/></svg><span class="logo-text"><span class="logo-word"><span class="uz">Uz</span><span class="lee">Leeder</span></span></span></a>
+    <nav aria-label="Footer"><a href="/" data-p="f_home">Home</a><a href="/#work" data-p="nav_work">Work</a><a href="/startups" aria-current="page" data-p="nav_startups" data-su-link="">Startups</a><a href="/#contact" data-p="nav_contact">Contact</a></nav>
+    <small>© 2026 UzLeeder · Tashkent</small>
+  </div>
+</footer>
+
+<script type="application/json" id="su-seed">/*__SEED__*/</script>
+<script>/*__RENDER__*/</script>
+<script>/*__CLIENT__*/</script>
+</body>
+</html>

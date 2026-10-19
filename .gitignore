@@ -1,0 +1,11 @@
+node_modules/
+.vercel/
+.netlify/
+server/.env
+.env
+.env.*
+!.env.example
+
+.vercel
+server/.localdata/
+.env*

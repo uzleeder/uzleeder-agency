@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Apply — Partner Program | UzLeeder</title>
+<meta name="description" content="Apply to the UzLeeder Partner Program in five short steps. Submitting an application does not guarantee acceptance."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://uzleeder.vercel.app/partners/apply"/>
+<meta name="theme-color" content="#07090d"/>
+<meta name="referrer" content="no-referrer"/>
+<link rel="icon" type="image/svg+xml" href="/icon.svg"/>
+<meta property="og:title" content="Apply — UzLeeder Partner Program"/>
+<meta property="og:description" content="Prove your potential. Five short steps, reviewed by people, decided on evidence."/>
+<meta property="og:url" content="https://uzleeder.vercel.app/partners/apply"/>
+<meta property="og:image" content="https://uzleeder.vercel.app/og-image.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/style.css?v=9.4"/>
+<link rel="stylesheet" href="/partner.css?v=3"/>
+<script>
+  (function () {
+    var d = document.documentElement; d.classList.add("js");
+    try {
+      var ds = JSON.parse(localStorage.getItem("uzleeder_design") || "null");
+      if (ds && ds.css) { var st = document.createElement("style"); st.id = "cmsDesign"; st.textContent = ds.css; document.head.appendChild(st); }
+      var t = localStorage.getItem("uzleeder_theme");
+      if (t !== "light" && t !== "dark") t = ds && (ds.mode === "light" || ds.mode === "dark") ? ds.mode : window.matchMedia && matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+      d.setAttribute("data-theme", t);
+    } catch (e) {}
+  })();
+</script>
+<script src="/partner-ui.js?v=3" defer></script>
+<script src="/partner-apply.js?v=3" defer></script>
+</head>
+<body class="pp-page pa-page">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+  <symbol id="brand-mark" viewBox="0 0 48 44"><path d="M4 41 24 5l20 36" style="fill:none;stroke:var(--accent);stroke-width:7;stroke-miterlimit:10"/><path d="M14 41 24 23l10 18" style="fill:none;stroke:var(--mark-inner);stroke-width:5.5;stroke-miterlimit:10"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></symbol>
+</defs></svg>
+<a class="skip-link" href="#paMain">Skip to the application</a>
+
+<header class="nav scrolled" id="navbar">
+  <a href="/" class="logo" aria-label="UzLeeder — home">
+    <svg class="logo-mark" width="30" height="28" aria-hidden="true"><use href="#brand-mark"/></svg>
+    <span class="logo-text"><span class="logo-word"><span class="uz">Uz</span><span class="lee">Leeder</span></span><span class="logo-tag">Partner Program</span></span>
+  </a>
+  <nav class="pp-mini-nav" aria-label="Partner Program"><a href="/partners">About the program</a><a href="/partners#conditions">Conditions</a><a href="/partners#privacy">Privacy</a><a href="/workspace/partners">Track application</a></nav>
+  <div class="nav-tools">
+    <button class="theme-btn" id="themeToggle" type="button" aria-label="Toggle dark and light theme"><svg class="ico sun" aria-hidden="true"><use href="#i-sun"/></svg><svg class="ico moon" aria-hidden="true"><use href="#i-moon"/></svg></button>
+  </div>
+</header>
+
+<main id="paMain" class="pa-main" tabindex="-1">
+  <div class="pa-top">
+    <a class="pa-back" href="/partners"><svg class="ico" aria-hidden="true"><use href="#i-back"/></svg>Partner Program</a>
+    <p class="su-eyebrow"><i aria-hidden="true"></i><span>Partner application</span></p>
+    <h1 class="pa-title">Show us what you can <em>build.</em></h1>
+    <p class="pa-lead">Five short steps, about 10 minutes. Real people review every application on evidence — there is no automatic approval, and submitting does not guarantee acceptance.</p>
+  </div>
+
+  <div class="pa-layout">
+    <section class="pa-card" aria-labelledby="paStepTitle">
+      <div class="pa-progress" aria-hidden="true"><span id="paBar"></span></div>
+      <p class="pa-count" id="paCount" aria-live="polite">Step 1 of 5</p>
+      <div id="paBody"><p class="pp-muted">Loading the application…</p></div>
+    </section>
+
+    <aside class="pa-aside" aria-label="Application progress and information">
+      <div class="pa-panel">
+        <h2>Your application</h2>
+        <ol class="pa-steps" id="paSteps"></ol>
+      </div>
+      <div class="pa-panel">
+        <h2>Before you start</h2>
+        <ul class="pa-tips">
+          <li>Have links to your work ready — a portfolio, GitHub, Behance or a live project.</li>
+          <li>Describe what <b>you</b> did, not only the team.</li>
+          <li>Don't include passwords, ID numbers, bank details or a home address.</li>
+          <li>Your progress stays in this browser tab until you submit.</li>
+        </ul>
+      </div>
+      <div class="pa-panel">
+        <h2>What happens next</h2>
+        <ol class="pa-next">
+          <li><b>Review</b> — we read your application and evidence.</li>
+          <li><b>Questions</b> — we may ask for more information.</li>
+          <li><b>Qualification</b> — possibly a short, explained task.</li>
+          <li><b>Trial</b> — only if selected, with terms shown first.</li>
+          <li><b>Decision</b> — recorded, with a reason.</li>
+        </ol>
+        <p class="pp-muted pa-small">No fixed timeline. Updates appear on your private application page.</p>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer class="su-foot pp-foot">
+  <div class="container">
+    <a href="/" class="logo" aria-label="UzLeeder — home"><svg class="logo-mark" width="28" height="26" aria-hidden="true"><use href="#brand-mark"/></svg><span class="logo-text"><span class="logo-word"><span class="uz">Uz</span><span class="lee">Leeder</span></span></span></a>
+    <nav aria-label="Footer"><a href="/">Home</a><a href="/startups">Startups</a><a href="/partners">Partners</a><a href="/partners/apply" aria-current="page">Apply</a><a href="/workspace/partners">Track application</a></nav>
+    <small>SALAAM NEW ERA. · © 2026 UzLeeder · Tashkent</small>
+  </div>
+</footer>
+</body>
+</html>

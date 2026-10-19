@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Startups &amp; Ventures | UzLeeder</title>
+<meta name="description" content="Explore UzLeeder ventures, emerging technology initiatives, and digital products being developed for the AI era."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://uzleeder.vercel.app/startups"/>
+<meta name="theme-color" content="#07090d"/>
+<link rel="icon" type="image/svg+xml" href="/icon.svg"/>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+<link rel="manifest" href="/manifest.webmanifest"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="UzLeeder"/>
+<meta property="og:title" content="Startups &amp; Ventures | UzLeeder"/>
+<meta property="og:description" content="Explore UzLeeder ventures, emerging technology initiatives, and digital products being developed for the AI era."/>
+<meta property="og:url" content="https://uzleeder.vercel.app/startups"/>
+<meta property="og:image" content="https://uzleeder.vercel.app/og-image.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Startups &amp; Ventures | UzLeeder"/>
+<meta name="twitter:description" content="Explore UzLeeder ventures, emerging technology initiatives, and digital products being developed for the AI era."/>
+<meta name="twitter:image" content="https://uzleeder.vercel.app/og-image.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&text=CAIBERLearn2.0%20&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Michroma&text=T-PORT2.0%20&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/style.css?v=9.4"/>
+<script>
+  // same pre-paint step as the homepage: Control Center design + saved theme, no colour flash
+  (function () {
+    var d = document.documentElement;
+    d.classList.add("js");
+    try {
+      var ds = JSON.parse(localStorage.getItem("uzleeder_design") || "null");
+      if (ds && ds.css) { var st = document.createElement("style"); st.id = "cmsDesign"; st.textContent = ds.css; document.head.appendChild(st); }
+      if (ds && ds.attrs) for (var an in ds.attrs) if (/^data-ds-[a-z]+$/.test(an) && /^[a-z]+$/.test(ds.attrs[an])) d.setAttribute(an, ds.attrs[an]);
+      if (ds && ds.fontHref) { var fl = document.createElement("link"); fl.rel = "stylesheet"; fl.href = ds.fontHref; document.head.appendChild(fl); }
+      var t = localStorage.getItem("uzleeder_theme");
+      if (t !== "light" && t !== "dark") t = ds && (ds.mode === "light" || ds.mode === "dark") ? ds.mode : window.matchMedia && matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+      d.setAttribute("data-theme", t);
+    } catch (e) {}
+  })();
+</script>
+<style>
+  /* /startups — page layer; the section, card and detail styles are shared with the homepage (style.css) */
+  main{padding-top:72px}
+  .su-page .su-hero{border-top:0}
+  .su-detail-page{padding:clamp(28px,5vw,56px) 0 clamp(64px,9vw,110px)}
+  .su-detail-page .container{max-width:980px}
+  .su-back{display:inline-flex;align-items:center;min-height:44px;font-size:.9rem;font-weight:600;color:var(--muted);margin-bottom:14px}
+  .su-back:hover{color:var(--text)}
+  .su-page-head{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--surface)}
+  .su-page-head .su-brand{min-height:clamp(150px,22vw,220px);padding:clamp(24px,4vw,44px)}
+  .su-page-head .su-brand-mark{width:72px;height:72px}
+  .su-page-head .su-brand[data-font="michroma"] .su-brand-mark{width:88px;height:68px}
+  .su-page-head .su-word{font-size:clamp(2.2rem,5.5vw,3.8rem)}
+  .su-page-head .su-brand[data-font="michroma"] .su-word{font-size:clamp(1.7rem,4.4vw,3rem)}
+  @media (max-width:560px){.su-page-head .su-brand{flex-direction:column;align-items:flex-start;gap:14px}.su-page-head .su-brand[data-font="michroma"] .su-word{font-size:clamp(1.5rem,8.4vw,2.2rem)}.su-page-head .su-word{font-size:clamp(1.9rem,10vw,2.6rem)}}
+  .su-d-plain h1{font-size:clamp(2.2rem,5.5vw,3.6rem);letter-spacing:-.03em;overflow-wrap:anywhere}
+  .su-page-meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;padding:20px clamp(20px,3vw,34px) 0}
+  .su-page-tag{padding:12px clamp(20px,3vw,34px) 0;font-size:clamp(1.08rem,1.9vw,1.35rem);font-weight:600;max-width:52ch}
+  .su-page-acts{padding:16px clamp(20px,3vw,34px) 24px;margin:0}
+  .su-page-body{margin-top:8px;padding:0}
+  .su-page-body .su-d-sec h2{font-family:var(--mono);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+  .su-notfound{padding:40px 0}
+  .su-notfound h1{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:12px}
+  .preview-bar{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:200;padding:8px 14px;border-radius:999px;font-size:.85rem;font-weight:700;background:var(--accent);color:var(--on-accent)}
+  .preview-bar.err{background:#b91c1c}
+  [hidden]{display:none!important}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+  <symbol id="brand-mark" viewBox="0 0 48 44"><path d="M4 41 24 5l20 36" style="fill:none;stroke:var(--accent);stroke-width:7;stroke-miterlimit:10"/><path d="M14 41 24 23l10 18" style="fill:none;stroke:var(--mark-inner);stroke-width:5.5;stroke-miterlimit:10"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+</defs></svg>
+<a class="skip-link" href="#main" data-p="skip">Skip to content</a>
+
+<header class="nav" id="navbar">
+  <a href="/" class="logo" aria-label="UzLeeder — home">
+    <svg class="logo-mark" width="30" height="28" aria-hidden="true"><use href="#brand-mark"/></svg>
+    <span class="logo-text"><span class="logo-word"><span class="uz">Uz</span><span class="lee">Leeder</span></span><span class="logo-tag">For Leaders</span></span>
+  </a>
+  <nav class="nav-menu" id="navMenu" aria-label="Primary">
+    <a href="/#services" data-p="nav_services">Services</a>
+    <a href="/#work" data-p="nav_work">Work</a>
+    <a href="/startups" class="active" aria-current="page" data-p="nav_startups" data-su-link="">Startups</a>
+    <a href="/#process" data-p="nav_how">How it works</a>
+    <a href="/#about" data-p="nav_about">About</a>
+    <a href="/#contact" data-p="nav_contact">Contact</a>
+    <a href="/#contact" class="nav-cta" data-p="btn_discuss">Discuss your project</a>
+  </nav>
+  <div class="nav-tools">
+    <div class="lang" id="langWrap">
+      <button class="lang-btn" id="langBtn" type="button" aria-label="Select language" aria-haspopup="true" aria-expanded="false"><svg class="ico" aria-hidden="true"><use href="#i-globe"/></svg><span id="langLabel">EN</span><svg class="ico chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+      <div class="lang-menu" role="menu" aria-label="Language">
+        <button type="button" class="lang-opt" data-lang="en" role="menuitemradio" aria-checked="true">English</button>
+        <button type="button" class="lang-opt" data-lang="uz" role="menuitemradio" aria-checked="false">O'zbek</button>
+        <button type="button" class="lang-opt" data-lang="ru" role="menuitemradio" aria-checked="false" lang="ru">Русский</button>
+      </div>
+    </div>
+    <button class="theme-btn" id="themeToggle" type="button" aria-label="Toggle dark and light theme"><svg class="ico sun" aria-hidden="true"><use href="#i-sun"/></svg><svg class="ico moon" aria-hidden="true"><use href="#i-moon"/></svg></button>
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-controls="navMenu" aria-expanded="false"><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="main" class="su-home su-page" tabindex="-1">
+  <div id="suDirectory">
+    <!-- A · HERO -->
+    <section class="su-hero" aria-labelledby="suTitle">
+      <svg class="su-peak" viewBox="0 0 48 44" aria-hidden="true"><path d="M4 41 24 5l20 36" style="stroke:var(--accent);stroke-width:7"/><path d="M14 41 24 23l10 18" style="stroke:var(--text);stroke-width:5.5"/></svg>
+      <div class="container">
+        <p class="su-eyebrow"><i aria-hidden="true"></i><span data-p="eyebrow">UzLeeder Ventures</span></p>
+        <h1 class="su-hero-h" id="suTitle" data-p="h1" data-html="1">Building What <em>Comes Next.</em></h1>
+        <p class="su-lead" data-p="lead">We build and explore technology ventures designed to solve real problems, create useful digital products, and open new possibilities for the AI era.</p>
+        <div class="su-actions">
+          <a href="#ventures" class="btn btn-primary"><span data-p="cta1">Explore Startups</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a href="/#contact" class="btn btn-ghost" data-p="cta2">Discuss a Venture</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- B · FOUNDER'S VISION -->
+    <section class="su-sec" aria-labelledby="suVision">
+      <div class="container">
+        <p class="su-k" data-p="v_k">Founder's vision</p>
+        <h2 class="su-h" id="suVision" data-p="v_h">Ideas become products. Products become possibilities.</h2>
+        <p class="su-intro" data-p="v_p">Every venture begins with a problem worth solving. Our approach is to explore the opportunity, design a practical solution, build the product, and improve it through real-world feedback.</p>
+        <ol class="su-principles">
+          <li><b>01</b><h3 data-p="p1_t">Identify</h3><p data-p="p1_d">Discover meaningful problems and underserved opportunities.</p></li>
+          <li><b>02</b><h3 data-p="p2_t">Build</h3><p data-p="p2_d">Turn validated concepts into usable products through thoughtful engineering and product design.</p></li>
+          <li><b>03</b><h3 data-p="p3_t">Evolve</h3><p data-p="p3_d">Test, learn, improve, and expand when the evidence supports the next step.</p></li>
+        </ol>
+        <p class="su-era" lang="en">SALAAM NEW ERA.</p>
+      </div>
+    </section>
+
+    <!-- C · STARTUP DIRECTORY -->
+    <section class="su-sec" id="ventures" aria-labelledby="suVentures">
+      <div class="container">
+        <p class="su-k" data-p="d_k">Directory</p>
+        <h2 class="su-h" id="suVentures" data-p="d_h">Our Ventures</h2>
+        <p class="su-intro" data-p="d_p">Explore the products and initiatives we are developing, researching, and bringing to life.</p>
+        <div class="su-filters" id="suFilters" role="group" aria-label="Filter by category" hidden></div>
+        <div class="su-grid" id="suGrid" aria-live="polite"><article class="su-card reveal su-branded su-has-detail" data-cat="logistics" data-slug="t-port" data-href="/startups/t-port"><div class="su-brand" data-font="michroma" style="background:radial-gradient(120% 140% at 18% 0%,#0B2A5E 0%,#071533 58%),#071533;color:#F2F6FF"><img class="su-brand-mark" src="/projects/startups/t-port-mark.png" alt="" width="44" height="44" loading="lazy" decoding="async"/><div class="su-brand-txt"><p class="su-brand-k" style="color:#22B8FF">The Global Transit Gateway</p><h3 class="su-word"><a class="su-name-link" href="/startups/t-port" data-su-link=""><span style="color:#22B8FF">T</span><span style="color:#F2F6FF">-PORT</span> <span style="color:#22B8FF">2.0</span></a></h3></div></div><span class="su-card-chev su-go" aria-hidden="true"></span><div class="su-card-b"><div class="su-card-h"><p class="su-cat">Logistics &amp; Mobility</p><span class="su-status su-research"><span class="su-shape" aria-hidden="true">◎</span><span class="su-vh">Stage: </span>Research</span></div><p class="su-tag">One destination. Every way to get there.</p><p class="su-sum">A transport-discovery platform that turns fragmented transport information into a clear, practical journey plan — compare trains, flights, buses and other supported options in one place. Starting in Uzbekistan.</p><p class="su-role">Max — Founder</p><div class="su-card-f"><a class="btn btn-primary su-pitch" href="/projects/pitches/t-port-2.0.html" target="_blank" rel="noopener">See the pitch<span class="su-sr"> — T-Port</span><span class="su-sr"> (opens in a new tab)</span><span aria-hidden="true"> ↗</span></a><a class="su-link" href="/projects/pitches/t-port-2.0.pdf" target="_blank" rel="noopener">PDF<span class="su-sr"> — Investor deck (PDF)</span><span class="su-sr"> (opens in a new tab)</span><span aria-hidden="true"> ↗</span></a><span class="su-cert su-cert-none"><svg class="su-cert-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4.5 6v6c0 4.5 3.2 7.8 7.5 9 4.3-1.2 7.5-4.5 7.5-9V6z"/><path d="m8.8 12.2 2.2 2.2 4.4-4.6"/></svg>Certificate: not issued yet</span></div></div></article><article class="su-card reveal su-branded su-has-detail" data-cat="edtech" data-slug="caiber-learn" data-href="/startups/caiber-learn"><div class="su-brand" data-font="grotesk" style="background:#14182B;color:#F3F2EE"><div class="su-brand-txt"><p class="su-brand-k" style="color:#8E90FF">President AI Award 2027</p><h3 class="su-word"><a class="su-name-link" href="/startups/caiber-learn" data-su-link=""><span style="color:#F3F2EE">CAIBER</span> <span style="color:#8E90FF">Learn</span> <span style="color:#FFB547">2.0</span></a></h3></div></div><span class="su-card-chev su-go" aria-hidden="true"></span><div class="su-card-b"><div class="su-card-h"><p class="su-cat">Education &amp; EdTech</p><span class="su-status su-research"><span class="su-shape" aria-hidden="true">◎</span><span class="su-vh">Stage: </span>Research</span></div><p class="su-tag">Learn smarter. Grow further. Build your future.</p><p class="su-sum">An AI-powered diagnostic and adaptive learning platform: placement and topic tests show each learner&#39;s level and gaps, then build a personal study path. English first — General English, Pre-IELTS and IELTS. Starting in Uzbekistan.</p><p class="su-role">Max — Founder &amp; Lead Architect · Jack — Project &amp; Ecosystem Manager</p><div class="su-card-f"><a class="btn btn-primary su-pitch" href="/projects/pitches/caiber-learn-2.0.html" target="_blank" rel="noopener">See the pitch<span class="su-sr"> — CAIBER Learn</span><span class="su-sr"> (opens in a new tab)</span><span aria-hidden="true"> ↗</span></a><a class="su-link" href="/projects/pitches/caiber-learn-2.0.pdf" target="_blank" rel="noopener">PDF<span class="su-sr"> — Pitch deck (PDF)</span><span class="su-sr"> (opens in a new tab)</span><span aria-hidden="true"> ↗</span></a><span class="su-cert su-cert-none"><svg class="su-cert-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4.5 6v6c0 4.5 3.2 7.8 7.5 9 4.3-1.2 7.5-4.5 7.5-9V6z"/><path d="m8.8 12.2 2.2 2.2 4.4-4.6"/></svg>Certificate: not issued yet</span></div></div></article><article class="su-card reveal su-soft" data-cat="experimental" data-slug="future-ventures"><div class="su-card-b"><div class="su-card-h"><span class="su-logo su-mono" aria-hidden="true">Fu</span><p class="su-cat">Experimental Ventures</p><span class="su-status su-exploring"><span class="su-shape" aria-hidden="true">○</span><span class="su-vh">Stage: </span>Exploring</span></div><h3>Future Ventures</h3><p class="su-tag">Research directions — not companies or products.</p><p class="su-sum">Directions UzLeeder is considering: AI research and AI-powered products, accessible education technology, smart-city technology and a long-term aerospace ambition. These are ambitions, not existing units — each must justify itself technically and financially before it becomes a venture.</p><div class="su-card-f"><a class="su-link" href="/#contact" data-source="startups">Share an idea<span aria-hidden="true"> →</span></a></div></div></article></div>
+        <p class="su-note-line" data-p="note">“Research” means there is no public product yet. Figures in the decks are hypotheses, not results.</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- D · VENTURE PAGE (/startups/<slug>, rendered from the same data) -->
+  <article class="su-detail-page" id="suDetail" hidden><div class="container" id="suDetailBody"></div></article>
+</main>
+
+<footer class="su-foot">
+  <div class="container">
+    <a href="/" class="logo" aria-label="UzLeeder — home"><svg class="logo-mark" width="28" height="26" aria-hidden="true"><use href="#brand-mark"/></svg><span class="logo-text"><span class="logo-word"><span class="uz">Uz</span><span class="lee">Leeder</span></span></span></a>
+    <nav aria-label="Footer"><a href="/" data-p="f_home">Home</a><a href="/#work" data-p="nav_work">Work</a><a href="/startups" aria-current="page" data-p="nav_startups" data-su-link="">Startups</a><a href="/#contact" data-p="nav_contact">Contact</a></nav>
+    <small>© 2026 UzLeeder · Tashkent</small>
+  </div>
+</footer>
+
+<script type="application/json" id="su-seed">[{"slug":"t-port","aliases":["uzport"],"name":"T-Port","category":"logistics","status":"research","detail":true,"archived":false,"logo":"/projects/startups/t-port-mark.png","pitch":"/projects/pitches/t-port-2.0.html","brand":{"font":"michroma","bg":"#071533","bg2":"#0B2A5E","fg":"#F2F6FF","a1":"#22B8FF","eyebrow":{"en":"The Global Transit Gateway","uz":"Global tranzit darvozasi","ru":"Глобальный транзитный шлюз"},"parts":[{"t":"T","c":"a1"},{"t":"-PORT","c":"fg","glue":true},{"t":"2.0","c":"a1"}]},"team":[{"name":"Max","role":{"en":"Founder","uz":"Asoschi","ru":"Основатель"}}],"tagline":{"en":"One destination. Every way to get there.","uz":"Bitta manzil. Unga yetishning barcha yo'llari.","ru":"Одна цель. Все способы до неё добраться."},"summary":{"en":"A transport-discovery platform that turns fragmented transport information into a clear, practical journey plan — compare trains, flights, buses and other supported options in one place. Starting in Uzbekistan.","uz":"Tarqoq transport ma'lumotlarini aniq va amaliy sayohat rejasiga aylantiruvchi platforma — poyezd, samolyot, avtobus va boshqa variantlarni bir joyda solishtirish. O'zbekistondan boshlanadi.","ru":"Платформа поиска транспорта, которая превращает разрозненную информацию в понятный план поездки — поезда, самолёты, автобусы и другие варианты в одном месте. Начинаем с Узбекистана."},"stageNote":{"en":"Research and validation stage. The investor deck and product plan (T-Port 2.0) are ready; a free MVP with a limited set of routes is the next step. The company is registered in Uzbekistan as an LLC under the project's earlier name, UzPort.","uz":"Tadqiqot va tekshiruv bosqichi. Investor taqdimoti va mahsulot rejasi (T-Port 2.0) tayyor; keyingi qadam — cheklangan marshrutlar bilan bepul MVP. Kompaniya O'zbekistonda loyihaning avvalgi nomi — UzPort ostida MChJ sifatida ro'yxatdan o'tgan.","ru":"Этап исследования и проверки. Презентация для инвесторов и план продукта (T-Port 2.0) готовы; следующий шаг — бесплатный MVP с ограниченным набором маршрутов. Компания зарегистрирована в Узбекистане как ООО под прежним названием проекта — UzPort."},"notice":{"en":"There is no public product yet. T-Port does not sell tickets — it links to providers for final checks and booking, and uses only official APIs, permitted public information and authorized sources. Prices and revenue figures in the deck are hypotheses and illustrations, not results.","uz":"Ochiq mahsulot hali yo'q. T-Port chipta sotmaydi — yakuniy tekshiruv va bron uchun tashuvchiga yo'naltiradi hamda faqat rasmiy API, ruxsat etilgan ochiq ma'lumot va vakolatli manbalardan foydalanadi. Taqdimotdagi narx va daromad raqamlari — natija emas, faraz va misollar.","ru":"Публичного продукта пока нет. T-Port не продаёт билеты — он ведёт к перевозчику для финальной проверки и бронирования и использует только официальные API, разрешённую открытую информацию и авторизованные источники. Цены и доходы в презентации — гипотезы и примеры, а не результаты."},"problem":{"en":"Travelers assemble journeys alone — weighing times, prices, transfers, local transport and border rules across separate services and countries.\nMany transport operators still run on manual tools: paper reservations, inconsistent seat records, little reporting (to be validated through operator interviews).","uz":"Yo'lovchilar sayohatni o'zlari yig'adi — vaqt, narx, almashinuvlar, mahalliy transport va chegara qoidalarini turli xizmatlar va davlatlar bo'yicha solishtiradi.\nKo'plab tashuvchilar hali qo'lda ishlaydi: qog'oz bron, tartibsiz joy hisobi, hisobot deyarli yo'q (tashuvchilar bilan suhbatlarda tekshiriladi).","ru":"Путешественники собирают поездку сами — сравнивают время, цены, пересадки, местный транспорт и правила границ по разным сервисам и странам.\nМногие перевозчики до сих пор работают вручную: бумажные брони, неточный учёт мест, почти нет отчётов (будет проверено интервью с перевозчиками)."},"features":{"en":"T-Port Travel — unified search, journey comparison, multimodal routes and links to providers (planned).\nT-Port Intelligence — plan in plain words; AI interprets the request, software verifies the facts (planned).\nTicket Sniper — alerts from permitted sources via Telegram or web; alerts, not automated buying (planned).\nT-Port Fleet — a web-CRM for operators: vehicles, drivers, routes, seats and reservations (planned).","uz":"T-Port Travel — yagona qidiruv, sayohatlarni solishtirish, multimodal marshrutlar va tashuvchilarga havolalar (reja).\nT-Port Intelligence — oddiy so'z bilan rejalash; AI so'rovni tushunadi, dastur faktlarni tekshiradi (reja).\nTicket Sniper — ruxsat etilgan manbalardan Telegram yoki veb orqali ogohlantirish; avtomatik xarid emas (reja).\nT-Port Fleet — tashuvchilar uchun veb-CRM: transport, haydovchi, marshrut, joy va bronlar (reja).","ru":"T-Port Travel — единый поиск, сравнение поездок, мультимодальные маршруты и ссылки на перевозчиков (план).\nT-Port Intelligence — планирование простыми словами; AI понимает запрос, программа проверяет факты (план).\nTicket Sniper — уведомления из разрешённых источников в Telegram или в вебе; уведомления, а не автоматическая покупка (план).\nT-Port Fleet — веб-CRM для перевозчиков: транспорт, водители, маршруты, места и брони (план)."},"users":{"en":"Students, domestic and business travelers, tourists and frequent travelers.\nTransport operators who need route, vehicle and booking tools.","uz":"Talabalar, ichki va biznes sayohatchilar, sayyohlar va tez-tez yuruvchilar.\nMarshrut, transport va bron vositalari kerak bo'lgan tashuvchilar.","ru":"Студенты, путешественники по стране и в командировках, туристы и те, кто ездит часто.\nПеревозчики, которым нужны инструменты для маршрутов, транспорта и броней."},"approach":{"en":"Start in Uzbekistan and validate first: which routes are searched, which can be covered reliably, whether people come back.\nPermitted data only — the business never depends on bypassing access controls.\nAI never invents availability, prices or schedules: language understanding stays separate from route calculation and factual data.\nSearch stays free; Premium and B2B software only once demand is proven.","uz":"Avval O'zbekistonda tekshiramiz: qaysi marshrutlar qidiriladi, qaysilari ishonchli qamrab olinadi, foydalanuvchilar qaytadimi.\nFaqat ruxsat etilgan ma'lumot — biznes hech qachon kirish cheklovlarini chetlab o'tishga tayanmaydi.\nAI joy, narx yoki jadvalni o'ylab topmaydi: tilni tushunish marshrut hisobi va faktik ma'lumotdan alohida.\nQidiruv bepul qoladi; Premium va B2B — talab isbotlangandan keyin.","ru":"Начать с Узбекистана и сначала проверить: какие маршруты ищут, какие можно надёжно покрыть, возвращаются ли люди.\nТолько разрешённые данные — бизнес никогда не строится на обходе ограничений доступа.\nAI не придумывает наличие мест, цены и расписания: понимание языка отделено от расчёта маршрута и фактов.\nПоиск остаётся бесплатным; Premium и B2B — только после подтверждения спроса."},"technologies":[],"roadmap":[{"state":"done","title":{"en":"Company registered","uz":"Kompaniya ro'yxatdan o'tgan","ru":"Компания зарегистрирована"},"text":{"en":"LLC in Uzbekistan, registered under the earlier name UzPort.","uz":"O'zbekistonda MChJ, avvalgi nom — UzPort ostida.","ru":"ООО в Узбекистане под прежним названием UzPort."}},{"state":"done","title":{"en":"T-Port 2.0 product plan","uz":"T-Port 2.0 mahsulot rejasi","ru":"План продукта T-Port 2.0"},"text":{"en":"Investor deck, product ecosystem, data and legal principles.","uz":"Investor taqdimoti, mahsulotlar tizimi, ma'lumot va huquqiy tamoyillar.","ru":"Презентация для инвесторов, экосистема продуктов, принципы данных и права."}},{"state":"now","title":{"en":"Build and validate","uz":"Qurish va tekshirish","ru":"Построить и проверить"},"text":{"en":"A free MVP with limited routes and reliable sources; prove successful searches and repeat use.","uz":"Cheklangan marshrut va ishonchli manbalar bilan bepul MVP; muvaffaqiyatli qidiruv va qayta foydalanishni isbotlash.","ru":"Бесплатный MVP с ограниченными маршрутами и надёжными источниками; доказать успешный поиск и повторное использование."}},{"state":"next","title":{"en":"Organic growth, then Premium","uz":"Organik o'sish, keyin Premium","ru":"Органический рост, затем Premium"},"text":{"en":"Route pages, a Telegram bot and communities; a paid plan only from real usage data.","uz":"Marshrut sahifalari, Telegram bot va jamoalar; pullik reja faqat real foydalanish ma'lumotidan.","ru":"Страницы маршрутов, Telegram-бот и сообщества; платный план — только по реальным данным."}},{"state":"later","title":{"en":"Fleet pilot and Central Asia","uz":"Fleet sinovi va Markaziy Osiyo","ru":"Пилот Fleet и Центральная Азия"},"text":{"en":"Operator pilots where there is demand; Kazakhstan and Kyrgyzstan evaluated market by market.","uz":"Talab bor joyda tashuvchilar bilan sinov; Qozog'iston va Qirg'iziston bozor-bozor o'rganiladi.","ru":"Пилоты с перевозчиками при спросе; Казахстан и Кыргызстан — оценка по каждому рынку."}}],"links":[{"label":{"en":"Investor deck (PDF)","uz":"Investor taqdimoti (PDF)","ru":"Презентация для инвесторов (PDF)"},"url":"/projects/pitches/t-port-2.0.pdf","kind":"docs"}]},{"slug":"caiber-learn","name":"CAIBER Learn","category":"edtech","status":"research","detail":true,"archived":false,"logo":"","pitch":"/projects/pitches/caiber-learn-2.0.html","brand":{"font":"grotesk","bg":"#14182B","fg":"#F3F2EE","a1":"#8E90FF","a2":"#FFB547","eyebrow":{"en":"President AI Award 2027","uz":"President AI Award 2027","ru":"President AI Award 2027"},"parts":[{"t":"CAIBER","c":"fg"},{"t":"Learn","c":"a1"},{"t":"2.0","c":"a2"}]},"team":[{"name":"Max","role":{"en":"Founder & Lead Architect","uz":"Asoschi va bosh arxitektor","ru":"Основатель и ведущий архитектор"}},{"name":"Jack","role":{"en":"Project & Ecosystem Manager","uz":"Loyiha va ekotizim menejeri","ru":"Менеджер проекта и экосистемы"}}],"tagline":{"en":"Learn smarter. Grow further. Build your future.","uz":"Aqlli o'qing. Yuqoriga o'sing. Kelajagingizni quring.","ru":"Учитесь умнее. Растите дальше. Стройте своё будущее."},"summary":{"en":"An AI-powered diagnostic and adaptive learning platform: placement and topic tests show each learner's level and gaps, then build a personal study path. English first — General English, Pre-IELTS and IELTS. Starting in Uzbekistan.","uz":"AI asosidagi diagnostika va moslashuvchan ta'lim platformasi: daraja va mavzu testlari har bir o'quvchining darajasi va bo'shliqlarini ko'rsatadi, so'ng shaxsiy o'quv yo'lini tuzadi. Avval ingliz tili — General English, Pre-IELTS va IELTS. O'zbekistondan boshlanadi.","ru":"Платформа диагностики и адаптивного обучения на основе AI: входные и тематические тесты показывают уровень и пробелы каждого ученика и строят личный план. Сначала английский — General English, Pre-IELTS и IELTS. Начинаем с Узбекистана."},"stageNote":{"en":"Foundation sprint (October–December 2026): student and teacher interviews, the data model and a diagnostic and gap-analysis prototype. The pitch is prepared for the President AI Award 2027.","uz":"Poydevor sprinti (2026-yil oktyabr–dekabr): o'quvchi va o'qituvchilar bilan suhbatlar, ma'lumotlar modeli va diagnostika hamda bo'shliq tahlili prototipi. Pitch President AI Award 2027 uchun tayyorlangan.","ru":"Фундаментальный спринт (октябрь–декабрь 2026): интервью с учениками и учителями, модель данных и прототип диагностики и анализа пробелов. Питч подготовлен для President AI Award 2027."},"notice":{"en":"There is no public product yet. Learner, center and revenue numbers in the pitch are scenarios, not results. Scores and CEFR levels come from deterministic rules — AI explains and guides, it never assigns grades or writes the homework.","uz":"Ochiq mahsulot hali yo'q. Pitch'dagi o'quvchi, markaz va daromad raqamlari — natija emas, ssenariy. Ball va CEFR darajasi qat'iy qoidalardan chiqadi — AI tushuntiradi va yo'l ko'rsatadi, baho qo'ymaydi va uy vazifasini yozib bermaydi.","ru":"Публичного продукта пока нет. Числа учеников, центров и доходов в питче — сценарии, а не результаты. Баллы и уровни CEFR считаются по строгим правилам — AI объясняет и направляет, но не ставит оценки и не пишет домашние задания."},"problem":{"en":"Learners study blind: distance and cost keep good mentors out of reach, courses treat every student the same, and nobody shows which skills hold the score back.\nTeachers and centers lose hours to manual grading, have no topic-level gap analytics, and juggle paper tests, Telegram homework and YouTube lessons.","uz":"O'quvchilar ko'r-ko'rona o'qiydi: masofa va narx yaxshi ustozni uzoqlashtiradi, kurslar hammaga bir xil, qaysi ko'nikma ballni pasaytirayotganini hech kim ko'rsatmaydi.\nO'qituvchi va markazlar qo'lda tekshirishga soatlab vaqt sarflaydi, mavzu bo'yicha bo'shliq tahlili yo'q, qog'oz test, Telegram'dagi uy vazifasi va YouTube darslari tarqoq.","ru":"Ученики учатся вслепую: расстояние и цена отрезают от хороших преподавателей, курсы одинаковы для всех, и никто не показывает, какие навыки тянут балл вниз.\nУчителя и центры тратят часы на ручную проверку, у них нет анализа пробелов по темам, а тесты на бумаге, домашка в Telegram и уроки на YouTube разрознены."},"solution":{"en":"AI diagnostic assessment that pinpoints the CEFR level (A1–C1) and hidden gaps.\nDaily study plans built from the test results — no time spent on mastered topics.\nPractice in vocabulary, grammar, reading, listening and writing.\nA teacher–student bridge with automated grading, and progress tracking with spaced repetition.","uz":"CEFR darajasi (A1–C1) va yashirin bo'shliqlarni aniqlaydigan AI diagnostika.\nTest natijasidan tuzilgan kundalik reja — o'zlashtirilgan mavzuga vaqt ketmaydi.\nLug'at, grammatika, o'qish, tinglash va yozish mashqlari.\nAvtomatik tekshiruvli o'qituvchi–o'quvchi aloqasi va takrorlash bilan progress kuzatuvi.","ru":"AI-диагностика, определяющая уровень CEFR (A1–C1) и скрытые пробелы.\nЕжедневный план на основе результатов теста — без траты времени на освоенное.\nПрактика лексики, грамматики, чтения, аудирования и письма.\nСвязь учитель–ученик с автоматической проверкой и отслеживание прогресса с интервальным повторением."},"features":{"en":"CAIBER Study — daily vocabulary units, grammar drills, reading and a personal progress dashboard (planned).\nDiagnostic & AI Tutor — plain-language error explanations and rubric-based writing feedback (planned).\nCAIBER Classroom — a web-CRM and LMS for tutors and centers: test assignment, instant grading, group gap analytics (planned).\nRetention Engine — study streaks and spaced-repetition reminders via Telegram and web (planned).","uz":"CAIBER Study — kundalik lug'at, grammatika mashqlari, o'qish va shaxsiy progress paneli (reja).\nDiagnostika va AI Tutor — xatolarni oddiy tilda tushuntirish va yozma ishlarga mezon asosida fikr (reja).\nCAIBER Classroom — repetitor va markazlar uchun veb-CRM va LMS: test berish, tezkor tekshiruv, guruh bo'shliq tahlili (reja).\nRetention Engine — Telegram va veb orqali o'qish ketma-ketligi va takrorlash eslatmalari (reja).","ru":"CAIBER Study — ежедневная лексика, грамматика, чтение и личная панель прогресса (план).\nDiagnostic & AI Tutor — объяснение ошибок простым языком и отзывы на письмо по критериям (план).\nCAIBER Classroom — веб-CRM и LMS для репетиторов и центров: выдача тестов, мгновенная проверка, анализ пробелов группы (план).\nRetention Engine — серии занятий и напоминания об интервальном повторении в Telegram и вебе (план)."},"users":{"en":"Learners aged 14–24 preparing for CEFR / IELTS and university admissions.\nPrivate English tutors, independent IELTS instructors and regional academies.","uz":"CEFR / IELTS va universitetga kirishga tayyorlanayotgan 14–24 yoshli o'quvchilar.\nXususiy ingliz tili repetitorlari, mustaqil IELTS o'qituvchilari va hududiy akademiyalar.","ru":"Ученики 14–24 лет, готовящиеся к CEFR / IELTS и поступлению в вуз.\nЧастные репетиторы английского, независимые преподаватели IELTS и региональные академии."},"approach":{"en":"Diagnose first, then teach.\nDeterministic scoring: scores, CEFR mapping and repetition intervals come from strict rules; the AI layer is isolated from grading.\nCurriculum-bound AI that explains in Uzbek, Russian or English, with a Socratic mode that never writes the essay.\nThe diagnostic stays free; later tracks: programming and IT, then Central Asia.","uz":"Avval diagnostika, keyin ta'lim.\nQat'iy baholash: ball, CEFR va takrorlash oraliqlari qoidalardan chiqadi; AI qatlami baholashdan ajratilgan.\nO'quv dasturiga bog'langan AI o'zbek, rus yoki ingliz tilida tushuntiradi; Sokrat rejimi inshoni yozib bermaydi.\nDiagnostika bepul qoladi; keyingi yo'nalishlar: dasturlash va IT, so'ng Markaziy Osiyo.","ru":"Сначала диагностика, потом обучение.\nСтрогое оценивание: баллы, уровни CEFR и интервалы повторения считаются по правилам; слой AI отделён от оценок.\nAI, привязанный к программе, объясняет на узбекском, русском или английском; сократовский режим не пишет эссе за ученика.\nДиагностика остаётся бесплатной; следующие направления — программирование и IT, затем Центральная Азия."},"technologies":[],"roadmap":[{"state":"now","title":{"en":"Foundation sprint · Oct–Dec 2026","uz":"Poydevor sprinti · 2026 okt–dek","ru":"Фундаментальный спринт · окт–дек 2026"},"text":{"en":"Interviews, data model, diagnostic and gap-analysis prototype, first English units.","uz":"Suhbatlar, ma'lumotlar modeli, diagnostika va bo'shliq tahlili prototipi, birinchi ingliz tili bo'limlari.","ru":"Интервью, модель данных, прототип диагностики и анализа пробелов, первые разделы английского."}},{"state":"next","title":{"en":"Core MVP · Jan–Mar 2027","uz":"Asosiy MVP · 2027 yan–mar","ru":"Основной MVP · янв–мар 2027"},"text":{"en":"Web platform, AI writing and grammar explanations, a first closed beta group.","uz":"Veb-platforma, yozish va grammatika bo'yicha AI tushuntirishlari, birinchi yopiq beta guruh.","ru":"Веб-платформа, AI-объяснения по письму и грамматике, первая закрытая бета-группа."}},{"state":"later","title":{"en":"Academy pilots · Apr–Jun 2027","uz":"Akademiya sinovlari · 2027 apr–iyun","ru":"Пилоты с академиями · апр–июн 2027"},"text":{"en":"Controlled pilots with partner centers; measure score gains between assessments.","uz":"Hamkor markazlar bilan nazoratli sinov; testlar orasidagi ball o'sishini o'lchash.","ru":"Контролируемые пилоты с центрами-партнёрами; измерение роста баллов между тестами."}},{"state":"later","title":{"en":"From July 2027","uz":"2027-yil iyuldan","ru":"С июля 2027"},"text":{"en":"Present verified pilot data, launch paid plans, expand the curriculum.","uz":"Tasdiqlangan sinov natijalarini taqdim etish, pullik rejalar, dasturni kengaytirish.","ru":"Представить проверенные данные пилотов, запустить платные планы, расширить программу."}}],"links":[{"label":{"en":"Pitch deck (PDF)","uz":"Pitch taqdimoti (PDF)","ru":"Питч (PDF)"},"url":"/projects/pitches/caiber-learn-2.0.pdf","kind":"docs"}]},{"slug":"future-ventures","name":"Future Ventures","category":"experimental","status":"exploring","detail":false,"archived":false,"logo":"","tagline":{"en":"Research directions — not companies or products.","uz":"Tadqiqot yo'nalishlari — kompaniya yoki mahsulot emas.","ru":"Исследовательские направления — не компании и не продукты."},"summary":{"en":"Directions UzLeeder is considering: AI research and AI-powered products, accessible education technology, smart-city technology and a long-term aerospace ambition. These are ambitions, not existing units — each must justify itself technically and financially before it becomes a venture.","uz":"UzLeeder ko'rib chiqayotgan yo'nalishlar: AI tadqiqotlari va AI mahsulotlar, hamma uchun ochiq ta'lim texnologiyalari, aqlli shahar texnologiyalari va uzoq muddatli aerokosmik maqsad. Bular mavjud bo'linmalar emas, maqsadlar — har biri loyihaga aylanishidan oldin texnik va moliyaviy jihatdan o'zini oqlashi kerak.","ru":"Направления, которые рассматривает UzLeeder: исследования и продукты AI, доступные образовательные технологии, технологии умного города и долгосрочная аэрокосмическая цель. Это амбиции, а не существующие подразделения — каждое должно оправдать себя технически и финансово, прежде чем стать проектом."},"technologies":[],"roadmap":[],"links":[]}]</script>
+<script>// Shared renderer for the Startups page (/startups, /startups/<slug>) and the homepage preview (#startups) — used by build/build-startups.js (cards
+// pre-rendered into index.html) AND in the browser (/startups-render.js: published data, language switch).
+// Pure functions: data in, escaped HTML out. Nothing from the CMS is ever inserted as raw HTML;
+// links must be https:// or site-relative, brand colours must be #rrggbb.
+(function (root) {
+  "use strict";
+  var LANGS = ["en", "uz", "ru"];
+  // status: label per language + a shape, so the stage is readable without colour
+  var STATUS = ["exploring", "research", "prototype", "development", "beta", "launched", "paused"];
+  var SHAPE = { exploring: "○", research: "◎", prototype: "◇", development: "◐", beta: "◑", launched: "●", paused: "Ⅱ" };
+  var CATEGORY = ["ai", "logistics", "edtech", "saas", "devtools", "experimental"];
+  var FONTS = ["site", "outfit", "grotesk", "michroma"];
+
+  var T = {
+    en: {
+      st_exploring: "Exploring", st_research: "Research", st_prototype: "Prototype", st_development: "In Development", st_beta: "Beta", st_launched: "Launched", st_paused: "Paused",
+      cat_ai: "AI & Emerging Technology", cat_logistics: "Logistics & Mobility", cat_edtech: "Education & EdTech", cat_saas: "SaaS & Business Systems", cat_devtools: "Developer Tools", cat_experimental: "Experimental Ventures",
+      pitch: "See the pitch", pdf: "PDF", idea: "Share an idea", visit: "Visit", stage: "Stage", newtab: "opens in a new tab",
+      empty: "No ventures are published yet.", more: "Full overview", all: "All", cert: "Certificate", certT: "Verify the UzLeeder venture record", certNone: "Certificate: not issued yet", less: "Hide overview", view: "View venture", back: "All ventures", notfound: "This venture was not found.", by: "Led by",
+      d_overview: "Overview", d_problem: "Problem being explored", d_solution: "Proposed solution", d_users: "Target users", d_approach: "Product approach", d_features: "Product features", d_team: "Team",
+      d_status: "Current status", d_tech: "Confirmed technologies", d_roadmap: "Roadmap", d_links: "Pitch & links", d_note: "Honest note",
+      rm_done: "Done", rm_now: "Now", rm_next: "Next", rm_later: "Later", rm_hint: "Plans can change as we learn — only “Done” is a fact.",
+      d_cta_t: "Interested in this venture?", d_cta_p: "Partners, operators and collaborators are welcome to start a conversation.", d_cta_b: "Discuss a venture"
+    },
+    uz: {
+      st_exploring: "O'rganilmoqda", st_research: "Tadqiqot", st_prototype: "Prototip", st_development: "Ishlab chiqilmoqda", st_beta: "Beta", st_launched: "Ishga tushgan", st_paused: "To'xtatilgan",
+      cat_ai: "AI va yangi texnologiyalar", cat_logistics: "Logistika va transport", cat_edtech: "Ta'lim va EdTech", cat_saas: "SaaS va biznes tizimlar", cat_devtools: "Dasturchilar uchun vositalar", cat_experimental: "Tajriba yo'nalishlari",
+      pitch: "Pitchni ko'rish", pdf: "PDF", idea: "G'oya bilan bo'lishish", visit: "Ochish", stage: "Bosqich", newtab: "yangi oynada ochiladi",
+      empty: "Hozircha e'lon qilingan loyiha yo'q.", more: "To'liq ma'lumot", all: "Hammasi", cert: "Sertifikat", certT: "UzLeeder loyiha qaydini tekshirish", certNone: "Sertifikat: hali berilmagan", less: "Yopish", view: "Batafsil", back: "Barcha loyihalar", notfound: "Bu loyiha topilmadi.", by: "Rahbar",
+      d_overview: "Umumiy ma'lumot", d_problem: "O'rganilayotgan muammo", d_solution: "Taklif etilayotgan yechim", d_users: "Kimlar uchun", d_approach: "Mahsulot yondashuvi", d_features: "Mahsulot imkoniyatlari", d_team: "Jamoa",
+      d_status: "Hozirgi holat", d_tech: "Tasdiqlangan texnologiyalar", d_roadmap: "Yo'l xaritasi", d_links: "Pitch va havolalar", d_note: "Ochiq eslatma",
+      rm_done: "Bajarildi", rm_now: "Hozir", rm_next: "Keyingi", rm_later: "Keyinroq", rm_hint: "Rejalar o'rganganimiz sari o'zgarishi mumkin — faqat “Bajarildi” fakt.",
+      d_cta_t: "Bu loyiha qiziqtirdimi?", d_cta_p: "Hamkorlar, tashuvchilar va sheriklar bilan suhbatga ochiqmiz.", d_cta_b: "Loyihani muhokama qilish"
+    },
+    ru: {
+      st_exploring: "Исследуется", st_research: "Исследование", st_prototype: "Прототип", st_development: "В разработке", st_beta: "Бета", st_launched: "Запущен", st_paused: "Приостановлен",
+      cat_ai: "AI и новые технологии", cat_logistics: "Логистика и транспорт", cat_edtech: "Образование и EdTech", cat_saas: "SaaS и бизнес-системы", cat_devtools: "Инструменты разработчика", cat_experimental: "Экспериментальные направления",
+      pitch: "Смотреть питч", pdf: "PDF", idea: "Предложить идею", visit: "Открыть", stage: "Этап", newtab: "откроется в новой вкладке",
+      empty: "Пока нет опубликованных проектов.", more: "Подробный обзор", all: "Все", cert: "Сертификат", certT: "Проверить запись о проекте UzLeeder", certNone: "Сертификат: ещё не выдан", less: "Скрыть обзор", view: "Подробнее", back: "Все проекты", notfound: "Проект не найден.", by: "Руководитель",
+      d_overview: "Обзор", d_problem: "Какую проблему изучаем", d_solution: "Предлагаемое решение", d_users: "Для кого", d_approach: "Подход к продукту", d_features: "Возможности продукта", d_team: "Команда",
+      d_status: "Текущий статус", d_tech: "Подтверждённые технологии", d_roadmap: "Дорожная карта", d_links: "Питч и ссылки", d_note: "Честное примечание",
+      rm_done: "Сделано", rm_now: "Сейчас", rm_next: "Далее", rm_later: "Позже", rm_hint: "Планы могут меняться по мере работы — фактом является только «Сделано».",
+      d_cta_t: "Заинтересовал проект?", d_cta_p: "Партнёры, перевозчики и соавторы — будем рады обсудить.", d_cta_b: "Обсудить проект"
+    }
+  };
+
+  var esc = function (s) { return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;"); };
+  var t = function (k, lang) { return (T[lang] && T[lang][k]) || T.en[k] || k; };
+  // localized field with English fallback (a plain string is used as-is)
+  var tx = function (v, lang) { if (!v) return ""; if (typeof v === "string") return v; return v[lang] || v.en || ""; };
+  var safeUrl = function (u) { u = String(u || "").trim(); return /^https:\/\/[^\s"'<>]+$/.test(u) || /^\/(?!\/)[^\s"'<>]*$/.test(u) ? u : ""; };
+  var hex = function (c) { return /^#[0-9a-fA-F]{6}$/.test(c || "") ? c : ""; };
+  var slugOk = function (s) { return /^[a-z0-9][a-z0-9-]{0,48}$/.test(s || ""); };
+  var visible = function (list) { return (Array.isArray(list) ? list : []).filter(function (v) { return v && !v.archived && v.name && slugOk(v.slug); }); };
+  var ext = function (u) { return /^https:/.test(u) || /\.(pdf|html)$/i.test(u); };
+
+  function statusPill(status, lang) {
+    var s = STATUS.indexOf(status) >= 0 ? status : "exploring";
+    return '<span class="su-status su-' + s + '"><span class="su-shape" aria-hidden="true">' + SHAPE[s] + "</span>" +
+      '<span class="su-vh">' + esc(t("stage", lang)) + ": </span>" + esc(t("st_" + s, lang)) + "</span>";
+  }
+  function mark(v) {
+    var logo = safeUrl(v.logo);
+    if (logo) return '<span class="su-logo"><img src="' + esc(logo) + '" alt="" width="48" height="48" loading="lazy" decoding="async"/></span>';
+    return '<span class="su-logo su-mono" aria-hidden="true">' + esc(String(v.name || "?").replace(/[^A-Za-z0-9]/g, "").slice(0, 2) || "U") + "</span>";
+  }
+  // the venture's own wordmark (from its pitch deck): coloured parts on the deck's background
+  function brandParts(v) { var b = v.brand; return b && Array.isArray(b.parts) ? b.parts.filter(function (p) { return p && p.t; }) : []; }
+  function brandTile(v, lang, o) {
+    o = o || {};
+    var tag = o.h1 ? "h1" : "h3";
+    var b = v.brand, parts = brandParts(v);
+    var col = { fg: hex(b.fg) || "#f2f4f8", a1: hex(b.a1) || "#f0384e", a2: hex(b.a2) || hex(b.a1) || "#f0384e" };
+    var logo = safeUrl(v.logo);
+    // parts are separated by a space unless a part is glued to the previous one (T + -PORT → T-PORT)
+    var word = parts.map(function (p, i) { return (i && !p.glue ? " " : "") + '<span style="color:' + (col[p.c] || col.fg) + '">' + esc(p.t) + "</span>"; }).join("");
+    var bg = hex(b.bg) || "#10141c", glow = hex(b.bg2);
+    return '<div class="su-brand" data-font="' + (FONTS.indexOf(b.font) >= 0 ? b.font : "site") + '" style="background:' + (glow ? "radial-gradient(120% 140% at 18% 0%," + glow + " 0%," + bg + " 58%)," : "") + bg + ";color:" + col.fg + '">' +
+      (logo ? '<img class="su-brand-mark" src="' + esc(logo) + '" alt="" width="44" height="44" loading="lazy" decoding="async"/>' : "") +
+      '<div class="su-brand-txt">' + (tx(b.eyebrow, lang) ? '<p class="su-brand-k" style="color:' + col.a1 + '">' + esc(tx(b.eyebrow, lang)) + "</p>" : "") +
+      "<" + tag + ' class="su-word">' + (o.href ? '<a class="su-name-link" href="' + esc(o.href) + '" data-su-link="">' + word + "</a>" : word) + "</" + tag + "></div></div>";
+  }
+  // the venture's issued, valid UzLeeder record → its public verification page (/verify/…)
+  function certLink(v, lang) {
+    var c = v.certificate, url = c && /^\/verify\/UZL-[A-Z]{3}-\d{4}-\d{6}\?c=[2-9A-HJ-NP-Z]{10}$/.test(c.url || "") ? c.url : "";
+    var ico = '<svg class="su-cert-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4.5 6v6c0 4.5 3.2 7.8 7.5 9 4.3-1.2 7.5-4.5 7.5-9V6z"/><path d="m8.8 12.2 2.2 2.2 4.4-4.6"/></svg>';
+    if (!url) return v.detail === false ? "" : '<span class="su-cert su-cert-none">' + ico + esc(t("certNone", lang)) + "</span>";
+    return '<a class="su-link su-cert" href="' + esc(url) + '" target="_blank" rel="noopener" title="' + esc(t("certT", lang)) + '"><svg class="su-cert-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4.5 6v6c0 4.5 3.2 7.8 7.5 9 4.3-1.2 7.5-4.5 7.5-9V6z"/><path d="m8.8 12.2 2.2 2.2 4.4-4.6"/></svg>' +
+      esc(t("cert", lang)) + '<span class="su-sr"> — ' + esc(v.name) + " · " + esc(c.number) + " (" + esc(t("newtab", lang)) + ")</span></a>";
+  }
+  function teamLine(v, lang) { return (v.team || []).filter(function (m) { return m && m.name; }).map(function (m) { return m.name + (tx(m.role, lang) ? " — " + tx(m.role, lang) : ""); }).join(" · "); }
+  var lines = function (s) { return String(s || "").split(/\r?\n/).map(function (x) { return x.trim(); }).filter(Boolean); };
+  function hasDetail(v) { return v.detail !== false && ["problem", "features", "users", "approach", "stageNote", "description"].some(function (k) { return tx(v[k], "en"); }); }
+  var pageOf = function (v) { return "/startups/" + v.slug; };
+  // pitch · PDF/links · certificate — the same actions on the card and on the detail page
+  function actions(v, lang, o) {
+    var pitch = safeUrl(v.pitch), nt = '<span class="su-sr"> (' + esc(t("newtab", lang)) + ")</span>", out = "";
+    var links = (v.links || []).map(function (l) { return { url: safeUrl(l && l.url), label: tx(l && l.label, lang) }; }).filter(function (l) { return l.url && l.url !== pitch; });
+    if (pitch) out += '<a class="btn btn-primary su-pitch" href="' + esc(pitch) + '"' + (ext(pitch) ? ' target="_blank" rel="noopener"' : "") + ">" + esc(t("pitch", lang)) + '<span class="su-sr"> — ' + esc(v.name) + "</span>" + (ext(pitch) ? nt : "") + '<span aria-hidden="true"> ↗</span></a>';
+    links.slice(0, o && o.allLinks ? 8 : 2).forEach(function (l) {
+      var pdf = /\.pdf$/i.test(l.url);
+      out += '<a class="su-link" href="' + esc(l.url) + '"' + (ext(l.url) ? ' target="_blank" rel="noopener"' : "") + ">" + esc(pdf && !(o && o.allLinks) ? t("pdf", lang) : (l.label || t("visit", lang))) +
+        '<span class="su-sr"> — ' + esc(l.label || v.name) + "</span>" + (ext(l.url) ? nt : "") + '<span aria-hidden="true"> ↗</span></a>';
+    });
+    return out + certLink(v, lang);
+  }
+  // card: the whole card opens the venture's page (script); the name is the real link (keyboard, no-JS, crawlers)
+  function card(v, lang, o) {
+    o = o || {};
+    var cat = CATEGORY.indexOf(v.category) >= 0 ? v.category : "experimental", page = hasDetail(v) ? pageOf(v) : "";
+    var acts = actions(v, lang) || '<a class="su-link" href="' + (o.home ? "#contact" : "/#contact") + '" data-source="startups">' + esc(t("idea", lang)) + '<span aria-hidden="true"> →</span></a>';
+    var branded = brandParts(v).length > 0;
+    return '<article class="su-card reveal' + (v.status === "exploring" ? " su-soft" : "") + (branded ? " su-branded" : "") + (page ? " su-has-detail" : "") + '" data-cat="' + cat + '" data-slug="' + esc(v.slug) + '"' + (page ? ' data-href="' + esc(page) + '"' : "") + ">" +
+      (branded ? brandTile(v, lang, { href: page }) : "") + (page ? '<span class="su-card-chev su-go" aria-hidden="true"></span>' : "") +
+      '<div class="su-card-b">' +
+      '<div class="su-card-h">' + (branded ? "" : mark(v)) + '<p class="su-cat">' + esc(t("cat_" + cat, lang)) + "</p>" + statusPill(v.status, lang) + "</div>" +
+      (branded ? "" : "<h3>" + (page ? '<a class="su-name-link" href="' + esc(page) + '" data-su-link="">' + esc(v.name) + "</a>" : esc(v.name)) + "</h3>") +
+      (tx(v.tagline, lang) ? '<p class="su-tag">' + esc(tx(v.tagline, lang)) + "</p>" : "") +
+      (tx(v.summary, lang) ? '<p class="su-sum">' + esc(tx(v.summary, lang)) + "</p>" : "") +
+      (tx(v.role, lang) ? '<p class="su-role">' + esc(tx(v.role, lang)) + "</p>" : teamLine(v, lang) ? '<p class="su-role">' + esc(teamLine(v, lang)) + "</p>" : "") +
+      '<div class="su-card-f">' + acts + "</div></div></article>";
+  }
+  function directory(list, lang, o) {
+    var vs = visible(list);
+    if (!vs.length) return '<p class="su-empty">' + esc(t("empty", lang)) + "</p>";
+    return vs.map(function (v) { return card(v, lang, o); }).join("");
+  }
+
+  /* ---- the venture's own page: /startups/<slug> ---- */
+  function sec(id, title, inner) { return inner ? '<section class="su-d-sec" aria-labelledby="sd-' + id + '"><h2 id="sd-' + id + '">' + esc(title) + "</h2>" + inner + "</section>" : ""; }
+  function bullets(s) { var ls = lines(s); if (!ls.length) return ""; return ls.length === 1 ? "<p>" + esc(ls[0]) + "</p>" : '<ul class="su-list">' + ls.map(function (x) { return "<li>" + esc(x) + "</li>"; }).join("") + "</ul>"; }
+  function detail(v, lang) {
+    var cat = CATEGORY.indexOf(v.category) >= 0 ? v.category : "experimental";
+    var tech = (v.technologies || []).filter(Boolean), team = (v.team || []).filter(function (m) { return m && m.name; });
+    var rm = (v.roadmap || []).filter(function (r) { return r && tx(r.title, lang); });
+    var head = brandParts(v).length ? brandTile(v, lang, { h1: true }) : '<div class="su-d-plain">' + mark(v) + "<h1>" + esc(v.name) + "</h1></div>";
+    return '<a class="su-back" href="/startups" data-su-link=""><span aria-hidden="true">← </span>' + esc(t("back", lang)) + "</a>" +
+      '<header class="su-page-head">' + head +
+      '<div class="su-page-meta">' + statusPill(v.status, lang) + '<span class="su-cat">' + esc(t("cat_" + cat, lang)) + "</span>" + (teamLine(v, lang) ? '<span class="su-role">' + esc(teamLine(v, lang)) + "</span>" : "") + "</div>" +
+      (tx(v.tagline, lang) ? '<p class="su-page-tag">' + esc(tx(v.tagline, lang)) + "</p>" : "") +
+      '<div class="su-card-f su-page-acts">' + actions(v, lang, { allLinks: true }) + "</div></header>" +
+      '<div class="su-d-body su-page-body">' +
+      sec("overview", t("d_overview", lang), (tx(v.summary, lang) ? '<p class="su-lead">' + esc(tx(v.summary, lang)) + "</p>" : "") + bullets(tx(v.description, lang))) +
+      sec("status", t("d_status", lang), (tx(v.stageNote, lang) ? "<p>" + esc(tx(v.stageNote, lang)) + "</p>" : "") +
+        (tx(v.notice, lang) ? '<div class="su-note" role="note"><b>' + esc(t("d_note", lang)) + "</b><p>" + esc(tx(v.notice, lang)) + "</p></div>" : "")) +
+      sec("problem", t("d_problem", lang), bullets(tx(v.problem, lang))) +
+      sec("solution", t("d_solution", lang), bullets(tx(v.solution, lang))) +
+      sec("features", t("d_features", lang), bullets(tx(v.features, lang))) +
+      sec("users", t("d_users", lang), bullets(tx(v.users, lang))) +
+      sec("approach", t("d_approach", lang), bullets(tx(v.approach, lang))) +
+      sec("team", t("d_team", lang), team.length ? '<ul class="su-team">' + team.map(function (m) { return "<li><b>" + esc(m.name) + "</b>" + (tx(m.role, lang) ? "<span>" + esc(tx(m.role, lang)) + "</span>" : "") + "</li>"; }).join("") + "</ul>" : "") +
+      sec("tech", t("d_tech", lang), tech.length ? '<ul class="su-chips">' + tech.map(function (x) { return "<li>" + esc(x) + "</li>"; }).join("") + "</ul>" : "") +
+      sec("roadmap", t("d_roadmap", lang), rm.length ? '<ol class="su-road">' + rm.map(function (r) {
+        var st = ["done", "now", "next", "later"].indexOf(r.state) >= 0 ? r.state : "later";
+        return '<li class="su-rm su-rm-' + st + '"><span class="su-rm-k">' + esc(t("rm_" + st, lang)) + "</span><div><b>" + esc(tx(r.title, lang)) + "</b>" + (tx(r.text, lang) ? "<p>" + esc(tx(r.text, lang)) + "</p>" : "") + "</div></li>";
+      }).join("") + '</ol><p class="su-hint">' + esc(t("rm_hint", lang)) + "</p>" : "") +
+      '<aside class="su-d-cta"><div><b>' + esc(t("d_cta_t", lang)) + "</b><p>" + esc(t("d_cta_p", lang)) + '</p></div><a class="btn btn-ghost" href="/#contact" data-source="startups">' + esc(t("d_cta_b", lang)) + "</a></aside></div>";
+  }
+  // categories in use, in display order (for the filter buttons)
+  function categories(list) { var seen = []; visible(list).forEach(function (v) { var c = CATEGORY.indexOf(v.category) >= 0 ? v.category : "experimental"; if (seen.indexOf(c) < 0) seen.push(c); }); return seen; }
+  // the venture for a page address, old addresses included (/startups/uzport → T-Port)
+  function find(list, slug) { return visible(list).filter(function (v) { return hasDetail(v) && (v.slug === slug || (v.aliases || []).indexOf(slug) >= 0); })[0] || null; }
+
+  var API = { LANGS: LANGS, STATUS: STATUS, CATEGORY: CATEGORY, FONTS: FONTS, T: T, t: t, tx: tx, esc: esc, safeUrl: safeUrl, hex: hex, slugOk: slugOk, visible: visible, statusPill: statusPill, card: card, directory: directory, detail: detail, hasDetail: hasDetail, categories: categories, find: find };
+  if (typeof module !== "undefined" && module.exports) module.exports = API; else root.SU = API;
+})(this);
+</script>
+<script>// /startups — browser behaviour (inlined into startups.html by build/build-startups.js).
+// One data set for the directory and the venture pages: the built-in seed (pre-rendered), replaced by the published
+// ventures from /api/startups; with ?preview=1 and a Control Center session, the drafts.
+(function () {
+  "use strict";
+  var SU = window.SU, $ = function (s, r) { return (r || document).querySelector(s); }, $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var root = document.documentElement;
+  var SITE = "https://uzleeder.vercel.app";
+  var seed = []; try { seed = JSON.parse($("#su-seed").textContent); } catch (e) {}
+  var list = seed, filter = "all";
+
+  // page texts (venture texts come from the data); textContent only, except the marked headline
+  var P = {
+    en: { skip: "Skip to content", nav_services: "Services", nav_work: "Work", nav_startups: "Startups", nav_how: "How it works", nav_about: "About", nav_contact: "Contact", btn_discuss: "Discuss your project",
+      eyebrow: "UzLeeder Ventures", h1: "Building What <em>Comes Next.</em>", lead: "We build and explore technology ventures designed to solve real problems, create useful digital products, and open new possibilities for the AI era.",
+      cta1: "Explore Startups", cta2: "Discuss a Venture", v_k: "Founder's vision", v_h: "Ideas become products. Products become possibilities.",
+      v_p: "Every venture begins with a problem worth solving. Our approach is to explore the opportunity, design a practical solution, build the product, and improve it through real-world feedback.",
+      p1_t: "Identify", p1_d: "Discover meaningful problems and underserved opportunities.", p2_t: "Build", p2_d: "Turn validated concepts into usable products through thoughtful engineering and product design.",
+      p3_t: "Evolve", p3_d: "Test, learn, improve, and expand when the evidence supports the next step.", d_k: "Directory", d_h: "Our Ventures",
+      d_p: "Explore the products and initiatives we are developing, researching, and bringing to life.", note: "“Research” means there is no public product yet. Figures in the decks are hypotheses, not results.",
+      f_home: "Home", title: "Startups & Ventures | UzLeeder",
+      desc: "Explore UzLeeder ventures, emerging technology initiatives, and digital products being developed for the AI era.", preview: "Preview — unpublished drafts", preview_err: "Preview unavailable — sign in to the Control Center first", filter: "Filter by category" },
+    uz: { skip: "Kontentga o'tish", nav_services: "Xizmatlar", nav_work: "Ishlar", nav_startups: "Startaplar", nav_how: "Qanday ishlaymiz", nav_about: "Haqida", nav_contact: "Aloqa", btn_discuss: "Loyihani muhokama qilish",
+      eyebrow: "UzLeeder Ventures", h1: "Keyingi bosqichni <em>quramiz.</em>", lead: "Real muammolarni hal qiladigan, foydali raqamli mahsulotlar yaratadigan va AI davrida yangi imkoniyatlar ochadigan texnologik loyihalarni quramiz va o'rganamiz.",
+      cta1: "Startaplarni ko'rish", cta2: "Loyihani muhokama qilish", v_k: "Asoschi qarashi", v_h: "G'oyalar mahsulotga, mahsulotlar imkoniyatga aylanadi.",
+      v_p: "Har bir loyiha hal qilishga arziydigan muammodan boshlanadi. Biz imkoniyatni o'rganamiz, amaliy yechimni loyihalaymiz, mahsulotni quramiz va real foydalanuvchilar fikri asosida yaxshilaymiz.",
+      p1_t: "Aniqlash", p1_d: "Muhim muammolar va e'tibordan chetda qolgan imkoniyatlarni topish.", p2_t: "Qurish", p2_d: "Tasdiqlangan g'oyalarni puxta muhandislik va mahsulot dizayni orqali foydali mahsulotga aylantirish.",
+      p3_t: "Rivojlantirish", p3_d: "Sinash, o'rganish, yaxshilash — va dalillar tasdiqlaganda kengaytirish.", d_k: "Katalog", d_h: "Bizning loyihalar",
+      d_p: "Ishlab chiqayotgan, o'rganayotgan va hayotga tatbiq etayotgan mahsulot va tashabbuslarimiz.", note: "“Tadqiqot” — hali ochiq mahsulot yo'q degani. Taqdimotlardagi raqamlar natija emas, faraz.",
+      f_home: "Bosh sahifa", title: "Startaplar va loyihalar | UzLeeder",
+      desc: "UzLeeder loyihalari, yangi texnologik tashabbuslar va AI davri uchun ishlab chiqilayotgan raqamli mahsulotlar.", preview: "Ko'rib chiqish — e'lon qilinmagan qoralamalar", preview_err: "Ko'rib chiqish ishlamadi — avval Control Center'ga kiring", filter: "Kategoriya bo'yicha saralash" },
+    ru: { skip: "К содержимому", nav_services: "Услуги", nav_work: "Работы", nav_startups: "Стартапы", nav_how: "Как мы работаем", nav_about: "О нас", nav_contact: "Контакты", btn_discuss: "Обсудить проект",
+      eyebrow: "UzLeeder Ventures", h1: "Строим то, что <em>будет дальше.</em>", lead: "Мы создаём и исследуем технологические проекты, которые решают реальные задачи, дают полезные цифровые продукты и открывают новые возможности эпохи AI.",
+      cta1: "Смотреть стартапы", cta2: "Обсудить проект", v_k: "Взгляд основателя", v_h: "Идеи становятся продуктами. Продукты — возможностями.",
+      v_p: "Каждый проект начинается с проблемы, которую стоит решить. Мы изучаем возможность, проектируем практичное решение, строим продукт и улучшаем его по реальной обратной связи.",
+      p1_t: "Найти", p1_d: "Находить значимые проблемы и недооценённые возможности.", p2_t: "Построить", p2_d: "Превращать проверенные идеи в рабочие продукты через продуманную инженерию и дизайн.",
+      p3_t: "Развивать", p3_d: "Тестировать, учиться, улучшать и расширяться, когда это подтверждают факты.", d_k: "Каталог", d_h: "Наши проекты",
+      d_p: "Продукты и инициативы, которые мы разрабатываем, исследуем и воплощаем.", note: "«Исследование» значит, что публичного продукта пока нет. Цифры в презентациях — гипотезы, а не результаты.",
+      f_home: "Главная", title: "Стартапы и проекты | UzLeeder",
+      desc: "Проекты UzLeeder, новые технологические инициативы и цифровые продукты, создаваемые для эпохи AI.", preview: "Предпросмотр — неопубликованные черновики", preview_err: "Предпросмотр недоступен — сначала войдите в Control Center", filter: "Фильтр по категории" }
+  };
+
+  var lang = (function () {
+    var q = (location.search.match(/[?&]lang=([a-z]{2})/) || [])[1], s;
+    try { s = localStorage.getItem("uzleeder_lang"); } catch (e) {}
+    var l = q || s || "en";
+    return SU.LANGS.indexOf(l) >= 0 ? l : "en";        // FA/AR visitors see English here
+  })();
+  var p = function (k) { return (P[lang] && P[lang][k]) || P.en[k] || ""; };
+
+  /* ---------- meta (title, description, canonical, social) ---------- */
+  function setMeta(title, desc, path) {
+    document.title = title;
+    var url = SITE + path;
+    [["meta[name=description]", desc], ["meta[property='og:title']", title], ["meta[property='og:description']", desc], ["meta[name='twitter:title']", title], ["meta[name='twitter:description']", desc], ["meta[property='og:url']", url]]
+      .forEach(function (m) { var el = $(m[0]); if (el) el.setAttribute("content", m[1]); });
+    var c = $("link[rel=canonical]"); if (c) c.setAttribute("href", url);
+  }
+
+  /* ---------- rendering ---------- */
+  function applyPageText() {
+    root.setAttribute("lang", lang); root.setAttribute("dir", "ltr");
+    $$("[data-p]").forEach(function (el) { var v = p(el.getAttribute("data-p")); if (!v) return; if (el.hasAttribute("data-html")) el.innerHTML = v; else el.textContent = v; });
+    $("#langLabel").textContent = lang.toUpperCase();
+    $$(".lang-opt").forEach(function (b) { var on = b.dataset.lang === lang; b.classList.toggle("active", on); b.setAttribute("aria-checked", on ? "true" : "false"); });
+    $("#suFilters").setAttribute("aria-label", p("filter"));
+  }
+  function renderFilters() {
+    var cats = SU.categories(list), box = $("#suFilters");
+    // filters only help once there are several ventures in several categories
+    if (SU.visible(list).length < 3 || cats.length < 2) { box.hidden = true; filter = "all"; return; }
+    if (filter !== "all" && cats.indexOf(filter) < 0) filter = "all";
+    box.hidden = false;
+    box.innerHTML = ["all"].concat(cats).map(function (c) {
+      return '<button type="button" data-cat="' + c + '" aria-pressed="' + (filter === c) + '">' + SU.esc(c === "all" ? SU.t("all", lang) : SU.t("cat_" + c, lang)) + "</button>";
+    }).join("");
+  }
+  // cards carry the site's "reveal" entrance (hidden until shown): this page has to show them itself
+  var io = "IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches
+    ? new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("show"); io.unobserve(e.target); } }); }, { threshold: 0.08, rootMargin: "0px 0px -30px 0px" }) : null;
+  var firstPaint = true;
+  function showAll(scope) { $$(".reveal", scope).forEach(function (el) { el.classList.add("show"); }); }
+  function reveal(scope) {
+    $$(".reveal", scope).forEach(function (el, i) {
+      if (!io) { el.classList.add("show"); return; }
+      el.style.transitionDelay = (i % 6) * 0.06 + "s"; io.observe(el);
+    });
+    // content must never depend on the observer firing (hidden tabs, embedded browsers): show everything shortly after load
+    setTimeout(function () { showAll(scope); }, 1200);
+  }
+  function renderList() {
+    renderFilters();
+    var shown = filter === "all" ? list : SU.visible(list).filter(function (v) { return v.category === filter; });
+    var grid = $("#suGrid");
+    grid.innerHTML = SU.directory(shown, lang);
+    // first load: cards fade in as they scroll into view; after a filter, language or data change they appear at once
+    if (firstPaint) { firstPaint = false; reveal(grid); } else showAll(grid);
+  }
+  function route(focus) {
+    var m = location.pathname.match(/^\/startups\/([a-z0-9-]+)\/?$/);
+    var v = m ? SU.find(list, m[1]) : null;
+    // an old address (e.g. /startups/uzport) shows the venture under its current one
+    if (v && v.slug !== m[1]) { history.replaceState(null, "", "/startups/" + v.slug + location.search); }
+    $("#suDirectory").hidden = !!m; $("#suDetail").hidden = !m;
+    if (m) {
+      $("#suDetailBody").innerHTML = v ? SU.detail(v, lang)
+        : '<div class="su-notfound"><a class="su-back" href="/startups" data-su-link=""><span aria-hidden="true">← </span>' + SU.esc(SU.t("back", lang)) + "</a><h1>" + SU.esc(SU.t("notfound", lang)) + "</h1></div>";
+      if (v) setMeta(v.name + " — " + SU.t("st_" + v.status, lang) + " | UzLeeder", SU.tx(v.tagline, lang) || SU.tx(v.summary, lang) || p("desc"), "/startups/" + v.slug);
+      else setMeta(SU.t("notfound", lang) + " | UzLeeder", p("desc"), "/startups");
+      // unknown or unpublished address: keep it out of search results
+      var rb = $("meta[name=robots]"); if (rb) rb.setAttribute("content", v ? "index, follow" : "noindex, follow");
+      if (focus) { var h = $("#suDetail h1"); if (h) { h.setAttribute("tabindex", "-1"); h.focus({ preventScroll: true }); } }
+    } else {
+      renderList();
+      setMeta(p("title"), p("desc"), "/startups");
+      var rd = $("meta[name=robots]"); if (rd) rd.setAttribute("content", "index, follow");
+    }
+  }
+  function renderAll(focus) { applyPageText(); route(focus); }
+  function go(href) { history.pushState(null, "", href + location.search); setMenu(false); route(true); window.scrollTo(0, 0); }
+
+  /* ---------- in-page navigation between the directory and the venture pages ---------- */
+  document.addEventListener("click", function (e) {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    var a = e.target.closest && e.target.closest("[data-su-link]");
+    if (a) {
+      var href = a.getAttribute("href");
+      e.preventDefault();
+      if (href === location.pathname) { if (href === "/startups") window.scrollTo(0, 0); return; }
+      go(href);
+      return;
+    }
+    var f = e.target.closest && e.target.closest("#suFilters [data-cat]");
+    if (f) { filter = f.dataset.cat; renderList(); var b = $('#suFilters [data-cat="' + filter + '"]'); if (b) b.focus(); return; }
+    // a click anywhere on a venture card (not on its links) opens the venture's page
+    var card = e.target.closest && e.target.closest(".su-card[data-href]");
+    if (card && !e.target.closest("a, button, input, select, textarea") && !String(window.getSelection ? getSelection() : "").trim()) go(card.getAttribute("data-href"));
+  });
+  window.addEventListener("popstate", function () { route(true); });
+
+  /* ---------- header: menu, language, theme (same storage keys as the homepage) ---------- */
+  var navMenu = $("#navMenu"), menuBtn = $("#menuBtn");
+  function setMenu(open) { navMenu.classList.toggle("open", open); menuBtn.setAttribute("aria-expanded", open ? "true" : "false"); menuBtn.setAttribute("aria-label", open ? "Close menu" : "Open menu"); }
+  menuBtn.addEventListener("click", function () { setMenu(!navMenu.classList.contains("open")); });
+  $$("#navMenu a").forEach(function (a) { a.addEventListener("click", function () { setMenu(false); }); });
+  var langWrap = $("#langWrap"), langBtn = $("#langBtn");
+  function setLangMenu(open) { langWrap.classList.toggle("open", open); langBtn.setAttribute("aria-expanded", open ? "true" : "false"); }
+  langBtn.addEventListener("click", function (e) { e.stopPropagation(); setLangMenu(!langWrap.classList.contains("open")); });
+  document.addEventListener("click", function (e) { if (!langWrap.contains(e.target)) setLangMenu(false); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") { if (langWrap.classList.contains("open")) { setLangMenu(false); langBtn.focus(); } if (navMenu.classList.contains("open")) { setMenu(false); menuBtn.focus(); } } });
+  $$(".lang-opt").forEach(function (b) { b.addEventListener("click", function () { lang = b.dataset.lang; try { localStorage.setItem("uzleeder_lang", lang); } catch (e) {} setLangMenu(false); renderAll(false); langBtn.focus(); }); });
+  $("#themeToggle").addEventListener("click", function () {
+    var tt = root.getAttribute("data-theme") === "light" ? "dark" : "light";
+    root.setAttribute("data-theme", tt); try { localStorage.setItem("uzleeder_theme", tt); } catch (e) {}
+  });
+  var nav = $("#navbar"), onScroll = function () { nav.classList.toggle("scrolled", window.scrollY > 8); };
+  window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
+
+  renderAll(false);
+
+  /* ---------- live data: published ventures (or the drafts with ?preview=1 and a Control Center session) ---------- */
+  var PREVIEW = /[?&]preview=1\b/.test(location.search);
+  var token = ""; if (PREVIEW) { try { token = sessionStorage.getItem("uz_admin_token") || ""; } catch (e) {} }
+  fetch(PREVIEW && token ? "/api/startups?preview=1" : "/api/startups", { cache: "no-store", headers: token ? { Authorization: "Bearer " + token } : {} })
+    .then(function (r) {
+      if (PREVIEW) { var bar = document.createElement("div"); bar.className = "preview-bar" + (r.ok && token ? "" : " err"); bar.setAttribute("role", "status"); bar.textContent = r.ok && token ? p("preview") : p("preview_err"); document.body.appendChild(bar); }
+      return r.ok ? r.json() : null;
+    })
+    .then(function (c) { if (c && c.ok && Array.isArray(c.startups)) { list = c.startups.slice().sort(function (a, b) { return (a.order || 0) - (b.order || 0); }); route(false); } })
+    .catch(function () { /* offline or not deployed: the built-in ventures stay */ });
+})();
+</script>
+</body>
+</html>

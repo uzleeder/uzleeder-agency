@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Crafted by UzLeeder — digital signature</title>
+<meta name="description" content="The UzLeeder digital signature for websites UzLeeder builds: embed code, plain HTML and previews."/>
+<meta name="robots" content="noindex"/>
+<link rel="icon" type="image/svg+xml" href="/icon.svg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet"/>
+<script src="/crafted.js" defer></script>
+<style>
+  :root{--bg:#07090d;--surface:#10141c;--line:rgba(255,255,255,.1);--text:#f2f4f8;--muted:#9098a8;--red:#f0384e;color-scheme:dark}
+  *{box-sizing:border-box;margin:0}
+  body{font-family:Manrope,'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;padding:clamp(24px,5vw,56px) 16px 80px}
+  main{max-width:960px;margin:0 auto}
+  h1{font-family:Outfit,sans-serif;font-size:clamp(1.9rem,4.5vw,2.8rem);letter-spacing:-.02em;line-height:1.1}
+  h2{font-family:Outfit,sans-serif;font-size:1.25rem;margin:44px 0 12px}
+  p{color:var(--muted);max-width:68ch}
+  .k{font:700 .72rem/1 ui-monospace,Consolas,monospace;letter-spacing:.22em;color:var(--red);margin-bottom:14px}
+  .stage{border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:14px}
+  .stage-h{display:flex;justify-content:space-between;gap:10px;padding:8px 14px;font:600 .72rem/1.4 ui-monospace,Consolas,monospace;letter-spacing:.12em;color:var(--muted);border-bottom:1px solid var(--line)}
+  .dark{background:linear-gradient(180deg,#0b1020,#0a0d1a)}
+  .light{background:#f6f7f9;border-color:rgba(28,34,51,.14)}
+  .light .stage-h{color:#5b6377;border-color:rgba(28,34,51,.12)}
+  /* sample client footer so the signature is seen in context */
+  .foot{padding:26px 22px 8px}
+  .foot-row{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.08)}
+  .light .foot-row{border-color:rgba(28,34,51,.1)}
+  .client{display:flex;align-items:center;gap:10px}
+  .client i{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,#8ab4ff,#7c6cff);display:grid;place-items:center;font-style:normal;font-weight:800;color:#0b1020}
+  .client b{display:block;font-family:Outfit,sans-serif;font-size:1rem;color:#fff}.light .client b{color:#10141f}
+  .client small{color:#8e97ab;font-size:.72rem}
+  .copy-r{font-size:.82rem;color:#aab2c4}.light .copy-r{color:#5b6377}
+  pre{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px;overflow:auto;font:.8rem/1.6 ui-monospace,Consolas,monospace;color:#d6dbe6;white-space:pre-wrap;word-break:break-all}
+  .row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:14px}
+  .row b{font-size:.9rem}
+  button{font:inherit;font-size:.85rem;font-weight:700;color:var(--text);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:7px 12px;cursor:pointer}
+  button:hover{border-color:var(--red)}
+  button:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+  table{width:100%;border-collapse:collapse;margin-top:10px;font-size:.88rem}
+  td,th{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--muted);font-weight:600}
+  code{font-family:ui-monospace,Consolas,monospace;font-size:.85em;color:#ffd0d6}
+  ul{color:var(--muted);padding-left:20px}
+  .toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#fff;color:#07090d;font-weight:700;padding:8px 14px;border-radius:8px;opacity:0;transition:opacity .2s;pointer-events:none}
+  .toast.on{opacity:1}
+</style>
+</head>
+<body>
+<main>
+  <p class="k">UZLEEDER · DIGITAL SIGNATURE</p>
+  <h1>Crafted by UzLeeder</h1>
+  <p style="margin-top:12px">The signature at the bottom of every website UzLeeder builds — with the new Λ mark. It links to uzleeder.vercel.app, sets no cookies and does no tracking. Add it only to projects UzLeeder actually built, with the client's agreement.</p>
+
+  <h2>Preview</h2>
+  <div class="stage dark">
+    <div class="stage-h"><span>DARK SITE</span><span>theme="dark"</span></div>
+    <div class="foot">
+      <div class="foot-row"><span class="client"><i>Σ</i><span><b>Client Name</b><small>Sample footer</small></span></span><span class="copy-r">© 2026 Client Name. All rights reserved.</span></div>
+      <uzleeder-crafted theme="dark"></uzleeder-crafted>
+    </div>
+  </div>
+  <div class="stage light">
+    <div class="stage-h"><span>LIGHT SITE</span><span>theme="light"</span></div>
+    <div class="foot">
+      <div class="foot-row"><span class="client"><i>Σ</i><span><b>Client Name</b><small style="color:#5b6377">Sample footer</small></span></span><span class="copy-r">© 2026 Client Name. All rights reserved.</span></div>
+      <uzleeder-crafted theme="light"></uzleeder-crafted>
+    </div>
+  </div>
+
+  <h2>Option 1 — one line (recommended)</h2>
+  <p>Paste at the end of the site's footer. The badge renders in its own Shadow DOM, so the site's CSS cannot break it.</p>
+  <p><b style="color:var(--text)">Motion:</b> at rest only the Λ mark sways gently — “CRAFTED BY” stays still. Hover (or keyboard focus) types the family like the site intro — <code>&lt;UzLeeder&gt;</code> → <code>&lt;LeeCodes&gt;</code> → <code>&lt;Max's Code&gt;</code> — and moving away returns it to the normal wordmark. With “reduce motion” there is no waving and the words swap without typing. Try it on the previews above.</p>
+  <div class="row"><b>Embed</b><button type="button" data-copy="embed">Copy</button></div>
+  <pre id="embed"></pre>
+  <table>
+    <tr><th>Attribute</th><th>Values</th></tr>
+    <tr><td><code>theme</code></td><td><code>dark</code> (default) · <code>light</code> · <code>auto</code> (follows the visitor's system setting)</td></tr>
+    <tr><td><code>align</code></td><td><code>center</code> (default) · <code>start</code> · <code>end</code></td></tr>
+    <tr><td><code>size</code></td><td><code>md</code> (default) · <code>sm</code></td></tr>
+    <tr><td><code>fonts</code></td><td><code>none</code> — do not load the Outfit font for the word “UzLeeder” (uses the system font)</td></tr>
+  </table>
+
+  <h2>Option 2 — plain HTML (no script)</h2>
+  <p>For sites that do not allow external scripts. Uses the site's own fonts if Outfit is not loaded. This version is static — the waving and the typing need Option 1.</p>
+  <div class="row"><b>Dark sites</b><button type="button" data-copy="htmlDark">Copy</button></div>
+  <pre id="htmlDark"></pre>
+  <div class="row"><b>Light sites</b><button type="button" data-copy="htmlLight">Copy</button></div>
+  <pre id="htmlLight"></pre>
+
+  <h2>Rules</h2>
+  <ul>
+    <li>Only on websites UzLeeder built. For client projects, agree it in the contract or ask first.</li>
+    <li>Do not change the colours, the mark or the wordmark. Use <code>theme</code> for light or dark sites.</li>
+    <li>Keep it small and at the very bottom of the footer — it signs the work, it does not advertise.</li>
+  </ul>
+</main>
+<div class="toast" id="toast" role="status" aria-live="polite">Copied</div>
+<script>
+  var EMBED = '<script src="https://uzleeder.vercel.app/crafted.js" defer><\/script>\n<uzleeder-crafted theme="dark"></uzleeder-crafted>';
+  function plain(dark) {
+    var muted = dark ? "#8e97ab" : "#5b6377", ink = dark ? "#ffffff" : "#1c2233", red = dark ? "#f0384e" : "#e01e37", inner = dark ? "#ffffff" : "#1c2233";
+    return '<!-- UzLeeder digital signature (' + (dark ? "dark" : "light") + ') -->\n' +
+      '<div style="display:flex;justify-content:center;padding:14px 0">\n' +
+      '  <a href="https://uzleeder.vercel.app/?ref=crafted" target="_blank" rel="noopener" aria-label="Crafted by UzLeeder" style="display:inline-flex;align-items:center;gap:12px;text-decoration:none">\n' +
+      '    <span aria-hidden="true" style="font:600 11px/1 ui-monospace,Consolas,monospace;letter-spacing:.28em;text-transform:uppercase;color:' + muted + '">Crafted by</span>\n' +
+      '    <svg viewBox="0 0 48 44" width="22" height="20" aria-hidden="true" style="overflow:visible"><path d="M4 41 24 5l20 36" fill="none" stroke="' + red + '" stroke-width="7" stroke-miterlimit="10"/><path d="M14 41 24 23l10 18" fill="none" stroke="' + inner + '" stroke-width="5.5" stroke-miterlimit="10"/></svg>\n' +
+      '    <span aria-hidden="true" style="font:800 17px/1 Outfit,\'Segoe UI\',system-ui,sans-serif;letter-spacing:-.02em"><span style="color:' + ink + '">Uz</span><span style="color:' + red + '">Leeder</span></span>\n' +
+      '  </a>\n</div>';
+  }
+  var SNIP = { embed: EMBED, htmlDark: plain(true), htmlLight: plain(false) };
+  Object.keys(SNIP).forEach(function (k) { document.getElementById(k).textContent = SNIP[k]; });
+  document.querySelectorAll("[data-copy]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var t = document.getElementById("toast");
+      navigator.clipboard.writeText(SNIP[b.getAttribute("data-copy")]).then(function () { t.textContent = "Copied"; }, function () { t.textContent = "Copy failed — select the code manually"; })
+        .then(function () { t.classList.add("on"); setTimeout(function () { t.classList.remove("on"); }, 1600); });
+    });
+  });
+</script>
+</body>
+</html>

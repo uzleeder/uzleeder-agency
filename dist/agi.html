@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AGI — UzLeeder · SALAAM NEW ERA.</title>
+<meta name="description" content="AGI is UzLeeder's technology and product direction — not a claim of artificial general intelligence. What is implemented today, the vision, and what is still research."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://uzleeder.vercel.app/agi"/>
+<meta name="theme-color" content="#07090d"/>
+<link rel="icon" type="image/svg+xml" href="/icon.svg"/>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="UzLeeder"/>
+<meta property="og:title" content="AGI — UzLeeder · SALAAM NEW ERA."/>
+<meta property="og:description" content="AGI is UzLeeder's technology and product direction — not a claim of artificial general intelligence. Vision, what is implemented today, and future research."/>
+<meta property="og:url" content="https://uzleeder.vercel.app/agi"/>
+<meta property="og:image" content="https://uzleeder.vercel.app/og-image.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css?v=8.0"/>
+<script>
+  (function () {
+    var d = document.documentElement, t, ds;
+    try {
+      t = localStorage.getItem("uzleeder_theme");
+      // same site design as the homepage (palette chosen in the Control Center, cached by script.js)
+      ds = JSON.parse(localStorage.getItem("uzleeder_design") || "null");
+      if (ds && ds.css) { var st = document.createElement("style"); st.id = "cmsDesign"; st.textContent = ds.css; document.head.appendChild(st); }
+      if (ds && ds.fontHref) { var fl = document.createElement("link"); fl.rel = "stylesheet"; fl.href = ds.fontHref; document.head.appendChild(fl); }
+    } catch (e) {}
+    if (t !== "light" && t !== "dark") t = ds && (ds.mode === "light" || ds.mode === "dark") ? ds.mode : window.matchMedia && matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+    d.setAttribute("data-theme", t);
+  })();
+</script>
+<style>
+  /* /agi — uses the site tokens from style.css; everything page-specific lives here */
+  .a-top{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px var(--gutter);background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .a-top .logo{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;font-size:1.05rem}
+  .a-top .logo svg{width:28px;height:26px}
+  .a-top .logo small{font-family:var(--mono);font-size:.66rem;font-weight:700;letter-spacing:.2em;color:var(--accent);padding:3px 7px;border:1px solid rgba(var(--accent-rgb),.4);border-radius:6px}
+  .a-tools{display:flex;align-items:center;gap:8px}
+  .a-tools select,.a-tools button{height:36px;border:1px solid var(--line-2);border-radius:9px;background:var(--surface);color:var(--text);font:inherit;font-size:.85rem;padding:0 10px}
+  .a-tools button{display:inline-grid;place-items:center;width:36px;padding:0}
+  .a-back{font-size:.88rem;font-weight:600;color:var(--muted)}
+  .a-back:hover{color:var(--text)}
+  .a-hero{padding:clamp(56px,10vw,120px) 0 clamp(40px,6vw,64px)}
+  .a-era{font-family:var(--mono);font-size:.8rem;font-weight:700;letter-spacing:.32em;color:var(--accent);margin-bottom:18px}
+  .a-hero h1{font-size:clamp(2.4rem,6vw,4.8rem);letter-spacing:-.035em;margin-bottom:22px;max-width:16ch}
+  .a-hero h1 em{font-style:normal;color:var(--accent)}
+  .a-lead{font-size:clamp(1.05rem,1.6vw,1.25rem);color:var(--muted);max-width:62ch}
+  .a-legend{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:30px}
+  .a-toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px}
+  .a-toc a{font-size:.84rem;font-weight:600;padding:7px 12px;border:1px solid var(--line-2);border-radius:999px;color:var(--muted)}
+  .a-toc a:hover{color:var(--text);border-color:var(--text)}
+  .a-sec{padding:clamp(48px,7vw,88px) 0;border-top:1px solid var(--line)}
+  .a-sec h2{font-size:clamp(1.7rem,3.6vw,2.6rem);letter-spacing:-.025em;margin:14px 0 14px;scroll-margin-top:90px}
+  .a-sec>.container>p{color:var(--muted);max-width:66ch}
+  .st{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+  .st::before{content:'';width:8px;height:8px;border-radius:2px;border:1.5px solid currentColor}
+  .st-now{color:var(--color-success)} .st-now::before{background:currentColor}
+  .st-v{color:var(--accent)}
+  .st-f{color:var(--muted)} .st-f::before{border-style:dashed}
+  [dir="rtl"] .a-hero .a-era{text-align:right}
+  .a-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:28px}
+  .a-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+  .a-card h3{font-size:1.1rem;margin-bottom:8px}
+  .a-card p{color:var(--muted);font-size:.94rem}
+  .a-card a{color:var(--accent);font-weight:600;font-size:.9rem;display:inline-block;margin-top:10px}
+  .a-flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:28px;font-family:var(--mono);font-size:.8rem}
+  .a-flow span{padding:9px 13px;border:1px solid var(--line-2);border-radius:10px;background:var(--surface)}
+  .a-flow span.hl{border-color:rgba(var(--accent-rgb),.55);color:var(--text);background:rgba(var(--accent-rgb),.08)}
+  .a-flow i{font-style:normal;color:var(--faint)}
+  [dir="rtl"] .a-flow i{transform:scaleX(-1)}
+  .a-list{display:grid;gap:10px;margin-top:22px;max-width:70ch}
+  .a-list li{position:relative;padding-inline-start:22px;color:var(--text)}
+  .a-list li::before{content:'';position:absolute;inset-inline-start:0;top:.7em;width:10px;height:2px;background:currentColor;opacity:.5}
+  .a-list.no li::before{background:var(--accent);opacity:1}
+  .a-empty{margin-top:22px;padding:22px;border:1px dashed var(--line-2);border-radius:var(--radius);color:var(--muted)}
+  .a-cta{padding:clamp(56px,8vw,100px) 0;border-top:1px solid var(--line);text-align:center}
+  .a-cta h2{font-size:clamp(1.8rem,4vw,3rem);letter-spacing:-.03em;margin:12px 0 26px}
+  .a-cta .row{display:flex;justify-content:center;flex-wrap:wrap;gap:12px}
+  .a-foot{padding:26px var(--gutter);border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.82rem;color:var(--faint)}
+  @media (max-width:560px){ .a-back{display:none} }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+  <symbol id="brand-mark" viewBox="0 0 48 44"><path d="M4 41 24 5l20 36" style="fill:none;stroke:var(--accent);stroke-width:7;stroke-miterlimit:10"/><path d="M14 41 24 23l10 18" style="fill:none;stroke:var(--mark-inner);stroke-width:5.5;stroke-miterlimit:10"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+</defs></svg>
+<a class="skip-link" href="#main" data-t="skip">Skip to content</a>
+
+<header class="a-top">
+  <a href="/" class="logo" aria-label="UzLeeder — home"><svg aria-hidden="true"><use href="#brand-mark"/></svg><span>UzLeeder</span><small>AGI</small></a>
+  <div class="a-tools">
+    <a href="/" class="a-back" data-t="back">← Main site</a>
+    <label class="sr-only" for="lang" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Language</label>
+    <select id="lang" aria-label="Language">
+      <option value="en">EN</option><option value="uz">UZ</option><option value="ru">RU</option><option value="fa">FA</option><option value="ar">AR</option>
+    </select>
+    <button type="button" id="theme" aria-label="Toggle dark and light theme"><svg class="ico" aria-hidden="true"><use href="#i-sun"/></svg></button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="a-hero">
+    <div class="container">
+      <p class="a-era" lang="en" dir="ltr">SALAAM NEW ERA.</p>
+      <h1 data-t="h1">AGI is a direction. <em>Not a claim.</em></h1>
+      <p class="a-lead" data-t="lead">At UzLeeder, AGI names our technology and product direction: intelligent, connected business systems under explicit human control. We have not built artificial general intelligence, and this page does not claim it. Every section says clearly what is implemented, what is vision, and what is still research.</p>
+      <div class="a-legend">
+        <span class="st st-now" data-t="lg_now">Currently implemented</span>
+        <span class="st st-v" data-t="lg_v">Vision</span>
+        <span class="st st-f" data-t="lg_f">Future research</span>
+      </div>
+      <nav class="a-toc" aria-label="On this page">
+        <a href="#vision" data-t="t_vision">Vision</a><a href="#system" data-t="t_system">Current system</a><a href="#capabilities" data-t="t_cap">Capabilities</a>
+        <a href="#architecture" data-t="t_arch">Architecture</a><a href="#development" data-t="t_dev">Development</a><a href="#projects" data-t="t_proj">Projects</a>
+        <a href="#research" data-t="t_res">Future research</a><a href="#updates" data-t="t_upd">Updates</a>
+      </nav>
+    </div>
+  </section>
+
+  <section class="a-sec" aria-labelledby="vision">
+    <div class="container">
+      <span class="st st-v" data-t="lg_v">Vision</span>
+      <h2 id="vision" data-t="v_h">Where we are heading</h2>
+      <p data-t="v_p">A business should be able to run on systems that understand its work: requests arrive in one place, routine steps happen automatically, and the people in charge see everything and decide.</p>
+      <ul class="a-list">
+        <li data-t="v_1">Software carries the routine work; decisions stay with people.</li>
+        <li data-t="v_2">One connected system instead of many disconnected tools.</li>
+        <li data-t="v_3">AI is added where it is reliable and tested — not for decoration.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="a-sec" aria-labelledby="system">
+    <div class="container">
+      <span class="st st-now" data-t="lg_now">Currently implemented</span>
+      <h2 id="system" data-t="s_h">The current system</h2>
+      <p data-t="s_p">This is the operating chain UzLeeder has built for itself. The same approach is what we build for clients.</p>
+      <div class="a-flow" dir="ltr" aria-label="Request to publication flow">
+        <span data-t="f_site">Website brief</span><i>/</i><span>@uzleeder_services_bot</span><i>→</i>
+        <span class="hl" data-t="f_req">Request</span><i>→</i><span class="hl">Workspace</span><i>→</i>
+        <span data-t="f_proj">Project</span><i>→</i><span data-t="f_content">Content</span><i>→</i><span data-t="f_tg">Telegram channels</span>
+      </div>
+      <ul class="a-list">
+        <li data-t="s_1">Project briefs from this website are validated on the server and stored as requests before success is shown.</li>
+        <li data-t="s_2">@uzleeder_services_bot collects service, description, contact and an optional file. It is code-powered — there is no AI inside it.</li>
+        <li data-t="s_3">The private Workspace turns requests into clients and projects, with tasks, versioned files and an activity log of real events only.</li>
+        <li data-t="s_4">Content Studio publishes to our Telegram channels through the Telegram Bot API and records each channel's own result — sent, failed or not sent.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="a-sec" aria-labelledby="capabilities">
+    <div class="container">
+      <span class="st st-now" data-t="lg_now">Currently implemented</span>
+      <h2 id="capabilities" data-t="c_h">What we deliver today</h2>
+      <div class="a-grid">
+        <article class="a-card"><h3 data-t="c1_t">Digital products</h3><p data-t="c1_d">Websites, portals and business platforms — multilingual, fast and mobile-first.</p></article>
+        <article class="a-card"><h3 data-t="c2_t">Business systems</h3><p data-t="c2_d">Secure logins, roles, records, dashboards and admin panels on your own data.</p></article>
+        <article class="a-card"><h3 data-t="c3_t">Automation</h3><p data-t="c3_d">Telegram bots, request pipelines and operational workflows that remove repetitive work.</p></article>
+        <article class="a-card"><h3 data-t="c4_t">AI-assisted systems</h3><p data-t="c4_d">Prompt design, knowledge-grounded answers (RAG) and AI workflow steps — with a person checking what matters.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="a-sec" aria-labelledby="architecture">
+    <div class="container">
+      <span class="st st-now" data-t="lg_now">Currently implemented</span>
+      <h2 id="architecture" data-t="a_h">Architecture</h2>
+      <ul class="a-list">
+        <li data-t="a_1">Static, multilingual front end (EN · UZ · RU · FA · AR) with a serverless API on Vercel.</li>
+        <li data-t="a_2">Private storage on Vercel Blob; Workspace files are never served publicly.</li>
+        <li data-t="a_3">Every Workspace and admin action is authenticated and checked on the server. Tokens and credentials never reach the browser.</li>
+        <li data-t="a_4">External services — Telegram, GitHub, Vercel, YouTube — are connected only where credentials are configured. Otherwise the Workspace shows "Integration required".</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="a-sec" aria-labelledby="development">
+    <div class="container">
+      <span class="st st-now" data-t="lg_now">Currently implemented</span>
+      <h2 id="development" data-t="d_h">How it is developed</h2>
+      <p data-t="d_p">We build with AI-assisted tools such as Claude Code and Cursor. Architecture, review, security, testing and the final decision stay human-owned — Max is responsible for what ships.</p>
+      <p class="a-lead" style="margin-top:18px;font-size:1rem" data-t="lim_h"><b>Limitations, stated plainly:</b></p>
+      <ul class="a-list no">
+        <li data-t="lim_1">This is not general intelligence, and nothing here makes decisions on its own.</li>
+        <li data-t="lim_2">AI output can be wrong; critical answers keep a person in the loop.</li>
+        <li data-t="lim_3">Publishing and deployments are reported only after the external service confirms the result.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="a-sec" aria-labelledby="projects">
+    <div class="container">
+      <span class="st st-now" data-t="lg_now">Currently implemented</span>
+      <h2 id="projects" data-t="p_h">Projects</h2>
+      <div class="a-grid">
+        <article class="a-card"><h3>Shokirov Math Academy</h3><p data-t="p1_d">Education platform with 5,653 auto-graded exercises across 31 DTM-book topics. Live.</p><a href="https://shokirov-academy.vercel.app" target="_blank" rel="noopener">shokirov-academy.vercel.app ↗</a></article>
+        <article class="a-card"><h3>MarketHub — B2B Travel Portal</h3><p data-t="p2_d">B2B travel portal (Python · Flask · SQLite · 2FA) whose GDS reader recognises 1,100+ airlines. Ready to deploy.</p><a href="/#work" data-t="p_case">Case study on the main site →</a></article>
+        <article class="a-card"><h3>AGI / UzLeeder Workspace</h3><p data-t="p3_d">The company's private operating environment: requests, projects, files, publishing and activity. Internal — not public.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="a-sec" aria-labelledby="research">
+    <div class="container">
+      <span class="st st-f" data-t="lg_f">Future research</span>
+      <h2 id="research" data-t="r_h">Future research</h2>
+      <p data-t="r_p">Directions we are exploring. None of these is released, and we don't promise dates — each ships only when it works and is tested.</p>
+      <ul class="a-list">
+        <li data-t="r_1">Knowledge assistants answering only from approved company sources.</li>
+        <li data-t="r_2">AI help inside the Workspace — drafting, summarising and triaging, with a person approving.</li>
+        <li data-t="r_3">Deeper workflow automation across tools a business already uses.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="a-sec" aria-labelledby="updates">
+    <div class="container">
+      <h2 id="updates" data-t="u_h">Updates</h2>
+      <p class="a-empty" data-t="u_p">No updates are listed here yet. News about AGI and UzLeeder is published in the Telegram channel <a href="https://t.me/uzleeder" target="_blank" rel="noopener">@uzleeder</a>.</p>
+    </div>
+  </section>
+
+  <section class="a-cta">
+    <div class="container">
+      <p class="a-era" lang="en" dir="ltr">SALAAM NEW ERA.</p>
+      <h2 data-t="cta_h">Build your system with UzLeeder.</h2>
+      <div class="row">
+        <a href="/#contact" class="btn btn-primary"><span data-t="btn_start">Start a project</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a href="/#work" class="btn btn-ghost" data-t="btn_view">View projects</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="a-foot"><span>© UzLeeder · Tashkent</span><span lang="en" dir="ltr">AGI · UzLeeder · SALAAM NEW ERA.</span></footer>
+
+<script>
+(function () {
+  // Draft translations (UZ/RU/FA/AR) — native review pending, same as the main site.
+  var T = {
+    uz: {
+      skip: "Kontentga o'tish", back: "← Asosiy sayt",
+      h1: "AGI — bu yo'nalish. <em>Da'vo emas.</em>",
+      lead: "UzLeeder'da AGI texnologiya va mahsulot yo'nalishimizni anglatadi: inson nazoratidagi aqlli, o'zaro bog'langan biznes tizimlar. Biz sun'iy umumiy intellekt yaratmadik va bu sahifa buni da'vo qilmaydi. Har bir bo'limda nima amalda, nima vizyon va nima hali tadqiqot ekani aniq yozilgan.",
+      lg_now: "Hozir amalda", lg_v: "Vizyon", lg_f: "Kelajakdagi tadqiqot",
+      t_vision: "Vizyon", t_system: "Joriy tizim", t_cap: "Imkoniyatlar", t_arch: "Arxitektura", t_dev: "Ishlab chiqish", t_proj: "Loyihalar", t_res: "Tadqiqot", t_upd: "Yangiliklar",
+      v_h: "Qayerga ketyapmiz", v_p: "Biznes o'z ishini tushunadigan tizimlarda ishlay olishi kerak: so'rovlar bir joyga tushadi, muntazam qadamlar avtomatik bajariladi, mas'ul odamlar hammasini ko'radi va qaror qiladi.",
+      v_1: "Muntazam ishni dastur bajaradi; qarorlar odamlarda qoladi.", v_2: "Ko'plab alohida vositalar o'rniga bitta bog'langan tizim.", v_3: "AI faqat ishonchli va sinovdan o'tgan joyda qo'shiladi — bezak uchun emas.",
+      s_h: "Joriy tizim", s_p: "Bu UzLeeder o'zi uchun qurgan ish zanjiri. Mijozlar uchun ham xuddi shu yondashuvni quramiz.",
+      f_site: "Saytdagi brief", f_req: "So'rov", f_proj: "Loyiha", f_content: "Kontent", f_tg: "Telegram kanallar",
+      s_1: "Saytdagi brieflar serverda tekshiriladi va muvaffaqiyat ko'rsatilishidan oldin so'rov sifatida saqlanadi.",
+      s_2: "@uzleeder_services_bot xizmat, tavsif, kontakt va ixtiyoriy faylni yig'adi. U kod asosida ishlaydi — ichida AI yo'q.",
+      s_3: "Yopiq Workspace so'rovlarni mijoz va loyihalarga aylantiradi: vazifalar, versiyali fayllar va faqat real hodisalar jurnali.",
+      s_4: "Content Studio Telegram Bot API orqali kanallarimizga e'lon qiladi va har bir kanal natijasini alohida yozadi — yuborildi, xato yoki yuborilmadi.",
+      c_h: "Bugun nimani topshiramiz",
+      c1_t: "Raqamli mahsulotlar", c1_d: "Saytlar, portallar va biznes platformalar — ko'p tilli, tez va mobilga mos.",
+      c2_t: "Biznes tizimlar", c2_d: "Xavfsiz kirish, rollar, yozuvlar, dashboardlar va admin panellar — o'z ma'lumotlaringizda.",
+      c3_t: "Avtomatlashtirish", c3_d: "Telegram botlar, so'rov oqimlari va takroriy ishni olib tashlaydigan jarayonlar.",
+      c4_t: "AI yordamidagi tizimlar", c4_d: "Prompt dizayni, bilimga asoslangan javoblar (RAG) va AI qadamlari — muhim joyda inson tekshiradi.",
+      a_h: "Arxitektura",
+      a_1: "Statik, ko'p tilli front-end (EN · UZ · RU · FA · AR) va Vercel'dagi serverless API.",
+      a_2: "Vercel Blob'da yopiq saqlash; Workspace fayllari hech qachon ochiq berilmaydi.",
+      a_3: "Workspace va admin'dagi har bir amal serverda autentifikatsiya va tekshiruvdan o'tadi. Token va kalitlar brauzerga chiqmaydi.",
+      a_4: "Tashqi xizmatlar — Telegram, GitHub, Vercel, YouTube — faqat kalitlar sozlangan bo'lsa ulanadi. Aks holda Workspace \"Integration required\" deb ko'rsatadi.",
+      d_h: "Qanday ishlab chiqiladi", d_p: "Biz Claude Code va Cursor kabi AI vositalari bilan quramiz. Arxitektura, tekshiruv, xavfsizlik, testlar va yakuniy qaror odamlarda — chiqarilgan narsa uchun Max javobgar.",
+      lim_h: "<b>Cheklovlar, ochiq aytilgan:</b>",
+      lim_1: "Bu umumiy intellekt emas va bu yerdagi hech narsa o'zi qaror qabul qilmaydi.", lim_2: "AI javobi xato bo'lishi mumkin; muhim javoblarda inson ishtirok etadi.", lim_3: "E'lon va deploylar faqat tashqi xizmat natijani tasdiqlagandan keyin ko'rsatiladi.",
+      p_h: "Loyihalar",
+      p1_d: "31 ta DTM mavzusi bo'yicha 5 653 ta avtomatik tekshiriladigan mashqli ta'lim platformasi. Ishlamoqda.",
+      p2_d: "B2B sayohat portali (Python · Flask · SQLite · 2FA), GDS o'quvchisi 1 100+ aviakompaniyani taniydi. Joylashtirishga tayyor.",
+      p_case: "Asosiy saytdagi keys →",
+      p3_d: "Kompaniyaning yopiq ish muhiti: so'rovlar, loyihalar, fayllar, e'lonlar va faoliyat. Ichki — ochiq emas.",
+      r_h: "Kelajakdagi tadqiqot", r_p: "Biz o'rganayotgan yo'nalishlar. Hech biri chiqarilmagan va sana va'da qilmaymiz — har biri ishlasa va sinovdan o'tsagina chiqadi.",
+      r_1: "Faqat tasdiqlangan kompaniya manbalaridan javob beradigan bilim yordamchilari.", r_2: "Workspace ichida AI yordami — qoralama, xulosa va saralash, inson tasdig'i bilan.", r_3: "Biznes allaqachon ishlatayotgan vositalar bo'ylab chuqurroq avtomatlashtirish.",
+      u_h: "Yangiliklar", u_p: "Hozircha bu yerda yangilik yo'q. AGI va UzLeeder haqidagi xabarlar <a href=\"https://t.me/uzleeder\" target=\"_blank\" rel=\"noopener\">@uzleeder</a> Telegram kanalida e'lon qilinadi.",
+      cta_h: "Tizimingizni UzLeeder bilan quring.", btn_start: "Loyihani boshlash", btn_view: "Loyihalarni ko'rish"
+    },
+    ru: {
+      skip: "К содержимому", back: "← Основной сайт",
+      h1: "AGI — это направление. <em>Не заявление.</em>",
+      lead: "В UzLeeder AGI обозначает наше технологическое и продуктовое направление: умные, связанные бизнес-системы под явным контролем человека. Мы не создали общий искусственный интеллект, и эта страница этого не утверждает. В каждом разделе ясно сказано, что реализовано, что является видением, а что — пока исследование.",
+      lg_now: "Уже реализовано", lg_v: "Видение", lg_f: "Будущие исследования",
+      t_vision: "Видение", t_system: "Текущая система", t_cap: "Возможности", t_arch: "Архитектура", t_dev: "Разработка", t_proj: "Проекты", t_res: "Исследования", t_upd: "Обновления",
+      v_h: "Куда мы движемся", v_p: "Бизнес должен работать на системах, которые понимают его работу: заявки приходят в одно место, рутинные шаги выполняются автоматически, а ответственные люди видят всё и принимают решения.",
+      v_1: "Рутину выполняет софт; решения остаются за людьми.", v_2: "Одна связанная система вместо множества разрозненных инструментов.", v_3: "AI добавляется там, где он надёжен и протестирован, — не для украшения.",
+      s_h: "Текущая система", s_p: "Это рабочая цепочка, которую UzLeeder построил для себя. Такой же подход мы применяем для клиентов.",
+      f_site: "Бриф с сайта", f_req: "Заявка", f_proj: "Проект", f_content: "Контент", f_tg: "Telegram-каналы",
+      s_1: "Брифы с сайта проверяются на сервере и сохраняются как заявки до того, как показывается успех.",
+      s_2: "@uzleeder_services_bot собирает услугу, описание, контакт и необязательный файл. Он работает на коде — AI внутри нет.",
+      s_3: "Закрытый Workspace превращает заявки в клиентов и проекты: задачи, файлы с версиями и журнал только реальных событий.",
+      s_4: "Content Studio публикует в наши Telegram-каналы через Telegram Bot API и записывает результат каждого канала отдельно — отправлено, ошибка или не отправлено.",
+      c_h: "Что мы делаем сегодня",
+      c1_t: "Цифровые продукты", c1_d: "Сайты, порталы и бизнес-платформы — многоязычные, быстрые, mobile-first.",
+      c2_t: "Бизнес-системы", c2_d: "Защищённый вход, роли, записи, дашборды и админ-панели на ваших данных.",
+      c3_t: "Автоматизация", c3_d: "Telegram-боты, потоки заявок и рабочие процессы, убирающие рутину.",
+      c4_t: "Системы с AI", c4_d: "Дизайн промптов, ответы на основе знаний (RAG) и AI-шаги — с проверкой человеком там, где это важно.",
+      a_h: "Архитектура",
+      a_1: "Статический многоязычный фронтенд (EN · UZ · RU · FA · AR) и serverless API на Vercel.",
+      a_2: "Закрытое хранилище на Vercel Blob; файлы Workspace никогда не отдаются публично.",
+      a_3: "Каждое действие в Workspace и админке проходит аутентификацию и проверку на сервере. Токены и ключи не попадают в браузер.",
+      a_4: "Внешние сервисы — Telegram, GitHub, Vercel, YouTube — подключаются только при настроенных ключах. Иначе Workspace показывает «Integration required».",
+      d_h: "Как ведётся разработка", d_p: "Мы строим с AI-инструментами, такими как Claude Code и Cursor. Архитектура, ревью, безопасность, тесты и финальное решение остаются за людьми — за то, что выходит, отвечает Макс.",
+      lim_h: "<b>Ограничения — прямо:</b>",
+      lim_1: "Это не общий интеллект, и ничто здесь не принимает решений самостоятельно.", lim_2: "AI может ошибаться; критичные ответы проверяет человек.", lim_3: "Публикации и деплои отображаются только после подтверждения внешним сервисом.",
+      p_h: "Проекты",
+      p1_d: "Образовательная платформа: 5 653 автоматически проверяемых упражнения по 31 теме DTM. Работает.",
+      p2_d: "B2B-портал для турагентств (Python · Flask · SQLite · 2FA), GDS-ридер распознаёт 1 100+ авиакомпаний. Готов к развёртыванию.",
+      p_case: "Кейс на основном сайте →",
+      p3_d: "Закрытая рабочая среда компании: заявки, проекты, файлы, публикации и активность. Внутренняя — не публичная.",
+      r_h: "Будущие исследования", r_p: "Направления, которые мы изучаем. Ни одно не выпущено, и мы не обещаем сроков — каждое выходит, только когда работает и протестировано.",
+      r_1: "Ассистенты, отвечающие только по утверждённым источникам компании.", r_2: "AI-помощь внутри Workspace — черновики, сводки и сортировка с одобрением человека.", r_3: "Более глубокая автоматизация в инструментах, которые бизнес уже использует.",
+      u_h: "Обновления", u_p: "Здесь пока нет обновлений. Новости об AGI и UzLeeder публикуются в Telegram-канале <a href=\"https://t.me/uzleeder\" target=\"_blank\" rel=\"noopener\">@uzleeder</a>.",
+      cta_h: "Постройте свою систему с UzLeeder.", btn_start: "Начать проект", btn_view: "Смотреть проекты"
+    },
+    fa: {
+      skip: "رفتن به محتوا", back: "← سایت اصلی",
+      h1: "AGI یک جهت است. <em>نه یک ادعا.</em>",
+      lead: "در UzLeeder، AGI نام جهت فناوری و محصول ماست: سیستم‌های کسب‌وکار هوشمند و به‌هم‌پیوسته تحت کنترل آشکار انسان. ما هوش مصنوعی عمومی نساخته‌ایم و این صفحه چنین ادعایی ندارد. هر بخش به‌روشنی می‌گوید چه چیزی پیاده‌سازی شده، چه چیزی چشم‌انداز است و چه چیزی هنوز پژوهش است.",
+      lg_now: "پیاده‌سازی‌شده", lg_v: "چشم‌انداز", lg_f: "پژوهش آینده",
+      t_vision: "چشم‌انداز", t_system: "سیستم فعلی", t_cap: "توانمندی‌ها", t_arch: "معماری", t_dev: "توسعه", t_proj: "پروژه‌ها", t_res: "پژوهش", t_upd: "به‌روزرسانی‌ها",
+      v_h: "به کجا می‌رویم", v_p: "کسب‌وکار باید بتواند بر سیستم‌هایی کار کند که کارش را می‌فهمند: درخواست‌ها به یک جا می‌رسند، کارهای تکراری خودکار انجام می‌شوند و مسئولان همه‌چیز را می‌بینند و تصمیم می‌گیرند.",
+      v_1: "کار تکراری با نرم‌افزار است؛ تصمیم با انسان.", v_2: "یک سیستم به‌هم‌پیوسته به‌جای ابزارهای پراکنده.", v_3: "AI فقط جایی افزوده می‌شود که قابل اعتماد و آزموده باشد — نه برای تزئین.",
+      s_h: "سیستم فعلی", s_p: "این زنجیرهٔ کاری است که UzLeeder برای خودش ساخته است. همین رویکرد را برای مشتریان می‌سازیم.",
+      f_site: "خلاصهٔ پروژه در سایت", f_req: "درخواست", f_proj: "پروژه", f_content: "محتوا", f_tg: "کانال‌های تلگرام",
+      s_1: "خلاصه‌های پروژه از این سایت روی سرور بررسی و پیش از نمایش موفقیت به‌عنوان درخواست ذخیره می‌شوند.",
+      s_2: "@uzleeder_services_bot خدمت، توضیح، راه تماس و یک فایل اختیاری را جمع می‌کند. مبتنی بر کد است — هیچ AI در آن نیست.",
+      s_3: "Workspace خصوصی درخواست‌ها را به مشتری و پروژه تبدیل می‌کند: وظایف، فایل‌های نسخه‌دار و گزارشی فقط از رویدادهای واقعی.",
+      s_4: "Content Studio از طریق Telegram Bot API در کانال‌های ما منتشر می‌کند و نتیجهٔ هر کانال را جداگانه ثبت می‌کند — ارسال‌شده، ناموفق یا ارسال‌نشده.",
+      c_h: "آنچه امروز تحویل می‌دهیم",
+      c1_t: "محصولات دیجیتال", c1_d: "وب‌سایت، پورتال و پلتفرم کسب‌وکار — چندزبانه، سریع و موبایل‌محور.",
+      c2_t: "سیستم‌های کسب‌وکار", c2_d: "ورود امن، نقش‌ها، سوابق، داشبورد و پنل مدیریت روی داده‌های خودتان.",
+      c3_t: "اتوماسیون", c3_d: "ربات‌های تلگرام، مسیرهای درخواست و فرایندهایی که کار تکراری را حذف می‌کنند.",
+      c4_t: "سیستم‌های مبتنی بر AI", c4_d: "طراحی پرامپت، پاسخ‌های مبتنی بر دانش (RAG) و گام‌های AI — با بررسی انسانی در جای مهم.",
+      a_h: "معماری",
+      a_1: "فرانت‌اند ایستا و چندزبانه (EN · UZ · RU · FA · AR) با API بدون‌سرور روی Vercel.",
+      a_2: "ذخیره‌سازی خصوصی روی Vercel Blob؛ فایل‌های Workspace هرگز عمومی ارائه نمی‌شوند.",
+      a_3: "هر اقدام در Workspace و پنل مدیریت روی سرور احراز و بررسی می‌شود. توکن‌ها و کلیدها به مرورگر نمی‌رسند.",
+      a_4: "سرویس‌های بیرونی — Telegram، GitHub، Vercel، YouTube — فقط با کلیدهای تنظیم‌شده وصل می‌شوند؛ در غیر این صورت Workspace «Integration required» نشان می‌دهد.",
+      d_h: "چگونه توسعه می‌یابد", d_p: "ما با ابزارهای AI مانند Claude Code و Cursor می‌سازیم. معماری، بازبینی، امنیت، آزمون و تصمیم نهایی با انسان است — مکس مسئول چیزی است که منتشر می‌شود.",
+      lim_h: "<b>محدودیت‌ها، صریح:</b>",
+      lim_1: "این هوش عمومی نیست و هیچ‌چیز در اینجا خودش تصمیم نمی‌گیرد.", lim_2: "خروجی AI ممکن است اشتباه باشد؛ پاسخ‌های حساس را انسان بررسی می‌کند.", lim_3: "انتشار و استقرار فقط پس از تأیید سرویس بیرونی گزارش می‌شوند.",
+      p_h: "پروژه‌ها",
+      p1_d: "پلتفرم آموزشی با ۵٬۶۵۳ تمرین خودکارتصحیح در ۳۱ موضوع کتاب DTM. فعال.",
+      p2_d: "پورتال B2B گردشگری (Python · Flask · SQLite · 2FA) که خوانندهٔ GDS آن بیش از ۱٬۱۰۰ شرکت هواپیمایی را می‌شناسد. آمادهٔ استقرار.",
+      p_case: "مطالعهٔ موردی در سایت اصلی ←",
+      p3_d: "محیط کاری خصوصی شرکت: درخواست‌ها، پروژه‌ها، فایل‌ها، انتشار و فعالیت. داخلی — غیرعمومی.",
+      r_h: "پژوهش آینده", r_p: "جهت‌هایی که بررسی می‌کنیم. هیچ‌کدام منتشر نشده و تاریخی وعده نمی‌دهیم — هر کدام فقط وقتی کار کند و آزموده شود منتشر می‌شود.",
+      r_1: "دستیارهای دانشی که فقط از منابع تأییدشدهٔ شرکت پاسخ می‌دهند.", r_2: "کمک AI درون Workspace — پیش‌نویس، خلاصه و دسته‌بندی با تأیید انسان.", r_3: "اتوماسیون عمیق‌تر در ابزارهایی که کسب‌وکار از قبل استفاده می‌کند.",
+      u_h: "به‌روزرسانی‌ها", u_p: "هنوز به‌روزرسانی‌ای اینجا نیست. اخبار AGI و UzLeeder در کانال تلگرام <a href=\"https://t.me/uzleeder\" target=\"_blank\" rel=\"noopener\">@uzleeder</a> منتشر می‌شود.",
+      cta_h: "سیستم خود را با UzLeeder بسازید.", btn_start: "شروع پروژه", btn_view: "دیدن پروژه‌ها"
+    },
+    ar: {
+      skip: "انتقل إلى المحتوى", back: "← الموقع الرئيسي",
+      h1: "AGI اتجاه. <em>وليس ادعاءً.</em>",
+      lead: "في UzLeeder يشير AGI إلى اتجاهنا التقني والمنتجي: أنظمة أعمال ذكية ومترابطة تحت تحكم بشري صريح. لم نبنِ ذكاءً اصطناعيًا عامًا، ولا تدّعي هذه الصفحة ذلك. يوضح كل قسم ما تم تنفيذه، وما هو رؤية، وما لا يزال بحثًا.",
+      lg_now: "ما تم تنفيذه", lg_v: "الرؤية", lg_f: "أبحاث مستقبلية",
+      t_vision: "الرؤية", t_system: "النظام الحالي", t_cap: "القدرات", t_arch: "المعمارية", t_dev: "التطوير", t_proj: "المشاريع", t_res: "الأبحاث", t_upd: "التحديثات",
+      v_h: "إلى أين نتجه", v_p: "ينبغي أن تعمل الأعمال على أنظمة تفهم عملها: تصل الطلبات إلى مكان واحد، وتُنفَّذ الخطوات الروتينية تلقائيًا، ويرى المسؤولون كل شيء ويتخذون القرار.",
+      v_1: "البرمجيات تتولى الروتين؛ والقرارات تبقى للبشر.", v_2: "نظام واحد مترابط بدل أدوات متفرقة كثيرة.", v_3: "يُضاف الذكاء الاصطناعي حيث يكون موثوقًا ومختبرًا — لا للزينة.",
+      s_h: "النظام الحالي", s_p: "هذه سلسلة العمل التي بنتها UzLeeder لنفسها. ونبني النهج نفسه لعملائنا.",
+      f_site: "ملخص من الموقع", f_req: "طلب", f_proj: "مشروع", f_content: "محتوى", f_tg: "قنوات تيليجرام",
+      s_1: "تُتحقَّق ملخصات المشاريع من هذا الموقع على الخادم وتُحفظ كطلبات قبل إظهار النجاح.",
+      s_2: "يجمع @uzleeder_services_bot الخدمة والوصف ووسيلة التواصل وملفًا اختياريًا. يعمل بالكود — لا يوجد بداخله ذكاء اصطناعي.",
+      s_3: "يحوّل Workspace الخاص الطلبات إلى عملاء ومشاريع: مهام وملفات بإصدارات وسجل للأحداث الحقيقية فقط.",
+      s_4: "ينشر Content Studio في قنواتنا على تيليجرام عبر Telegram Bot API ويسجّل نتيجة كل قناة على حدة — أُرسل، فشل، أو لم يُرسل.",
+      c_h: "ما نقدّمه اليوم",
+      c1_t: "منتجات رقمية", c1_d: "مواقع وبوابات ومنصات أعمال — متعددة اللغات وسريعة ومصممة للجوال أولًا.",
+      c2_t: "أنظمة أعمال", c2_d: "دخول آمن وأدوار وسجلات ولوحات معلومات ولوحات إدارة على بياناتك.",
+      c3_t: "الأتمتة", c3_d: "بوتات تيليجرام ومسارات طلبات وسير عمل يزيل العمل المتكرر.",
+      c4_t: "أنظمة بمساعدة الذكاء الاصطناعي", c4_d: "تصميم الأوامر وإجابات مبنية على المعرفة (RAG) وخطوات ذكاء اصطناعي — مع مراجعة بشرية حيث يهم.",
+      a_h: "المعمارية",
+      a_1: "واجهة ثابتة متعددة اللغات (EN · UZ · RU · FA · AR) مع API بلا خوادم على Vercel.",
+      a_2: "تخزين خاص على Vercel Blob؛ لا تُقدَّم ملفات Workspace للعامة أبدًا.",
+      a_3: "كل إجراء في Workspace ولوحة الإدارة يُصادَق ويُتحقق منه على الخادم. لا تصل الرموز والمفاتيح إلى المتصفح.",
+      a_4: "تُربط الخدمات الخارجية — Telegram وGitHub وVercel وYouTube — فقط عند ضبط المفاتيح؛ وإلا يعرض Workspace «Integration required».",
+      d_h: "كيف يتم التطوير", d_p: "نبني بأدوات ذكاء اصطناعي مثل Claude Code وCursor. تبقى المعمارية والمراجعة والأمان والاختبار والقرار النهائي بيد البشر — ماكس مسؤول عمّا يُطلق.",
+      lim_h: "<b>القيود بوضوح:</b>",
+      lim_1: "هذا ليس ذكاءً عامًا، ولا شيء هنا يتخذ قرارًا بمفرده.", lim_2: "قد يخطئ الذكاء الاصطناعي؛ والإجابات الحرجة يراجعها إنسان.", lim_3: "لا يُبلَّغ عن النشر والإطلاق إلا بعد تأكيد الخدمة الخارجية للنتيجة.",
+      p_h: "المشاريع",
+      p1_d: "منصة تعليمية تضم 5,653 تمرينًا مصحّحًا آليًا في 31 موضوعًا من كتاب DTM. تعمل.",
+      p2_d: "بوابة سفر B2B ‏(Python · Flask · SQLite · 2FA) يتعرّف قارئ GDS فيها على أكثر من 1,100 شركة طيران. جاهزة للنشر.",
+      p_case: "دراسة الحالة في الموقع الرئيسي ←",
+      p3_d: "بيئة العمل الخاصة بالشركة: الطلبات والمشاريع والملفات والنشر والنشاط. داخلية — غير عامة.",
+      r_h: "أبحاث مستقبلية", r_p: "اتجاهات نستكشفها. لم يُطلق أيٌّ منها، ولا نعد بمواعيد — لا يُطلق أيٌّ منها إلا بعد أن يعمل ويُختبر.",
+      r_1: "مساعدات معرفية تجيب فقط من مصادر الشركة المعتمدة.", r_2: "مساعدة الذكاء الاصطناعي داخل Workspace — مسودات وملخصات وفرز بموافقة إنسان.", r_3: "أتمتة أعمق عبر الأدوات التي تستخدمها الأعمال بالفعل.",
+      u_h: "التحديثات", u_p: "لا توجد تحديثات هنا بعد. تُنشر أخبار AGI وUzLeeder في قناة تيليجرام <a href=\"https://t.me/uzleeder\" target=\"_blank\" rel=\"noopener\">@uzleeder</a>.",
+      cta_h: "ابنِ نظامك مع UzLeeder.", btn_start: "ابدأ مشروعًا", btn_view: "شاهد المشاريع"
+    }
+  };
+  var d = document.documentElement, EN = {};
+  document.querySelectorAll("[data-t]").forEach(function (el) { EN[el.getAttribute("data-t")] = el.innerHTML; });
+  T.en = EN;
+  function apply(l) {
+    if (!T[l]) l = "en";
+    var dict = T[l];
+    document.querySelectorAll("[data-t]").forEach(function (el) { var v = dict[el.getAttribute("data-t")]; if (v != null) el.innerHTML = v; });
+    d.setAttribute("lang", l);
+    d.setAttribute("dir", l === "fa" || l === "ar" ? "rtl" : "ltr");
+    document.getElementById("lang").value = l;
+    try { localStorage.setItem("uzleeder_lang", l); } catch (e) {}
+  }
+  var q = (location.search.match(/[?&]lang=([a-z]{2})/) || [])[1], saved;
+  try { saved = localStorage.getItem("uzleeder_lang"); } catch (e) {}
+  apply(q || saved || "en");
+  document.getElementById("lang").addEventListener("change", function (e) { apply(e.target.value); });
+  document.getElementById("theme").addEventListener("click", function () {
+    var t = d.getAttribute("data-theme") === "light" ? "dark" : "light";
+    d.setAttribute("data-theme", t);
+    try { localStorage.setItem("uzleeder_theme", t); } catch (e) {}
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Verify a UzLeeder Record</title>
+<meta name="description" content="Check whether a UzLeeder venture record certificate was issued by UzLeeder and whether it is still valid."/>
+<link rel="icon" type="image/svg+xml" href="/icon.svg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+<style>
+/* /verify — the public check for UzLeeder venture record certificates (data: GET /api/startups?verify=…) */
+:root{--bg:#f4f1ea;--paper:#fbf9f4;--ink:#14213d;--soft:#4a5468;--faint:#6f7686;--gold:#9a7642;--line:#e4ded2;--red:#e01e37;
+  --ok:#1d7a46;--ok-bg:#e6f4ec;--warn:#9a5b00;--warn-bg:#fff2dc;--bad:#b4232f;--bad-bg:#fbe8ea;--gray:#4a5468;--gray-bg:#eceae4}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b0f17;--paper:#121826;--ink:#eef0f5;--soft:#b6bdcc;--faint:#8e96a8;--gold:#d2b07a;--line:#273044;
+  --ok:#5fd394;--ok-bg:#12301f;--warn:#f3b45a;--warn-bg:#33240c;--bad:#ff7a85;--bad-bg:#3a1418;--gray:#b6bdcc;--gray-bg:#1d2433}}
+:root[data-theme="dark"]{--bg:#0b0f17;--paper:#121826;--ink:#eef0f5;--soft:#b6bdcc;--faint:#8e96a8;--gold:#d2b07a;--line:#273044;
+  --ok:#5fd394;--ok-bg:#12301f;--warn:#f3b45a;--warn-bg:#33240c;--bad:#ff7a85;--bad-bg:#3a1418;--gray:#b6bdcc;--gray-bg:#1d2433}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.55 "PT Sans",system-ui,sans-serif;min-height:100vh;display:flex;flex-direction:column}
+a{color:inherit}
+.wrap{width:100%;max-width:760px;margin:0 auto;padding:0 16px}
+header{padding:22px 0}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand b{font:700 1.2rem "PT Serif",Georgia,serif}
+.brand small{display:block;font-size:.62rem;letter-spacing:.24em;color:var(--gold);font-weight:700}
+.langs{display:flex;gap:4px}
+.langs button{font:700 .78rem "PT Sans",sans-serif;padding:8px 10px;min-height:36px;border-radius:8px;border:1px solid var(--line);background:transparent;color:var(--soft);cursor:pointer}
+.langs button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+main{flex:1;padding:8px 0 48px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:clamp(20px,4vw,36px);position:relative}
+.card::before{content:"";position:absolute;inset:6px;border:1px solid var(--line);border-radius:10px;pointer-events:none;opacity:.7}
+.k{font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+h1{font:400 clamp(1.5rem,4vw,2.1rem)/1.2 "PT Serif",Georgia,serif;letter-spacing:.02em;margin:6px 0 4px}
+.lead{color:var(--soft);max-width:56ch}
+.status{display:flex;gap:14px;align-items:flex-start;margin:24px 0 8px;padding:16px 18px;border-radius:12px}
+.status .ico{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:1.05rem}
+.status b{display:block;font-size:1.15rem}
+.status p{color:var(--soft);font-size:.95rem}
+.s-valid{background:var(--ok-bg)}.s-valid .ico{background:var(--ok);color:var(--paper)}.s-valid b{color:var(--ok)}
+.s-suspended{background:var(--warn-bg)}.s-suspended .ico{background:var(--warn);color:var(--paper)}.s-suspended b{color:var(--warn)}
+.s-revoked{background:var(--bad-bg)}.s-revoked .ico{background:var(--bad);color:var(--paper)}.s-revoked b{color:var(--bad)}
+.s-superseded,.s-not_found{background:var(--gray-bg)}.s-superseded .ico,.s-not_found .ico{background:var(--gray);color:var(--paper)}
+dl{display:grid;grid-template-columns:minmax(140px,34%) 1fr;margin-top:18px;border-top:1px solid var(--line)}
+dt,dd{padding:11px 0;border-bottom:1px solid var(--line)}
+dt{color:var(--faint);font-size:.86rem;padding-right:12px}
+dd{font-weight:700;overflow-wrap:anywhere}
+dd.name{font:700 1.25rem "PT Serif",Georgia,serif}
+.mono{font-family:ui-monospace,Consolas,monospace;font-weight:700;letter-spacing:.02em}
+.note{margin-top:20px;font-size:.86rem;color:var(--soft);padding:12px 14px;border-left:3px solid var(--gold);background:color-mix(in srgb,var(--gold) 7%,transparent)}
+form{display:grid;gap:12px;margin-top:22px}
+label{font-weight:700;font-size:.88rem}
+input{width:100%;font:700 1rem ui-monospace,Consolas,monospace;padding:12px 14px;min-height:48px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);text-transform:uppercase}
+input:focus-visible,button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.btn{font:700 1rem "PT Sans",sans-serif;min-height:48px;padding:0 22px;border-radius:10px;border:0;background:var(--ink);color:var(--paper);cursor:pointer;justify-self:start}
+.hint{color:var(--faint);font-size:.82rem}
+.err{color:var(--bad);font-weight:700}
+footer{padding:22px 0;color:var(--faint);font-size:.82rem}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+[hidden]{display:none!important}
+@media (max-width:520px){dl{grid-template-columns:1fr}dt{border-bottom:0;padding-bottom:0}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="brand" href="/" aria-label="UzLeeder — home">
+    <svg width="30" height="28" viewBox="0 0 48 44" aria-hidden="true"><path d="M4 41 24 5l20 36" fill="none" stroke="#f0384e" stroke-width="7" stroke-miterlimit="10"/><path d="M14 41 24 23l10 18" fill="none" stroke="currentColor" stroke-width="5.5" stroke-miterlimit="10"/></svg>
+    <span><b>UzLeeder</b><small data-t="eco">VENTURE ECOSYSTEM</small></span>
+  </a>
+  <div class="langs" role="group" aria-label="Language"><button type="button" data-lang="en">EN</button><button type="button" data-lang="uz">UZ</button><button type="button" data-lang="ru">RU</button></div>
+</div></header>
+
+<main id="main"><div class="wrap">
+  <section class="card" aria-labelledby="vTitle">
+    <p class="k" data-t="kicker">Record verification</p>
+    <h1 id="vTitle" data-t="title">Verify a UzLeeder record</h1>
+    <p class="lead" data-t="lead">Check whether a venture record certificate was issued by UzLeeder and whether it is still valid. The result comes from UzLeeder's records — the QR code on a document is only a link to this page.</p>
+
+    <div id="result" aria-live="polite"></div>
+
+    <form id="form" novalidate>
+      <div><label for="num" data-t="numLbl">Certificate number</label><input id="num" name="num" autocomplete="off" spellcheck="false" placeholder="UZL-VRC-2026-000001" maxlength="24"/></div>
+      <div><label for="code" data-t="codeLbl">Verification code</label><input id="code" name="code" autocomplete="off" spellcheck="false" placeholder="XXXXXXXXXX" maxlength="10"/><p class="hint" data-t="codeHint">Printed next to the QR code on the certificate.</p></div>
+      <p class="err" id="formErr" role="alert" hidden></p>
+      <button class="btn" type="submit" data-t="check">Check record</button>
+    </form>
+  </section>
+</div></main>
+
+<footer><div class="wrap"><span data-t="foot">UzLeeder issues internal venture records. They are not government registrations, licences or accreditations.</span><a href="/" data-t="home">uzleeder.vercel.app</a></div></footer>
+
+<script>
+(function () {
+  "use strict";
+  var T = {
+    en: { eco: "VENTURE ECOSYSTEM", kicker: "Record verification", title: "Verify a UzLeeder record", lead: "Check whether a venture record certificate was issued by UzLeeder and whether it is still valid. The result comes from UzLeeder's records — the QR code on a document is only a link to this page.",
+      numLbl: "Certificate number", codeLbl: "Verification code", codeHint: "Printed next to the QR code on the certificate.", check: "Check record", home: "uzleeder.vercel.app",
+      foot: "UzLeeder issues internal venture records. They are not government registrations, licences or accreditations.", checking: "Checking…",
+      valid: "Valid", validP: "This record was issued by UzLeeder and is currently valid.", suspended: "Suspended", suspendedP: "This record was issued by UzLeeder but is suspended. Do not rely on it until it is reinstated.",
+      revoked: "Revoked", revokedP: "This record was issued by UzLeeder and has been revoked. It is no longer valid.", superseded: "Superseded", supersededP: "This record was replaced by a newer one. Check the replacement instead.",
+      not_found: "Not found", not_foundP: "No record matches this number and code. Check both values exactly as printed on the document.",
+      issuer: "Issuer", number: "Certificate number", type: "Document type", venture: "Venture", founder: "Recorded founder", representative: "Designated representative",
+      member: "Recorded team member", memberRole: "Recorded role", milestone: "Recorded milestone", completedOn: "Completed on", stage: "Development stage at issue date",
+      registration: "External registration (verified)", issued: "Date issued", changed: "Status last updated", replacedBy: "Replaced by", replaces: "Replaces",
+      note: "Internal UzLeeder venture record. It does not replace government business registration, licences, permits or other official credentials.",
+      badNum: "Enter the certificate number, for example UZL-VRC-2026-000001.", badCode: "Enter the 10-character verification code.", busy: "Too many checks — try again in a minute.", fail: "Verification is unavailable right now. Try again later." },
+    uz: { eco: "VENCHUR EKOTIZIMI", kicker: "Qaydni tekshirish", title: "UzLeeder qaydini tekshirish", lead: "Loyiha qaydi sertifikati UzLeeder tomonidan berilganini va hozir ham haqiqiyligini tekshiring. Natija UzLeeder ma'lumotlaridan olinadi — hujjatdagi QR kod faqat shu sahifaga havola.",
+      numLbl: "Sertifikat raqami", codeLbl: "Tekshiruv kodi", codeHint: "Sertifikatda QR kod yonida yozilgan.", check: "Tekshirish", home: "uzleeder.vercel.app",
+      foot: "UzLeeder ichki loyiha qaydlarini beradi. Ular davlat ro'yxati, litsenziya yoki akkreditatsiya emas.", checking: "Tekshirilmoqda…",
+      valid: "Haqiqiy", validP: "Bu qayd UzLeeder tomonidan berilgan va hozir haqiqiy.", suspended: "To'xtatilgan", suspendedP: "Bu qayd UzLeeder tomonidan berilgan, lekin to'xtatilgan. Qayta tiklanmaguncha unga tayanmang.",
+      revoked: "Bekor qilingan", revokedP: "Bu qayd UzLeeder tomonidan berilgan va bekor qilingan. U endi haqiqiy emas.", superseded: "Almashtirilgan", supersededP: "Bu qayd yangisi bilan almashtirilgan. Yangisini tekshiring.",
+      not_found: "Topilmadi", not_foundP: "Bu raqam va kodga mos qayd yo'q. Ikkalasini ham hujjatdagidek aniq kiriting.",
+      issuer: "Emitent", number: "Sertifikat raqami", type: "Hujjat turi", venture: "Loyiha", founder: "Qayd etilgan asoschi", representative: "Vakolatli vakil",
+      member: "Qayd etilgan jamoa a'zosi", memberRole: "Qayd etilgan vazifa", milestone: "Qayd etilgan natija", completedOn: "Yakunlangan sana", stage: "Berilgan sanadagi rivojlanish bosqichi",
+      registration: "Tashqi ro'yxat (tekshirilgan)", issued: "Berilgan sana", changed: "Holat yangilangan", replacedBy: "O'rniga berilgan", replaces: "O'rniga",
+      note: "UzLeeder tomonidan berilgan ichki loyiha qaydi. U davlat ro'yxatidan o'tkazish, litsenziya, ruxsatnoma yoki boshqa rasmiy hujjatlar o'rnini bosmaydi.",
+      badNum: "Sertifikat raqamini kiriting, masalan UZL-VRC-2026-000001.", badCode: "10 belgili tekshiruv kodini kiriting.", busy: "Juda ko'p tekshiruv — bir daqiqadan keyin urinib ko'ring.", fail: "Tekshiruv hozir ishlamayapti. Keyinroq urinib ko'ring." },
+    ru: { eco: "ВЕНЧУРНАЯ ЭКОСИСТЕМА", kicker: "Проверка записи", title: "Проверить запись UzLeeder", lead: "Проверьте, выдан ли сертификат записи о проекте компанией UzLeeder и действителен ли он сейчас. Результат берётся из записей UzLeeder — QR-код на документе лишь ссылка на эту страницу.",
+      numLbl: "Номер сертификата", codeLbl: "Код проверки", codeHint: "Напечатан рядом с QR-кодом на сертификате.", check: "Проверить", home: "uzleeder.vercel.app",
+      foot: "UzLeeder выдаёт внутренние записи о проектах. Это не государственная регистрация, лицензия или аккредитация.", checking: "Проверяем…",
+      valid: "Действителен", validP: "Запись выдана UzLeeder и сейчас действительна.", suspended: "Приостановлен", suspendedP: "Запись выдана UzLeeder, но приостановлена. Не полагайтесь на неё до восстановления.",
+      revoked: "Отозван", revokedP: "Запись выдана UzLeeder и отозвана. Она больше не действительна.", superseded: "Заменён", supersededP: "Запись заменена более новой. Проверьте новую запись.",
+      not_found: "Не найдено", not_foundP: "Нет записи с таким номером и кодом. Проверьте оба значения точно как в документе.",
+      issuer: "Эмитент", number: "Номер сертификата", type: "Тип документа", venture: "Проект", founder: "Зафиксированный основатель", representative: "Уполномоченный представитель",
+      member: "Участник команды", memberRole: "Зафиксированная роль", milestone: "Зафиксированный этап", completedOn: "Дата завершения", stage: "Этап развития на дату выдачи",
+      registration: "Внешняя регистрация (проверено)", issued: "Дата выдачи", changed: "Статус обновлён", replacedBy: "Заменён на", replaces: "Заменяет",
+      note: "Внутренняя запись о проекте UzLeeder. Не заменяет государственную регистрацию бизнеса, лицензии, разрешения и иные официальные документы.",
+      badNum: "Введите номер сертификата, например UZL-VRC-2026-000001.", badCode: "Введите 10-значный код проверки.", busy: "Слишком много проверок — попробуйте через минуту.", fail: "Проверка сейчас недоступна. Попробуйте позже." }
+  };
+  var ICON = { valid: "✓", suspended: "Ⅱ", revoked: "✕", superseded: "↻", not_found: "?" };
+  var $ = function (s) { return document.querySelector(s); };
+  var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
+  var NUM = /^UZL-(VRC|DSR|FTA|PCR)-\d{4}-\d{6}$/, CODE = /^[2-9A-HJ-NP-Z]{10}$/;
+  var lang = (function () { var q = new URLSearchParams(location.search).get("lang"); if (T[q]) return q; try { var s = localStorage.getItem("uzl_verify_lang"); if (T[s]) return s; } catch (e) {} var n = (navigator.language || "en").slice(0, 2); return T[n] ? n : "en"; })();
+  var last = null;
+  function t(k) { return T[lang][k] || T.en[k] || k; }
+  function date(iso) { if (!iso) return ""; var d = new Date(iso.length === 10 ? iso + "T00:00:00Z" : iso); return isNaN(d) ? iso : d.toLocaleDateString(lang === "uz" ? "uz-Latn-UZ" : lang === "ru" ? "ru-RU" : "en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }); }
+  function applyLang() {
+    document.documentElement.lang = lang;
+    document.querySelectorAll("[data-t]").forEach(function (el) { el.textContent = t(el.getAttribute("data-t")); });
+    document.querySelectorAll("[data-lang]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.lang === lang)); });
+    document.title = t("title");
+    if (last) show(last);
+  }
+  function row(k, v, cls) { return v ? "<dt>" + esc(t(k)) + '</dt><dd class="' + (cls || "") + '">' + esc(v) + "</dd>" : ""; }
+  function show(r) {
+    last = r;
+    var st = !r.found ? "not_found" : r.status === "issued" ? "valid" : r.status;
+    var html = '<div class="status s-' + st + '" role="status"><span class="ico" aria-hidden="true">' + ICON[st] + "</span><div><b>" + esc(t(st)) + "</b><p>" + esc(t(st + "P")) + "</p></div></div>";
+    if (r.found) {
+      html += "<dl>" + row("venture", r.ventureName, "name") + row("issuer", r.issuer) + row("number", r.number, "mono") + row("type", (r.typeLabel || {})[lang] || (r.typeLabel || {}).en) +
+        row(r.repRole === "representative" ? "representative" : "founder", r.representative) + row("member", r.member) + row("memberRole", r.memberRole) +
+        row("milestone", r.milestone) + row("completedOn", date(r.completedOn)) + row("stage", r.stageLabel ? r.stageLabel[lang] || r.stageLabel.en : r.stage) +
+        row("registration", r.registration) + row("issued", date(r.issuedAt)) + (r.statusChangedAt && r.statusChangedAt !== r.issuedAt ? row("changed", date(r.statusChangedAt)) : "") +
+        (r.supersededBy ? row("replacedBy", r.supersededBy, "mono") : "") + (r.replaces ? row("replaces", r.replaces, "mono") : "") + "</dl>" +
+        '<p class="note">' + esc(t("note")) + "</p>";
+    }
+    $("#result").innerHTML = html;
+  }
+  function check(num, code) {
+    $("#result").innerHTML = '<p class="hint" role="status">' + esc(t("checking")) + "</p>";
+    fetch("/api/startups?verify=" + encodeURIComponent(num) + "&c=" + encodeURIComponent(code), { cache: "no-store" })
+      .then(function (res) { if (res.status === 429) throw new Error("busy"); if (!res.ok) throw new Error("fail"); return res.json(); })
+      .then(show)
+      .catch(function (e) { last = null; $("#result").innerHTML = '<p class="err" role="alert">' + esc(t(e.message === "busy" ? "busy" : "fail")) + "</p>"; });
+  }
+  document.querySelectorAll("[data-lang]").forEach(function (b) { b.addEventListener("click", function () { lang = b.dataset.lang; try { localStorage.setItem("uzl_verify_lang", lang); } catch (e) {} applyLang(); }); });
+  $("#form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var num = $("#num").value.trim().toUpperCase(), code = $("#code").value.trim().toUpperCase(), err = $("#formErr");
+    err.hidden = true;
+    if (!NUM.test(num)) { err.textContent = t("badNum"); err.hidden = false; $("#num").focus(); return; }
+    if (!CODE.test(code)) { err.textContent = t("badCode"); err.hidden = false; $("#code").focus(); return; }
+    history.replaceState(null, "", "/verify/" + num + "?c=" + code);
+    check(num, code);
+  });
+  applyLang();
+  var m = location.pathname.match(/^\/verify\/([A-Za-z0-9-]+)\/?$/), c = new URLSearchParams(location.search).get("c") || "";
+  if (m) { $("#num").value = m[1].toUpperCase(); $("#code").value = c.toUpperCase(); if (NUM.test(m[1].toUpperCase()) && CODE.test(c.toUpperCase())) check(m[1].toUpperCase(), c.toUpperCase()); }
+})();
+</script>
+</body>
+</html>

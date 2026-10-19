@@ -1,0 +1,194 @@
+# Netlify — the same site as Vercel (uzleeder.vercel.app), with the same server code:
+#   static files: dist/ only (build/netlify-dist.cjs — never api/, server/, build/, archive/ or any .env file)
+#   API: netlify/functions/* wrap the unchanged Vercel handlers in api/ (netlify/shared/vercel-adapter.js)
+#   storage: Netlify Blobs (api/_lib/blob-netlify.js) — separate from Vercel's data
+# Keep routes and headers in step with vercel.json.
+
+[build]
+  command = "node build/netlify-dist.cjs"
+  publish = "dist"
+  functions = "netlify/functions"
+
+[build.environment]
+  NODE_VERSION = "22"
+  AWS_LAMBDA_JS_RUNTIME = "nodejs22.x"
+
+[functions]
+  node_bundler = "zisi"
+  # read with fs at runtime (certificate PDFs), so they are not found by require-tracing
+  included_files = ["api/_lib/fonts/**", "api/_lib/partner-notices.json", "api/_lib/startups-seed.json"]
+
+# ---------- old addresses ----------
+[[redirects]]
+  from = "/startups/uzport"
+  to = "/startups/t-port"
+  status = 301
+  force = true
+
+# ---------- API → functions (first match wins, so these come before the catch-all below) ----------
+[[redirects]]
+  from = "/api/media/*"
+  to = "/.netlify/functions/media?key=:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/:fn"
+  to = "/.netlify/functions/:fn"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+# ---------- pages ----------
+[[redirects]]
+  from = "/partners/apply"
+  to = "/partner-apply.html"
+  status = 200
+[[redirects]]
+  from = "/partners/apply/"
+  to = "/partner-apply.html"
+  status = 200
+[[redirects]]
+  from = "/partners"
+  to = "/partners.html"
+  status = 200
+[[redirects]]
+  from = "/partners/"
+  to = "/partners.html"
+  status = 200
+[[redirects]]
+  from = "/workspace/partners"
+  to = "/partner-workspace.html"
+  status = 200
+[[redirects]]
+  from = "/workspace/partners/"
+  to = "/partner-workspace.html"
+  status = 200
+[[redirects]]
+  from = "/admin"
+  to = "/admin.html"
+  status = 200
+[[redirects]]
+  from = "/admin/"
+  to = "/admin.html"
+  status = 200
+[[redirects]]
+  from = "/workspace"
+  to = "/workspace.html"
+  status = 200
+[[redirects]]
+  from = "/workspace/"
+  to = "/workspace.html"
+  status = 200
+[[redirects]]
+  from = "/en"
+  to = "/en.html"
+  status = 200
+[[redirects]]
+  from = "/uz"
+  to = "/uz.html"
+  status = 200
+[[redirects]]
+  from = "/ru"
+  to = "/ru.html"
+  status = 200
+[[redirects]]
+  from = "/fa"
+  to = "/fa.html"
+  status = 200
+[[redirects]]
+  from = "/ar"
+  to = "/ar.html"
+  status = 200
+[[redirects]]
+  from = "/certified"
+  to = "/certified.html"
+  status = 200
+[[redirects]]
+  from = "/agi"
+  to = "/agi.html"
+  status = 200
+[[redirects]]
+  from = "/card"
+  to = "/card/index.html"
+  status = 200
+[[redirects]]
+  from = "/card/"
+  to = "/card/index.html"
+  status = 200
+[[redirects]]
+  from = "/verify"
+  to = "/verify.html"
+  status = 200
+[[redirects]]
+  from = "/verify/*"
+  to = "/verify.html"
+  status = 200
+[[redirects]]
+  from = "/startups"
+  to = "/startups.html"
+  status = 200
+[[redirects]]
+  from = "/startups/"
+  to = "/startups.html"
+  status = 200
+[[redirects]]
+  from = "/startups/*"
+  to = "/startups.html"
+  status = 200
+
+# ---------- headers (as in vercel.json) ----------
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+[[headers]]
+  for = "/"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+[[headers]]
+  for = "/style.css"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+[[headers]]
+  for = "/script.js"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+[[headers]]
+  for = "/projects/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+[[headers]]
+  for = "/certs/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/admin*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "no-store"
+[[headers]]
+  for = "/workspace*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "no-store"
+[[headers]]
+  for = "/partner-workspace.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "no-store"
+    Referrer-Policy = "no-referrer"

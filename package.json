@@ -1,0 +1,22 @@
+{
+  "name": "uzleeder-site",
+  "version": "2.0.0",
+  "private": true,
+  "description": "UzLeeder portfolio + admin CMS. Static site with serverless API: Vercel (api/, Vercel Blob) or Netlify (netlify/functions, Netlify Blobs).",
+  "scripts": {
+    "setup": "node setup-vercel.cjs",
+    "build:site": "node build/build-startups.js && node build/build-locales.js && node build/build-i18n.js",
+    "dev": "node server/local-dev.cjs",
+    "test": "node server/test-api.cjs && node server/test-startups.cjs && node server/test-certs.cjs && node server/test-partners.cjs && node server/test-netlify.cjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^11.1.4",
+    "@pdf-lib/fontkit": "^1.1.1",
+    "@vercel/blob": "^2.8.0",
+    "pdf-lib": "^1.17.1",
+    "qrcode-generator": "^1.4.4"
+  }
+}

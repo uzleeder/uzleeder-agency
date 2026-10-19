@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Workspace · AGI / UzLeeder</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+<script>try{var t=localStorage.getItem("uz_ws_theme");if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+<style>
+/* ---- semantic tokens (same names as the public site's V5 tokens) ---- */
+:root{
+  --background:#07090d;--surface:#0e1219;--surface-elevated:#151a24;--surface-hover:#1a2030;
+  --text:#eef1f6;--text-muted:#9aa3b5;--text-faint:#6b7488;
+  --brand:#e01e37;--brand-hover:#f0384e;--brand-soft:rgba(224,30,55,.14);
+  --border:#232a38;--border-strong:#323b4d;
+  --success:#22c38e;--warning:#f0b429;--error:#ff5a6a;--info:#5aa7ff;
+  --radius:12px;--mono:'Cascadia Mono',ui-monospace,'SFMono-Regular',Consolas,monospace;
+  --sans:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+  color-scheme:dark;
+}
+[data-theme="light"]{
+  --background:#f7f8fa;--surface:#ffffff;--surface-elevated:#ffffff;--surface-hover:#f0f2f6;
+  --text:#1c2233;--text-muted:#5b6478;--text-faint:#8a92a4;
+  --brand:#e01e37;--brand-hover:#c4142b;--brand-soft:rgba(224,30,55,.09);
+  --border:#e3e6ec;--border-strong:#cfd4de;
+  --success:#0f9d6c;--warning:#b7791f;--error:#d42a3c;--info:#2f6fd0;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{background:var(--background);color:var(--text);font:14px/1.5 var(--sans);-webkit-font-smoothing:antialiased}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0;padding:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--brand-hover);outline-offset:2px;border-radius:6px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.ico{width:18px;height:18px;flex:none;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---- shell ---- */
+.app{display:grid;grid-template-columns:248px 1fr;min-height:100vh}
+.side{position:sticky;top:0;height:100vh;overflow:auto;background:var(--surface);border-inline-end:1px solid var(--border);display:flex;flex-direction:column;padding:16px 12px}
+.brand{display:flex;align-items:center;gap:10px;padding:4px 8px 16px}
+.brand svg{width:30px;height:28px}
+.brand b{display:block;font-size:15px;letter-spacing:.02em}
+.brand span{display:block;font:600 10px/1 var(--mono);letter-spacing:.22em;color:var(--brand-hover);margin-top:3px}
+.nav{display:flex;flex-direction:column;gap:1px;flex:1}
+.nav .g{font:600 10px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--text-faint);padding:14px 10px 6px}
+.nav button{display:flex;align-items:center;gap:10px;width:100%;padding:8px 10px;border-radius:8px;color:var(--text-muted);text-align:start}
+.nav button:hover{background:var(--surface-hover);color:var(--text)}
+.nav button[aria-current="page"]{background:var(--brand-soft);color:var(--text)}
+.nav button[aria-current="page"] .ico{color:var(--brand-hover)}
+.nav .sub{padding-inline-start:36px}
+.nav .count{margin-inline-start:auto;font:600 11px/1 var(--mono);background:var(--brand);color:#fff;border-radius:99px;padding:3px 7px}
+.side-foot{border-top:1px solid var(--border);padding-top:10px;display:flex;flex-direction:column;gap:2px}
+.side-foot a,.side-foot button{display:flex;align-items:center;gap:10px;padding:7px 10px;border-radius:8px;color:var(--text-muted);text-decoration:none;font-size:13px}
+.side-foot a:hover,.side-foot button:hover{background:var(--surface-hover);color:var(--text)}
+.main{min-width:0;display:flex;flex-direction:column}
+.top{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:12px;padding:12px 24px;background:color-mix(in srgb,var(--background) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.menu-btn{display:none}
+.search{flex:1;max-width:560px;display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:8px 12px;color:var(--text-muted)}
+.search:hover{border-color:var(--border-strong)}
+.search kbd,.kbd{margin-inline-start:auto;font:600 11px/1 var(--mono);border:1px solid var(--border-strong);border-radius:6px;padding:3px 6px;color:var(--text-faint)}
+.era-tag{font:700 11px/1 var(--mono);letter-spacing:.2em;color:var(--brand-hover);white-space:nowrap}
+.content{padding:24px;max-width:1280px;width:100%}
+.head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+.head h1{margin:0;font-size:24px;letter-spacing:-.01em}
+.head p{margin:4px 0 0;color:var(--text-muted)}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+
+/* ---- components ---- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:8px 14px;border-radius:9px;border:1px solid var(--border-strong);background:var(--surface-elevated);font-weight:600;font-size:13px;white-space:nowrap}
+.btn:hover{border-color:var(--text-faint)}
+.btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+.btn.primary:hover{background:var(--brand-hover);border-color:var(--brand-hover)}
+.btn.danger{color:var(--error)}
+.btn.sm{padding:5px 10px;font-size:12px}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px}
+.card h2,.card h3{margin:0 0 10px;font-size:14px;display:flex;align-items:center;gap:8px}
+.card h2 .k,.card h3 .k{margin-inline-start:auto;font:500 12px/1 var(--sans);color:var(--text-faint)}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.stat b{display:block;font-size:28px;letter-spacing:-.02em;line-height:1.1}
+.stat span{color:var(--text-muted);font-size:12.5px}
+.list{display:flex;flex-direction:column}
+.row{display:flex;align-items:center;gap:12px;padding:10px 8px;border-radius:8px;border-bottom:1px solid var(--border);text-align:start;width:100%}
+.row:last-child{border-bottom:0}
+button.row:hover{background:var(--surface-hover)}
+.row .t{flex:1;min-width:0}
+.row .t b{display:block;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .t span{display:block;color:var(--text-muted);font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.muted{color:var(--text-muted)}.faint{color:var(--text-faint)}.mono{font-family:var(--mono);font-size:12px}
+.pill{display:inline-flex;align-items:center;gap:6px;font:600 11px/1 var(--mono);letter-spacing:.04em;padding:4px 8px;border-radius:99px;border:1px solid var(--border-strong);color:var(--text-muted);white-space:nowrap;text-transform:uppercase}
+.pill.ok{color:var(--success);border-color:color-mix(in srgb,var(--success) 45%,transparent)}
+.pill.warn{color:var(--warning);border-color:color-mix(in srgb,var(--warning) 45%,transparent)}
+.pill.err{color:var(--error);border-color:color-mix(in srgb,var(--error) 45%,transparent)}
+.pill.info{color:var(--info);border-color:color-mix(in srgb,var(--info) 45%,transparent)}
+.pill.brand{color:var(--brand-hover);border-color:color-mix(in srgb,var(--brand) 45%,transparent)}
+.empty{padding:28px 16px;text-align:center;color:var(--text-muted)}
+.empty b{display:block;color:var(--text);margin-bottom:4px}
+.req{border:1px dashed var(--border-strong);border-radius:var(--radius);padding:18px;background:var(--surface)}
+.req b{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.req code{font-family:var(--mono);font-size:12px;background:var(--surface-hover);padding:2px 6px;border-radius:5px}
+.tabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:14px;border-bottom:1px solid var(--border)}
+.tabs button{padding:8px 12px;color:var(--text-muted);border-bottom:2px solid transparent;margin-bottom:-1px;font-weight:600;font-size:13px}
+.tabs button[aria-selected="true"]{color:var(--text);border-color:var(--brand)}
+.field{display:flex;flex-direction:column;gap:5px;margin-bottom:12px}
+.field label,.lbl{font-size:12px;font-weight:600;color:var(--text-muted)}
+.input,select.input,textarea.input{width:100%;background:var(--background);border:1px solid var(--border-strong);border-radius:9px;padding:9px 11px;outline:0}
+.input:focus{border-color:var(--brand-hover)}
+textarea.input{min-height:110px;resize:vertical}
+.hint{font-size:12px;color:var(--text-faint)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+table{width:100%;border-collapse:collapse}
+th,td{text-align:start;padding:9px 8px;border-bottom:1px solid var(--border);vertical-align:middle}
+th{font:600 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint)}
+tr.click{cursor:pointer}tr.click:hover td{background:var(--surface-hover)}
+.tbl{overflow-x:auto}
+.kanban{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.kcol{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:12px;min-height:160px}
+.kcol h3{margin:0 0 10px;font-size:13px;display:flex;justify-content:space-between}
+.task{background:var(--surface-elevated);border:1px solid var(--border);border-radius:9px;padding:10px;margin-bottom:8px}
+.task b{display:block;font-weight:600;margin-bottom:4px}
+.task .meta{display:flex;gap:6px;flex-wrap:wrap;align-items:center;font-size:12px;color:var(--text-muted)}
+.dest{display:flex;align-items:center;gap:10px;padding:10px;border:1px solid var(--border);border-radius:9px;margin-bottom:8px;background:var(--surface-elevated)}
+.dest input{width:18px;height:18px;accent-color:var(--brand)}
+.dest .t{flex:1;min-width:0}
+.dest .t b{display:block}
+.dest .t span{font-size:12px;color:var(--text-muted)}
+.deliv{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid var(--border)}
+.deliv:last-child{border-bottom:0}
+.deliv .st{width:22px;text-align:center;font-weight:700}
+.deliv .t{flex:1;min-width:0}
+.deliv .t span{display:block;font-size:12px;color:var(--text-muted);word-break:break-word}
+.s-sent{color:var(--success)}.s-failed{color:var(--error)}.s-unknown{color:var(--warning)}.s-sending{color:var(--info)}.s-not_sent,.s-cancelled{color:var(--text-faint)}
+.summary{font-weight:700;font-size:15px;margin:4px 0 10px}
+.split{display:grid;grid-template-columns:320px 1fr;gap:16px;align-items:start}
+.preview-media img,.preview-media video{max-width:100%;max-height:360px;border-radius:9px;display:block;background:#000}
+.tgpreview{background:var(--surface-hover);border-radius:12px;padding:12px;white-space:pre-wrap;word-break:break-word;max-height:260px;overflow:auto}
+.act{display:flex;gap:10px;padding:9px 4px;border-bottom:1px solid var(--border)}
+.act time{font:12px var(--mono);color:var(--text-faint);white-space:nowrap;min-width:110px}
+.act .ty{font:600 11px var(--mono);color:var(--text-faint);min-width:130px}
+.bar{height:6px;background:var(--surface-hover);border-radius:9px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--brand)}
+.thread{display:flex;flex-direction:column;gap:8px;margin:10px 0}
+.msg{max-width:85%;padding:8px 11px;border-radius:12px;background:var(--surface-hover);white-space:pre-wrap;word-break:break-word}
+.msg.out{align-self:flex-end;background:var(--brand-soft)}
+.msg small{display:block;color:var(--text-faint);font-size:11px;margin-top:3px}
+pre.log{background:#05070a;color:#c9d1e0;border-radius:9px;padding:12px;max-height:420px;overflow:auto;font:12px/1.45 var(--mono);white-space:pre-wrap}
+
+/* ---- dialogs, drawer, palette, toasts ---- */
+dialog{border:1px solid var(--border-strong);border-radius:14px;background:var(--surface);color:var(--text);padding:0;width:min(620px,calc(100vw - 32px));max-height:calc(100vh - 48px)}
+dialog::backdrop{background:rgba(3,5,8,.62)}
+.dlg-h{display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid var(--border)}
+.dlg-h h2{margin:0;font-size:16px;flex:1}
+.dlg-b{padding:16px 18px;overflow:auto;max-height:calc(100vh - 190px)}
+.dlg-f{display:flex;justify-content:flex-end;gap:8px;padding:12px 18px;border-top:1px solid var(--border)}
+dialog.drawer{margin:0 0 0 auto;height:100vh;max-height:100vh;width:min(560px,100vw);border-radius:0;border-width:0 0 0 1px}
+[dir="rtl"] dialog.drawer{margin:0 auto 0 0}
+dialog.drawer .dlg-b{max-height:calc(100vh - 120px)}
+.pal{width:min(640px,calc(100vw - 24px));margin-top:10vh}
+.pal input{width:100%;border:0;border-bottom:1px solid var(--border);background:transparent;padding:16px 18px;font-size:16px;outline:0}
+.pal ul{list-style:none;margin:0;padding:6px;max-height:55vh;overflow:auto}
+.pal li button{display:flex;align-items:center;gap:10px;width:100%;padding:9px 12px;border-radius:8px;text-align:start}
+.pal li button[aria-selected="true"],.pal li button:hover{background:var(--brand-soft)}
+.pal li .k{margin-inline-start:auto;font:11px var(--mono);color:var(--text-faint)}
+.pal .grp{font:600 10px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--text-faint);padding:10px 12px 4px}
+.toasts{position:fixed;inset-inline-end:16px;bottom:16px;z-index:100;display:flex;flex-direction:column;gap:8px}
+.toast{background:var(--surface-elevated);border:1px solid var(--border-strong);border-inline-start:3px solid var(--success);border-radius:10px;padding:10px 14px;max-width:380px;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.toast.err{border-inline-start-color:var(--error)}.toast.info{border-inline-start-color:var(--info)}
+.up{position:fixed;inset-inline-start:50%;transform:translateX(-50%);bottom:16px;z-index:99;background:var(--surface-elevated);border:1px solid var(--border-strong);border-radius:10px;padding:10px 14px;width:min(360px,90vw)}
+.up .bar{margin-top:6px}
+
+/* ---- login ---- */
+.login{min-height:100vh;display:grid;place-items:center;padding:16px}
+.login form{width:min(380px,100%);background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px}
+.login h1{margin:14px 0 4px;font-size:20px}
+.login p{margin:0 0 18px;color:var(--text-muted)}
+.login .era{font:700 11px/1 var(--mono);letter-spacing:.24em;color:var(--brand-hover)}
+.err-text{color:var(--error);font-size:13px;min-height:18px;margin:6px 0}
+
+/* ---- responsive ---- */
+@media (max-width:1100px){.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.split{grid-template-columns:1fr}}
+@media (max-width:860px){
+  .app{grid-template-columns:1fr}
+  .side{position:fixed;inset:0 auto 0 0;width:270px;z-index:50;transform:translateX(-100%);transition:transform .2s ease}
+  .side.open{transform:none;box-shadow:0 0 0 100vmax rgba(3,5,8,.55)}
+  .menu-btn{display:inline-flex}
+  .top{padding:10px 16px}
+  .content{padding:16px}
+  .g2,.g3,.kanban,.two{grid-template-columns:1fr}
+  .era-tag{display:none}
+  .search kbd{display:none}
+  .hide-m{display:none}
+}
+@media (max-width:520px){.g4{grid-template-columns:1fr 1fr}.head h1{font-size:20px}.act{flex-wrap:wrap}.act .ty{min-width:0}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* V5 additions: 4-column board, media library, diff, project signature */
+.kanban.k4{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:1100px){.kanban.k4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.kanban.k4{grid-template-columns:1fr}}
+.lib{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+.lib-item{display:flex;flex-direction:column;gap:4px;text-align:start;padding:8px;border:1px solid var(--border);border-radius:10px;background:var(--surface);min-width:0}
+.lib-item b{font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lib-item:focus-visible,.lib-item:hover{border-color:var(--brand)}
+.lib-th{display:grid;place-items:center;aspect-ratio:4/3;border-radius:6px;background:var(--surface-2,rgba(127,127,127,.08));overflow:hidden;color:var(--muted)}
+.lib-th img{width:100%;height:100%;object-fit:cover}
+.diff span{display:block;white-space:pre-wrap}.diff .da{background:rgba(34,197,94,.14)}.diff .dd{background:rgba(229,36,59,.14)}
+.sig-card{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;padding:22px 16px;border:1px solid var(--border);border-radius:12px;font-size:13px;line-height:1.5}
+.sig-brand{letter-spacing:.3em;font-size:12px}.sig-label{font-size:18px;letter-spacing:.06em;color:var(--brand)}
+.sig-line{font-family:ui-monospace,Consolas,monospace;font-size:11px;letter-spacing:.14em;color:var(--muted)}
+.sig-id{font-family:ui-monospace,Consolas,monospace;font-size:11px;letter-spacing:.14em;color:var(--muted)}.sig-id b{color:var(--text);font-size:13px}
+.sig-era{font-size:11px;letter-spacing:.3em;font-weight:700}
+</style>
+<link rel="stylesheet" href="/partner.css?v=3"><script src="/partner-ui.js?v=3"></script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="mark" viewBox="0 0 48 44"><path d="M4 41 24 5l20 36" fill="none" stroke="#e01e37" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 41 24 23l10 18" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11 12 4l9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></symbol>
+    <symbol id="i-inbox" viewBox="0 0 24 24"><path d="M3 13h5l2 3h4l2-3h5M5 5h14l2 8v6H3v-6z"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 6h6l2 2h10v11H3z"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6zM14 3v4h4"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></symbol>
+    <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M5 15c-1 2-1 4-1 5 1 0 3 0 5-1M9 15l-3-3c2-5 6-9 12-9 0 6-4 10-9 12zM14 10a1 1 0 1 0 0-.1"/></symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16zM13 7l4 4"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="m21 3-9 18-2-8-8-2z"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m10 9 5 3-5 3z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-out" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v6H4V6h6"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14A8 8 0 0 1 10 4a8 8 0 1 0 10 10z"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
+  </defs>
+</svg>
+
+<div id="root"></div>
+<div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+
+<dialog id="dlg" aria-labelledby="dlgTitle"></dialog>
+<dialog id="drawer" class="drawer" aria-labelledby="drawerTitle"></dialog>
+<dialog id="pal" class="pal" aria-label="Command palette">
+  <input id="palIn" type="text" placeholder="Search projects, requests, files… or type a command" aria-label="Command or search" autocomplete="off" role="combobox" aria-expanded="true" aria-controls="palList"/>
+  <ul id="palList" role="listbox"></ul>
+</dialog>
+
+<script>
+"use strict";
+/* ======================= core ======================= */
+const $ = (s, el) => (el || document).querySelector(s);
+const $$ = (s, el) => Array.from((el || document).querySelectorAll(s));
+const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+const ico = (n, cls) => '<svg class="ico' + (cls ? " " + cls : "") + '" aria-hidden="true"><use href="#i-' + n + '"/></svg>';
+const kb = n => n > 1048576 ? (n / 1048576).toFixed(1) + " MB" : n > 1024 ? Math.round(n / 1024) + " KB" : (n || 0) + " B";
+const when = iso => { if (!iso) return ""; const d = new Date(iso); return d.toLocaleDateString(undefined, { day: "2-digit", month: "short" }) + " " + d.toLocaleTimeString(undefined, { hour: "2-digit", minute: "2-digit" }); };
+const rid = () => (crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(36) + Math.random().toString(36).slice(2, 12));
+const S = { token: sessionStorage.getItem("uz_ws_token") || "", view: "home", param: null, data: {} };
+
+async function api(action, params) {
+  const r = await fetch("/api/workspace", { method: "POST", headers: { "Content-Type": "application/json", Authorization: "Bearer " + S.token }, body: JSON.stringify(Object.assign({ action }, params || {})) });
+  if (r.status === 401) { signOut(true); throw new Error("Session expired"); }
+  const j = await r.json().catch(() => ({ ok: false, error: "Bad response (" + r.status + ")" }));
+  if (!j.ok) throw new Error(j.error || "Request failed");
+  return j;
+}
+async function apiRaw(action, params) {
+  const r = await fetch("/api/workspace", { method: "POST", headers: { "Content-Type": "application/json", Authorization: "Bearer " + S.token }, body: JSON.stringify(Object.assign({ action }, params || {})) });
+  if (!r.ok) { const j = await r.json().catch(() => ({})); throw new Error(j.error || "Download failed"); }
+  return r.blob();
+}
+function toast(msg, kind) {
+  const t = document.createElement("div"); t.className = "toast " + (kind || ""); t.textContent = msg;
+  $("#toasts").appendChild(t); setTimeout(() => t.remove(), kind === "err" ? 7000 : 4000);
+}
+const fail = e => toast(e.message || String(e), "err");
+function signOut(expired) {
+  S.token = ""; sessionStorage.removeItem("uz_ws_token");
+  renderLogin(expired ? "Your session ended — sign in again." : "");
+}
+
+/* ======================= login ======================= */
+function renderLogin(msg) {
+  $("#root").innerHTML = '<div class="login"><form id="loginForm" autocomplete="on">' +
+    '<svg width="40" height="37" style="color:var(--text)" aria-hidden="true"><use href="#mark"/></svg>' +
+    '<p class="era" style="margin-top:14px">SALAAM NEW ERA.</p><h1>AGI / UzLeeder Workspace</h1><p>Private operating environment. Same password as the Control Center.</p>' +
+    '<div class="field"><label for="pw">Password</label><input class="input" id="pw" type="password" autocomplete="current-password" required minlength="6"/></div>' +
+    '<p class="err-text" id="loginErr" role="alert">' + esc(msg || "") + '</p>' +
+    '<button class="btn primary" style="width:100%" type="submit">' + ico("lock") + 'Sign in</button></form></div>';
+  $("#pw").focus();
+  $("#loginForm").addEventListener("submit", async e => {
+    e.preventDefault();
+    const b = $("#loginForm button"); b.disabled = true;
+    try {
+      const r = await fetch("/api/login", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ password: $("#pw").value }) });
+      const j = await r.json().catch(() => ({}));
+      if (!j.ok) throw new Error(j.error || "Sign-in failed");
+      S.token = j.token; sessionStorage.setItem("uz_ws_token", j.token);
+      boot();
+    } catch (err) { $("#loginErr").textContent = err.message; b.disabled = false; }
+  });
+}
+
+/* ======================= shell ======================= */
+const NAV = [
+  { k: "home", t: "Command Center", i: "home" },
+  { k: "partners", t: "Partners", i: "user" },
+  { g: "Business" }, { k: "requests", t: "Requests", i: "inbox" }, { k: "clients", t: "Clients", i: "user" }, { k: "projects", t: "Projects", i: "folder" }, { k: "startups", t: "Startups", i: "rocket" }, { k: "portfolio", t: "Portfolio", i: "check" },
+  { g: "Production" }, { k: "files", t: "Files", i: "file" }, { k: "websites", t: "Websites", i: "globe" }, { k: "development", t: "Development", i: "code" }, { k: "deployments", t: "Deployments", i: "rocket" },
+  { g: "Media" }, { k: "studio", t: "Content Studio", i: "pen" }, { k: "library", t: "Media library", i: "file" }, { k: "telegram", t: "Telegram", i: "send" }, { k: "youtube", t: "YouTube", i: "play" },
+  { g: "Work" }, { k: "tasks", t: "Tasks", i: "check" }, { k: "activity", t: "Activity", i: "list" }
+];
+const TITLE = Object.fromEntries(NAV.filter(n => n.k).map(n => [n.k, n.t]));
+function shell() {
+  $("#root").innerHTML = '<div class="app"><aside class="side" id="side" aria-label="Workspace navigation">' +
+    '<div class="brand"><svg aria-hidden="true" style="color:var(--text)"><use href="#mark"/></svg><div><b>Workspace</b><span>AGI · UZLEEDER</span></div></div>' +
+    '<nav class="nav" id="nav"></nav>' +
+    '<div class="side-foot"><a href="/admin" target="_blank" rel="noopener">' + ico("lock") + 'Control Center (Admin)' + ico("out") + '</a><a href="/" target="_blank" rel="noopener">' + ico("globe") + 'Public site</a>' +
+    '<button type="button" id="themeBtn">' + ico("moon") + 'Theme</button><button type="button" id="outBtn">' + ico("x") + 'Sign out</button></div></aside>' +
+    '<div class="main"><header class="top"><button class="btn sm menu-btn" id="menuBtn" type="button" aria-label="Open navigation" aria-controls="side" aria-expanded="false">' + ico("menu") + '</button>' +
+    '<button class="search" type="button" id="searchBtn" aria-label="Search and commands (Ctrl+K)">' + ico("search") + '<span>Search or run a command…</span><kbd>Ctrl K</kbd></button>' +
+    '<span class="era-tag">SALAAM NEW ERA.</span></header><main class="content" id="view" tabindex="-1"></main></div></div>';
+  $("#menuBtn").onclick = () => { const o = $("#side").classList.toggle("open"); $("#menuBtn").setAttribute("aria-expanded", o); };
+  $("#side").addEventListener("click", e => { if (e.target === $("#side")) $("#side").classList.remove("open"); });
+  $("#searchBtn").onclick = () => openPalette();
+  $("#outBtn").onclick = () => signOut();
+  $("#themeBtn").onclick = () => { const t = document.documentElement.dataset.theme === "light" ? "dark" : "light"; document.documentElement.dataset.theme = t; try { localStorage.setItem("uz_ws_theme", t); } catch (e) {} };
+  renderNav();
+}
+function renderNav() {
+  const badge = { requests: S.data.openRequests || 0 };
+  $("#nav").innerHTML = NAV.map(n => n.g ? '<div class="g">' + esc(n.g) + '</div>' :
+    '<button type="button" data-go="' + n.k + '"' + (S.view === n.k ? ' aria-current="page"' : "") + '>' + ico(n.i) + '<span>' + esc(n.t) + '</span>' + (badge[n.k] ? '<span class="count">' + badge[n.k] + '</span>' : "") + '</button>').join("");
+}
+document.addEventListener("click", e => {
+  const g = e.target.closest("[data-go]");
+  if (g) { e.preventDefault(); go(g.dataset.go, g.dataset.param || null); $("#side") && $("#side").classList.remove("open"); }
+});
+function go(view, param) {
+  S.view = view; S.param = param;
+  const hash = "#" + view + (param ? "/" + param : "");
+  if (location.hash !== hash) history.replaceState(null, "", hash);
+  renderNav();
+  document.title = (TITLE[view] || "Workspace") + " · AGI / UzLeeder Workspace";
+  const v = $("#view"); v.innerHTML = '<p class="muted">Loading…</p>';
+  (VIEWS[view] || VIEWS.home)(v, param).catch(e => { v.innerHTML = '<div class="req"><b>Could not load this page</b><p class="muted">' + esc(e.message) + '</p></div>'; });
+  v.focus({ preventScroll: true }); window.scrollTo(0, 0);
+}
+const head = (title, sub, actions) => '<div class="head"><div><h1>' + esc(title) + '</h1>' + (sub ? '<p>' + sub + '</p>' : "") + '</div><div class="actions">' + (actions || "") + '</div></div>';
+const integrationRequired = (name, envs, extra) => '<div class="req"><b>' + ico("lock") + 'Integration required — ' + esc(name) + '</b><p class="muted">Nothing is shown here until the real integration is connected. Add these keys to <code>.env</code> and run <code>npm run setup</code> (or add them in Vercel → Settings → Environment Variables), then redeploy:</p><p>' + envs.map(k => '<code>' + k + '</code>').join(" ") + '</p>' + (extra || "") + '</div>';
+const emptyBox = (t, d) => '<div class="empty"><b>' + esc(t) + '</b>' + esc(d || "") + '</div>';
+
+/* ======================= dialogs ======================= */
+function dialog(title, bodyHTML, buttons, opts) {
+  const d = opts && opts.drawer ? $("#drawer") : $("#dlg");
+  const id = d.id === "drawer" ? "drawerTitle" : "dlgTitle";
+  d.innerHTML = '<div class="dlg-h"><h2 id="' + id + '">' + esc(title) + '</h2><button class="btn sm" type="button" data-close aria-label="Close">' + ico("x") + '</button></div><div class="dlg-b">' + bodyHTML + '</div>' + (buttons ? '<div class="dlg-f">' + buttons + '</div>' : "");
+  $("[data-close]", d).onclick = () => d.close();
+  if (!d.open) d.showModal();
+  return d;
+}
+function confirmBox(title, html, okLabel, danger) {
+  return new Promise(res => {
+    const d = dialog(title, html, '<button class="btn" type="button" data-no>Cancel</button><button class="btn ' + (danger ? "danger" : "primary") + '" type="button" data-yes>' + esc(okLabel || "Confirm") + '</button>');
+    const done = v => { d.close(); res(v); };
+    $("[data-no]", d).onclick = () => done(false);
+    $("[data-yes]", d).onclick = () => done(true);
+    d.addEventListener("cancel", () => res(false), { once: true });
+    $("[data-yes]", d).focus();
+  });
+}
+function formDialog(title, fields, values, onSave, opts) {
+  values = values || {};
+  const html = fields.map(f => {
+    const v = values[f.k] == null ? (f.def || "") : values[f.k];
+    const id = "f_" + f.k;
+    const input = f.type === "select" ? '<select class="input" id="' + id + '" name="' + f.k + '">' + f.options.map(o => '<option value="' + esc(o[0]) + '"' + (String(o[0]) === String(v) ? " selected" : "") + '>' + esc(o[1]) + '</option>').join("") + '</select>'
+      : f.type === "textarea" ? '<textarea class="input" id="' + id + '" name="' + f.k + '">' + esc(v) + '</textarea>'
+      : '<input class="input" id="' + id + '" name="' + f.k + '" type="' + (f.type || "text") + '" value="' + esc(v) + '"' + (f.req ? " required" : "") + (f.ph ? ' placeholder="' + esc(f.ph) + '"' : "") + '/>';
+    return '<div class="field"><label for="' + id + '">' + esc(f.label) + (f.req ? " *" : "") + '</label>' + input + (f.hint ? '<span class="hint">' + esc(f.hint) + '</span>' : "") + '</div>';
+  }).join("");
+  const d = dialog(title, '<form id="fd">' + html + '</form>', (opts && opts.extraBtn || "") + '<button class="btn" type="button" data-close2>Cancel</button><button class="btn primary" type="submit" form="fd">' + esc((opts && opts.saveLabel) || "Save") + '</button>');
+  $("[data-close2]", d).onclick = () => d.close();
+  const first = $("input,select,textarea", d); if (first) first.focus();
+  $("#fd").addEventListener("submit", async e => {
+    e.preventDefault();
+    const out = {}; fields.forEach(f => { out[f.k] = $("#f_" + f.k).value; });
+    const b = $('button[type="submit"]', d); b.disabled = true;
+    try { await onSave(out); d.close(); } catch (err) { fail(err); b.disabled = false; }
+  });
+  return d;
+}
+
+/* ======================= shared data ======================= */
+async function projectsList(force) { if (force || !S.data.projects) S.data.projects = (await api("projects.list")).projects; return S.data.projects; }
+async function clientsList(force) { if (force || !S.data.clients) S.data.clients = (await api("clients.list")).clients; return S.data.clients; }
+const projName = id => { const p = (S.data.projects || []).find(x => x.id === id); return p ? p.name : ""; };
+const projOptions = () => [["", "— none —"]].concat((S.data.projects || []).map(p => [p.id, p.name]));
+// request status (V5) — CONVERTED is set by "Create project", not chosen by hand
+const STAGES = [["new", "NEW"], ["reviewing", "REVIEWING"], ["qualified", "QUALIFIED"], ["waiting", "WAITING FOR CLIENT"], ["converted", "CONVERTED"], ["declined", "DECLINED"], ["archived", "ARCHIVED"]];
+const STAGE_LABEL = Object.fromEntries(STAGES);
+const OPEN_STAGES = ["new", "reviewing", "qualified", "waiting"];
+const stagePill = s => '<span class="pill ' + ({ new: "brand", reviewing: "info", qualified: "info", waiting: "warn", converted: "ok", declined: "", archived: "" })[s] + '">' + esc(STAGE_LABEL[s] || s) + '</span>';
+const PSTATUS = ["PLANNING", "ACTIVE", "IN_REVIEW", "WAITING_FOR_CLIENT", "READY_FOR_DELIVERY", "COMPLETED", "ARCHIVED"];
+const pstatusPill = s => '<span class="pill ' + ({ ACTIVE: "brand", IN_REVIEW: "info", WAITING_FOR_CLIENT: "warn", READY_FOR_DELIVERY: "info", COMPLETED: "ok", ARCHIVED: "" })[s] + '">' + esc(String(s || "").replace(/_/g, " ")) + '</span>';
+const PKIND = [["client", "Client project"], ["product", "UzLeeder product"], ["demo", "Demonstration"], ["internal", "Internal"]];
+const SERVICE = { website: "Website", system: "Business system", ai: "AI / automation", academy: "Academy", design: "Design", existing: "Existing project", other: "Other" };
+const SERVICE_OPTS = Object.entries(SERVICE);
+const BUDGET = { lt500: "Under $500", "500-1500": "$500–1,500", "1500-4000": "$1,500–4,000", gt4000: "$4,000+", unsure: "Not sure" };
+const TIMELINE = { asap: "As soon as possible", "1m": "Within a month", "1-3m": "1–3 months", flexible: "Flexible" };
+const TSTATUS = [["todo", "To do"], ["in_progress", "In progress"], ["review", "Review"], ["done", "Done"]];
+const TSTATUS_LABEL = Object.fromEntries(TSTATUS);
+const SOURCE = { website: "Website brief", telegram_bot: "Services bot", workspace: "Added manually" };
+
+/* ======================= views ======================= */
+const VIEWS = {};
+VIEWS.partners = async v => window.PartnerUI.mount(v, { token: S.token, mode: "workspace" });
+
+VIEWS.home = async v => {
+  const now = new Date(), today = now.getFullYear() + "-" + String(now.getMonth() + 1).padStart(2, "0") + "-" + String(now.getDate()).padStart(2, "0");
+  const o = await api("overview", { today });
+  S.data.openRequests = o.requests.open; renderNav();
+  const h = now.getHours(), greet = h < 5 ? "Good night" : h < 12 ? "Good morning" : h < 18 ? "Good afternoon" : "Good evening";   // browser's local time
+  const stat = (go, n, label, alert) => '<button class="card stat" type="button" data-go="' + go + '" style="text-align:start"><b' + (alert && n ? ' style="color:var(--error)"' : "") + '>' + n + '</b><span>' + label + '</span></button>';
+  const qa = (cmd, icon, label) => '<button class="btn" type="button" data-cmd="' + cmd + '">' + ico(icon) + label + '</button>';
+  v.innerHTML = '<div class="head"><div><h1>' + greet + ', Max.</h1><p>Here\'s what needs your attention — real records only, no sample data.</p></div></div>' +
+    '<div class="actions" style="margin-bottom:16px" aria-label="Quick actions">' + qa("newProject", "plus", "New project") + qa("newRequest", "plus", "New request") + qa("uploadFile", "up", "Upload file") + qa("createContent", "pen", "Create content") + qa("newTask", "check", "New task") + qa("openWebsite", "globe", "Open website") + '</div>' +
+    '<div class="grid g4" style="margin-bottom:14px">' +
+    stat("projects", o.projects.active.length, "active projects") + stat("requests", o.requests.new, "new requests") + stat("tasks", o.tasks.due, "tasks due today or overdue", true) + stat("files", o.files.attention.length, "files waiting") +
+    stat("studio", o.content.drafts.length, "drafts") + stat("studio", o.content.ready.length, "ready to publish") + stat("deployments", o.deployments.configured && o.deployments.latest ? o.deployments.latest.length : "—", o.deployments.configured ? "recent deployments" : "deployments · not configured") + stat("studio", o.failedOps, "failed operations", true) + '</div>' +
+    '<div class="grid g2">' +
+    '<section class="card"><h2>' + ico("inbox") + 'Requests<span class="k">website + services bot</span></h2>' + (o.requests.latest.length ? '<div class="list">' + o.requests.latest.map(r => '<button class="row" type="button" data-go="requests" data-param="' + r.id + '"><span class="t"><b>' + esc(r.name || "Request") + (r.code ? ' <span class="faint mono" style="font-weight:400">' + esc(r.code) + '</span>' : "") + '</b><span>' + esc(SERVICE[r.service] || r.service || "") + ' · ' + esc(String(r.message || "").slice(0, 80)) + '</span></span>' + stagePill(r.stage) + '</button>').join("") + '</div>' : emptyBox("No open requests", "New briefs from the website and the services bot appear here.")) + '</section>' +
+    '<section class="card"><h2>' + ico("folder") + 'Active projects</h2>' + (o.projects.active.length ? '<div class="list">' + o.projects.active.map(p => '<button class="row" type="button" data-go="projects" data-param="' + p.id + '"><span class="t"><b>' + esc(p.name) + '</b><span>' + (p.due ? "Due " + esc(p.due) : "No due date") + '</span></span>' + pstatusPill(p.status) + '</button>').join("") + '</div>' : emptyBox("No projects yet", "Create one from a request or with “New project”.")) + '</section>' +
+    '<section class="card"><h2>' + ico("send") + 'Publishing</h2>' + (o.content.failures.length ? o.content.failures.map(c => '<button class="row" type="button" data-go="studio" data-param="' + c.id + '"><span class="t"><b>' + esc(c.title || "Untitled") + '</b><span>' + c.delivery.sent + ' of ' + c.delivery.total + ' destinations succeeded' + (c.delivery.unknown ? " · " + c.delivery.unknown + " unconfirmed" : "") + '</span></span><span class="pill err">Attention</span></button>').join("") : "") +
+      o.content.ready.map(c => '<button class="row" type="button" data-go="studio" data-param="' + c.id + '"><span class="t"><b>' + esc(c.title || "Untitled") + '</b><span>Reviewed — waiting to be sent</span></span><span class="pill info">READY</span></button>').join("") +
+      o.content.drafts.map(c => '<button class="row" type="button" data-go="studio" data-param="' + c.id + '"><span class="t"><b>' + esc(c.title || "Untitled") + '</b><span>Draft</span></span><span class="pill">DRAFT</span></button>').join("") +
+      (!o.content.failures.length && !o.content.drafts.length && !o.content.ready.length ? emptyBox("Nothing waiting", "Drafts, ready posts and failed deliveries appear here.") : "") + '</section>' +
+    '<section class="card"><h2>' + ico("rocket") + 'Deployments</h2>' + (!o.deployments.configured ? '<p class="muted">Integration required — connect Vercel (VERCEL_TOKEN) to see real deployments.</p>' : o.deployments.error ? '<p class="s-failed">' + esc(o.deployments.error) + '</p>' : '<div class="list">' + o.deployments.latest.map(d => '<div class="row"><span class="t"><b>' + esc(d.commit || d.url) + '</b><span>' + esc(d.target) + ' · ' + when(d.at) + '</span></span>' + deployPill(d.state) + '</div>').join("") + '</div>') + '</section>' +
+    '<section class="card"><h2>' + ico("file") + 'Files needing attention</h2>' + (o.files.attention.length ? o.files.attention.map(f => '<button class="row" type="button" data-go="files" data-param="' + f.id + '"><span class="t"><b>' + esc(f.name) + '</b><span>' + esc(f.note) + '</span></span></button>').join("") : emptyBox("None flagged", o.files.total + " files in the workspace.")) + '</section>' +
+    '<section class="card"><h2>' + ico("list") + 'Recent activity<span class="k"><button class="btn sm" type="button" data-go="activity">All</button></span></h2>' + actList(o.activity) + '</section></div>' +
+    (o.portfolio.waiting ? '<p style="margin-top:14px"><button class="btn sm" type="button" data-go="portfolio">' + ico("check") + o.portfolio.waiting + ' portfolio entr' + (o.portfolio.waiting === 1 ? "y" : "ies") + ' waiting for review</button></p>' : "") +
+    '<section class="card" style="margin-top:14px"><h2>Integrations<span class="k"><button class="btn sm" type="button" id="intCheck">Check connections</button></span></h2><div class="actions" id="intBox">' + intChips(o.integrations) + '</div><p class="hint" id="intAt">Configured keys only. “Check connections” asks each service for real.</p></section>';
+  $("#intCheck").onclick = async e => { e.target.disabled = true; e.target.textContent = "Checking…"; try { const j = await api("integrations.check"); $("#intBox").innerHTML = intChips(null, j.integrations); $("#intAt").textContent = "Checked " + when(j.checkedAt) + "."; } catch (err) { fail(err); } e.target.disabled = false; e.target.textContent = "Check connections"; };
+};
+const INT_NAMES = { storage: "Storage", telegram: "Telegram publishing", servicesBot: "Services bot", github: "GitHub", vercel: "Vercel deployments", youtube: "YouTube" };
+const INT_STATE = { connected: ["ok", "● Connected"], not_configured: ["", "○ Not configured"], expired: ["warn", "▲ Expired / refused"], error: ["err", "✕ Error"], configured: ["info", "◐ Configured — not checked"] };
+function intChips(flags, checked) {
+  const list = checked || { storage: { state: flags.storage ? "connected" : "not_configured" }, telegram: { state: flags.telegram ? "configured" : "not_configured" }, github: { state: flags.github ? "configured" : "not_configured" }, vercel: { state: flags.vercel ? "configured" : "not_configured" }, youtube: { state: flags.youtube ? "configured" : "not_configured" } };
+  return Object.keys(list).map(k => { const s = INT_STATE[list[k].state] || INT_STATE.error; return '<span class="pill ' + s[0] + '" title="' + esc(list[k].error || list[k].detail || "") + '">' + esc(INT_NAMES[k] || k) + ' · ' + s[1] + (list[k].detail ? " · " + esc(list[k].detail) : "") + '</span>'; }).join("");
+}const deployPill = s => '<span class="pill ' + ({ success: "ok", failed: "err", building: "info", queued: "", cancelled: "warn" })[s] + '">' + esc(s || "unknown") + '</span>';
+const actList = list => list && list.length ? '<div class="list">' + list.map(a => '<div class="act"><time datetime="' + esc(a.at) + '">' + when(a.at) + '</time><span>' + esc(a.text) + '</span></div>').join("") + '</div>' : emptyBox("No activity yet", "Real actions are recorded here as they happen.");
+
+/* ---------- requests ---------- */
+VIEWS.requests = async (v, param) => {
+  const [{ requests }] = await Promise.all([api("requests.list"), projectsList()]);
+  S.data.requests = requests;
+  S.data.openRequests = requests.filter(r => ["new", "reviewing"].includes(r.stage)).length; renderNav();
+  const filter = S.reqFilter || "open";
+  const shown = requests.filter(r => filter === "all" ? true : filter === "open" ? OPEN_STAGES.includes(r.stage) : r.stage === filter);
+  const tabs = [["open", "Open"], ["all", "All"]].concat(STAGES);
+  v.innerHTML = head("Requests", "NEW → REVIEWING → QUALIFIED → CONVERTED (project created). The work after that lives in the project.", '<button class="btn primary" type="button" data-cmd="newRequest">' + ico("plus") + 'New request</button>') +
+    '<div class="tabs" role="tablist">' + tabs.map(t => '<button role="tab" type="button" data-rf="' + t[0] + '" aria-selected="' + (filter === t[0]) + '">' + esc(t[1]) + ' <span class="faint">' + (t[0] === "all" ? requests.length : t[0] === "open" ? requests.filter(r => OPEN_STAGES.includes(r.stage)).length : requests.filter(r => r.stage === t[0]).length) + '</span></button>').join("") + '</div>' +
+    '<div class="card tbl">' + (shown.length ? '<table><thead><tr><th>Received</th><th class="hide-m">ID</th><th>Customer</th><th class="hide-m">Service</th><th class="hide-m">Source</th><th>Status</th></tr></thead><tbody>' +
+      shown.map(r => '<tr class="click" data-req="' + r.id + '" tabindex="0"><td class="mono">' + when(r.createdAt) + '</td><td class="hide-m mono">' + esc(r.code || "—") + '</td><td><b>' + esc(r.name) + '</b><div class="muted" style="font-size:12px">' + esc(String(r.message || "").slice(0, 70)) + '</div></td><td class="hide-m">' + esc(SERVICE[r.service] || r.service || "") + '</td><td class="hide-m">' + esc(SOURCE[r.source] || r.source) + '</td><td>' + stagePill(r.stage) + '</td></tr>').join("") + '</tbody></table>'
+      : emptyBox("No requests here", "Briefs from the website form and @uzleeder_services_bot arrive automatically.")) + '</div>';
+  $$("[data-rf]", v).forEach(b => b.onclick = () => { S.reqFilter = b.dataset.rf; VIEWS.requests(v); });
+  $$("[data-req]", v).forEach(tr => { const open = () => openRequest(tr.dataset.req); tr.onclick = open; tr.onkeydown = e => { if (e.key === "Enter") open(); }; });
+  if (param) openRequest(param);
+};
+function openRequest(id) {
+  const r = (S.data.requests || []).find(x => x.id === id);
+  if (!r) { api("requests.list").then(j => { S.data.requests = j.requests; if (j.requests.find(x => x.id === id)) openRequest(id); }).catch(fail); return; }
+  const d = dialog((r.code ? r.code + " · " : "") + (r.name || "Request"),
+    '<p class="muted" style="margin-top:0">' + esc(SOURCE[r.source] || r.source) + ' · ' + when(r.createdAt) + (r.lang ? ' · ' + esc(r.lang.toUpperCase()) : "") + '</p>' +
+    '<div class="two"><div class="field"><span class="lbl">Contact</span><span>' + esc(r.contact || "—") + (r.channel ? ' <span class="faint">(' + esc(r.channel) + ')</span>' : "") + '</span></div><div class="field"><span class="lbl">Service</span><span>' + esc(SERVICE[r.service] || r.service || "—") + '</span></div>' +
+    (r.budget ? '<div class="field"><span class="lbl">Budget</span><span>' + esc(BUDGET[r.budget] || r.budget) + '</span></div>' : "") + (r.timeline ? '<div class="field"><span class="lbl">Timeline</span><span>' + esc(TIMELINE[r.timeline] || r.timeline) + '</span></div>' : "") + '</div>' +
+    '<div class="field"><span class="lbl">Project description</span><div class="tgpreview">' + esc(r.message) + '</div></div>' +
+    (r.attachments.length ? '<div class="field"><span class="lbl">Attachments (from Telegram)</span>' + r.attachments.map(a => '<button class="btn sm" type="button" data-att="' + esc(a.fileId) + '" data-name="' + esc(a.name) + '">' + ico("file") + esc(a.name) + (a.size ? " · " + kb(a.size) : "") + '</button>').join(" ") + '</div>' : "") +
+    '<div class="two"><div class="field"><label for="rqStage">Status</label><select class="input" id="rqStage">' + STAGES.filter(s => s[0] !== "converted" || r.projectId).map(s => '<option value="' + s[0] + '"' + (s[0] === r.stage ? " selected" : "") + '>' + s[1] + '</option>').join("") + '</select></div>' +
+    '<div class="field"><span class="lbl">Project</span>' + (r.projectId ? '<button class="btn sm" type="button" data-go="projects" data-param="' + r.projectId + '">' + ico("folder") + esc(projName(r.projectId) || "Open project") + '</button>' : '<button class="btn sm primary" type="button" id="rqConvert">' + ico("plus") + 'Create project from request</button>') + '</div></div>' +
+    '<div class="field"><label for="rqNotes">Internal notes</label><textarea class="input" id="rqNotes" style="min-height:70px">' + esc(r.notes) + '</textarea></div>' +
+    (r.canReply ? '<div class="field"><span class="lbl">Conversation (services bot)</span><div class="thread">' + (r.thread.length ? r.thread.map(m => '<div class="msg ' + (m.dir === "out" ? "out" : "") + '">' + esc(m.text) + '<small>' + (m.dir === "out" ? "You" : "Customer") + ' · ' + when(m.at) + (m.dir === "out" && m.ok === false ? ' · <span class="s-failed">not delivered: ' + esc(m.error) + '</span>' : "") + '</small></div>').join("") : '<p class="faint">No messages yet.</p>') + '</div>' +
+      '<textarea class="input" id="rqReply" style="min-height:70px" placeholder="Reply to the customer in Telegram…"></textarea><div style="margin-top:8px"><button class="btn primary sm" type="button" id="rqSend">' + ico("send") + 'Send reply via bot</button></div></div>' : ""),
+    '<button class="btn primary" type="button" id="rqSave">Save</button>', { drawer: true });
+  $("#rqSave", d).onclick = async () => {
+    try { await api("requests.update", { id: r.id, stage: $("#rqStage", d).value, notes: $("#rqNotes", d).value }); toast("Request saved."); d.close(); if (S.view === "requests") go("requests"); } catch (e) { fail(e); }
+  };
+  const conv = $("#rqConvert", d);
+  if (conv) conv.onclick = async () => {
+    conv.disabled = true;
+    try { const j = await api("requests.convert", { id: r.id }); toast(j.existing ? "This request already has a project." : "Project created: " + j.project.name); d.close(); S.data.projects = null; go("projects", j.project.id); } catch (e) { fail(e); conv.disabled = false; }
+  };
+  $$("[data-att]", d).forEach(b => b.onclick = async () => { try { saveBlob(await apiRaw("requests.attachment", { id: r.id, fileId: b.dataset.att }), b.dataset.name); } catch (e) { fail(e); } });
+  const send = $("#rqSend", d);
+  if (send) { const idem = rid(); send.onclick = async () => {
+    const text = $("#rqReply", d).value.trim(); if (!text) return;
+    send.disabled = true;
+    try { const j = await api("requests.reply", { id: r.id, text, idem }); Object.assign(r, j.request); toast("Reply delivered by Telegram."); openRequest(r.id); } catch (e) { fail(e); send.disabled = false; }
+  }; }
+}
+function saveBlob(blob, name) { const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = name || "file"; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 4000); }
+
+/* ---------- clients ---------- */
+VIEWS.clients = async v => {
+  const [clients, projects] = await Promise.all([clientsList(true), projectsList(true)]);
+  v.innerHTML = head("Clients", "People and organisations you work with. Created from requests or added here.", '<button class="btn primary" type="button" id="newClient">' + ico("plus") + 'New client</button>') +
+    '<div class="card tbl">' + (clients.length ? '<table><thead><tr><th>Name</th><th>Contact</th><th class="hide-m">Company</th><th>Projects</th></tr></thead><tbody>' + clients.map(c => '<tr class="click" data-cl="' + c.id + '" tabindex="0"><td><b>' + esc(c.name) + '</b></td><td>' + esc(c.contact) + '</td><td class="hide-m">' + esc(c.company) + '</td><td>' + projects.filter(p => p.clientId === c.id).length + '</td></tr>').join("") + '</tbody></table>' : emptyBox("No clients yet", "Turning a request into a project creates the client automatically.")) + '</div>';
+  $("#newClient").onclick = () => clientForm();
+  $$("[data-cl]", v).forEach(tr => { const c = clients.find(x => x.id === tr.dataset.cl); tr.onclick = () => clientForm(c); tr.onkeydown = e => { if (e.key === "Enter") clientForm(c); }; });
+};
+function clientForm(c) {
+  formDialog(c ? "Edit client" : "New client", [
+    { k: "name", label: "Name", req: true }, { k: "contact", label: "Contact (phone, email or @username)" }, { k: "channel", label: "Preferred channel", type: "select", options: [["", "—"], ["telegram", "Telegram"], ["whatsapp", "WhatsApp"], ["email", "Email"], ["phone", "Phone"]] },
+    { k: "company", label: "Company" }, { k: "notes", label: "Notes", type: "textarea" }
+  ], c, async out => { await api("clients.save", Object.assign({ id: c && c.id }, out)); toast("Client saved."); go("clients"); },
+  c ? { extraBtn: '<button class="btn danger" type="button" id="delClient" style="margin-inline-end:auto">Delete</button>' } : null);
+  const del = $("#delClient"); if (del) del.onclick = async () => { $("#dlg").close(); if (await confirmBox("Delete client?", "<p>" + esc(c.name) + " will be removed. Projects stay.</p>", "Delete", true)) { try { await api("clients.delete", { id: c.id, confirm: true }); toast("Client deleted."); go("clients"); } catch (e) { fail(e); } } };
+}
+
+/* ---------- projects ---------- */
+VIEWS.projects = async (v, param) => {
+  if (param) return projectDetail(v, param);
+  const [projects] = await Promise.all([projectsList(true), clientsList()]);
+  const f = S.projFilter || "open";
+  const shown = projects.filter(p => f === "open" ? !["COMPLETED", "ARCHIVED"].includes(p.status) : f === "all" ? true : p.status === f);
+  v.innerHTML = head("Projects", "Execution layer: every project with its tasks, files, content and deployments.", '<button class="btn primary" type="button" data-cmd="newProject">' + ico("plus") + 'New project</button>') +
+    '<div class="tabs" role="tablist">' + [["open", "Open"], ["all", "All"]].concat(PSTATUS.map(s => [s, s.replace(/_/g, " ").toLowerCase()])).map(t => '<button role="tab" type="button" data-pf="' + t[0] + '" aria-selected="' + (f === t[0]) + '">' + esc(t[1]) + '</button>').join("") + '</div>' +
+    '<div class="card">' + (shown.length ? '<div class="list">' + shown.map(p => '<button class="row" type="button" data-go="projects" data-param="' + p.id + '"><span class="t"><b>' + esc(p.name) + '</b><span>' + esc([(S.data.clients || []).find(c => c.id === p.clientId) ? S.data.clients.find(c => c.id === p.clientId).name : "", p.due ? "due " + p.due : "", SERVICE[p.service] || ""].filter(Boolean).join(" · ") || "—") + '</span></span>' + pstatusPill(p.status) + '</button>').join("") + '</div>' : emptyBox("No projects in this view", "Create a project, or convert a qualified request.")) + '</div>';
+  $$("[data-pf]", v).forEach(b => b.onclick = () => { S.projFilter = b.dataset.pf; VIEWS.projects(v); });
+};
+function projectForm(p, fromClient) {
+  return clientsList().then(clients => formDialog(p ? "Edit project" : "New project", [
+    { k: "name", label: "Project name", req: true },
+    { k: "status", label: "Status", type: "select", options: PSTATUS.map(s => [s, s.replace(/_/g, " ")]), def: "PLANNING" },
+    { k: "kind", label: "Type", type: "select", options: PKIND, def: fromClient ? "client" : "internal", hint: "Decides the project signature: completed client work, a deployable product, or a demonstration." },
+    { k: "clientId", label: "Client", type: "select", options: [["", "— none (UzLeeder's own project) —"]].concat(clients.map(c => [c.id, c.name])), def: fromClient || "" },
+    { k: "service", label: "Service", type: "select", options: [["", "—"]].concat(SERVICE_OPTS) },
+    { k: "due", label: "Due date", type: "date" },
+    { k: "repo", label: "GitHub repository (owner/name)", ph: "uzleeder/uzleeder", hint: "Used by the Development tab when GitHub is connected." },
+    { k: "summary", label: "Summary", type: "textarea" }
+  ], p, async out => { const j = await api("projects.save", Object.assign({ id: p && p.id }, out)); S.data.projects = null; toast("Project saved."); go("projects", j.item.id); }));
+}
+async function projectDetail(v, id) {
+  const [j] = await Promise.all([api("projects.get", { id }), projectsList(), clientsList()]);
+  const p = j.project, tab = S.projTab || "overview";
+  const tabs = [["overview", "Overview"], ["tasks", "Tasks · " + j.tasks.length], ["files", "Files · " + j.files.length], ["development", "Development"], ["content", "Content · " + j.content.length], ["deployments", "Deployments"], ["activity", "Activity"]];
+  v.innerHTML = '<p style="margin:0 0 8px"><button class="btn sm" type="button" data-go="projects">← Projects</button></p>' +
+    head(p.name, pstatusPill(p.status) + (p.code ? ' <span class="pill mono">' + esc(p.code) + '</span>' : "") + (j.client ? ' <span class="muted">· ' + esc(j.client.name) + '</span>' : ' <span class="muted">· UzLeeder project</span>'), '<button class="btn" type="button" id="editProj">' + ico("pen") + 'Edit</button>') +
+    '<div class="tabs" role="tablist">' + tabs.map(t => '<button role="tab" type="button" data-pt="' + t[0] + '" aria-selected="' + (tab === t[0]) + '">' + esc(t[1]) + '</button>').join("") + '</div><div id="ptab"></div>';
+  $("#editProj").onclick = () => projectForm(p);
+  $$("[data-pt]", v).forEach(b => b.onclick = () => { S.projTab = b.dataset.pt; projectDetail(v, id); });
+  const el = $("#ptab");
+  if (tab === "overview") {
+    el.innerHTML = '<div class="grid g2"><section class="card"><h3>Summary</h3><p style="white-space:pre-wrap;margin:0">' + (esc(p.summary) || '<span class="faint">No summary.</span>') + '</p></section>' +
+      '<section class="card"><h3>Details</h3><div class="list">' +
+      '<div class="row"><span class="t"><span>Status</span></span>' + pstatusPill(p.status) + '</div>' +
+      '<div class="row"><span class="t"><span>Type</span></span>' + esc((PKIND.find(k => k[0] === p.kind) || ["", "—"])[1]) + '</div>' +
+      '<div class="row"><span class="t"><span>Project ID</span></span><span class="mono">' + esc(p.code || "—") + '</span></div>' +
+      '<div class="row"><span class="t"><span>Client</span></span>' + (j.client ? esc(j.client.name + (j.client.contact ? " · " + j.client.contact : "")) : "—") + '</div>' +
+      '<div class="row"><span class="t"><span>Due</span></span>' + esc(p.due || "—") + '</div>' +
+      '<div class="row"><span class="t"><span>Repository</span></span>' + esc(p.repo || "—") + '</div>' +
+      '<div class="row"><span class="t"><span>From request</span></span>' + (p.requestId ? '<button class="btn sm" type="button" data-go="requests" data-param="' + p.requestId + '">Open request</button>' : "—") + '</div>' +
+      '<div class="row"><span class="t"><span>Created</span></span>' + when(p.createdAt) + '</div></div></section>' +
+      '<section class="card"><h3>Open tasks<span class="k">' + j.tasks.filter(t => t.status !== "done").length + '</span></h3>' + taskMini(j.tasks.filter(t => t.status !== "done")) + '</section>' +
+      signatureCard(p) + portfolioCard(p, j.portfolio) +
+      '<section class="card"><h3>Websites</h3>' + (j.websites.length ? j.websites.map(w => '<div class="row"><span class="t"><b>' + esc(w.name || w.url) + '</b><span>' + esc(w.url) + '</span></span>' + sitePill(w) + '</div>').join("") : emptyBox("No website linked", "Add one in Websites and link it to this project.")) + '</section></div>';
+    bindPortfolioCard(el, p, j.portfolio, () => projectDetail(v, id));
+  } else if (tab === "tasks") {
+    el.innerHTML = '<div class="actions" style="margin-bottom:10px"><button class="btn primary sm" type="button" id="addTask">' + ico("plus") + 'Add task</button></div><div class="card">' + taskMini(j.tasks, true) + '</div>';
+    $("#addTask").onclick = () => taskForm(null, p.id, () => projectDetail(v, id));
+    bindTaskMini(el, j.tasks, () => projectDetail(v, id));
+  } else if (tab === "files") {
+    el.innerHTML = '<div class="actions" style="margin-bottom:10px"><button class="btn primary sm" type="button" id="upHere">' + ico("up") + 'Upload file to this project</button></div><div class="card">' + fileTable(j.files) + '</div>';
+    $("#upHere").onclick = () => pickAndUpload({ projectId: p.id, folder: "projects" }, () => projectDetail(v, id));
+    bindFileTable(el, j.files);
+  } else if (tab === "development") {
+    el.innerHTML = '<div id="devBox"><p class="muted">Loading…</p></div>';
+    devRepoView($("#devBox"), p.repo, true);
+  } else if (tab === "content") {
+    el.innerHTML = '<div class="actions" style="margin-bottom:10px"><button class="btn primary sm" type="button" id="newContentP">' + ico("pen") + 'Create content for this project</button></div><div class="card">' + (j.content.length ? j.content.map(c => '<button class="row" type="button" data-go="studio" data-param="' + c.id + '"><span class="t"><b>' + esc(c.title || String(c.text || "").slice(0, 60) || "Untitled") + '</b><span>' + deliveryText(c) + '</span></span>' + statusPill(c) + '</button>').join("") : emptyBox("No content yet", "Announcements for this project will be listed here.")) + '</div>';
+    $("#newContentP").onclick = () => { S.newContentProject = p.id; go("studio", "new"); };
+  } else if (tab === "deployments") {
+    el.innerHTML = '<div id="depBox"></div>';
+    deploymentsInto($("#depBox"));
+  } else {
+    el.innerHTML = '<div class="card">' + actList(j.activity) + '</div>';
+  }
+}
+const sitePill = w => !w.lastCheck ? '<span class="pill">not checked</span>' : w.lastCheck.ok ? '<span class="pill ok">' + w.lastCheck.status + ' · ' + w.lastCheck.ms + ' ms</span>' : '<span class="pill err">' + esc(w.lastCheck.status || w.lastCheck.error || "down") + '</span>';
+
+/* ---------- digital project signature ----------
+   PROJECT COMPLETED only when the project really is COMPLETED; DEMONSTRATION for demos; READY FOR DEPLOYMENT for deployable products.
+   It is UzLeeder's own delivery mark, not a certification. */
+function signatureOf(p) {
+  if (p.kind === "demo" && ["READY_FOR_DELIVERY", "COMPLETED"].includes(p.status)) return { label: "DEMONSTRATION", line: "BUILT • REVIEWED" };
+  if (p.kind === "product" && p.status === "READY_FOR_DELIVERY") return { label: "READY FOR DEPLOYMENT", line: "BUILT • REVIEWED • READY" };
+  if (p.status === "COMPLETED") return { label: "PROJECT COMPLETED", line: "BUILT • REVIEWED • DELIVERED" };
+  return null;
+}
+function signatureCard(p) {
+  const s = signatureOf(p);
+  if (!s) return '<section class="card"><h3>Project signature</h3>' + emptyBox("Not available yet", "The signature appears when the project is completed (or, for products and demos, ready).") + '</section>';
+  return '<section class="card"><h3>Project signature<span class="k">UzLeeder delivery mark — not a certification</span></h3>' +
+    '<div class="sig-card" role="img" aria-label="' + esc(s.label + " — project " + (p.code || "")) + '"><svg width="30" height="28" aria-hidden="true" style="color:var(--text)"><use href="#mark"/></svg>' +
+    '<b class="sig-brand">UZLEEDER</b><b class="sig-label">' + s.label + '</b><span>Built by Max<br/>Founder &amp; CEO</span><span class="sig-line">' + s.line + '</span>' +
+    '<span class="sig-id">PROJECT ID<br/><b>' + esc(p.code || "—") + '</b></span><span class="sig-era">SALAAM NEW ERA.</span></div></section>';
+}
+const PF_STATE = { draft: ["", "PORTFOLIO DRAFT"], approved: ["info", "APPROVED"], sent: ["ok", "IN WEBSITE DRAFT"] };
+const pfPill = e => '<span class="pill ' + PF_STATE[e.state][0] + '">' + PF_STATE[e.state][1] + '</span>';
+function portfolioCard(p, e) {
+  const ready = ["COMPLETED", "READY_FOR_DELIVERY"].includes(p.status);
+  return '<section class="card"><h3>Portfolio</h3>' + (e ? '<div class="row"><span class="t"><b>' + esc(e.title) + '</b><span>Owner review → approve → website draft → publish in the Control Center</span></span>' + pfPill(e) + '<button class="btn sm" type="button" data-go="portfolio" data-param="' + e.id + '">Open</button></div>'
+    : ready ? '<p class="muted" style="margin-top:0">Nothing is published automatically. A draft starts empty — you decide what the public sees.</p><button class="btn primary sm" type="button" id="pfCreate">' + ico("plus") + 'Create portfolio draft</button>'
+    : emptyBox("Available when completed", "A completed project can become a portfolio entry after your review.")) + '</section>';
+}
+function bindPortfolioCard(el, p, e, after) {
+  const b = $("#pfCreate", el); if (b) b.onclick = async () => { b.disabled = true; try { const j = await api("portfolio.create", { projectId: p.id }); toast("Portfolio draft created."); go("portfolio", j.entry.id); } catch (err) { fail(err); b.disabled = false; } };
+}
+VIEWS.portfolio = async (v, param) => {
+  const [{ portfolio }] = await Promise.all([api("portfolio.list"), projectsList()]);
+  v.innerHTML = head("Portfolio", "PROJECT COMPLETED → owner review → PORTFOLIO DRAFT → APPROVE → website draft. The live site changes only when you publish in the Control Center.") +
+    '<div class="card">' + (portfolio.length ? '<div class="list">' + portfolio.map(e => '<button class="row" type="button" data-pfe="' + e.id + '"><span class="t"><b>' + esc(e.title || "Untitled") + '</b><span>' + esc(projName(e.projectId) || "project") + (e.code ? " · " + esc(e.code) : "") + '</span></span>' + pfPill(e) + '</button>').join("") + '</div>'
+      : emptyBox("No portfolio entries yet", "Open a completed project and choose “Create portfolio draft”.")) + '</div>';
+  $$("[data-pfe]", v).forEach(b => b.onclick = () => openPortfolio(portfolio.find(x => x.id === b.dataset.pfe), v));
+  if (param) { const e = portfolio.find(x => x.id === param); if (e) openPortfolio(e, v); }
+};
+const PF_TAG_LABEL = { delivered: "Delivered to the client", "live-client": "Live client project", "live-own": "Live UzLeeder product", product: "Product available for deployment", demo: "Demonstration" };
+function openPortfolio(e, v) {
+  const tags = e.owner === "client" ? ["delivered", "live-client"] : ["live-own", "product", "demo"];
+  const d = dialog("Portfolio · " + (e.title || "Untitled"),
+    '<p class="muted" style="margin-top:0">' + pfPill(e) + ' · from project ' + esc(projName(e.projectId) || e.projectId) + '. Only what you write here can reach the public site — never the brief or internal notes.</p>' +
+    '<div class="field"><label for="pfT">Public title *</label><input class="input" id="pfT" value="' + esc(e.title) + '"/></div>' +
+    '<div class="field"><label for="pfS">Public summary * <span class="faint">(English; translate later in the Control Center)</span></label><textarea class="input" id="pfS">' + esc(e.summary) + '</textarea></div>' +
+    '<div class="two"><div class="field"><label for="pfR">Max\'s role</label><input class="input" id="pfR" value="' + esc(e.role) + '"/></div><div class="field"><label for="pfTech">Technology (comma-separated)</label><input class="input" id="pfTech" value="' + esc(e.tech) + '"/></div>' +
+    '<div class="field"><label for="pfL">Public link (https)</label><input class="input" id="pfL" value="' + esc(e.link) + '"/></div><div class="field"><label for="pfI">Image URL (https or /api/media/…)</label><input class="input" id="pfI" value="' + esc(e.image) + '"/></div>' +
+    '<div class="field"><label for="pfTag">Status on the site</label><select class="input" id="pfTag">' + tags.map(k => '<option value="' + k + '"' + (e.tag === k ? " selected" : "") + '>' + PF_TAG_LABEL[k] + '</option>').join("") + '</select></div>' +
+    (e.owner === "client" ? '<div class="field"><label><input type="checkbox" id="pfSC"' + (e.showClient ? " checked" : "") + '/> Show the client\'s name (only with their consent)</label><input class="input" id="pfCN" value="' + esc(e.clientName) + '" placeholder="Client name as it may appear publicly"/></div>' : "") + '</div>',
+    '<button class="btn" type="button" id="pfSave">Save</button><button class="btn" type="button" id="pfAppr"' + (e.state !== "draft" ? " disabled" : "") + '>Approve</button><button class="btn primary" type="button" id="pfSite"' + (e.state === "draft" ? " disabled" : "") + '>' + (e.state === "sent" ? "Update website draft" : "Add to website draft") + '</button>', { drawer: true });
+  const collect = () => ({ id: e.id, title: $("#pfT", d).value, summary: $("#pfS", d).value, role: $("#pfR", d).value, tech: $("#pfTech", d).value, link: $("#pfL", d).value.trim(), image: $("#pfI", d).value.trim(), tag: $("#pfTag", d).value, showClient: !!($("#pfSC", d) && $("#pfSC", d).checked), clientName: $("#pfCN", d) ? $("#pfCN", d).value : "" });
+  $("#pfSave", d).onclick = async () => { try { const j = await api("portfolio.save", collect()); toast(e.state === "draft" ? "Saved." : "Saved — approve it again before it goes to the website draft."); openPortfolio(j.entry, v); VIEWS.portfolio(v); } catch (err) { fail(err); } };
+  $("#pfAppr", d).onclick = async () => { try { await api("portfolio.save", collect()); if (!(await confirmBox("Approve this entry?", "<p>You confirm the text, image and link are fine to show publicly" + (e.owner === "client" ? " and that the client agrees" : "") + ".</p>", "Approve"))) return; const j = await api("portfolio.approve", { id: e.id, confirm: true }); toast("Approved."); VIEWS.portfolio(v); openPortfolio(j.entry, v); } catch (err) { fail(err); } };
+  $("#pfSite", d).onclick = async () => { if (!(await confirmBox("Add to the website draft?", "<p>The entry is added to the Control Center's <b>draft</b>. The live website changes only when you press Publish in the Control Center.</p>", "Add to draft"))) return; try { const j = await api("portfolio.toSite", { id: e.id, confirm: true }); toast("Added to the website draft — publish it in the Control Center."); VIEWS.portfolio(v); openPortfolio(j.entry, v); } catch (err) { fail(err); } };
+}
+/* ---------- tasks ---------- */
+function taskMini(tasks, controls) {
+  if (!tasks.length) return emptyBox("No tasks", "");
+  return '<div class="list">' + tasks.map(t => '<div class="row"><span class="t"><b>' + esc(t.title) + '</b><span>' + esc([t.due ? "due " + t.due : "", t.priority !== "normal" ? t.priority : ""].filter(Boolean).join(" · ") || " ") + '</span></span>' +
+    (controls ? '<select class="input" style="width:auto" data-tstat="' + t.id + '" aria-label="Status of ' + esc(t.title) + '">' + TSTATUS.map(s => '<option value="' + s[0] + '"' + (t.status === s[0] ? " selected" : "") + '>' + s[1] + '</option>').join("") + '</select><button class="btn sm" type="button" data-tedit="' + t.id + '">Edit</button>' : '<span class="pill">' + esc(TSTATUS_LABEL[t.status] || t.status) + '</span>') + '</div>').join("") + '</div>';
+}
+function bindTaskMini(el, tasks, after) {
+  $$("[data-tstat]", el).forEach(s => s.onchange = async () => { const t = tasks.find(x => x.id === s.dataset.tstat); try { await api("tasks.save", Object.assign({}, t, { status: s.value })); toast("Task updated."); after(); } catch (e) { fail(e); } });
+  $$("[data-tedit]", el).forEach(b => b.onclick = () => taskForm(tasks.find(x => x.id === b.dataset.tedit), null, after));
+}
+function taskForm(t, projectId, after) {
+  projectsList().then(() => {
+    formDialog(t ? "Edit task" : "New task", [
+      { k: "title", label: "Task", req: true }, { k: "projectId", label: "Project", type: "select", options: projOptions(), def: projectId || "" },
+      { k: "status", label: "Status", type: "select", options: TSTATUS, def: "todo" },
+      { k: "priority", label: "Priority", type: "select", options: [["normal", "Normal"], ["high", "High"], ["low", "Low"]], def: "normal" },
+      { k: "due", label: "Due date", type: "date" }, { k: "notes", label: "Notes", type: "textarea" }
+    ], t, async out => { await api("tasks.save", Object.assign({ id: t && t.id }, out)); toast("Task saved."); (after || (() => go("tasks")))(); },
+    t ? { extraBtn: '<button class="btn danger" type="button" id="delTask" style="margin-inline-end:auto">Delete</button>' } : null);
+    const del = $("#delTask"); if (del) del.onclick = async () => { $("#dlg").close(); if (await confirmBox("Delete task?", "<p>" + esc(t.title) + "</p>", "Delete", true)) { try { await api("tasks.delete", { id: t.id, confirm: true }); toast("Task deleted."); (after || (() => go("tasks")))(); } catch (e) { fail(e); } } };
+  });
+}
+VIEWS.tasks = async v => {
+  const [{ tasks }] = await Promise.all([api("tasks.list"), projectsList()]);
+  const pf = S.taskProject || "", mode = S.taskMode || "board";
+  const list = tasks.filter(t => !pf || t.projectId === pf);
+  const today = new Date().toISOString().slice(0, 10);
+  const order = TSTATUS.map(s => s[0]);
+  const meta = x => (x.projectId ? '<span>' + esc(projName(x.projectId)) + '</span>' : "") + (x.due ? '<span class="' + (x.due < today && x.status !== "done" ? "s-failed" : "") + '">due ' + esc(x.due) + '</span>' : "") + (x.priority === "high" ? '<span class="pill err">high</span>' : "");
+  const col = (k, label) => { const i = order.indexOf(k); return '<section class="kcol" aria-label="' + label + '"><h3>' + label + '<span class="faint">' + list.filter(x => x.status === k).length + '</span></h3>' +
+    list.filter(x => x.status === k).map(x => '<div class="task"><b>' + esc(x.title) + '</b><div class="meta">' + meta(x) +
+    '<span style="margin-inline-start:auto;display:flex;gap:4px">' + (i > 0 ? '<button class="btn sm" type="button" data-mv="' + x.id + '" data-to="' + order[i - 1] + '" aria-label="Move ' + esc(x.title) + ' back to ' + TSTATUS[i - 1][1] + '">←</button>' : "") + (i < order.length - 1 ? '<button class="btn sm" type="button" data-mv="' + x.id + '" data-to="' + order[i + 1] + '" aria-label="Move ' + esc(x.title) + ' to ' + TSTATUS[i + 1][1] + '">→</button>' : "") + '<button class="btn sm" type="button" data-te="' + x.id + '">Edit</button></span></div></div>').join("") + '</section>'; };
+  const table = () => '<div class="card tbl">' + (list.length ? '<table><thead><tr><th>Task</th><th class="hide-m">Project</th><th>Status</th><th class="hide-m">Priority</th><th class="hide-m">Due</th><th class="hide-m">Updated</th><th></th></tr></thead><tbody>' +
+    list.slice().sort((a, b) => order.indexOf(a.status) - order.indexOf(b.status) || (a.due || "9").localeCompare(b.due || "9")).map(x => '<tr><td><b>' + esc(x.title) + '</b></td><td class="hide-m">' + esc(projName(x.projectId)) + '</td><td><select class="input" style="width:auto" data-ls="' + x.id + '" aria-label="Status of ' + esc(x.title) + '">' + TSTATUS.map(s => '<option value="' + s[0] + '"' + (x.status === s[0] ? " selected" : "") + '>' + s[1] + '</option>').join("") + '</select></td><td class="hide-m">' + esc(x.priority) + '</td><td class="hide-m mono ' + (x.due && x.due < today && x.status !== "done" ? "s-failed" : "") + '">' + esc(x.due || "—") + '</td><td class="hide-m mono">' + when(x.updatedAt || x.createdAt) + '</td><td><button class="btn sm" type="button" data-te="' + x.id + '">Edit</button></td></tr>').join("") + '</tbody></table>' : emptyBox("No tasks", "")) + '</div>';
+  v.innerHTML = head("Tasks", "TODO → IN PROGRESS → REVIEW → DONE, across projects.", '<div class="tabs" role="tablist" style="margin:0"><button role="tab" type="button" data-tm="board" aria-selected="' + (mode === "board") + '">Board</button><button role="tab" type="button" data-tm="list" aria-selected="' + (mode === "list") + '">List</button></div><select class="input" style="width:auto" id="tp" aria-label="Filter by project"><option value="">All projects</option>' + (S.data.projects || []).map(p => '<option value="' + p.id + '"' + (pf === p.id ? " selected" : "") + '>' + esc(p.name) + '</option>').join("") + '</select><button class="btn primary" type="button" id="newTask">' + ico("plus") + 'New task</button>') +
+    (mode === "board" ? '<div class="kanban k4">' + TSTATUS.map(s => col(s[0], s[1])).join("") + '</div>' : table());
+  $$("[data-tm]", v).forEach(b => b.onclick = () => { S.taskMode = b.dataset.tm; VIEWS.tasks(v); });
+  $("#tp").onchange = e => { S.taskProject = e.target.value; VIEWS.tasks(v); };
+  $("#newTask").onclick = () => taskForm(null, pf, () => VIEWS.tasks(v));
+  const setStatus = async (id, status) => { const t = tasks.find(x => x.id === id); try { await api("tasks.save", Object.assign({}, t, { status })); VIEWS.tasks(v); } catch (e) { fail(e); } };
+  $$("[data-mv]", v).forEach(b => b.onclick = () => setStatus(b.dataset.mv, b.dataset.to));
+  $$("[data-ls]", v).forEach(s => s.onchange = () => setStatus(s.dataset.ls, s.value));
+  $$("[data-te]", v).forEach(b => b.onclick = () => taskForm(tasks.find(x => x.id === b.dataset.te), null, () => VIEWS.tasks(v)));
+};
+/* ---------- files ---------- */
+const FOLDERS = [["projects", "Projects"], ["brand", "Brand"], ["media", "Media"], ["documents", "Documents"], ["development", "Development"], ["deliverables", "Deliverables"]];
+const FSTATUS = [["draft", "Draft"], ["in_review", "In review"], ["approved", "Approved"], ["final", "Final"]];
+const fstatusPill = s => '<span class="pill ' + ({ in_review: "warn", approved: "info", final: "ok" })[s || "draft"] + '">' + esc((FSTATUS.find(x => x[0] === (s || "draft")) || ["", s])[1]) + '</span>';
+let blobClient = null;
+async function uploadToStorage(file, onProgress) {
+  const ext = ((/\.([a-z0-9]{1,6})$/i.exec(file.name) || [, "bin"])[1]).toLowerCase();
+  const key = "wsf/wsf_" + Date.now().toString(36) + Math.random().toString(36).slice(2, 12) + "." + ext;
+  try {
+    if (!blobClient) blobClient = await import("https://cdn.jsdelivr.net/npm/@vercel/blob@2.8.0/client/+esm");
+    await blobClient.upload(key, file, { access: "private", handleUploadUrl: "/api/blob-upload", contentType: file.type || "application/octet-stream", clientPayload: JSON.stringify({ token: S.token }), multipart: file.size > 8 * 1024 * 1024, onUploadProgress: p => onProgress && onProgress(p.percentage) });
+    return { key, size: file.size, type: file.type || "application/octet-stream" };
+  } catch (e) {
+    if (file.size > 3 * 1024 * 1024) throw new Error(/nauthor/i.test(e.message) ? "Session expired — sign in again." : "Upload failed: " + e.message);
+    // local preview: small files go through the function
+    const dataUrl = await new Promise(res => { const r = new FileReader(); r.onload = () => res(r.result); r.readAsDataURL(file); });
+    const j = await api("files.uploadSmall", { dataUrl: dataUrl.replace(/^data:;/, "data:application/octet-stream;"), name: file.name });
+    return { key: j.key, size: j.size, type: j.type };
+  }
+}
+function upPanel(name) {
+  const el = document.createElement("div"); el.className = "up"; el.setAttribute("role", "status");
+  el.innerHTML = '<b></b> <span class="faint">0%</span><div class="bar"><i style="width:0%"></i></div>'; $("b", el).textContent = name; document.body.appendChild(el);
+  return { set: p => { $("span", el).textContent = Math.round(p) + "%"; $("i", el).style.width = p + "%"; }, done: () => setTimeout(() => el.remove(), 600) };
+}
+function pickFile(accept) {
+  return new Promise(res => { const i = document.createElement("input"); i.type = "file"; if (accept) i.accept = accept; i.onchange = () => res(i.files[0] || null); i.click(); });
+}
+async function pickAndUpload(meta, after) {
+  const file = await pickFile(); if (!file) return;
+  const ui = upPanel(file.name + " · " + kb(file.size));
+  try {
+    const up = await uploadToStorage(file, ui.set); ui.set(100);
+    const j = await api("files.create", Object.assign({ name: file.name, folder: meta.folder || "documents", projectId: meta.projectId || "", startupId: meta.startupId || "" }, up));
+    toast("Uploaded " + file.name + "."); after && after(j.file);
+  } catch (e) { fail(e); } finally { ui.done(); }
+}
+function fileTable(files) {
+  if (!files.length) return emptyBox("No files", "Upload files to keep every version in one place.");
+  return '<div class="tbl"><table><thead><tr><th>Name</th><th class="hide-m">Folder</th><th class="hide-m">Project</th><th class="hide-m">Status</th><th>Version</th><th class="hide-m">Size</th><th class="hide-m">Updated</th></tr></thead><tbody>' +
+    files.map(f => { const cur = f.versions.find(x => x.v === f.current) || {}; return '<tr class="click" data-file="' + f.id + '" tabindex="0"><td><b>' + esc(f.name) + '</b>' + (f.attention ? ' <span class="pill warn">attention</span>' : "") + '</td><td class="hide-m">' + esc(f.folder) + '</td><td class="hide-m">' + esc(projName(f.projectId)) + '</td><td class="hide-m">' + fstatusPill(f.status) + '</td><td class="mono">v' + f.current + '</td><td class="hide-m mono">' + kb(cur.size) + '</td><td class="hide-m mono">' + when(f.updatedAt) + '</td></tr>'; }).join("") + '</tbody></table></div>';
+}
+function bindFileTable(el, files) {
+  $$("[data-file]", el).forEach(tr => { const open = () => openFile(files.find(f => f.id === tr.dataset.file)); tr.onclick = open; tr.onkeydown = e => { if (e.key === "Enter") open(); }; });
+}
+VIEWS.files = async (v, param) => {
+  const [{ files }] = await Promise.all([api("files.list"), projectsList()]);
+  S.data.files = files;
+  const f = S.fileFolder || "all";
+  const shown = files.filter(x => f === "all" || x.folder === f);
+  v.innerHTML = head("Files", "Production layer: upload, preview, version, restore. Files here are private (not public site media).", '<button class="btn primary" type="button" id="upFile">' + ico("up") + 'Upload file</button>') +
+    '<div class="tabs" role="tablist">' + [["all", "All"]].concat(FOLDERS).map(t => '<button role="tab" type="button" data-ff="' + t[0] + '" aria-selected="' + (f === t[0]) + '">' + t[1] + ' <span class="faint">' + (t[0] === "all" ? files.length : files.filter(x => x.folder === t[0]).length) + '</span></button>').join("") + '</div>' +
+    '<div class="card">' + fileTable(shown) + '</div>';
+  $("#upFile").onclick = () => pickAndUpload({ folder: f === "all" ? "documents" : f }, () => VIEWS.files(v));
+  $$("[data-ff]", v).forEach(b => b.onclick = () => { S.fileFolder = b.dataset.ff; VIEWS.files(v); });
+  bindFileTable(v, shown);
+  if (param) { const x = files.find(y => y.id === param); if (x) openFile(x); }
+};
+async function fileUrl(f, v) {
+  const j = await api("files.link", { id: f.id, v });
+  if (j.url) return j.url;
+  return URL.createObjectURL(await apiRaw("files.get", { id: f.id, v }));
+}
+function openFile(f) {
+  if (!f) return;
+  const cur = f.versions.find(x => x.v === f.current) || {};
+  const isImg = /^image\//.test(cur.type), isVid = /^video\//.test(cur.type), isPdf = cur.type === "application/pdf";
+  const isText = /^(text\/|application\/(json|javascript|xml))/.test(cur.type) || /\.(md|txt|json|js|css|html|csv|xml|ya?ml)$/i.test(f.name);
+  const d = dialog(f.name,
+    '<div class="preview-media" id="fPrev">' + (isImg || isVid || isPdf ? '<p class="muted">Loading preview…</p>' : '<p class="muted">No preview for this type — download to open.</p>') + '</div>' +
+    '<div class="two" style="margin-top:12px"><div class="field"><label for="fName">Name</label><input class="input" id="fName" value="' + esc(f.name) + '"/></div>' +
+    '<div class="field"><label for="fFolder">Folder</label><select class="input" id="fFolder">' + FOLDERS.map(o => '<option value="' + o[0] + '"' + (o[0] === f.folder ? " selected" : "") + '>' + o[1] + '</option>').join("") + '</select></div>' +
+    '<div class="field"><label for="fProj">Project</label><select class="input" id="fProj">' + projOptions().map(o => '<option value="' + o[0] + '"' + (o[0] === (f.projectId || "") ? " selected" : "") + '>' + esc(o[1]) + '</option>').join("") + '</select></div>' +
+    '<div class="field"><label for="fStat">Status</label><select class="input" id="fStat">' + FSTATUS.map(o => '<option value="' + o[0] + '"' + (o[0] === (f.status || "draft") ? " selected" : "") + '>' + o[1] + '</option>').join("") + '</select></div>' +
+    '<div class="field"><label for="fAtt">Needs attention (note)</label><input class="input" id="fAtt" value="' + esc(f.attention || "") + '" placeholder="e.g. waiting for client approval"/></div></div>' +
+    '<div class="field"><label for="fDesc">Description</label><textarea class="input" id="fDesc" style="min-height:60px">' + esc(f.description || "") + '</textarea></div>' +
+    '<div class="actions" style="margin-bottom:14px"><button class="btn sm" type="button" id="fDl">Download v' + f.current + '</button><button class="btn sm" type="button" id="fVer">' + ico("up") + 'Upload new version</button>' + (isText ? '<button class="btn sm" type="button" id="fEdit">' + ico("pen") + 'Edit text</button>' : "") + '<button class="btn sm" type="button" id="fDup">Duplicate</button>' + (isText && f.versions.length > 1 ? '<button class="btn sm" type="button" id="fCmp">Compare versions</button>' : "") + '</div>' +
+    '<h3 style="font-size:13px;margin:0 0 6px">Versions</h3><div class="list">' + f.versions.slice().reverse().map(x => '<div class="row"><span class="t"><b>v' + x.v + (x.v === f.current ? ' <span class="pill ok">current</span>' : "") + '</b><span>' + when(x.at) + (x.by ? ' · ' + esc(x.by) : "") + ' · ' + kb(x.size) + (x.note ? ' · ' + esc(x.note) : "") + '</span></span><button class="btn sm" type="button" data-vdl="' + x.v + '">Download</button>' + (x.v !== f.current ? '<button class="btn sm" type="button" data-vrs="' + x.v + '">Restore</button>' : "") + '</div>').join("") + '</div>',
+    '<button class="btn danger" type="button" id="fDel" style="margin-inline-end:auto">Delete…</button><button class="btn primary" type="button" id="fSave">Save</button>', { drawer: true });
+  if (isImg || isVid || isPdf) fileUrl(f).then(u => { const p = $("#fPrev", d); if (!p) return; p.innerHTML = isImg ? '<img alt="" src="' + esc(u) + '"/>' : isVid ? '<video controls preload="metadata" src="' + esc(u) + '"></video>' : '<a class="btn sm" href="' + esc(u) + '" target="_blank" rel="noopener">Open PDF' + ico("out") + '</a>'; }).catch(e => { $("#fPrev", d).innerHTML = '<p class="s-failed">' + esc(e.message) + '</p>'; });
+  const dl = async v => { try { const u = await fileUrl(f, v); const a = document.createElement("a"); a.href = u; a.download = f.name; a.target = "_blank"; a.rel = "noopener"; document.body.appendChild(a); a.click(); a.remove(); } catch (e) { fail(e); } };
+  $("#fDl", d).onclick = () => dl(f.current);
+  $$("[data-vdl]", d).forEach(b => b.onclick = () => dl(+b.dataset.vdl));
+  $$("[data-vrs]", d).forEach(b => b.onclick = async () => { try { const j = await api("files.restore", { id: f.id, v: +b.dataset.vrs }); toast("Restored as v" + j.file.current + "."); openFile(j.file); refreshFiles(); } catch (e) { fail(e); } });
+  $("#fVer", d).onclick = async () => {
+    const file = await pickFile(); if (!file) return;
+    const ui = upPanel(file.name);
+    try { const up = await uploadToStorage(file, ui.set); const note = file.name !== f.name ? "Uploaded as " + file.name : ""; const j = await api("files.version", Object.assign({ id: f.id, note }, up)); toast("Version v" + j.file.current + " saved."); openFile(j.file); refreshFiles(); } catch (e) { fail(e); } finally { ui.done(); }
+  };
+  const ed = $("#fEdit", d); if (ed) ed.onclick = () => textEditor(f);
+  $("#fDup", d).onclick = async () => { try { const j = await api("files.duplicate", { id: f.id }); toast("Duplicated as " + j.file.name + "."); openFile(j.file); refreshFiles(); } catch (e) { fail(e); } };
+  const cmp = $("#fCmp", d); if (cmp) cmp.onclick = () => compareVersions(f);
+  $("#fSave", d).onclick = async () => {
+    try { const j = await api("files.update", { id: f.id, name: $("#fName", d).value, folder: $("#fFolder", d).value, projectId: $("#fProj", d).value, status: $("#fStat", d).value, attention: $("#fAtt", d).value, description: $("#fDesc", d).value }); toast("Saved."); d.close(); refreshFiles(); } catch (e) { fail(e); }
+  };
+  $("#fDel", d).onclick = async () => {
+    d.close();
+    const dd = dialog("Delete file permanently?", '<p>All ' + f.versions.length + ' version(s) of <b>' + esc(f.name) + '</b> will be deleted from storage. This cannot be undone.</p><div class="field"><label for="delName">Type the file name to confirm</label><input class="input" id="delName" autocomplete="off"/></div>', '<button class="btn" type="button" data-close3>Cancel</button><button class="btn danger" type="button" id="delGo">Delete</button>');
+    $("[data-close3]", dd).onclick = () => dd.close();
+    $("#delGo", dd).onclick = async () => { try { await api("files.delete", { id: f.id, confirm: $("#delName", dd).value }); dd.close(); toast("File deleted."); refreshFiles(); } catch (e) { fail(e); } };
+  };
+}
+function refreshFiles() { if (S.view === "files") go("files"); else if (S.view === "projects" && S.param) go("projects", S.param); }
+async function textEditor(f) {
+  try {
+    const j = await api("files.text", { id: f.id });
+    const d = dialog("Edit · " + f.name, '<textarea class="input mono" id="edTxt" style="min-height:50vh" spellcheck="false">' + esc(j.text) + '</textarea><div class="field" style="margin-top:10px"><label for="edNote">Version note</label><input class="input" id="edNote" placeholder="What changed?"/></div>', '<button class="btn" type="button" data-close4>Cancel</button><button class="btn primary" type="button" id="edSave">Save as new version</button>');
+    d.style.width = "min(900px,calc(100vw - 32px))";
+    $("[data-close4]", d).onclick = () => d.close();
+    $("#edSave", d).onclick = async () => { try { const r = await api("files.saveText", { id: f.id, text: $("#edTxt", d).value, base: j.v, note: $("#edNote", d).value }); toast("Saved as v" + r.file.current + "."); d.close(); openFile(r.file); refreshFiles(); } catch (e) { fail(e); } };
+  } catch (e) { fail(e); }
+}
+
+// line diff of two text versions (LCS; the server sends both texts, capped at 512 KB)
+function lineDiff(a, b) {
+  const A = a.split("\n"), B = b.split("\n");
+  if (A.length * B.length > 4e6) return null;
+  const m = A.length, n = B.length, L = Array.from({ length: m + 1 }, () => new Uint32Array(n + 1));
+  for (let i = m - 1; i >= 0; i--) for (let j = n - 1; j >= 0; j--) L[i][j] = A[i] === B[j] ? L[i + 1][j + 1] + 1 : Math.max(L[i + 1][j], L[i][j + 1]);
+  const out = []; let i = 0, j = 0;
+  while (i < m && j < n) { if (A[i] === B[j]) { out.push([" ", A[i]]); i++; j++; } else if (L[i + 1][j] >= L[i][j + 1]) out.push(["-", A[i++]]); else out.push(["+", B[j++]]); }
+  while (i < m) out.push(["-", A[i++]]);
+  while (j < n) out.push(["+", B[j++]]);
+  return out;
+}
+async function compareVersions(f) {
+  const vs = f.versions.map(x => x.v).sort((x, y) => y - x);
+  const opts = sel => vs.map(x => '<option value="' + x + '"' + (x === sel ? " selected" : "") + '>v' + x + '</option>').join("");
+  const d = dialog("Compare · " + f.name, '<div class="two"><div class="field"><label for="cmpA">From</label><select class="input" id="cmpA">' + opts(vs[1]) + '</select></div><div class="field"><label for="cmpB">To</label><select class="input" id="cmpB">' + opts(vs[0]) + '</select></div></div><div id="cmpOut" aria-live="polite"></div>');
+  d.style.width = "min(1000px,calc(100vw - 32px))";
+  const run = async () => {
+    const out = $("#cmpOut", d); out.innerHTML = '<p class="muted">Comparing…</p>';
+    try {
+      const j = await api("files.compare", { id: f.id, a: +$("#cmpA", d).value, b: +$("#cmpB", d).value });
+      const diff = lineDiff(j.a.text, j.b.text);
+      if (!diff) { out.innerHTML = '<p class="muted">These versions are too long to compare line by line here.</p>'; return; }
+      const add = diff.filter(x => x[0] === "+").length, del = diff.filter(x => x[0] === "-").length;
+      out.innerHTML = '<p class="summary">+' + add + ' / −' + del + ' lines</p><pre class="log diff">' + diff.map(x => '<span class="d' + (x[0] === "+" ? "a" : x[0] === "-" ? "d" : "") + '">' + esc(x[0] + " " + x[1]) + '</span>').join("") + '</pre>';
+    } catch (e) { out.innerHTML = '<p class="s-failed">' + esc(e.message) + '</p>'; }
+  };
+  $("#cmpA", d).onchange = run; $("#cmpB", d).onchange = run; run();
+}
+
+/* ---------- media library: images, videos, logos, brand assets, documents — reused across content ---------- */
+const kindOfFile = f => { const t = (f.versions.find(x => x.v === f.current) || {}).type || ""; return /^image\//.test(t) ? "image" : /^video\//.test(t) ? "video" : "document"; };
+VIEWS.library = async v => {
+  const { files } = await api("files.list");
+  S.data.files = files;
+  const lib = files.filter(f => ["media", "brand"].includes(f.folder) || kindOfFile(f) !== "document");
+  const k = S.libKind || "all";
+  const shown = lib.filter(f => k === "all" || (k === "brand" ? f.folder === "brand" : kindOfFile(f) === k));
+  v.innerHTML = head("Media library", "Images, videos, logos and brand assets from Files — reuse them in Content Studio instead of uploading again.", '<button class="btn primary" type="button" id="libUp">' + ico("up") + 'Upload media</button>') +
+    '<div class="tabs" role="tablist">' + [["all", "All"], ["image", "Images"], ["video", "Videos"], ["brand", "Brand assets"], ["document", "Documents"]].map(x => '<button role="tab" type="button" data-lk="' + x[0] + '" aria-selected="' + (k === x[0]) + '">' + x[1] + '</button>').join("") + '</div>' +
+    (shown.length ? '<div class="lib">' + shown.map(f => '<button class="lib-item" type="button" data-lf="' + f.id + '"><span class="lib-th"' + (kindOfFile(f) === "image" ? ' data-th="' + f.id + '">' : ">" + ico(kindOfFile(f) === "video" ? "play" : "file")) + '</span><b>' + esc(f.name) + '</b><span class="faint">' + esc(f.folder) + ' · v' + f.current + '</span></button>').join("") + '</div>'
+      : '<div class="card">' + emptyBox("No media yet", "Upload images, videos and brand assets here or in Files → Media / Brand.") + '</div>');
+  $$("[data-lk]", v).forEach(b => b.onclick = () => { S.libKind = b.dataset.lk; VIEWS.library(v); });
+  $("#libUp").onclick = () => pickAndUpload({ folder: "media" }, () => VIEWS.library(v));
+  $$("[data-lf]", v).forEach(b => b.onclick = () => openFile(files.find(x => x.id === b.dataset.lf)));
+  // thumbnails load lazily through short-lived private links (never public URLs)
+  const io = new IntersectionObserver(es => es.forEach(en => { if (!en.isIntersecting) return; io.unobserve(en.target); const f = files.find(x => x.id === en.target.dataset.th); fileUrl(f).then(u => { en.target.innerHTML = '<img alt="" src="' + esc(u) + '"/>'; }).catch(() => {}); }));
+  $$("[data-th]", v).forEach(el => io.observe(el));
+};
+function pickFromLibrary() {
+  return new Promise(async res => {
+    let files; try { files = (await api("files.list")).files; } catch (e) { fail(e); return res(null); }
+    const media = files.filter(f => ["media", "brand"].includes(f.folder) || kindOfFile(f) !== "document");
+    const d = dialog("Choose from media library", media.length ? '<div class="list">' + media.map(f => { const cur = f.versions.find(x => x.v === f.current) || {}; return '<button class="row" type="button" data-pick="' + f.id + '"><span class="t"><b>' + esc(f.name) + '</b><span>' + esc(cur.type || "") + ' · ' + kb(cur.size) + ' · v' + f.current + '</span></span></button>'; }).join("") + '</div>' : emptyBox("No media yet", "Upload into Files → Media first."));
+    let chosen = null;
+    $$("[data-pick]", d).forEach(b => b.onclick = () => { chosen = media.find(x => x.id === b.dataset.pick); d.close(); });
+    d.addEventListener("close", () => res(chosen), { once: true });
+  });
+}
+
+/* ---------- startups — operations on the shared startup records ----------
+   Same record as the Control Center (content & publishing) and the homepage Startups section (published copy only).
+   Here: goals, internal notes, milestones, tasks, files, development notes, activity. Nothing here is public. */
+const SU_STAGE = { exploring: "Exploring", research: "Research", prototype: "Prototype", development: "In Development", beta: "Beta", launched: "Launched", paused: "Paused" };
+const SU_OP = [["active", "Active"], ["paused", "Paused"], ["blocked", "Blocked"]];
+const SU_MS = [["planned", "Planned"], ["in_progress", "In progress"], ["blocked", "Blocked"], ["done", "Done"]];
+const suPubPill = r => r.archived ? '<span class="pill">Archived</span>' : r.visible ? '<span class="pill ok">Public' + (r.changed ? " · new draft" : "") + "</span>" : r.hasPublished ? '<span class="pill">Unpublished</span>' : '<span class="pill">' + esc({ draft: "Draft", review: "In review", approved: "Approved", rejected: "Rejected" }[r.state] || r.state) + "</span>";
+const suOpPill = s => '<span class="pill ' + ({ active: "ok", paused: "", blocked: "err" })[s] + '">' + esc((SU_OP.find(x => x[0] === s) || ["", s])[1]) + "</span>";
+const suMono = r => r.logo ? '<img src="' + esc(r.logo) + '" alt="" width="36" height="36" style="width:36px;height:36px;border-radius:9px;object-fit:cover"/>' : '<span aria-hidden="true" style="display:grid;place-items:center;width:36px;height:36px;border-radius:9px;background:var(--surface-2,rgba(127,127,127,.12));font-weight:800;color:var(--brand)">' + esc(String(r.name || "?").replace(/[^A-Za-z0-9]/g, "").slice(0, 2)) + "</span>";
+VIEWS.startups = async (v, param) => {
+  if (param) return startupDetail(v, param);
+  const j = await api("startups.list");
+  v.innerHTML = head("Startups", "Day-to-day work on each venture: milestones, tasks, files and notes. Public content and publishing are managed in the Control Center.", '<a class="btn" href="/admin#/startups" target="_blank" rel="noopener">' + ico("out") + "Content & publishing</a>");
+  if (!j.initialized) { v.innerHTML += '<div class="card">' + emptyBox("No startup records yet", "Import the current ventures in the Control Center → Startups. They appear here right after.") + "</div>"; return; }
+  const list = j.startups.filter(r => !r.archived);
+  v.innerHTML += list.length ? '<div class="list card">' + list.map(r => '<button class="row" type="button" data-go="startups" data-param="' + r.id + '" style="align-items:center;gap:12px">' + suMono(r) +
+    '<span class="t"><b>' + esc(r.name) + ' <span class="faint" style="font-weight:400">· ' + esc(SU_STAGE[r.status] || "") + '</span></b><span>' +
+    (r.nextMilestone ? "Next: " + esc(r.nextMilestone.title) + (r.nextMilestone.target ? " · " + esc(r.nextMilestone.target) : "") : "No open milestone") + " · " + r.openTasks + " open task" + (r.openTasks === 1 ? "" : "s") + (r.overdue ? ' · <b style="display:inline;color:var(--error)">' + r.overdue + " overdue</b>" : "") + " · " + r.files + " file" + (r.files === 1 ? "" : "s") + "</span></span>" +
+    suOpPill(r.opStatus) + suPubPill(r) + "</button>").join("") + "</div>" : '<div class="card">' + emptyBox("No active startups", "Archived startups are hidden here.") + "</div>";
+};
+async function startupDetail(v, id) {
+  const j = await api("startups.get", { id });
+  const s = j.startup, d = s.draft || {}, inn = s.internal || {}, tab = S.suTab || "overview";
+  const ms = s.milestones || [], openMs = ms.filter(m => m.status !== "done").sort((a, b) => (a.target || "9999").localeCompare(b.target || "9999"));
+  const tabs = [["overview", "Overview"], ["tasks", "Tasks · " + j.tasks.filter(t => t.status !== "done").length], ["roadmap", "Roadmap · " + ms.length], ["files", "Files · " + j.files.length], ["certs", "Certificates · " + (j.certificates || []).length], ["development", "Development"], ["activity", "Activity"], ["public", "Public page"]];
+  const row = { archived: s.archived, visible: s.visible, hasPublished: !!s.published, changed: !!s.published && JSON.stringify(s.draft) !== JSON.stringify(s.published), state: s.state };
+  v.innerHTML = '<p style="margin:0 0 8px"><button class="btn sm" type="button" data-go="startups">← Startups</button></p>' +
+    head(d.name || s.slug, esc(SU_STAGE[d.status] || "") + " " + suOpPill(inn.opStatus || "active") + " " + suPubPill(row)) +
+    '<div class="tabs" role="tablist">' + tabs.map(t => '<button role="tab" type="button" data-sut="' + t[0] + '" aria-selected="' + (tab === t[0]) + '">' + esc(t[1]) + "</button>").join("") + '</div><div id="sutab"></div>';
+  $$("[data-sut]", v).forEach(b => b.onclick = () => { S.suTab = b.dataset.sut; startupDetail(v, id); });
+  const el = $("#sutab"), reload = () => startupDetail(v, id);
+  const msName = mid => (ms.find(m => m.id === mid) || {}).title || "";
+  if (tab === "overview") {
+    el.innerHTML = '<div class="grid g2"><section class="card"><h3>Product summary <span class="k">from the public draft</span></h3><p style="margin:0">' + (esc((d.summary || {}).en || (d.tagline || {}).en || "") || '<span class="faint">No summary yet — write it in the Control Center.</span>') + "</p></section>" +
+      '<section class="card"><h3>Next milestone</h3>' + (openMs[0] ? '<div class="row"><span class="t"><b>' + esc(openMs[0].title) + "</b><span>" + esc(openMs[0].target || "No target date") + "</span></span>" + msPill(openMs[0].status) + "</div>" : emptyBox("No open milestone", "Add one in Roadmap.")) + "</section></div>" +
+      '<section class="card" style="margin-top:14px"><h3>Goals & internal notes <span class="k">private</span></h3><form id="suIn">' +
+      '<div class="field"><label for="suOp">Operational status</label><select class="input" id="suOp">' + SU_OP.map(o => '<option value="' + o[0] + '"' + ((inn.opStatus || "active") === o[0] ? " selected" : "") + ">" + o[1] + "</option>").join("") + "</select></div>" +
+      '<div class="field"><label for="suGoals">Current goals</label><textarea class="input" id="suGoals">' + esc(inn.goals || "") + "</textarea></div>" +
+      '<div class="field"><label for="suNotes">Important internal notes</label><textarea class="input" id="suNotes">' + esc(inn.notes || "") + "</textarea></div>" +
+      '<button class="btn primary" type="submit">Save</button></form></section>';
+    $("#suIn").onsubmit = async e => { e.preventDefault(); try { await api("startups.internal", { id, internal: { opStatus: $("#suOp").value, goals: $("#suGoals").value, notes: $("#suNotes").value } }); toast("Saved."); reload(); } catch (err) { fail(err); } };
+  } else if (tab === "tasks") {
+    el.innerHTML = '<div class="actions" style="margin-bottom:10px"><button class="btn primary sm" type="button" id="suAddTask">' + ico("plus") + "Add task</button></div>" +
+      '<div class="card tbl">' + (j.tasks.length ? '<table><thead><tr><th>Task</th><th>Status</th><th class="hide-m">Milestone</th><th class="hide-m">Assignee</th><th class="hide-m">Priority</th><th class="hide-m">Due</th><th></th></tr></thead><tbody>' +
+        j.tasks.map(t => '<tr><td><b>' + esc(t.title) + "</b></td><td>" + esc(TSTATUS_LABEL[t.status] || t.status) + '</td><td class="hide-m">' + esc(msName(t.milestoneId) || "—") + '</td><td class="hide-m">' + esc(t.assignee || "—") + '</td><td class="hide-m">' + esc(t.priority) + '</td><td class="hide-m mono">' + esc(t.due || "—") + '</td><td><button class="btn sm" type="button" data-sute="' + t.id + '">Edit</button></td></tr>').join("") + "</tbody></table>" : emptyBox("No tasks yet", "")) + "</div>";
+    const form = t => formDialog(t ? "Edit task" : "New task", [
+      { k: "title", label: "Task", req: true }, { k: "status", label: "Status", type: "select", options: TSTATUS, def: "todo" },
+      { k: "milestoneId", label: "Milestone", type: "select", options: [["", "— none —"]].concat(ms.map(m => [m.id, m.title])) },
+      { k: "assignee", label: "Assignee", ph: "Max" }, { k: "priority", label: "Priority", type: "select", options: [["normal", "Normal"], ["high", "High"], ["low", "Low"]], def: "normal" },
+      { k: "due", label: "Due date", type: "date" }, { k: "notes", label: "Notes", type: "textarea" }
+    ], t, async out => { await api("tasks.save", Object.assign({ id: t && t.id }, t || {}, out, { startupId: id })); toast("Task saved."); reload(); });
+    $("#suAddTask").onclick = () => form(null);
+    $$("[data-sute]", el).forEach(b => b.onclick = () => form(j.tasks.find(t => t.id === b.dataset.sute)));
+  } else if (tab === "roadmap") {
+    el.innerHTML = '<div class="actions" style="margin-bottom:10px"><button class="btn primary sm" type="button" id="suAddMs">' + ico("plus") + 'Add milestone</button><span class="hint">Internal roadmap — the public roadmap is edited in the Control Center.</span></div>' +
+      '<div class="card">' + (ms.length ? '<div class="list">' + ms.slice().sort((a, b) => (a.target || "9999").localeCompare(b.target || "9999")).map(m => '<div class="row"><span class="t"><b>' + esc(m.title) + "</b><span>" + esc([m.target ? "target " + m.target : "no target date", m.doneAt ? "done " + m.doneAt.slice(0, 10) : "", m.blocker ? "blocker: " + m.blocker : ""].filter(Boolean).join(" · ")) + (m.note ? "<br/>" + esc(m.note) : "") + "</span></span>" + msPill(m.status) +
+        '<span class="faint" style="white-space:nowrap">' + j.tasks.filter(t => t.milestoneId === m.id && t.status !== "done").length + ' open</span><button class="btn sm" type="button" data-sume="' + m.id + '">Edit</button></div>').join("") + "</div>" : emptyBox("No milestones yet", "Milestones give the tasks a target.")) + "</div>";
+    const form = m => formDialog(m ? "Edit milestone" : "New milestone", [
+      { k: "title", label: "Milestone", req: true }, { k: "target", label: "Target date", type: "date" }, { k: "status", label: "Status", type: "select", options: SU_MS, def: "planned" },
+      { k: "blocker", label: "Blocker (if any)" }, { k: "note", label: "Notes / completion note", type: "textarea" }
+    ], m, async out => { await api("startups.milestone", Object.assign({ id, milestoneId: m && m.id }, out)); toast("Milestone saved."); reload(); },
+    m ? { extraBtn: '<button class="btn danger" type="button" id="delMs" style="margin-inline-end:auto">Delete</button>' } : null);
+    $("#suAddMs").onclick = () => form(null);
+    $$("[data-sume]", el).forEach(b => b.onclick = () => { const m = ms.find(x => x.id === b.dataset.sume); form(m); const del = $("#delMs"); if (del) del.onclick = async () => { $("#dlg").close(); if (await confirmBox("Delete milestone?", "<p>" + esc(m.title) + " — its tasks stay, unlinked.</p>", "Delete", true)) { try { await api("startups.milestoneDelete", { id, milestoneId: m.id }); reload(); } catch (e) { fail(e); } } }; });
+  } else if (tab === "files") {
+    el.innerHTML = '<div class="actions" style="margin-bottom:10px"><button class="btn primary sm" type="button" id="suUp">' + ico("up") + 'Upload file</button><span class="hint">Private Workspace files — never public. Specs, designs, decks, documents.</span></div><div class="card">' + fileTable(j.files) + "</div>";
+    $("#suUp").onclick = () => pickAndUpload({ folder: "projects", startupId: id }, reload);
+    bindFileTable(el, j.files);
+  } else if (tab === "development") {
+    el.innerHTML = '<form id="suDev" class="card"><h3>Development <span class="k">private</span></h3>' +
+      '<div class="two"><div class="field"><label for="suRepo">GitHub repository (owner/name)</label><input class="input" id="suRepo" value="' + esc(inn.repo || "") + '" placeholder="uzleeder/t-port"/></div>' +
+      '<div class="field"><label for="suDemo">Demo / staging URL</label><input class="input" id="suDemo" value="' + esc(inn.demo || "") + '" placeholder="https://"/></div>' +
+      '<div class="field"><label for="suDocs">Documentation URL</label><input class="input" id="suDocs" value="' + esc(inn.docs || "") + '" placeholder="https://"/></div></div>' +
+      '<div class="field"><label for="suDevN">Implementation notes</label><textarea class="input mono" id="suDevN" style="min-height:120px">' + esc(inn.devNotes || "") + "</textarea></div>" +
+      '<div class="field"><label for="suDec">Technical decisions</label><textarea class="input mono" id="suDec" style="min-height:120px">' + esc(inn.decisions || "") + '</textarea></div><button class="btn primary" type="submit">Save</button></form><div id="suRepoBox" style="margin-top:14px"></div>';
+    $("#suDev").onsubmit = async e => { e.preventDefault(); try { await api("startups.internal", { id, internal: Object.assign({}, inn, { repo: $("#suRepo").value.trim(), demo: $("#suDemo").value.trim(), docs: $("#suDocs").value.trim(), devNotes: $("#suDevN").value, decisions: $("#suDec").value }) }); toast("Saved."); reload(); } catch (err) { fail(err); } };
+    if (inn.repo) devRepoView($("#suRepoBox"), inn.repo, true); else $("#suRepoBox").innerHTML = '<p class="muted">Add a repository to see its branches, commits and builds — shown only when the GitHub integration is connected.</p>';
+  } else if (tab === "certs") {
+    // Certificates & documents: UzLeeder Venture Record Certificates for this venture (api/_lib/certs.js — review, approval and issuance happen in the Control Center)
+    const CT = { venture: "Venture Record", stage: "Development Stage Record", founder: "Founder / Team Association Record", completion: "Project Completion Record" };
+    const CS = { draft: ["", "Draft"], review: ["info", "Under review"], approved: ["info", "Approved — awaiting issuance"], rejected: ["err", "Rejected"], issued: ["ok", "Valid"], suspended: ["warn", "Suspended"], revoked: ["err", "Revoked"], superseded: ["", "Superseded"] };
+    const certs = j.certificates || [];
+    el.innerHTML = '<section class="card" style="margin-bottom:14px"><h3>Request a certificate</h3><p class="muted" style="margin:0 0 10px">UzLeeder venture records are internal documents — not a government registration, licence or accreditation. A request is reviewed and approved in the Control Center before anything is issued.</p>' +
+      '<form id="certReq" class="grid g2"><div class="field"><label for="crType">Document type</label><select class="input" id="crType">' + Object.keys(CT).map(k => '<option value="' + k + '">' + CT[k] + "</option>").join("") + "</select></div>" +
+      '<div class="field"><label for="crLang">Language</label><select class="input" id="crLang"><option value="en">English</option><option value="uz">O&#39;zbekcha</option><option value="ru">Русский</option></select></div>' +
+      '<div class="field" style="grid-column:1/-1"><label for="crNote">What is it for? <span class="faint">(optional)</span></label><input class="input" id="crNote" maxlength="500" placeholder="e.g. incubator application"/></div>' +
+      '<div><button class="btn primary" type="submit">Submit request</button></div></form></section>' +
+      '<section class="card"><h3>Certificates &amp; documents</h3>' + (certs.length ? '<div class="list">' + certs.map(c => {
+        const p = CS[c.status] || ["", c.status], openQ = (c.infoRequests || []).filter(q => !q.response).pop();
+        return '<div class="row" style="flex-wrap:wrap;align-items:flex-start"><span class="t" style="min-width:220px"><b>' + esc(CT[c.type] || c.type) + ' <span class="pill ' + p[0] + '">' + esc(p[1]) + "</span></b><span>" +
+          (c.number ? '<span class="mono">' + esc(c.number) + "</span> · issued " + esc(new Date(c.issuedAt).toLocaleDateString()) : "Not issued yet") + (c.replacesNumber ? " · replaces " + esc(c.replacesNumber) : "") + (c.supersededByNumber ? " · replaced by " + esc(c.supersededByNumber) : "") + "</span>" +
+          (c.status === "rejected" && c.review ? '<span style="color:var(--error)">Reason: ' + esc(c.review.note) + "</span>" : "") +
+          (openQ ? '<span><b>Information requested:</b> ' + esc(openQ.note) + "</span>" : "") +
+          (["draft", "review"].includes(c.status) && c.gaps && c.gaps.filter(g => !g.optional).length ? '<span class="faint">Review progress: ' + c.gaps.filter(g => !g.optional).length + " claim(s) still to verify</span>" : "") + "</span>" +
+          '<span class="actions" style="display:flex;gap:6px;flex-wrap:wrap">' +
+          (c.number ? '<button class="btn sm primary" type="button" data-cpdf="' + c.id + '" data-n="' + esc(c.number) + '">Download PDF</button><a class="btn sm" href="' + esc(c.verifyUrl) + '" target="_blank" rel="noopener">Verification page' + ico("out") + "</a>" : "") +
+          (openQ ? '<button class="btn sm" type="button" data-cresp="' + c.id + '">Respond</button>' : "") +
+          (["draft", "rejected"].includes(c.status) && !openQ ? '<button class="btn sm" type="button" data-csub="' + c.id + '">Submit for review</button>' : "") +
+          (["issued", "suspended"].includes(c.status) ? '<button class="btn sm" type="button" data-cfix="' + c.id + '">Request a correction</button>' : "") +
+          '<a class="btn sm" href="/admin#/vcerts" target="_blank" rel="noopener">Control Center' + ico("out") + "</a></span></div>";
+      }).join("") + "</div>" : emptyBox("No certificates yet", "Request one above. Issued PDFs and their verification links appear here.")) + "</section>";
+    const withRev = async (id, fn) => { const c = await api("certs.get", { id }); return fn(c.certificate); };
+    $("#certReq").onsubmit = async e => {
+      e.preventDefault();
+      try {
+        const out = await api("certs.create", { startupId: id, type: $("#crType").value, lang: $("#crLang").value, origin: "workspace", request: $("#crNote").value.trim() });
+        try { await api("certs.submit", { id: out.certificate.id, rev: out.certificate.rev }); toast("Request submitted for review."); }
+        catch (err) { toast("Request saved as a draft: " + err.message, "err"); }
+        reload();
+      } catch (err) { fail(err); }
+    };
+    $$("[data-cpdf]", el).forEach(b => b.onclick = async () => { try { saveBlob(await apiRaw("certs.pdf", { id: b.dataset.cpdf }), b.dataset.n + ".pdf"); } catch (e) { fail(e); } });
+    $$("[data-csub]", el).forEach(b => b.onclick = async () => { try { await withRev(b.dataset.csub, c => api("certs.submit", { id: c.id, rev: c.rev })); toast("Submitted for review."); reload(); } catch (e) { fail(e); } });
+    $$("[data-cresp]", el).forEach(b => b.onclick = async () => {
+      const text = prompt("Your response to the information request:"); if (!text || !text.trim()) return;
+      try { await withRev(b.dataset.cresp, c => api("certs.respond", { id: c.id, rev: c.rev, response: text.trim() })); await withRev(b.dataset.cresp, c => api("certs.submit", { id: c.id, rev: c.rev })); toast("Response sent and resubmitted."); reload(); } catch (e) { fail(e); reload(); }
+    });
+    $$("[data-cfix]", el).forEach(b => b.onclick = async () => {
+      const note = prompt("What needs correcting? The current certificate stays valid until the corrected one is issued."); if (!note || !note.trim()) return;
+      try { await api("certs.reissue", { id: b.dataset.cfix, note: note.trim(), origin: "workspace" }); toast("Correction requested — a replacement draft was created."); reload(); } catch (e) { fail(e); }
+    });
+  } else if (tab === "activity") {
+    el.innerHTML = '<div class="card">' + actList(j.activity) + "</div>";
+  } else {
+    el.innerHTML = '<div class="grid g2"><section class="card"><h3>On the site</h3><div class="list">' +
+      '<div class="row"><span class="t"><span>Publication</span></span>' + suPubPill(row) + "</div>" +
+      '<div class="row"><span class="t"><span>Pitch deck</span></span>' + (s.draft && s.draft.pitch ? '<a class="mono" href="' + esc(s.draft.pitch) + '" target="_blank" rel="noopener">' + esc(s.draft.pitch) + "</a>" : '<span class="muted">—</span>') + "</div>" +
+      '<div class="row"><span class="t"><span>Last published</span></span>' + (s.publishedAt ? when(s.publishedAt) + " · " + esc(s.publishedBy || "") : "—") + "</div></div>" +
+      '<div class="actions" style="margin-top:12px">' + (s.visible ? '<a class="btn primary sm" href="/startups/' + esc(s.slug) + '" target="_blank" rel="noopener">Open the public page' + ico("out") + "</a>" : "") +
+      '<a class="btn sm" href="/startups/' + esc(s.slug) + '?preview=1" target="_blank" rel="noopener">Preview the draft' + ico("out") + '</a><a class="btn sm" href="/admin#/startups" target="_blank" rel="noopener">Edit & publish in the Control Center' + ico("out") + "</a></div></section>" +
+      '<section class="card"><h3>What is public</h3><p class="muted" style="margin:0">Only the published copy: name, wordmark, descriptions, stage, category, team, pitch deck and links. Internal notes, milestones, tasks, files and development notes on this page are never shown publicly.</p></section></div>';
+  }
+}
+const msPill = s => '<span class="pill ' + ({ done: "ok", in_progress: "info", blocked: "err", planned: "" })[s] + '">' + esc((SU_MS.find(x => x[0] === s) || ["", s])[1]) + "</span>";
+
+/* ---------- websites ---------- */
+VIEWS.websites = async v => {
+  const [{ websites }] = await Promise.all([api("websites.list"), projectsList()]);
+  v.innerHTML = head("Websites", "Sites you run or deliver. “Check” makes a real request and records the status and response time.", '<button class="btn primary" type="button" id="newSite">' + ico("plus") + 'Add website</button>') +
+    '<div class="card">' + (websites.length ? '<div class="list">' + websites.map(w => '<div class="row"><span class="t"><b>' + esc(w.name || w.url) + ' <span class="pill ' + ({ production: "ok", staging: "info", development: "" })[w.env || "production"] + '">' + esc((w.env || "production").toUpperCase()) + '</span></b><span><a href="' + esc(w.url) + '" target="_blank" rel="noopener">' + esc(w.url) + '</a>' + (w.projectId ? " · " + esc(projName(w.projectId)) : "") + (w.lastCheck ? " · checked " + when(w.lastCheck.at) : "") + '</span></span>' + sitePill(w) + '<button class="btn sm" type="button" data-chk="' + w.id + '">Check</button><button class="btn sm" type="button" data-we="' + w.id + '">Edit</button></div>').join("") + '</div>' : emptyBox("No websites yet", "Add uzleeder.vercel.app or a client site to monitor it here.")) + '</div>';
+  const form = w => formDialog(w ? "Edit website" : "Add website", [{ k: "name", label: "Name" }, { k: "url", label: "URL", req: true, ph: "https://" }, { k: "env", label: "Environment", type: "select", options: [["production", "Production"], ["staging", "Staging"], ["development", "Development"]], def: "production" }, { k: "projectId", label: "Project", type: "select", options: projOptions() }, { k: "hosting", label: "Hosting", ph: "Vercel" }, { k: "notes", label: "Notes", type: "textarea" }], w,
+    async out => { await api("websites.save", Object.assign({ id: w && w.id }, out)); toast("Website saved."); VIEWS.websites(v); }, w ? { extraBtn: '<button class="btn danger" type="button" id="delSite" style="margin-inline-end:auto">Delete</button>' } : null);
+  $("#newSite").onclick = () => form();
+  $$("[data-we]", v).forEach(b => b.onclick = () => { const w = websites.find(x => x.id === b.dataset.we); form(w); const del = $("#delSite"); if (del) del.onclick = async () => { $("#dlg").close(); if (await confirmBox("Remove website?", "<p>" + esc(w.url) + "</p>", "Remove", true)) { await api("websites.delete", { id: w.id, confirm: true }).catch(fail); VIEWS.websites(v); } }; });
+  $$("[data-chk]", v).forEach(b => b.onclick = async () => { b.disabled = true; b.textContent = "Checking…"; try { await api("websites.check", { id: b.dataset.chk }); VIEWS.websites(v); } catch (e) { fail(e); b.disabled = false; b.textContent = "Check"; } });
+};
+
+/* ---------- development (GitHub) ---------- */
+VIEWS.development = async v => {
+  const j = await api("dev.repos");
+  v.innerHTML = head("Development", "Repositories, branches, commits and builds — read from GitHub.");
+  if (!j.configured) { v.innerHTML += integrationRequired("GitHub", ["GITHUB_TOKEN", "GITHUB_OWNER"], '<p class="hint">Create a fine-grained token at github.com → Settings → Developer settings, read-only access to Contents, Metadata and Actions.</p>'); return; }
+  if (j.error) { v.innerHTML += '<div class="req"><b class="s-failed">GitHub error</b><p>' + esc(j.error) + '</p></div>'; return; }
+  v.innerHTML += '<div class="split"><section class="card"><h3>Repositories<span class="k">' + j.repos.length + '</span></h3><div class="list">' + j.repos.map(r => '<button class="row" type="button" data-repo="' + esc(r.full) + '"><span class="t"><b>' + esc(r.name) + '</b><span>' + esc([r.language, r.private ? "private" : "public", "pushed " + when(r.pushedAt)].filter(Boolean).join(" · ")) + '</span></span></button>').join("") + '</div></section><div id="repoBox">' + emptyBox("Select a repository", "") + '</div></div>';
+  $$("[data-repo]", v).forEach(b => b.onclick = () => devRepoView($("#repoBox"), b.dataset.repo));
+};
+async function devRepoView(el, full, fromProject) {
+  if (!full) { el.innerHTML = '<div class="req"><b>No repository linked</b><p class="muted">Edit the project and add its GitHub repository (owner/name).</p></div>'; return; }
+  el.innerHTML = '<p class="muted">Loading ' + esc(full) + '…</p>';
+  try {
+    const r = await api("dev.repo", { full });
+    el.innerHTML = '<div class="grid"><section class="card"><h3>' + ico("code") + esc(full) + '<span class="k"><a href="https://github.com/' + esc(full) + '" target="_blank" rel="noopener">GitHub' + ico("out") + '</a></span></h3>' +
+      '<p class="lbl">Branches</p><div class="actions" style="margin-bottom:12px">' + r.branches.map(b => '<span class="pill">' + esc(b.name) + ' · ' + esc(b.sha) + '</span>').join("") + '</div>' +
+      '<p class="lbl">Recent commits</p><div class="list">' + r.commits.map(c => '<a class="row" href="' + esc(c.url) + '" target="_blank" rel="noopener" style="text-decoration:none"><span class="mono">' + esc(c.sha) + '</span><span class="t"><b>' + esc(c.message) + '</b><span>' + esc(c.author || "") + ' · ' + when(c.at) + '</span></span></a>').join("") + '</div></section>' +
+      '<section class="card"><h3>Builds (GitHub Actions)</h3>' + (r.buildsError ? '<p class="muted">' + esc(r.buildsError) + '</p>' : r.builds.length ? '<div class="list">' + r.builds.map(b => '<a class="row" href="' + esc(b.url) + '" target="_blank" rel="noopener" style="text-decoration:none"><span class="t"><b>' + esc(b.name) + '</b><span>' + esc(b.branch) + ' · ' + when(b.at) + '</span></span><span class="pill ' + (b.conclusion === "success" ? "ok" : b.conclusion === "failure" ? "err" : "info") + '">' + esc(b.conclusion || b.status) + '</span></a>').join("") + '</div>' : emptyBox("No workflow runs", "This repository has no GitHub Actions runs.")) + '</section></div>';
+  } catch (e) { el.innerHTML = (/Integration required/.test(e.message) ? integrationRequired("GitHub", ["GITHUB_TOKEN"]) : '<div class="req"><b class="s-failed">Could not load</b><p>' + esc(e.message) + '</p></div>'); }
+}
+
+/* ---------- deployments (Vercel) ---------- */
+VIEWS.deployments = async v => { v.innerHTML = head("Deployments", "Delivery layer: real deployment states from Vercel — never assumed.") + '<div id="depBox"></div>'; await deploymentsInto($("#depBox")); };
+async function deploymentsInto(el) {
+  el.innerHTML = '<p class="muted">Loading…</p>';
+  const j = await api("deploy.list");
+  if (!j.configured) { el.innerHTML = integrationRequired("Vercel deployments", ["VERCEL_TOKEN", "VERCEL_PROJECT", "VERCEL_TEAM_ID"], '<p class="hint">Create a token at vercel.com → Account Settings → Tokens. VERCEL_PROJECT defaults to “uzleeder”; VERCEL_TEAM_ID is needed for a team (uz-leeder).</p>'); return; }
+  if (j.error) { el.innerHTML = '<div class="req"><b class="s-failed">Vercel error</b><p>' + esc(j.error) + '</p></div>'; return; }
+  const prodCurrent = j.deployments.find(d => d.target === "production" && d.state === "success");
+  el.innerHTML = '<div class="card tbl"><table><thead><tr><th>Created</th><th>Target</th><th>State</th><th class="hide-m">Commit</th><th></th></tr></thead><tbody>' + j.deployments.map(d => '<tr><td class="mono">' + when(d.at) + '</td><td>' + esc(d.target) + (prodCurrent && prodCurrent.id === d.id ? ' <span class="pill ok">latest prod</span>' : "") + '</td><td>' + deployPill(d.state) + '</td><td class="hide-m">' + esc(d.commit || d.branch || "") + '</td><td style="white-space:nowrap">' + (d.url ? '<a class="btn sm" href="' + esc(d.url) + '" target="_blank" rel="noopener">Open</a> ' : "") + '<button class="btn sm" type="button" data-logs="' + esc(d.id) + '">Logs</button>' + (d.target === "production" && d.state === "success" && prodCurrent && prodCurrent.id !== d.id ? ' <button class="btn sm" type="button" data-promote="' + esc(d.id) + '">Roll back to this</button>' : "") + '</td></tr>').join("") + '</tbody></table></div>';
+  $$("[data-logs]", el).forEach(b => b.onclick = async () => { try { const r = await api("deploy.logs", { id: b.dataset.logs }); dialog("Build logs", '<pre class="log">' + esc(r.lines.join("\n") || "No log lines returned.") + '</pre>'); } catch (e) { fail(e); } });
+  $$("[data-promote]", el).forEach(b => b.onclick = async () => {
+    if (!(await confirmBox("Roll back production?", "<p>Vercel will make this older deployment the live production version. The result is shown only after Vercel reports it.</p>", "Roll back"))) return;
+    try { await api("deploy.promote", { id: b.dataset.promote, confirm: true }); toast("Vercel accepted the request — refresh to see the new state.", "info"); deploymentsInto(el); } catch (e) { fail(e); }
+  });
+}
+
+/* ---------- content studio ---------- */
+const CSTATUS = { draft: ["", "DRAFT"], ready: ["info", "READY"], publishing: ["info", "PUBLISHING"], published: ["ok", "PUBLISHED"], failed: ["err", "FAILED"], archived: ["", "ARCHIVED"] };
+const statusPill = c => c.status === "partial" ? '<span class="pill warn">PARTIAL · ' + c.delivery.sent + ' / ' + c.delivery.total + '</span>' : '<span class="pill ' + (CSTATUS[c.status] || CSTATUS.draft)[0] + '">' + (CSTATUS[c.status] || CSTATUS.draft)[1] + '</span>';
+const unsent = c => c.status === "draft" || c.status === "ready" || (c.status === "archived" && !c.delivery.sent && !c.delivery.failed && !c.delivery.unknown);
+const deliveryText = c => unsent(c) ? (c.status === "ready" ? "Ready · " : c.status === "archived" ? "Archived · " : "Draft · ") + (c.destinations || []).length + " destination(s) selected" : c.delivery.sent + " of " + c.delivery.total + " destinations succeeded" + (c.delivery.failed ? " · " + c.delivery.failed + " failed" : "") + (c.delivery.unknown ? " · " + c.delivery.unknown + " unconfirmed" : "");
+const ST_ICON = { sent: "✓", failed: "✕", unknown: "?", sending: "…", not_sent: "○", cancelled: "–" };
+const ST_TEXT = { sent: "SENT", failed: "FAILED", unknown: "UNCONFIRMED", sending: "SENDING", not_sent: "NOT SENT", cancelled: "CANCELLED" };
+VIEWS.studio = async (v, param) => {
+  const [cl, tgs, yts] = await Promise.all([api("content.list"), api("telegram.status"), api("youtube.status").catch(() => ({ configured: false })), projectsList()]);
+  S.data.content = cl.content; S.data.tg = tgs; S.data.yt = yts;
+  const showArch = !!S.studioArchived, listed = cl.content.filter(c => (c.status === "archived") === showArch);
+  v.innerHTML = head("Content Studio", "Create once, publish to the selected destinations. Each destination reports its own real result.", '<button class="btn primary" type="button" data-go="studio" data-param="new">' + ico("plus") + 'New content</button>') +
+    '<div class="split"><section class="card"><h3>' + (showArch ? "Archived" : "Content") + '<span class="k"><button class="btn sm" type="button" id="archToggle">' + (showArch ? "Show active" : "Archived · " + cl.content.filter(c => c.status === "archived").length) + '</button></span></h3>' + (listed.length ? '<div class="list">' + listed.map(c => '<button class="row" type="button" data-go="studio" data-param="' + c.id + '"' + (param === c.id ? ' style="background:var(--brand-soft)"' : "") + '><span class="t"><b>' + esc(c.title || String(c.text || "").slice(0, 50) || "Untitled") + '</b><span>' + esc(deliveryText(c)) + '</span></span>' + statusPill(c) + '</button>').join("") + '</div>' : emptyBox("No content yet", "Create a post and choose where it goes.")) + '</section><div id="editor"></div></div>';
+  $("#archToggle").onclick = () => { S.studioArchived = !showArch; VIEWS.studio(v, param); };
+  const doc = param && param !== "new" ? cl.content.find(c => c.id === param) : null;
+  if (param === "new" || doc) editor($("#editor"), doc);
+  else $("#editor").innerHTML = '<div class="card">' + emptyBox("Select content or create new", "Drafts are saved; nothing is sent until you confirm.") + '</div>';
+};
+function editor(el, doc) {
+  const c = doc ? JSON.parse(JSON.stringify(doc)) : { title: "", type: "post", text: "", destinations: [], media: null, projectId: S.newContentProject || "", pubs: {}, delivery: { total: 0, sent: 0 }, status: "draft" };
+  S.newContentProject = null;
+  const tgs = S.data.tg, yts = S.data.yt;
+  const dests = tgs.destinations || [];
+  const locked = h => ((c.pubs || {})[h] || {}).state === "sent";
+  const destHTML = !tgs.configured ? integrationRequired("Telegram", ["TELEGRAM_BOT_TOKEN"]) :
+    dests.map(d => { const ok = d.verified && d.verified.ok; const st = (c.pubs || {})[d.handle]; return '<label class="dest"><input type="checkbox" data-dest="' + esc(d.handle) + '"' + (c.destinations.includes(d.handle) ? " checked" : "") + (!ok || locked(d.handle) ? " disabled" : "") + '/><span class="t"><b>' + esc(d.handle) + (d.title && d.title !== d.handle ? ' <span class="faint" style="font-weight:400">' + esc(d.title) + '</span>' : "") + '</b><span>' + (ok ? "Verified channel · bot can post" : d.verified ? '<span class="s-failed">' + esc(d.verified.error || "Not ready") + '</span>' : "Not verified yet — open Telegram to verify") + '</span></span>' + (st ? '<span class="pill ' + ({ sent: "ok", failed: "err", unknown: "warn" })[st.state] + '">' + ST_TEXT[st.state] + '</span>' : "") + '</label>'; }).join("") +
+    '<div class="dest" style="opacity:.8"><span class="t"><b>CEO profile · ' + esc(tgs.ceo.handle) + '</b><span>' + esc(tgs.ceo.note) + '</span></span><span class="pill">not supported</span></div>';
+  const ytHTML = !yts.configured ? '<p class="muted" style="margin:0">Integration required — YouTube OAuth is not configured.</p>' : yts.error ? '<p class="s-failed">' + esc(yts.error) + '</p>' :
+    '<div class="two"><div class="field"><label for="ytCh">Channel</label><select class="input" id="ytCh"><option value="">— do not upload —</option>' + yts.channels.map(ch => '<option value="' + esc(ch.id) + '"' + (c.youtube && c.youtube.channelId === ch.id ? " selected" : "") + '>' + esc(ch.title) + '</option>').join("") + '</select></div>' +
+    '<div class="field"><label for="ytVis">Visibility</label><select class="input" id="ytVis">' + ["private", "unlisted", "public"].map(x => '<option' + (c.youtube && c.youtube.visibility === x ? " selected" : "") + '>' + x + '</option>').join("") + '</select></div></div>' +
+    '<div class="field"><label for="ytTitle">Video title</label><input class="input" id="ytTitle" maxlength="100" value="' + esc(c.youtube ? c.youtube.title : "") + '"/></div><div class="field"><label for="ytDesc">Video description</label><textarea class="input" id="ytDesc">' + esc(c.youtube ? c.youtube.description : "") + '</textarea></div>';
+  el.innerHTML = '<section class="card"><h3>' + (doc ? "Edit content" : "New content") + (doc ? '<span class="k">' + statusPill(c) + '</span>' : "") + '</h3>' +
+    '<div class="two"><div class="field"><label for="cTitle">Internal title</label><input class="input" id="cTitle" value="' + esc(c.title) + '" placeholder="e.g. AGI update — September"/></div>' +
+    '<div class="field"><label for="cProj">Project</label><select class="input" id="cProj">' + projOptions().map(o => '<option value="' + o[0] + '"' + (o[0] === (c.projectId || "") ? " selected" : "") + '>' + esc(o[1]) + '</option>').join("") + '</select></div></div>' +
+    '<div class="field"><label for="cText">Text</label><textarea class="input" id="cText" style="min-height:170px">' + esc(c.text) + '</textarea><span class="hint" id="cCount"></span></div>' +
+    '<div class="field"><span class="lbl">Media</span><div id="cMedia"></div></div>' +
+    '<h3 style="margin-top:16px">Telegram destinations</h3>' + destHTML +
+    '<h3 style="margin-top:16px">YouTube</h3>' + ytHTML +
+    '<div class="actions" style="margin-top:16px">' + (c.status === "archived" ? '<button class="btn" type="button" id="cUnarch">Restore from archive</button>' :
+      '<button class="btn" type="button" id="cSave">Save draft</button>' + (doc && unsent(c) ? '<button class="btn" type="button" id="cReady">' + (c.status === "ready" ? "Back to draft" : "Mark ready") + '</button>' : "") + '<button class="btn primary" type="button" id="cSend">' + ico("send") + 'Preview & send</button>' +
+      (doc ? (Object.keys(c.pubs || {}).length || (c.history || []).length ? '<button class="btn" type="button" id="cArch" style="margin-inline-start:auto">Archive</button>' : '<button class="btn danger" type="button" id="cDel" style="margin-inline-start:auto">Delete</button>') : "")) + '</div>' +
+    '<p class="hint">Saving never publishes. Nothing is sent until you confirm the preview.' + (doc && (Object.keys(c.pubs || {}).length || (c.history || []).length) ? ' Publishing records are kept, so this content can be archived but not deleted.' : "") + '</p></section>' +
+    (doc ? '<section class="card" style="margin-top:14px" id="deliv"></section>' : "");
+  const count = () => { const n = $("#cText", el).value.length, max = c.media ? 1024 : 4096; $("#cCount", el).innerHTML = n + " / " + max + (n > max ? ' <b class="s-failed">— too long for Telegram' + (c.media ? " captions" : "") + '</b>' : ""); };
+  $("#cText", el).addEventListener("input", count);
+  const renderMedia = () => {
+    $("#cMedia", el).innerHTML = c.media ? '<div class="row" style="border:1px solid var(--border)"><span class="t"><b>' + esc(c.media.name) + '</b><span>' + esc(c.media.kind) + (c.media.size ? " · " + kb(c.media.size) : "") + (c.media.size > 50 * 1048576 ? ' · <span class="s-failed">over the 50 MB Telegram bot limit</span>' : "") + '</span></span><button class="btn sm" type="button" id="mRm">Remove</button></div>'
+      : '<button class="btn sm" type="button" id="mUp">' + ico("up") + 'Upload photo / video / file</button> <button class="btn sm" type="button" id="mLib">Choose from library</button> <span class="hint">Uploads are stored in Files → Media.</span>';
+    const rm = $("#mRm", el); if (rm) rm.onclick = () => { c.media = null; renderMedia(); count(); };
+    const lb = $("#mLib", el); if (lb) lb.onclick = async () => {
+      const f = await pickFromLibrary(); if (!f) return;
+      const cur = f.versions.find(x => x.v === f.current) || {};
+      c.media = { key: cur.key, kind: /^image\/(png|jpe?g|webp)$/.test(cur.type) ? "photo" : /^video\/mp4$/.test(cur.type) ? "video" : "document", name: f.name, size: cur.size };
+      renderMedia(); count();
+    };
+    const up = $("#mUp", el); if (up) up.onclick = async () => {
+      const file = await pickFile(); if (!file) return;
+      const ui = upPanel(file.name);
+      try {
+        const u = await uploadToStorage(file, ui.set);
+        await api("files.create", Object.assign({ name: file.name, folder: "media", projectId: $("#cProj", el).value }, u));
+        c.media = { key: u.key, kind: /^image\/(png|jpe?g|webp)$/.test(u.type) ? "photo" : /^video\/mp4$/.test(u.type) ? "video" : "document", name: file.name, size: u.size };
+        renderMedia(); count();
+      } catch (e) { fail(e); } finally { ui.done(); }
+    };
+  };
+  renderMedia(); count();
+  const collect = () => {
+    const out = { id: doc && doc.id, title: $("#cTitle", el).value, projectId: $("#cProj", el).value, text: $("#cText", el).value, media: c.media,
+      destinations: $$("[data-dest]", el).filter(i => i.checked || locked(i.dataset.dest) && c.destinations.includes(i.dataset.dest)).map(i => i.dataset.dest) };
+    if ($("#ytCh", el) && $("#ytCh", el).value) out.youtube = { channelId: $("#ytCh", el).value, visibility: $("#ytVis", el).value, title: $("#ytTitle", el).value, description: $("#ytDesc", el).value };
+    return out;
+  };
+  const save = async () => { const j = await api("content.save", collect()); return j.content; };
+  const on = (id, fn) => { const b = $(id, el); if (b) b.onclick = fn; };
+  on("#cSave", async () => { try { const saved = await save(); toast("Draft saved."); go("studio", saved.id); } catch (e) { fail(e); } });
+  on("#cSend", async () => { try { const saved = await save(); sendFlow(saved); } catch (e) { fail(e); } });
+  on("#cReady", async () => { try { await save(); await api("content.ready", { id: doc.id, ready: c.status !== "ready" }); toast(c.status === "ready" ? "Back to draft." : "Marked ready — send it when you are ready."); go("studio", doc.id); } catch (e) { fail(e); } });
+  on("#cArch", async () => { if (await confirmBox("Archive content?", "<p>It moves to Archived. Its publishing history, including any failures, is kept.</p>", "Archive")) { try { await api("content.archive", { id: doc.id }); toast("Archived."); go("studio"); } catch (e) { fail(e); } } });
+  on("#cUnarch", async () => { try { await api("content.archive", { id: doc.id, archived: false }); toast("Restored."); go("studio", doc.id); } catch (e) { fail(e); } });
+  const del = $("#cDel", el); if (del) del.onclick = async () => { if (await confirmBox("Delete content?", "<p>This draft has never been sent, so it can be removed completely.</p>", "Delete", true)) { try { await api("content.delete", { id: doc.id, confirm: true }); toast("Deleted."); go("studio"); } catch (e) { fail(e); } } };
+  if (doc) renderDelivery($("#deliv", el), doc);
+}
+function renderDelivery(el, c) {
+  const dests = (c.destinations || []).concat(c.youtube && c.youtube.channelId ? ["yt:" + c.youtube.channelId] : []);
+  if (!dests.length) { el.innerHTML = '<h3>Delivery</h3>' + emptyBox("No destinations selected", ""); return; }
+  const d = c.delivery;
+  const failed = (c.destinations || []).filter(h => ["failed", "not_sent", "cancelled"].includes(((c.pubs || {})[h] || {}).state || "not_sent"));
+  el.innerHTML = '<h3>Delivery</h3><p class="summary">' + (unsent(c) ? "Not sent yet" : d.sent + " of " + d.total + " destinations succeeded.") + '</p>' +
+    dests.map(h => { const p = (c.pubs || {})[h] || { state: "not_sent" }; const yt = h.startsWith("yt:");
+      return '<div class="deliv"><span class="st s-' + p.state + '" aria-hidden="true">' + ST_ICON[p.state] + '</span><span class="t"><b>' + esc(yt ? "YouTube · " + ((S.data.yt.channels || []).find(x => "yt:" + x.id === h) || { title: h.slice(3) }).title : h) + '</b> <span class="pill ' + ({ sent: "ok", failed: "err", unknown: "warn", sending: "info" })[p.state] + '">' + ST_TEXT[p.state] + '</span>' +
+      (p.state === "sent" ? '<span>' + (p.messageId ? "message_id " + p.messageId : p.videoId ? "video " + p.videoId + (p.uploadStatus ? " · " + p.uploadStatus : "") + (p.processing ? " · processing " + p.processing : "") : "") + ' · ' + when(p.at) + (p.link ? ' · <a href="' + esc(p.link) + '" target="_blank" rel="noopener">open</a>' : "") + (p.note ? " · " + esc(p.note) : "") + '</span>' : "") +
+      (p.error ? '<span class="s-' + p.state + '">' + esc(p.error) + '</span>' : "") + (p.attempts ? '<span>attempts: ' + p.attempts + '</span>' : "") +
+      (p.state === "unknown" ? '<span style="margin-top:6px;display:flex;gap:6px;flex-wrap:wrap"><button class="btn sm" type="button" data-res="' + esc(h) + '" data-as="sent">It is in the channel — mark sent</button><button class="btn sm" type="button" data-res="' + esc(h) + '" data-as="failed">Not there — allow resend</button></span>' : "") + '</span></div>'; }).join("") +
+    '<div class="actions" style="margin-top:12px">' + (failed.length && !unsent(c) && c.status !== "archived" ? '<button class="btn primary sm" type="button" id="dRetry">Retry failed (' + failed.length + ')</button><button class="btn sm" type="button" id="dCancel">Cancel remaining</button>' : "") +
+    (c.youtube && c.youtube.channelId && S.data.yt.configured && ((c.pubs || {})["yt:" + c.youtube.channelId] || {}).state !== "sent" ? '<button class="btn sm" type="button" id="dYt">' + ico("play") + 'Upload to YouTube</button>' : "") +
+    (Object.keys(c.pubs || {}).some(k => k.startsWith("yt:") && c.pubs[k].videoId) ? '<button class="btn sm" type="button" id="dYtChk">Check YouTube status</button>' : "") + '</div>' +
+    (c.history && c.history.length ? '<details style="margin-top:12px"><summary class="muted">History (' + c.history.length + ')</summary>' + c.history.slice().reverse().map(x => '<div class="act"><time>' + when(x.at) + '</time><span class="ty">' + esc(x.dest) + '</span><span class="s-' + x.result + '">' + esc(x.result) + (x.messageId ? " #" + x.messageId : "") + (x.videoId ? " " + x.videoId : "") + (x.error ? " — " + esc(x.error) : "") + '</span></div>').join("") + '</details>' : "") +
+    '<p class="hint" style="margin-top:10px">Content ID ' + esc(c.id) + ' · created ' + when(c.createdAt) + ' by ' + esc(c.createdBy || "Max") + '</p>';
+  const r = $("#dRetry", el); if (r) r.onclick = () => sendFlow(c, failed);
+  const cc = $("#dCancel", el); if (cc) cc.onclick = async () => { try { await api("content.cancel", { id: c.id }); go("studio", c.id); } catch (e) { fail(e); } };
+  $$("[data-res]", el).forEach(b => b.onclick = async () => { try { await api("content.resolve", { id: c.id, dest: b.dataset.res, as: b.dataset.as }); go("studio", c.id); } catch (e) { fail(e); } });
+  const y = $("#dYt", el); if (y) y.onclick = async () => {
+    if (!(await confirmBox("Upload to YouTube?", "<p><b>" + esc(c.youtube.title) + "</b> · " + esc(c.youtube.visibility) + "</p><p class='muted'>The video is uploaded from storage. Success is shown only when YouTube returns a video ID.</p>", "Upload"))) return;
+    y.disabled = true; y.textContent = "Uploading…";
+    try { await api("youtube.upload", { id: c.id, confirm: true }); go("studio", c.id); } catch (e) { fail(e); go("studio", c.id); }
+  };
+  const yc = $("#dYtChk", el); if (yc) yc.onclick = async () => { try { await api("youtube.check", { id: c.id }); go("studio", c.id); } catch (e) { fail(e); } };
+}
+// Draft → validate → select → preview → confirm → send → verify → persist → activity
+async function sendFlow(c, only) {
+  const targets = (only || c.destinations || []).filter(h => { const s = ((c.pubs || {})[h] || {}).state || "not_sent"; return !["sent", "sending", "unknown"].includes(s); });
+  if (!targets.length) { toast(c.destinations && c.destinations.length ? "Every selected destination already has a result. Nothing to send." : "Select at least one verified Telegram destination.", "info"); go("studio", c.id); return; }
+  const max = c.media ? 1024 : 4096;
+  if ((c.text || "").length > max) { toast("The text is longer than Telegram allows (" + max + ").", "err"); return; }
+  if (!c.media && !(c.text || "").trim()) { toast("Write the text first.", "err"); return; }
+  const idem = rid();                                     // one confirmation = one send id; a double click cannot send twice
+  const d = dialog(only ? "Retry failed destinations" : "Send to Telegram",
+    '<p class="lbl">Preview</p>' + (c.media ? '<p class="muted">' + ico("file") + ' ' + esc(c.media.name) + ' (' + esc(c.media.kind) + ')</p>' : "") + '<div class="tgpreview">' + (esc(c.text) || '<span class="faint">(no text)</span>') + '</div>' +
+    '<p class="lbl" style="margin-top:14px">Will be sent now to ' + targets.length + ' destination(s)</p><div class="actions">' + targets.map(h => '<span class="pill brand">' + esc(h) + '</span>').join("") + '</div>' +
+    ((c.destinations || []).length > targets.length ? '<p class="hint" style="margin-top:8px">Destinations that already succeeded are not sent again.</p>' : "") +
+    '<div id="sendRes" aria-live="polite"></div>',
+    '<button class="btn" type="button" id="sNo">Cancel</button><button class="btn primary" type="button" id="sGo">' + ico("send") + 'Send now</button>');
+  $("#sNo", d).onclick = () => d.close();
+  $("#sGo", d).onclick = async () => {
+    const b = $("#sGo", d); b.disabled = true; b.textContent = "Sending…"; $("#sNo", d).disabled = true;
+    try {
+      const j = await api("content.send", { id: c.id, idem, confirm: true, only: only || undefined });
+      const x = j.content;
+      $("#sendRes", d).innerHTML = '<p class="summary" style="margin-top:14px">' + (j.duplicate ? "Already processed — nothing was sent twice. " : "") + x.delivery.sent + ' of ' + x.delivery.total + ' destinations succeeded.</p>' +
+        targets.map(h => { const p = x.pubs[h] || { state: "not_sent" }; return '<div class="deliv"><span class="st s-' + p.state + '">' + ST_ICON[p.state] + '</span><span class="t"><b>' + esc(h) + '</b><span>' + (p.state === "sent" ? "Sent successfully · message_id " + p.messageId : esc(p.error || ST_TEXT[p.state])) + '</span></span></div>'; }).join("");
+      b.remove(); $("#sNo", d).disabled = false; $("#sNo", d).textContent = "Close";
+      $("#sNo", d).onclick = () => { d.close(); go("studio", c.id); };
+    } catch (e) {
+      $("#sendRes", d).innerHTML = '<p class="s-failed" style="margin-top:14px">✕ ' + esc(e.message) + '</p><p class="hint">The draft is kept. Open it to retry, edit or cancel.</p>';
+      b.remove(); $("#sNo", d).disabled = false; $("#sNo", d).textContent = "Close"; $("#sNo", d).onclick = () => { d.close(); go("studio", c.id); };
+    }
+  };
+}
+
+/* ---------- telegram ---------- */
+VIEWS.telegram = async v => {
+  const [t, b, cl] = await Promise.all([api("telegram.status"), api("bot.status"), api("content.list")]);
+  const recent = h => cl.content.map(c => ({ c, p: (c.pubs || {})[h] })).filter(x => x.p && x.p.state === "sent").sort((x, y) => String(y.p.at).localeCompare(String(x.p.at))).slice(0, 3);
+  const drafts = h => cl.content.filter(c => (c.destinations || []).includes(h) && unsent(c) && c.status !== "archived").length;
+  v.innerHTML = head("Telegram", "Publishing channels, the CEO profile and the customer request bot — each shown with its real connection state.");
+  if (!t.configured) { v.innerHTML += integrationRequired("Telegram bot", ["TELEGRAM_BOT_TOKEN"]); return; }
+  v.innerHTML += '<div class="grid g2"><section class="card"><h3>' + ico("send") + 'Publishing channels<span class="k">bot ' + (t.bot && t.bot.username ? "@" + esc(t.bot.username) : '<span class="s-failed">' + esc(t.bot && t.bot.error) + '</span>') + '</span></h3>' +
+    t.destinations.map(d => '<div class="dest"><span class="t"><b>' + esc(d.handle) + (d.title && d.title !== d.handle ? ' <span class="faint" style="font-weight:400">' + esc(d.title) + '</span>' : "") + '</b><span>' + (d.verified ? (d.verified.ok ? '<span class="s-sent">✓ ' + esc(d.type) + ' · bot can post</span>' : '<span class="s-failed">✕ ' + esc(d.verified.error) + '</span>') + ' · checked ' + when(d.verified.at) : "Not verified") + '</span>' + (recent(d.handle).length ? '<span>Recent: ' + recent(d.handle).map(x => (x.p.link ? '<a href="' + esc(x.p.link) + '" target="_blank" rel="noopener">' : "") + esc((x.c.title || String(x.c.text || "").slice(0, 30) || "post") + " · " + when(x.p.at)) + (x.p.link ? '</a>' : "")).join(" · ") + '</span>' : "") + (drafts(d.handle) ? '<span>' + drafts(d.handle) + ' draft(s) waiting</span>' : "") + '</span><button class="btn sm" type="button" data-ver="' + esc(d.handle) + '">Verify</button></div>').join("") +
+    '<div class="actions" style="margin-top:10px"><button class="btn primary sm" type="button" id="verAll">Verify all</button><button class="btn sm" type="button" id="editDest">Edit list</button></div>' +
+    '<p class="hint" style="margin-top:10px">To publish, add @' + esc(t.bot && t.bot.username || "your bot") + ' to each channel as an administrator with the “Post messages” right, then press Verify. Only verified channels can be selected in Content Studio.</p></section>' +
+    '<section class="card"><h3>' + ico("user") + 'CEO profile</h3><div class="dest"><span class="t"><b>' + esc(t.ceo.handle) + '</b><span>' + esc(t.ceo.note) + '</span></span><span class="pill">not configured</span></div>' +
+    '<h3 style="margin-top:18px">' + ico("inbox") + 'Customer request bot</h3>' + (!b.configured ? '<p class="muted">Integration required — bot token not configured.</p>' :
+      '<div class="list"><div class="row"><span class="t"><span>Bot</span></span>' + (b.bot.username ? "@" + esc(b.bot.username) : '<span class="s-failed">' + esc(b.bot.error) + '</span>') + '</div>' +
+      '<div class="row"><span class="t"><span>Webhook</span></span><span class="mono" style="word-break:break-all">' + (b.webhook.url ? esc(b.webhook.url) : "not set") + '</span></div>' +
+      (b.webhook.lastError ? '<div class="row"><span class="t"><span>Last error</span></span><span class="s-failed">' + esc(b.webhook.lastError) + ' · ' + when(b.webhook.lastErrorAt) + '</span></div>' : "") +
+      '<div class="row"><span class="t"><span>Pending updates</span></span>' + esc(b.webhook.pending == null ? "—" : b.webhook.pending) + '</div></div>' +
+      (b.bot.username && b.bot.username.toLowerCase() !== "uzleeder_services_bot" ? '<p class="hint">This token belongs to @' + esc(b.bot.username) + ', not @uzleeder_services_bot. Set TELEGRAM_SERVICES_BOT_TOKEN to use a separate bot.</p>' : "") +
+      '<div class="actions" style="margin-top:10px"><button class="btn primary sm" type="button" id="botConnect">' + (b.webhook.url && /\/api\/bot$/.test(b.webhook.url) ? "Reconnect" : "Connect to this site") + '</button></div>') + '</section></div>';
+  $$("[data-ver]", v).forEach(x => x.onclick = async () => { x.disabled = true; x.textContent = "Checking…"; try { await api("telegram.verify", { handle: x.dataset.ver }); VIEWS.telegram(v); } catch (e) { fail(e); } });
+  $("#verAll").onclick = async e => { e.target.disabled = true; e.target.textContent = "Checking…"; try { await api("telegram.verify", {}); VIEWS.telegram(v); } catch (err) { fail(err); } };
+  $("#editDest").onclick = () => formDialog("Publishing channels", [{ k: "handles", label: "Channel usernames (one per line)", type: "textarea", hint: "Only channels the bot administers can be published to. " + t.ceo.handle + " is a personal profile and cannot be added." }], { handles: t.destinations.map(d => d.handle).join("\n") },
+    async out => { await api("telegram.destinations", { handles: out.handles.split(/[\s,]+/).filter(Boolean) }); toast("Saved — verify the channels now."); VIEWS.telegram(v); });
+  const bc = $("#botConnect"); if (bc) bc.onclick = async () => {
+    const cur = b.webhook.url;
+    if (!(await confirmBox("Connect the request bot?", "<p>Telegram will send this bot's messages to <b>" + esc(location.origin) + "/api/bot</b>.</p>" + (cur && !/\/api\/bot$/.test(cur) ? "<p class='s-failed'>The bot is currently connected to another address (" + esc(cur) + "). Connecting here disconnects it from there.</p>" : ""), "Connect"))) return;
+    try { await api("bot.connect", { confirm: true }); toast("Webhook set. Send /start to the bot to test it."); VIEWS.telegram(v); } catch (e) { fail(e); }
+  };
+};
+
+/* ---------- youtube ---------- */
+VIEWS.youtube = async v => {
+  const [y, cl] = await Promise.all([api("youtube.status"), api("content.list")]);
+  v.innerHTML = head("YouTube", "Video → title → description → channel → visibility → upload → processing → verify.");
+  if (!y.configured) { v.innerHTML += integrationRequired("YouTube", ["YOUTUBE_CLIENT_ID", "YOUTUBE_CLIENT_SECRET", "YOUTUBE_REFRESH_TOKEN"], '<p class="hint">Create an OAuth client in Google Cloud (YouTube Data API v3), authorise the channel once with the youtube.upload and youtube.readonly scopes, and store the refresh token on the server only.</p>'); return; }
+  if (y.error) { v.innerHTML += '<div class="req"><b class="s-failed">YouTube error</b><p>' + esc(y.error) + '</p></div>'; return; }
+  const ups = cl.content.filter(c => Object.keys(c.pubs || {}).some(k => k.startsWith("yt:")));
+  v.innerHTML += '<div class="grid g2"><section class="card"><h3>Channels</h3>' + y.channels.map(ch => '<div class="row"><span class="t"><b>' + esc(ch.title) + '</b><span>' + esc(ch.handle || ch.id) + '</span></span><span class="pill ok">connected</span></div>').join("") + '</section>' +
+    '<section class="card"><h3>Uploads</h3>' + (ups.length ? ups.map(c => '<button class="row" type="button" data-go="studio" data-param="' + c.id + '"><span class="t"><b>' + esc(c.youtube ? c.youtube.title : c.title) + '</b><span>' + Object.keys(c.pubs).filter(k => k.startsWith("yt:")).map(k => ST_TEXT[c.pubs[k].state] + (c.pubs[k].videoId ? " · " + c.pubs[k].videoId : "")).join(", ") + '</span></span></button>').join("") : emptyBox("No uploads yet", "Create content with a video in Content Studio and choose a channel.")) + '</section></div>' +
+    '<p style="margin-top:14px"><button class="btn primary" type="button" data-go="studio" data-param="new">' + ico("play") + 'Prepare a video in Content Studio</button></p>';
+};
+
+/* ---------- activity ---------- */
+VIEWS.activity = async v => {
+  const { activity } = await api("activity.list", { limit: 300 });
+  const types = [...new Set(activity.map(a => a.type.split(".")[0]))];
+  const f = S.actFilter || "";
+  const shown = activity.filter(a => !f || a.type.startsWith(f + "."));
+  v.innerHTML = head("Activity", "Real events only: requests, projects, files, publishing, deployments.", '<select class="input" style="width:auto" id="af" aria-label="Filter"><option value="">All events</option>' + types.map(t => '<option' + (t === f ? " selected" : "") + '>' + esc(t) + '</option>').join("") + '</select>') +
+    '<div class="card">' + (shown.length ? shown.map(a => '<div class="act"><time datetime="' + esc(a.at) + '">' + when(a.at) + '</time><span class="ty">' + esc(a.type) + '</span><span>' + (a.ref && a.ref.id ? '<button type="button" class="btn-link" style="text-align:start;text-decoration:underline" data-go="' + ({ request: "requests", project: "projects", file: "files", content: "studio", client: "clients", task: "tasks", startup: "startups" })[a.ref.kind] + '" data-param="' + esc(a.ref.id) + '">' + esc(a.text) + '</button>' : esc(a.text)) + '</span></div>').join("") : emptyBox("No activity yet", "")) + '</div>';
+  $("#af").onchange = e => { S.actFilter = e.target.value; VIEWS.activity(v); };
+};
+
+/* ======================= commands + palette (Ctrl+K) ======================= */
+const CMDS = {
+  newProject: () => projectForm(null),
+  newRequest: () => formDialog("New request", [
+    { k: "name", label: "Customer name", req: true }, { k: "contact", label: "Contact" },
+    { k: "channel", label: "Channel", type: "select", options: [["telegram", "Telegram"], ["whatsapp", "WhatsApp"], ["email", "Email"], ["phone", "Phone"], ["other", "Other"]] },
+    { k: "service", label: "Service", type: "select", options: SERVICE_OPTS },
+    { k: "budget", label: "Budget (optional)" }, { k: "timeline", label: "Timeline (optional)" }, { k: "message", label: "What do they need?", type: "textarea" }
+  ], {}, async out => { const j = await api("requests.create", out); toast("Request " + j.request.code + " added."); go("requests", j.request.id); }),
+  uploadFile: () => pickAndUpload({ folder: "documents" }, f => go("files", f.id)),
+  createContent: () => go("studio", "new"),
+  newTask: () => taskForm(null, "", () => go("tasks")),
+  // opens a website registered in Websites (the first production one), otherwise the Websites page
+  openWebsite: async () => { try { const { websites } = await api("websites.list"); const w = websites.find(x => (x.env || "production") === "production") || websites[0]; if (w) window.open(w.url, "_blank", "noopener"); else go("websites"); } catch (e) { fail(e); } }
+};
+document.addEventListener("click", e => { const c = e.target.closest("[data-cmd]"); if (c && CMDS[c.dataset.cmd]) CMDS[c.dataset.cmd](); });
+const PAL_BASE = [
+  { t: "New project", k: "command", run: CMDS.newProject }, { t: "New request", k: "command", run: CMDS.newRequest },
+  { t: "Upload file", k: "command", run: CMDS.uploadFile }, { t: "Create content", k: "command", run: CMDS.createContent }, { t: "New task", k: "command", run: CMDS.newTask },
+  { t: "Publish content", k: "go", run: () => go("studio") }, { t: "Open requests", k: "go", run: () => go("requests") }, { t: "Open website", k: "command", run: CMDS.openWebsite },
+  { t: "Open deployments", k: "go", run: () => go("deployments") }, { t: "Open Telegram", k: "go", run: () => go("telegram") }, { t: "Open YouTube", k: "go", run: () => go("youtube") }
+].concat(NAV.filter(n => n.k).map(n => ({ t: "Go to " + n.t, k: "go", run: () => go(n.k) })));
+let palItems = [], palSel = 0, palTimer = null, palSeq = 0;
+function openPalette(q) {
+  const d = $("#pal"); if (!d.open) d.showModal();
+  $("#palIn").value = q || ""; palRender(PAL_BASE); $("#palIn").focus();
+  if (q) palQuery(q);
+}
+function palRender(items, results) {
+  palItems = items.concat(results || []); palSel = 0;
+  const kindGo = { project: "projects", request: "requests", client: "clients", task: "tasks", file: "files", content: "studio", website: "websites", activity: "activity" };
+  $("#palList").innerHTML = (items.length ? '<li class="grp" role="presentation">Commands</li>' : "") + items.map((x, i) => '<li role="presentation"><button type="button" role="option" data-pi="' + i + '" aria-selected="' + (i === 0) + '">' + esc(x.t) + '<span class="k">' + esc(x.k) + '</span></button></li>').join("") +
+    (results && results.length ? '<li class="grp" role="presentation">Results</li>' + results.map((x, j) => '<li role="presentation"><button type="button" role="option" data-pi="' + (items.length + j) + '" aria-selected="' + (items.length + j === 0) + '">' + esc(x.t) + '<span class="k">' + esc(x.k) + '</span></button></li>').join("") : "") +
+    (results && !results.length && !items.length ? '<li class="grp" role="presentation">No matches</li>' : "");
+  palItems.forEach(x => { if (x.kind) x.run = () => { const view = x.kind === "activity" ? (kindGo[x.refKind] || "activity") : kindGo[x.kind]; go(view, x.id || null); }; });
+  $$("[data-pi]").forEach(b => b.onclick = () => palRun(+b.dataset.pi));
+}
+function palRun(i) { const x = palItems[i]; if (!x) return; $("#pal").close(); x.run(); }
+function palQuery(q) {
+  const lc = q.toLowerCase();
+  const cmds = PAL_BASE.filter(x => x.t.toLowerCase().includes(lc));
+  palRender(cmds);
+  clearTimeout(palTimer);
+  if (lc.length < 2) return;
+  const seq = ++palSeq;
+  palTimer = setTimeout(async () => {
+    try { const j = await api("search", { q }); if (seq !== palSeq) return; palRender(cmds, j.results.map(r => ({ t: r.title, k: r.kind, kind: r.kind, id: r.id, refKind: r.refKind }))); }
+    catch (e) { /* keep commands visible */ }
+  }, 220);
+}
+$("#palIn").addEventListener("input", e => palQuery(e.target.value));
+$("#palIn").addEventListener("keydown", e => {
+  if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+    e.preventDefault(); palSel = (palSel + (e.key === "ArrowDown" ? 1 : -1) + palItems.length) % Math.max(1, palItems.length);
+    $$("[data-pi]").forEach(b => b.setAttribute("aria-selected", +b.dataset.pi === palSel)); const cur = $('[data-pi="' + palSel + '"]'); cur && cur.scrollIntoView({ block: "nearest" });
+  } else if (e.key === "Enter") { e.preventDefault(); palRun(palSel); }
+});
+$("#pal").addEventListener("click", e => { if (e.target === $("#pal")) $("#pal").close(); });
+document.addEventListener("keydown", e => {
+  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k" && S.token) { e.preventDefault(); $("#pal").open ? $("#pal").close() : openPalette(); }
+});
+
+/* ======================= boot ======================= */
+function boot() {
+  if (!S.token) return renderLogin();
+  shell();
+  const [view, param] = location.hash.replace(/^#/, "").split("/");
+  go(VIEWS[view] ? view : "home", param || null);
+}
+window.addEventListener("hashchange", () => { if (!S.token) return; const [view, param] = location.hash.replace(/^#/, "").split("/"); if (VIEWS[view] && (view !== S.view || (param || null) !== S.param)) go(view, param || null); });
+boot();
+</script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>UzLeeder — Official Services & Pricing</title>
+<link rel="icon" type="image/svg+xml" href="/icon.svg"/>
+<style>
+:root{--navy:#0d1b3e;--navy2:#0b1730;--ink:#1a2340;--gold:#c9a14a;--gold2:#e0bd66;--gold3:#f0d98a;--paper:#fbfaf6;--line:#e3ddcb;--muted:#5e6b7d}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Georgia','Segoe UI',serif;background:#2a2f3a;color:var(--ink);line-height:1.55;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.bar{max-width:820px;margin:1.2rem auto;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:0 1rem;font-family:'Segoe UI',system-ui,sans-serif}
+.bar p{color:#cfd6e6;font-size:.85rem}
+.btn{display:inline-flex;align-items:center;gap:.5rem;background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--navy);
+  border:none;border-radius:999px;padding:.6rem 1.3rem;font-weight:800;font-size:.9rem;cursor:pointer;font-family:inherit}
+
+/* ===== Document (A4) ===== */
+.doc{max-width:820px;margin:0 auto 2rem;background:var(--paper);position:relative;overflow:hidden;
+  box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.doc::before{content:'';position:absolute;inset:14px;border:2px solid var(--gold);pointer-events:none}
+.doc::after{content:'';position:absolute;inset:20px;border:1px solid rgba(201,161,74,.4);pointer-events:none}
+.watermark{position:absolute;top:52%;left:50%;transform:translate(-50%,-50%);width:min(80%,560px);opacity:.05;pointer-events:none}
+.inner{position:relative;padding:3rem 3.2rem 2.4rem}
+
+.head{display:flex;flex-direction:column;align-items:center;text-align:center;padding-bottom:1.2rem;border-bottom:2px solid var(--gold)}
+.seal-sm{width:92px;height:92px;margin-bottom:.6rem}
+.brand{font-family:'Segoe UI',system-ui,sans-serif;font-size:2rem;font-weight:900;letter-spacing:.5px}
+.brand .uz{color:var(--navy)}.brand .lr{color:var(--gold)}
+.brand-sub{font-family:'Segoe UI',system-ui,sans-serif;font-size:.66rem;font-weight:800;letter-spacing:.4em;text-transform:uppercase;color:var(--muted);margin-top:.15rem}
+.doctitle{font-family:'Segoe UI',system-ui,sans-serif;font-size:1.02rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-top:1rem}
+
+.meta{display:flex;justify-content:center;gap:2.2rem;flex-wrap:wrap;font-family:'Segoe UI',system-ui,sans-serif;font-size:.72rem;color:var(--muted);margin:.9rem 0 1.2rem;letter-spacing:.03em}
+.meta b{color:var(--ink)}
+
+.statement{text-align:center;font-size:.98rem;color:var(--ink);max-width:600px;margin:0 auto 1.5rem;font-style:italic}
+.statement .n{color:var(--gold);font-style:normal;font-weight:700}
+
+h2{font-family:'Segoe UI',system-ui,sans-serif;font-size:.8rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);
+  margin:1.6rem 0 .7rem;display:flex;align-items:center;gap:.7rem}
+h2::after{content:'';flex:1;height:1px;background:var(--line)}
+
+table{width:100%;border-collapse:collapse;font-family:'Segoe UI',system-ui,sans-serif;font-size:.85rem}
+th{text-align:left;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:.4rem .5rem;border-bottom:1.5px solid var(--gold)}
+td{padding:.42rem .5rem;border-bottom:1px solid var(--line);vertical-align:top}
+td.price{text-align:right;font-weight:800;color:var(--navy);white-space:nowrap}
+tr:last-child td{border-bottom:none}
+.svc-name{font-weight:700;color:var(--ink)}
+.svc-desc{color:var(--muted);font-size:.76rem}
+
+.plans{display:grid;grid-template-columns:repeat(4,1fr);gap:.7rem;font-family:'Segoe UI',system-ui,sans-serif}
+.plan{border:1px solid var(--line);border-radius:8px;padding:.75rem .7rem;text-align:center;background:#fff}
+.plan .pn{font-size:.62rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+.plan .pp{font-size:1.15rem;font-weight:900;color:var(--navy);margin:.15rem 0}
+.plan .pd{font-size:.66rem;color:var(--muted)}
+
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:.4rem 1.6rem;font-family:'Segoe UI',system-ui,sans-serif;font-size:.82rem}
+.cols div{display:flex;align-items:flex-start;gap:.45rem;padding:.15rem 0}
+.chk{color:var(--gold);font-weight:900}
+
+.tools{font-family:'Segoe UI',system-ui,sans-serif;font-size:.8rem;color:var(--muted)}
+.tools b{color:var(--ink)}
+
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:.3rem 1.6rem;font-family:'Segoe UI',system-ui,sans-serif;font-size:.82rem;margin-top:.3rem}
+.contact div{padding:.12rem 0}.contact b{color:var(--ink)}
+
+.foot{display:flex;justify-content:space-between;align-items:flex-end;margin-top:2rem;padding-top:1.2rem;border-top:2px solid var(--gold);font-family:'Segoe UI',system-ui,sans-serif}
+.sign .line{width:200px;border-bottom:1.5px solid var(--ink);margin-bottom:.3rem}
+.sign .nm{font-weight:800;font-size:.9rem}
+.sign .rl{font-size:.72rem;color:var(--muted)}
+.stamp{width:124px;height:124px;position:relative;display:grid;place-items:center;text-align:center}
+.stamp svg{position:absolute;inset:0;width:100%;height:100%}
+.stamp img{width:100%;height:100%;display:block;transform:rotate(-8deg);filter:drop-shadow(0 4px 10px rgba(13,27,62,.25))}
+.stamp .st-txt{font-size:.52rem;font-weight:800;letter-spacing:.05em;color:var(--gold);text-transform:uppercase;line-height:1.2;transform:rotate(-8deg)}
+
+@media(max-width:680px){
+  .inner{padding:2rem 1.3rem}
+  .plans{grid-template-columns:1fr 1fr}
+  .cols,.contact{grid-template-columns:1fr}
+  .foot{flex-direction:column;align-items:center;gap:1.4rem;text-align:center}
+}
+@media print{
+  body{background:#fff}
+  .bar{display:none}
+  .doc{box-shadow:none;margin:0;max-width:100%}
+  @page{margin:8mm}
+}
+/* header: Bold Red company logo (icon + wordmark) */
+.logo-lockup{display:flex;align-items:center;gap:.75rem;text-align:left}
+.logo-mark{width:58px;height:53px;flex:none}
+.logo-lockup .brand{font-family:'Segoe UI',system-ui,sans-serif;font-size:2.1rem;font-weight:900;line-height:1;letter-spacing:-.01em}
+.logo-lockup .brand .uz{color:#1c2233}.logo-lockup .brand .lr{color:#e5243b}
+.logo-lockup .brand-sub{margin-top:.35rem;letter-spacing:.42em}
+.head-for{font-family:'Segoe UI',system-ui,sans-serif;font-size:.62rem;font-weight:800;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-top:.8rem}
+@media(max-width:560px){.logo-mark{width:46px;height:42px}.logo-lockup .brand{font-size:1.7rem}}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <p>UzLeeder — rasmiy xizmatlar va narxlar hujjati · chop etish yoki PDF qilib saqlash mumkin</p>
+  <button class="btn" onclick="window.print()">🖨️ Print / Save PDF</button>
+</div>
+
+<div class="doc">
+  <img class="watermark" src="emblem.svg" alt="" aria-hidden="true"/>
+  <div class="inner">
+
+    <div class="head">
+      <div class="logo-lockup" aria-label="UzLeeder">
+        <svg class="logo-mark" viewBox="0 0 48 44" aria-hidden="true"><path d="M4 41 24 5l20 36" fill="none" stroke="#e5243b" stroke-width="7" stroke-miterlimit="10"/><path d="M14 41 24 23l10 18" fill="none" stroke="#1c2233" stroke-width="5.5" stroke-miterlimit="10"/></svg>
+        <div class="logo-text"><div class="brand"><span class="uz">Uz</span><span class="lr">Leeder</span></div><div class="brand-sub">For Leaders</div></div>
+      </div>
+      <div class="doctitle">Official Services &amp; Pricing</div>
+    </div>
+
+    <div class="meta">
+      <span>Ref №: <b>UZL-2026-001</b></span>
+      <span>Issued: <b id="today"></b></span>
+      <span>Issued to: <b>_____________________</b></span>
+    </div>
+
+    <p class="statement">This document is issued by <span class="n">UzLeeder</span> — the web-development brand of Mekhriddin Abdualim — and confirms the official services, capabilities and pricing offered to clients. All prices are in USD and valid at the date of issue.</p>
+
+    <h2>Services &amp; Pricing</h2>
+    <table>
+      <thead><tr><th>Service</th><th style="text-align:right">Price (USD)</th></tr></thead>
+      <tbody>
+        <tr><td><span class="svc-name">Professional Websites</span><div class="svc-desc">Landing → full multi-page site with backend</div></td><td class="price">$200 – $4000+</td></tr>
+        <tr><td><span class="svc-name">Academy Website</span><div class="svc-desc">Courses, pricing, contact &amp; online registration</div></td><td class="price">$200 – $2000</td></tr>
+        <tr><td><span class="svc-name">Custom Web Design</span><div class="svc-desc">Unique branding, colors &amp; layout</div></td><td class="price">from $250</td></tr>
+        <tr><td><span class="svc-name">AI Agent &amp; API Integration</span><div class="svc-desc">Custom AI agents, chatbots &amp; API automation</div></td><td class="price">from $500</td></tr>
+        <tr><td><span class="svc-name">B2B Portal &amp; Platform</span><div class="svc-desc">Role-based panels, auth, database, dashboards</div></td><td class="price">from $1000</td></tr>
+        <tr><td><span class="svc-name">Telegram Bot &amp; Automation</span><div class="svc-desc">Bots &amp; no-code automations</div></td><td class="price">from $100</td></tr>
+        <tr><td><span class="svc-name">Logo Design</span><div class="svc-desc">Unique, professional brand logos</div></td><td class="price">from $15</td></tr>
+        <tr><td><span class="svc-name">AI Video &amp; Photo</span><div class="svc-desc">AI-generated media for ads &amp; social</div></td><td class="price">from $10</td></tr>
+        <tr><td><span class="svc-name">Email Writing</span><div class="svc-desc">Persuasive outreach &amp; sales emails</div></td><td class="price">from $10</td></tr>
+        <tr><td><span class="svc-name">Presentations</span><div class="svc-desc">Professional slide decks</div></td><td class="price">from $15</td></tr>
+        <tr><td><span class="svc-name">Website Maintenance</span><div class="svc-desc">Updates, fixes &amp; improvements</div></td><td class="price">Free for clients</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Website Packages</h2>
+    <div class="plans">
+      <div class="plan"><div class="pn">Starter</div><div class="pp">$200</div><div class="pd">Landing site</div></div>
+      <div class="plan"><div class="pn">Professional</div><div class="pp">$600</div><div class="pd">Multi-page + CMS</div></div>
+      <div class="plan"><div class="pn">Custom</div><div class="pp">$1500+</div><div class="pd">Advanced + backend</div></div>
+      <div class="plan"><div class="pn">Enterprise</div><div class="pp">$4000+</div><div class="pd">Full-stack platform</div></div>
+    </div>
+
+    <h2>What Every Client Gets</h2>
+    <div class="cols">
+      <div><span class="chk">✓</span> Modern, fully responsive design (mobile &amp; desktop)</div>
+      <div><span class="chk">✓</span> Multi-language support (UZ / EN / RU / TJ)</div>
+      <div><span class="chk">✓</span> Dark &amp; light theme</div>
+      <div><span class="chk">✓</span> AI-powered build for speed &amp; quality</div>
+      <div><span class="chk">✓</span> Telegram &amp; contact-form integration</div>
+      <div><span class="chk">✓</span> SEO-ready + fast delivery (3–5 days)</div>
+      <div><span class="chk">✓</span> Full-stack apps: auth, database, admin panels</div>
+      <div><span class="chk">✓</span> Free post-launch support</div>
+    </div>
+
+    <h2>Technologies</h2>
+    <p class="tools"><b>Languages &amp; frameworks:</b> HTML5 · CSS3 · JavaScript · TypeScript · Python · Node.js · Express · SQL / PostgreSQL · Git &amp; GitHub<br>
+    <b>AI &amp; tools:</b> Claude · ChatGPT · Cursor · Midjourney · ElevenLabs · Runway · n8n · Zapier and more<br>
+    <b>Platforms:</b> Google Workspace &amp; Microsoft 365 · Google Cloud · Firebase · Vercel · Netlify</p>
+
+    <h2>Contact</h2>
+    <div class="contact">
+      <div>✉️ <b>Email:</b> uzleeder@gmail.com</div>
+      <div>📞 <b>Phone:</b> +998 91 639 51 10</div>
+      <div>✈️ <b>Telegram:</b> @uzleeder</div>
+      <div>🟢 <b>WhatsApp:</b> +998 91 639 51 10</div>
+      <div>🐙 <b>GitHub:</b> github.com/uzleeder</div>
+      <div>🌐 <b>Website:</b> uzleeder.netlify.app</div>
+    </div>
+
+    <div class="foot">
+      <div class="sign">
+        <div class="line"></div>
+        <div class="nm">Mekhriddin Abdualim</div>
+        <div class="rl">Founder · UzLeeder · Tashkent, Uzbekistan 🇺🇿</div>
+      </div>
+      <div class="stamp"><img src="emblem.svg" alt="UzLeeder official stamp"/></div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  var d = new Date();
+  var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  document.getElementById("today").textContent = months[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear();
+</script>
+</body>
+</html>

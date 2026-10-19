@@ -1,0 +1,1914 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Mekhriddin Abdualim — UzLeeder | AI Web Developer</title>
+
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2CG6NP35RM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2CG6NP35RM');
+</script>
+
+<!-- SEO -->
+<meta name="description" content="UzLeeder — Mekhriddin Abdualim, AI web developer from Tashkent, Uzbekistan. Modern, fast and affordable websites for academies, businesses and brands. Logos, AI media and more."/>
+<meta name="keywords" content="UzLeeder, Mekhriddin Abdualim, web developer Uzbekistan, Tashkent web developer, AI web developer, website for academy, landing page, logo design, sayt yaratish, веб-разработчик Ташкент"/>
+<meta name="author" content="Mekhriddin Abdualim"/>
+<meta name="robots" content="index, follow"/>
+<meta name="google-site-verification" content="FxK8trRub73FbxGOzZoylFMsx_VsNCN7jBaFdT9_5-U"/>
+<link rel="canonical" href="https://uzleeder.netlify.app/"/>
+
+<!-- Android / PWA: installable home-screen app + address-bar color (updated by JS to match theme) -->
+<meta name="theme-color" id="themeColor" content="#0b0f1a"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="apple-mobile-web-app-title" content="UzLeeder"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<link rel="apple-touch-icon" href="icon.svg"/>
+<link rel="mask-icon" href="icon.svg" color="#c9a14a"/>
+
+<!-- Structured data: helps Google show the correct site name & rich result -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "UzLeeder",
+  "alternateName": "Mekhriddin Abdualim — UzLeeder",
+  "url": "https://uzleeder.netlify.app/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Mekhriddin Abdualim",
+  "url": "https://uzleeder.netlify.app/",
+  "image": "https://i.postimg.cc/13t61VWL/image.png",
+  "jobTitle": "AI Web Developer",
+  "worksFor": { "@type": "Organization", "name": "UzLeeder" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Tashkent", "addressCountry": "UZ" },
+  "email": "uzleeder@gmail.com",
+  "sameAs": ["https://t.me/uzleeder"]
+}
+</script>
+
+<!-- Open Graph -->
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="UzLeeder"/>
+<meta property="og:title" content="Mekhriddin Abdualim — UzLeeder | AI Web Developer"/>
+<meta property="og:description" content="Modern, fast and affordable websites for academies, businesses and brands. Built with clean code and smart AI tools."/>
+<meta property="og:url" content="https://uzleeder.netlify.app/"/>
+<meta property="og:image" content="https://i.postimg.cc/13t61VWL/image.png"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:locale:alternate" content="uz_UZ"/>
+<meta property="og:locale:alternate" content="ru_RU"/>
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Mekhriddin Abdualim — UzLeeder | AI Web Developer"/>
+<meta name="twitter:description" content="Modern, fast and affordable websites for academies, businesses and brands."/>
+<meta name="twitter:image" content="https://i.postimg.cc/13t61VWL/image.png"/>
+
+<link rel="icon" type="image/svg+xml" href="/icon.svg"/>
+<link rel="shortcut icon" href="/icon.svg"/>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap" rel="stylesheet"/>
+
+<!-- Apply saved theme before paint to avoid flash -->
+<script>
+  try {
+    var t = localStorage.getItem("uzleeder_theme");
+    if (t !== "light" && t !== "dark") {
+      t = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+    }
+    document.documentElement.setAttribute("data-theme", t);
+    var m = document.querySelector('meta[name="theme-color"]');
+    if (m) m.setAttribute("content", t === "light" ? "#f7f5ef" : "#0b0f1a");
+  } catch (e) {}
+</script>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Segoe UI',system-ui,sans-serif;overflow-x:hidden;line-height:1.6;
+  background:var(--bg);color:var(--text);transition:background .4s ease,color .4s ease;
+  -webkit-tap-highlight-color:transparent}
+a{text-decoration:none;color:inherit}
+/* keep section headings clear of the fixed navbar when using anchor links */
+section[id]{scroll-margin-top:78px}
+
+:root[data-theme="dark"]{
+  --bg:#0b0f1a;--bg2:#0d1117;--gold:#c9a14a;--gold2:#e0bd66;--gold3:#f0d98a;
+  --line:rgba(201,161,74,.18);--text:#eef2ff;--muted:#8a9bb5;--card:#111827;--card2:#161e2e;
+  --nav-bg:rgba(11,15,26,.88);--tech-bg:rgba(255,255,255,.05);--tech-line:rgba(255,255,255,.1);
+  --tech-text:#94a3b8;--contact-bg:rgba(255,255,255,.04);--shadow:0 30px 70px rgba(0,0,0,.5);
+}
+:root[data-theme="light"]{
+  --bg:#f7f5ef;--bg2:#ffffff;--gold:#a8842f;--gold2:#bd9540;--gold3:#8a6f28;
+  --line:rgba(168,132,47,.22);--text:#1a1f2e;--muted:#5e6b7d;--card:#ffffff;--card2:#fbfaf6;
+  --nav-bg:rgba(247,245,239,.9);--tech-bg:rgba(13,27,62,.05);--tech-line:rgba(13,27,62,.12);
+  --tech-text:#5e6b7d;--contact-bg:rgba(13,27,62,.03);--shadow:0 30px 70px rgba(100,90,60,.15);
+}
+
+.ico{width:1em;height:1em;display:inline-block;vertical-align:-.125em;flex:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;fill:none}
+.ico.ico-fill{fill:currentColor;stroke:none}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
+  padding:1rem 2.5rem;background:var(--nav-bg);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);transition:padding .3s,background .4s}
+.nav-logo{display:flex;align-items:center;gap:.5rem;font-weight:900;font-size:1.15rem;letter-spacing:.5px}
+.nav-logo .crown-sm{height:24px;width:auto}
+.nav-logo .txt{background:linear-gradient(135deg,var(--gold),var(--gold3));
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.nav-right{display:flex;align-items:center;gap:1.2rem}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{display:inline-flex;align-items:center;gap:.4rem;font-size:.88rem;color:var(--muted);font-weight:600;transition:.2s;letter-spacing:.03em}
+.nav-links a .ico{width:15px;height:15px;color:var(--gold);flex:none}
+.nav-links a:hover{color:var(--gold2)}
+
+/* language dropdown */
+.lang-wrap{position:relative}
+.lang-btn{display:flex;align-items:center;gap:.4rem;background:var(--card2);
+  border:1px solid var(--line);color:var(--text);border-radius:999px;
+  padding:.4rem .8rem;font-size:.82rem;font-weight:700;cursor:pointer;transition:.2s}
+.lang-btn:hover{border-color:rgba(201,161,74,.4)}
+.lang-btn .ico{width:15px;height:15px;color:var(--gold)}
+.lang-btn .chev{width:13px;height:13px;transition:.2s}
+.lang-wrap.open .chev{transform:rotate(180deg)}
+.lang-menu{position:absolute;top:calc(100% + .5rem);right:0;background:var(--card);
+  border:1px solid var(--line);border-radius:12px;padding:.4rem;min-width:150px;
+  box-shadow:0 18px 40px rgba(0,0,0,.3);opacity:0;transform:translateY(-8px);
+  pointer-events:none;transition:.2s;z-index:120}
+.lang-wrap.open .lang-menu{opacity:1;transform:none;pointer-events:auto}
+.lang-opt{display:flex;align-items:center;gap:.6rem;padding:.55rem .7rem;border-radius:8px;
+  font-size:.85rem;font-weight:600;color:var(--muted);cursor:pointer;transition:.15s}
+.lang-opt:hover{background:rgba(201,161,74,.1);color:var(--text)}
+.lang-opt.active{background:rgba(201,161,74,.12);color:var(--gold2)}
+.lang-opt .flag{font-size:1.1rem}
+
+.theme-toggle{width:52px;height:28px;border-radius:999px;border:1px solid var(--line);
+  background:var(--card2);cursor:pointer;position:relative;flex:none;transition:.3s;padding:0}
+.theme-toggle .knob{position:absolute;top:2px;left:2px;width:22px;height:22px;border-radius:50%;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));display:grid;place-items:center;
+  transition:.35s cubic-bezier(.4,1.4,.6,1);box-shadow:0 2px 6px rgba(0,0,0,.3)}
+:root[data-theme="light"] .theme-toggle .knob{transform:translateX(24px)}
+.theme-toggle .knob .ico{width:13px;height:13px;color:#fff;stroke-width:2.5}
+.theme-toggle .sun{display:none}.theme-toggle .moon{display:block}
+:root[data-theme="light"] .theme-toggle .sun{display:block}
+:root[data-theme="light"] .theme-toggle .moon{display:none}
+
+.menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--text);
+  font-size:1.3rem;border-radius:10px;width:42px;height:42px;cursor:pointer}
+
+.hero{min-height:100vh;min-height:100svh;display:flex;align-items:center;justify-content:center;
+  padding:7rem 1.5rem 4rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 55% at 50% 0%,rgba(201,161,74,.14) 0%,transparent 65%),
+    radial-gradient(ellipse 40% 40% at 90% 85%,rgba(201,161,74,.07) 0%,transparent 60%)}
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;
+  max-width:1080px;width:100%;margin:0 auto;position:relative}
+.hero-text .tag{display:inline-flex;align-items:center;gap:.5rem;
+  background:rgba(201,161,74,.1);border:1px solid rgba(201,161,74,.3);
+  color:var(--gold2);font-size:.75rem;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;padding:.4rem 1rem;border-radius:999px;margin-bottom:1.5rem}
+.tag .crown-tag{height:15px;width:auto}
+.hero-text h1{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:900;line-height:1.08;margin-bottom:.6rem}
+.hero-text h1 span{background:linear-gradient(135deg,var(--gold),var(--gold3));
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-role{font-size:clamp(1rem,2.2vw,1.3rem);font-weight:700;color:var(--gold2);
+  margin-bottom:1.2rem;min-height:1.6em;display:flex;align-items:center;gap:.1rem}
+.hero-role .cursor{display:inline-block;width:2px;height:1.1em;background:var(--gold);
+  margin-left:2px;animation:blink 1s step-end infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.hero-text p{font-size:1.05rem;color:var(--muted);max-width:460px;margin-bottom:2rem;line-height:1.8}
+.hero-btns{display:flex;gap:.9rem;flex-wrap:wrap}
+
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.7rem;border-radius:999px;
+  font-weight:700;font-size:.93rem;border:1px solid transparent;cursor:pointer;transition:.2s;white-space:nowrap}
+.btn .ico{width:1.05em;height:1.05em}
+.btn:hover{transform:translateY(-2px)}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;box-shadow:0 10px 28px rgba(201,161,74,.35)}
+:root[data-theme="dark"] .btn-gold{color:#0b0f1a}
+.btn-outline{background:transparent;border-color:rgba(201,161,74,.4);color:var(--gold2)}
+.btn-outline:hover{background:rgba(201,161,74,.08)}
+.btn-tg{background:#229ed9;color:#fff;box-shadow:0 10px 24px rgba(34,158,217,.3)}
+
+.photo-card{background:linear-gradient(160deg,var(--card),var(--card2));
+  border:1px solid var(--line);border-radius:24px;padding:2.5rem;
+  text-align:center;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.photo-card::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;
+  background:radial-gradient(circle,rgba(201,161,74,.12) 0%,transparent 70%)}
+.photo-wrap{width:140px;height:140px;border-radius:50%;margin:0 auto 1.2rem;
+  border:3px solid var(--gold);padding:3px;background:linear-gradient(135deg,var(--gold),var(--gold3))}
+.photo-wrap img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block}
+.photo-name{font-size:1.15rem;font-weight:800;margin-bottom:.2rem}
+.photo-role{font-size:.75rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:1.5rem}
+.photo-contacts{display:flex;flex-direction:column;gap:.6rem}
+.contact-row{display:flex;align-items:center;gap:.7rem;background:var(--contact-bg);
+  border:1px solid var(--line);border-radius:10px;padding:.6rem .9rem;font-size:.83rem;color:var(--muted);transition:.2s}
+.contact-row:hover{border-color:rgba(201,161,74,.4);color:var(--gold2)}
+.contact-row .ico{width:18px;height:18px;color:var(--gold)}
+
+.hero-stats{display:flex;gap:2rem;margin-top:2rem;flex-wrap:wrap}
+.hero-stats .s b{font-size:1.6rem;font-weight:900;display:block;
+  background:linear-gradient(135deg,var(--gold),var(--gold3));
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-stats .s span{color:var(--muted);font-size:.82rem}
+
+section{padding:5rem 1.5rem}
+.wrap{max-width:1080px;margin:0 auto}
+.sec-head{text-align:center;margin-bottom:3rem}
+.kicker{color:var(--gold);font-size:.75rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+.sec-head h2{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;margin:.6rem 0 .8rem}
+.sec-head p{color:var(--muted);max-width:500px;margin:0 auto}
+
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.about-text p{color:var(--muted);line-height:1.9;margin-bottom:1rem;font-size:1rem}
+.skills{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.5rem}
+.skill{background:rgba(201,161,74,.1);border:1px solid rgba(201,161,74,.25);
+  color:var(--gold2);font-size:.8rem;font-weight:700;padding:.35rem .85rem;border-radius:999px}
+.about-card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:2rem}
+.about-stat{margin-bottom:1.5rem}
+.about-stat:last-child{margin-bottom:0}
+.about-stat b{font-size:2.5rem;font-weight:900;display:block;
+  background:linear-gradient(135deg,var(--gold),var(--gold3));
+  -webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
+.about-stat span{color:var(--muted);font-size:.85rem}
+
+.portfolio-section{background:var(--bg2);transition:background .4s}
+.portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.4rem}
+.proj{background:var(--card2);border:1px solid var(--line);border-radius:18px;
+  padding:1.8rem;transition:.25s;position:relative;overflow:hidden}
+.proj:hover{transform:translateY(-6px);border-color:rgba(201,161,74,.45);box-shadow:var(--shadow)}
+.proj-tag{position:absolute;top:1.2rem;right:1.2rem;font-size:.7rem;font-weight:700;color:var(--gold);
+  background:rgba(201,161,74,.12);padding:.2rem .6rem;border-radius:999px;z-index:2}
+.proj-tag.sale{color:#34d399;background:rgba(16,185,129,.15);border:1px solid rgba(16,185,129,.35)}
+.proj-badges{position:absolute;top:1.2rem;left:1.2rem;right:1.2rem;display:flex;justify-content:space-between;align-items:center;gap:.5rem;z-index:3;pointer-events:none}
+.proj-badges .proj-tag{position:static;top:auto;right:auto}
+.proj-cert{display:inline-flex;align-items:center;gap:.32rem;font-size:.68rem;font-weight:800;letter-spacing:.01em;
+  color:var(--gold);background:rgba(201,161,74,.18);border:1px solid rgba(201,161,74,.5);padding:.26rem .6rem;
+  border-radius:999px;white-space:nowrap;box-shadow:0 2px 10px rgba(0,0,0,.28)}
+.proj-cert svg{width:12px;height:12px}
+.proj-contract{width:100%;justify-content:center;margin-top:.6rem;background:transparent;
+  border:1px solid rgba(201,161,74,.5);color:var(--gold)}
+.proj-contract:hover{background:rgba(201,161,74,.1);border-color:var(--gold)}
+.proj-icon{width:54px;height:54px;border-radius:14px;display:grid;place-items:center;margin-bottom:1rem;
+  background:linear-gradient(135deg,rgba(201,161,74,.18),rgba(201,161,74,.06));border:1px solid rgba(201,161,74,.25)}
+.proj-icon .ico{width:26px;height:26px;color:var(--gold2)}
+.proj h3{font-size:1.1rem;font-weight:700;margin-bottom:.4rem}
+.proj p{color:var(--muted);font-size:.9rem;line-height:1.65;margin-bottom:1rem}
+.proj-tech{display:flex;flex-wrap:wrap;gap:.4rem}
+.tech{background:var(--tech-bg);border:1px solid var(--tech-line);color:var(--tech-text);
+  font-size:.72rem;padding:.2rem .55rem;border-radius:6px}
+.proj-thumb{display:block;margin:-1.8rem -1.8rem 1.3rem;overflow:hidden;border-bottom:1px solid var(--line);background:#eef1f7}
+.proj-thumb img,.proj-thumb video{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top center;display:block;transition:transform .35s ease}
+.proj-thumb:hover img{transform:scale(1.04)}
+.proj-view{width:100%;justify-content:center;margin-top:1.2rem}
+.proj-price{display:inline-flex;align-items:baseline;gap:.4rem;margin:.2rem 0 .9rem;font-weight:900;font-size:1.25rem;
+  background:linear-gradient(135deg,var(--gold),var(--gold3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.proj-price small{font-size:.72rem;font-weight:700;color:var(--muted);-webkit-text-fill-color:var(--muted)}
+
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.3rem}
+.svc{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:1.8rem;transition:.25s}
+.svc:hover{border-color:rgba(201,161,74,.45);transform:translateY(-5px);box-shadow:var(--shadow)}
+.svc .ic{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;margin-bottom:1rem;
+  background:linear-gradient(135deg,var(--gold),var(--gold2))}
+.svc .ic .ico{width:25px;height:25px;color:#fff}
+:root[data-theme="dark"] .svc .ic .ico{color:#0b0f1a}
+.svc:nth-child(2) .ic{background:linear-gradient(135deg,#1b9fd8,#2bb6f0)}
+.svc:nth-child(2) .ic .ico{color:#fff}
+.svc:nth-child(3) .ic{background:linear-gradient(135deg,#8b5cf6,#c084fc)}
+.svc:nth-child(3) .ic .ico{color:#fff}
+.svc:nth-child(4) .ic{background:linear-gradient(135deg,#10b981,#34d399)}
+.svc:nth-child(4) .ic .ico{color:#fff}
+.svc:nth-child(5) .ic{background:linear-gradient(135deg,#f59e0b,#fbbf24)}
+.svc:nth-child(5) .ic .ico{color:#fff}
+.svc:nth-child(6) .ic{background:linear-gradient(135deg,#ef4444,#f87171)}
+.svc:nth-child(6) .ic .ico{color:#fff}
+.svc:nth-child(7) .ic{background:linear-gradient(135deg,#0ea5e9,#38bdf8)}
+.svc:nth-child(7) .ic .ico{color:#fff}
+.svc:nth-child(8) .ic{background:linear-gradient(135deg,#ec4899,#f472b6)}
+.svc:nth-child(8) .ic .ico{color:#fff}
+.svc:nth-child(9) .ic{background:linear-gradient(135deg,#14b8a6,#2dd4bf)}
+.svc:nth-child(9) .ic .ico{color:#fff}
+.svc:nth-child(10) .ic{background:linear-gradient(135deg,#6366f1,#818cf8)}
+.svc:nth-child(10) .ic .ico{color:#fff}
+.svc:nth-child(11) .ic{background:linear-gradient(135deg,#e11d48,#fb7185)}
+.svc:nth-child(11) .ic .ico{color:#fff}
+.svc h3{font-size:1.05rem;font-weight:700;margin-bottom:.4rem}
+.svc p{color:var(--muted);font-size:.9rem;line-height:1.65}
+.price-badge{display:inline-block;margin-top:.9rem;background:rgba(201,161,74,.1);
+  border:1px solid rgba(201,161,74,.25);color:var(--gold);font-size:.78rem;font-weight:700;padding:.25rem .7rem;border-radius:999px}
+
+.tools-section{background:var(--bg2);transition:background .4s}
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:1rem}
+.tool-card{background:var(--card);border:1px solid var(--line);border-radius:16px;
+  padding:1.3rem .8rem;display:flex;flex-direction:column;align-items:center;gap:.7rem;
+  text-align:center;transition:.2s;position:relative}
+.tool-card:hover{transform:translateY(-5px);border-color:rgba(201,161,74,.45);box-shadow:var(--shadow)}
+.tool-card:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+.tool-badge{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;
+  flex:none;background:#fff;border:1px solid rgba(0,0,0,.07);padding:9px;
+  animation:toolFloat 5s ease-in-out infinite;filter:drop-shadow(0 3px 8px rgba(0,0,0,.15))}
+.tool-card:nth-child(6n+1) .tool-badge{animation-duration:4.4s;animation-delay:0s}
+.tool-card:nth-child(6n+2) .tool-badge{animation-duration:5.6s;animation-delay:.25s}
+.tool-card:nth-child(6n+3) .tool-badge{animation-duration:4.9s;animation-delay:.5s}
+.tool-card:nth-child(6n+4) .tool-badge{animation-duration:6.1s;animation-delay:.75s}
+.tool-card:nth-child(6n+5) .tool-badge{animation-duration:5.2s;animation-delay:1s}
+.tool-card:nth-child(6n+6) .tool-badge{animation-duration:4.7s;animation-delay:1.25s}
+.tool-card:hover .tool-badge{animation-play-state:paused}
+@keyframes toolFloat{
+  0%{transform:translate(0,0) rotate(0deg) scale(1)}
+  20%{transform:translate(2.5px,-5px) rotate(-4deg) scale(1.03)}
+  40%{transform:translate(-1.5px,-9px) rotate(3deg) scale(1.05)}
+  60%{transform:translate(-3px,-5px) rotate(-3deg) scale(1.03)}
+  80%{transform:translate(1.5px,-2px) rotate(2deg) scale(1.01)}
+  100%{transform:translate(0,0) rotate(0deg) scale(1)}
+}
+.tool-badge img{width:100%;height:100%;object-fit:contain;display:block}
+.tool-card span{font-size:.78rem;font-weight:700;color:var(--text)}
+
+.stack-tagline{justify-content:center;cursor:default}
+.stack-tagline .cursive-tag{font-family:'Yellowtail',cursive;font-size:1.9rem;line-height:1;
+  background:linear-gradient(135deg,var(--gold),var(--gold3));-webkit-background-clip:text;
+  background-clip:text;color:transparent}
+
+.stack-subhead{font-size:.95rem;font-weight:800;color:var(--gold2);letter-spacing:.04em;
+  text-transform:uppercase;margin:0 0 1.1rem;display:flex;align-items:center;gap:.6rem}
+.stack-subhead::after{content:'';flex:1;height:1px;background:var(--line)}
+.platform-group + .platform-group{margin-top:2.2rem}
+
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.4rem}
+.cert-card{background:var(--card2);border:1px solid var(--line);border-radius:16px;overflow:hidden;
+  transition:.25s;display:block}
+.cert-card:hover{transform:translateY(-6px);border-color:rgba(201,161,74,.45);box-shadow:var(--shadow)}
+.cert-thumb{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;background:#fff;
+  border-bottom:1px solid var(--line)}
+.cert-body{padding:1.1rem 1.3rem 1.3rem}
+.cert-body h3{font-size:.96rem;font-weight:700;margin-bottom:.7rem;line-height:1.35;color:var(--text)}
+.cert-meta{display:flex;align-items:center;justify-content:space-between;font-size:.78rem;
+  color:var(--muted);gap:.5rem}
+.cert-verify{display:inline-flex;align-items:center;gap:.25rem;color:var(--gold2);font-weight:700;white-space:nowrap}
+.cert-verify .ico{width:12px;height:12px}
+
+.cert-featured{position:relative;background:linear-gradient(135deg,var(--card),var(--card2));
+  border:1px solid rgba(201,161,74,.4);border-radius:24px;padding:2rem;margin-bottom:2rem;
+  box-shadow:0 0 50px rgba(201,161,74,.15);overflow:hidden}
+.cert-featured-badge{position:absolute;top:1.4rem;right:1.4rem;background:linear-gradient(135deg,var(--gold),var(--gold2));
+  color:#fff;font-size:.7rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+  padding:.3rem .9rem .3rem .35rem;border-radius:999px;box-shadow:0 6px 16px rgba(201,161,74,.35);
+  display:inline-flex;align-items:center;gap:.45rem}
+.cert-featured-badge.text-only{padding:.35rem .9rem}
+.cert-featured-badge .badge-logo{width:20px;height:20px;flex:none;background:#fff;border-radius:50%;
+  padding:3px;object-fit:contain;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+:root[data-theme="dark"] .cert-featured-badge{color:#0b0f1a}
+.cert-featured-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:2.2rem;align-items:center}
+.cert-featured-img-wrap{display:block;border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow)}
+.cert-featured-img-wrap img{width:100%;display:block;transition:.3s}
+.cert-featured-img-wrap:hover img{transform:scale(1.03)}
+.cert-featured-body h3{font-size:1.5rem;font-weight:800;margin-bottom:.8rem}
+.cert-featured-body p{color:var(--muted);line-height:1.75;margin-bottom:1.2rem;font-size:.95rem}
+.cert-featured-meta{display:flex;flex-wrap:wrap;gap:.9rem 1.4rem;font-size:.82rem;color:var(--muted);margin-bottom:1.4rem;
+  padding-bottom:1.2rem;border-bottom:1px solid var(--line)}
+.cert-featured.reverse .cert-featured-img-wrap{order:2}
+.cert-featured.reverse .cert-featured-body{order:1}
+.cert-featured.reverse .cert-featured-badge{left:1.4rem;right:auto}
+@media(max-width:760px){.cert-featured-grid{grid-template-columns:1fr}.cert-featured{padding:1.5rem}
+  .cert-featured-badge{position:static;display:inline-flex;margin-bottom:1rem}
+  .cert-featured.reverse .cert-featured-img-wrap{order:0}.cert-featured.reverse .cert-featured-body{order:0}}
+
+/* hover/focus tooltip, anchored right above the icon (no full-screen overlay) */
+.tool-card::before,.tool-card::after{
+  position:absolute;left:50%;bottom:calc(100% + 10px);transform:translate(-50%,4px);
+  opacity:0;pointer-events:none;transition:opacity .16s ease,transform .16s ease;z-index:50}
+.tool-card::after{
+  content:attr(data-tooltip);background:var(--card);color:var(--text);
+  border:1px solid var(--line);border-radius:10px;padding:.6rem .8rem;
+  font-size:.76rem;font-weight:600;line-height:1.45;width:max-content;max-width:190px;
+  text-align:left;box-shadow:0 14px 30px rgba(0,0,0,.28)}
+.tool-card::before{
+  content:'';bottom:calc(100% + 4px);width:9px;height:9px;
+  background:var(--card);border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+  transform:translate(-50%,4px) rotate(45deg)}
+.tool-card:hover::before,.tool-card:hover::after,
+.tool-card:focus-visible::before,.tool-card:focus-visible::after{
+  opacity:1;transform:translate(-50%,0)}
+@media(max-width:560px){.tool-card::after{max-width:150px;font-size:.72rem}}
+@media(prefers-reduced-motion:reduce){.tool-badge{animation:none}}
+
+.pricing-section{background:var(--bg2);transition:background .4s}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.4rem;max-width:1180px;margin:0 auto}
+.plan{background:var(--card2);border:1px solid var(--line);border-radius:20px;padding:2rem;transition:.25s;position:relative;overflow:hidden}
+.plan.featured{border-color:rgba(201,161,74,.5);background:linear-gradient(160deg,var(--card2),var(--card));box-shadow:0 0 40px rgba(201,161,74,.12)}
+.plan-badge{position:absolute;top:1.2rem;right:1.2rem;background:var(--gold);color:#fff;
+  font-size:.68rem;font-weight:800;padding:.2rem .6rem;border-radius:999px}
+:root[data-theme="dark"] .plan-badge{color:#0b0f1a}
+.plan-name{font-size:.78rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem}
+.plan-price{font-size:2.8rem;font-weight:900;line-height:1;margin-bottom:.2rem;
+  background:linear-gradient(135deg,var(--gold),var(--gold3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.plan-period{color:var(--muted);font-size:.85rem;margin-bottom:1.5rem}
+.plan-features{list-style:none;display:flex;flex-direction:column;gap:.6rem;margin-bottom:1.8rem}
+.plan-features li{display:flex;align-items:center;gap:.6rem;font-size:.9rem;color:var(--text);opacity:.85}
+.plan-features li .ico{width:16px;height:16px;color:var(--gold);stroke-width:2.5}
+
+.contact-box{background:linear-gradient(135deg,var(--card),var(--card2));
+  border:1px solid rgba(201,161,74,.25);border-radius:28px;padding:3.5rem;
+  display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:start;
+  box-shadow:var(--shadow);position:relative;overflow:hidden}
+.contact-box::before{content:'';position:absolute;width:350px;height:350px;border-radius:50%;
+  background:radial-gradient(circle,rgba(201,161,74,.08) 0%,transparent 70%);top:-100px;right:-80px}
+.contact-box h2{font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:800;margin-bottom:.7rem}
+.contact-box p{color:var(--muted);margin-bottom:2rem;line-height:1.8}
+.contact-btns{display:flex;gap:.8rem;flex-wrap:wrap}
+.info-list{display:flex;flex-direction:column;gap:.8rem}
+.info-row{display:flex;align-items:center;gap:.9rem;background:var(--contact-bg);
+  border:1px solid var(--line);border-radius:14px;padding:.9rem 1.1rem;transition:.2s}
+.info-row:hover{border-color:rgba(201,161,74,.35);background:rgba(201,161,74,.05)}
+.info-row .ic{width:40px;height:40px;flex:none;border-radius:10px;display:grid;place-items:center;background:rgba(201,161,74,.12)}
+.info-row .ic .ico{width:19px;height:19px;color:var(--gold2)}
+.info-row b{display:block;font-size:.93rem}
+.info-row span{color:var(--muted);font-size:.8rem}
+
+/* contact form */
+.contact-form{display:flex;flex-direction:column;gap:.9rem;position:relative;z-index:1}
+.field{display:flex;flex-direction:column;gap:.35rem}
+.field label{font-size:.78rem;font-weight:700;color:var(--muted);letter-spacing:.02em}
+.field input,.field textarea{font-family:inherit;font-size:.92rem;color:var(--text);
+  background:var(--contact-bg);border:1px solid var(--line);border-radius:12px;
+  padding:.8rem 1rem;transition:.2s;resize:vertical;width:100%}
+.field input::placeholder,.field textarea::placeholder{color:var(--muted);opacity:.7}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--gold);
+  box-shadow:0 0 0 3px rgba(201,161,74,.15)}
+.field input:user-invalid,.field textarea:user-invalid{border-color:#ef4444}
+.field textarea{min-height:110px}
+.form-submit{justify-content:center;margin-top:.3rem}
+.form-submit[disabled]{opacity:.7;cursor:not-allowed;transform:none}
+.spinner{width:1.05em;height:1.05em;border:2px solid rgba(255,255,255,.45);
+  border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;display:none}
+.form-submit.loading .spinner{display:inline-block}
+.form-submit.loading .btn-label,.form-submit.loading .ico{display:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* toast */
+.toast-wrap{position:fixed;bottom:1.5rem;right:1.5rem;z-index:2000;display:flex;
+  flex-direction:column;gap:.7rem;max-width:340px}
+.toast{display:flex;align-items:center;gap:.7rem;background:var(--card);
+  border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:12px;
+  padding:.9rem 1.1rem;box-shadow:0 18px 40px rgba(0,0,0,.3);color:var(--text);
+  font-size:.9rem;font-weight:600;transform:translateX(120%);opacity:0;transition:.35s cubic-bezier(.2,.7,.2,1)}
+.toast.show{transform:none;opacity:1}
+.toast.ok{border-left-color:#10b981}
+.toast.err{border-left-color:#ef4444}
+.toast .ico{width:20px;height:20px;flex:none}
+.toast.ok .ico{color:#10b981}
+.toast.err .ico{color:#ef4444}
+
+footer{border-top:1px solid var(--line);padding:2rem 1.5rem;text-align:center;color:var(--muted);font-size:.83rem}
+footer a{color:var(--gold);font-weight:700}
+.foot-logo{display:flex;flex-direction:column;align-items:center;gap:.4rem;margin-bottom:1.5rem}
+.foot-crown{height:46px;width:auto;transform-origin:50% 90%;animation:crownFloat 2.6s ease-in-out infinite;
+  filter:drop-shadow(0 6px 18px rgba(201,161,74,.4))}
+@keyframes crownFloat{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-8px) rotate(4deg)}}
+.foot-logo-text{font-size:1.4rem;font-weight:900;letter-spacing:.5px}
+.foot-logo-text .uz{color:var(--text)}
+.foot-logo-text .leeder{background:linear-gradient(135deg,var(--gold),var(--gold3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.foot-logo-sub{font-size:.62rem;font-weight:700;letter-spacing:.35em;text-transform:uppercase;color:var(--muted)}
+.crown-mini{height:16px;width:auto;transform-origin:50% 90%;animation:crownFloat 2.6s ease-in-out infinite}
+@media(prefers-reduced-motion:reduce){.foot-crown,.crown-mini,.spinner{animation:none}}
+
+.reveal{opacity:0;transform:translateY(28px);transition:.7s cubic-bezier(.2,.7,.2,1)}
+.reveal.show{opacity:1;transform:none}
+
+@media(max-width:860px){
+  .hero-inner{grid-template-columns:1fr;gap:2rem}
+  .photo-card{order:-1}
+  .about-grid{grid-template-columns:1fr}
+  .contact-box{grid-template-columns:1fr;padding:2rem}
+  nav{padding:1rem 1.2rem}
+  .nav-right{gap:.7rem}
+  .nav-links{position:fixed;inset:70px 0 auto 0;flex-direction:column;gap:0;
+    background:var(--bg2);border-bottom:1px solid var(--line);padding:1rem 0;
+    transform:translateY(-120%);transition:.3s;opacity:0;pointer-events:none}
+  .nav-links.open{transform:none;opacity:1;pointer-events:auto}
+  .nav-links a{padding:.85rem 22px;width:100%}
+  .menu-btn{display:block}
+  .lang-btn .lang-label{display:none}
+}
+@media(max-width:560px){
+  section{padding:3.5rem 1.2rem}
+  .hero{padding:6rem 1.2rem 3rem}
+  .hero-stats{gap:1.3rem}
+  .hero-btns{gap:.6rem}
+  .hero-btns .btn{flex:1;justify-content:center;min-width:140px}
+  .photo-card{padding:2rem 1.5rem}
+  .contact-box{padding:1.5rem}
+  .contact-btns{flex-direction:column}
+  .contact-btns .btn{width:100%;justify-content:center}
+  .lang-menu{right:auto;left:0}
+  .nav-logo{font-size:1rem}
+  .lang-btn{padding:.4rem .6rem}
+  .toast-wrap{left:1rem;right:1rem;bottom:1rem;max-width:none}
+  /* 16px font stops iOS from auto-zooming when an input is focused */
+  .field input,.field textarea{font-size:16px}
+  /* comfortable tap targets on touch screens */
+  .nav-links a{padding:1rem 22px}
+  .contact-row{padding:.8rem .9rem}
+}
+@media(max-width:360px){
+  nav{padding:.9rem .8rem}
+  .nav-right{gap:.5rem}
+  .hero-text h1{font-size:1.9rem}
+  .hero-btns .btn{min-width:120px;padding:.75rem 1rem}
+}
+/* finger-friendly: give the theme toggle a larger hit area without changing its look */
+.theme-toggle{position:relative}
+@media(hover:none){
+  .theme-toggle::after{content:'';position:absolute;inset:-8px}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7Z"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></symbol>
+    <symbol id="i-grad" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 2.7 3 6 3s6-2 6-3v-5"/></symbol>
+    <symbol id="i-ruler" viewBox="0 0 24 24"><path d="M21.3 8.7 8.7 21.3a1 1 0 0 1-1.4 0l-4.6-4.6a1 1 0 0 1 0-1.4L15.3 2.7a1 1 0 0 1 1.4 0l4.6 4.6a1 1 0 0 1 0 1.4Z"/><path d="m7.5 10.5 2 2M10.5 7.5l2 2M13.5 4.5l2 2"/></symbol>
+    <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09Z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2Z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M8 10h.01M16 10h.01M12 10h.01M8 14h.01M16 14h.01M12 14h.01"/></symbol>
+    <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+    <symbol id="i-palette" viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.555C21.965 6.012 17.461 2 12 2Z"/></symbol>
+    <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76Z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-logo" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z"/><circle cx="12" cy="12" r="3" fill="currentColor"/></symbol>
+    <symbol id="i-video" viewBox="0 0 24 24"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="m22 8-6 4 6 4V8Z"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5Z"/></symbol>
+    <symbol id="i-slides" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></symbol>
+    <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8"/></symbol>
+    <symbol id="i-zapier" viewBox="0 0 24 24"><path fill="currentColor" d="M4.157 0A4.151 4.151 0 0 0 0 4.161v15.678A4.151 4.151 0 0 0 4.157 24h15.682A4.152 4.152 0 0 0 24 19.839V4.161A4.152 4.152 0 0 0 19.839 0H4.157Zm10.61 8.761h.03a.577.577 0 0 1 .23.038.585.585 0 0 1 .201.124.63.63 0 0 1 .162.431.612.612 0 0 1-.162.435.58.58 0 0 1-.201.128.58.58 0 0 1-.23.042.529.529 0 0 1-.235-.042.585.585 0 0 1-.332-.328.559.559 0 0 1-.038-.235.613.613 0 0 1 .17-.431.59.59 0 0 1 .405-.162Zm2.853 1.572c.03.004.061.004.095.004.325-.011.646.064.937.219.238.144.431.355.552.609.128.279.189.582.185.888v.193a2 2 0 0 1 0 .219h-2.498c.003.227.075.45.204.642a.78.78 0 0 0 .646.265.714.714 0 0 0 .484-.136.642.642 0 0 0 .23-.318l.915.257a1.398 1.398 0 0 1-.28.537c-.14.159-.321.284-.521.355a2.234 2.234 0 0 1-.836.136 1.923 1.923 0 0 1-1.001-.245 1.618 1.618 0 0 1-.665-.703 2.221 2.221 0 0 1-.227-1.036 1.95 1.95 0 0 1 .48-1.398 1.9 1.9 0 0 1 1.3-.488Zm-9.607.023c.162.004.325.026.48.079.207.065.4.174.563.314.26.302.393.692.366 1.088v2.276H8.53l-.109-.711h-.065c-.064.163-.155.31-.272.439a1.122 1.122 0 0 1-.374.264 1.023 1.023 0 0 1-.453.083 1.334 1.334 0 0 1-.866-.264.965.965 0 0 1-.329-.801.993.993 0 0 1 .076-.431 1.02 1.02 0 0 1 .242-.363 1.478 1.478 0 0 1 1.043-.303h.952v-.181a.696.696 0 0 0-.136-.454.553.553 0 0 0-.438-.154.695.695 0 0 0-.378.086.48.48 0 0 0-.193.254l-.99-.144a1.26 1.26 0 0 1 .257-.563c.14-.174.321-.302.533-.378.261-.091.54-.136.82-.129.053-.003.106-.007.163-.007Zm4.384.007c.174 0 .347.038.506.114.182.083.34.211.458.374.257.423.377.911.351 1.406a2.53 2.53 0 0 1-.355 1.448 1.148 1.148 0 0 1-1.009.517c-.204 0-.401-.045-.582-.136a1.052 1.052 0 0 1-.48-.457 1.298 1.298 0 0 1-.114-.234h-.045l.004 1.784h-1.059v-4.713h.904l.117.805h.057c.068-.208.177-.401.328-.56a1.129 1.129 0 0 1 .843-.344h.076v-.004Zm7.559.084h.903l.113.805h.053a1.37 1.37 0 0 1 .235-.484.813.813 0 0 1 .313-.242.82.82 0 0 1 .39-.076h.234v1.051h-.401a.662.662 0 0 0-.313.008.623.623 0 0 0-.272.155.663.663 0 0 0-.174.26.683.683 0 0 0-.027.314v1.875h-1.054v-3.666Zm-17.515.003h3.262v.896L3.73 13.104l.034.113h1.973l.042.9H2.4v-.9l1.931-1.754-.045-.117H2.441v-.896Zm11.815 0h1.055v3.659h-1.055V10.45Zm3.443.684.019.016a.69.69 0 0 0-.351.045.756.756 0 0 0-.287.204c-.11.155-.174.336-.189.522h1.545c-.034-.526-.257-.787-.74-.787h.003Zm-5.718.163c-.026 0-.057 0-.083.004a.78.78 0 0 0-.31.053.746.746 0 0 0-.257.189 1.016 1.016 0 0 0-.204.695v.064c-.015.257.057.507.204.711a.634.634 0 0 0 .253.196.638.638 0 0 0 .314.061.644.644 0 0 0 .578-.265c.14-.223.204-.48.189-.74a1.216 1.216 0 0 0-.181-.711.677.677 0 0 0-.503-.257Zm-4.509 1.266a.464.464 0 0 0-.268.102.373.373 0 0 0-.114.276c0 .053.008.106.027.155a.375.375 0 0 0 .087.132.576.576 0 0 0 .397.11v.004a.863.863 0 0 0 .563-.182.573.573 0 0 0 .211-.457v-.14h-.903Z"/></symbol>
+    <symbol id="i-grammarly" viewBox="0 0 24 24"><path fill="currentColor" d="M12 24H.032V12c0-3.314 1.341-6.314 3.504-8.486C5.703 1.344 8.694 0 12 0c3.305 0 6.297 1.344 8.463 3.514 2.164 2.172 3.505 5.172 3.505 8.486s-1.338 6.314-3.505 8.486C18.297 22.656 15.305 24 12 24m2.889-13.137-1.271 2.205h4.418c-.505 2.882-3.018 5.078-6.036 5.078-3.38 0-6.132-2.757-6.132-6.146S8.618 5.854 12 5.854c1.821 0 3.458.801 4.584 2.069l1.143-1.988c-1.493-1.418-3.506-2.29-5.725-2.29-4.6 0-8.332 3.74-8.332 8.355s3.73 8.354 8.332 8.354c4.603 0 8.332-3.739 8.332-8.354 0-.387-.029-.765-.079-1.137z"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></symbol>
+    <symbol id="i-tag" viewBox="0 0 24 24"><path d="M12.6 2.6 21 11a2 2 0 0 1 0 2.8l-7.2 7.2a2 2 0 0 1-2.8 0L2.6 12.6A2 2 0 0 1 2 11.2V4a2 2 0 0 1 2-2h7.2a2 2 0 0 1 1.4.6Z"/><circle cx="7.5" cy="7.5" r="1.3" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></symbol>
+    <symbol id="i-apps" viewBox="0 0 24 24"><circle cx="5" cy="5" r="1.6" fill="currentColor" stroke="none"/><circle cx="12" cy="5" r="1.6" fill="currentColor" stroke="none"/><circle cx="19" cy="5" r="1.6" fill="currentColor" stroke="none"/><circle cx="5" cy="12" r="1.6" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><circle cx="19" cy="12" r="1.6" fill="currentColor" stroke="none"/><circle cx="5" cy="19" r="1.6" fill="currentColor" stroke="none"/><circle cx="12" cy="19" r="1.6" fill="currentColor" stroke="none"/><circle cx="19" cy="19" r="1.6" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="m9 13.5-1.5 7.5 4.5-2.5 4.5 2.5-1.5-7.5"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.3-1.8-1.3-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8 0 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"/></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.2-.2.3-.8 1-.9 1.1-.2.2-.4.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.4-.5.1-.2 0-.4 0-.5s-.7-1.6-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.5-.3M12 21.8h-.1a9.9 9.9 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.7-.2-.4a9.9 9.9 0 0 1-1.5-5.3C2 6.9 6.5 2.5 12 2.5c2.6 0 5.1 1 7 2.9a9.8 9.8 0 0 1 2.9 7c0 5.4-4.4 9.9-9.9 9.9M20.5 3.4A11.8 11.8 0 0 0 12 0C5.5 0 .1 5.3.1 11.9c0 2.1.6 4.1 1.6 5.9L0 24l6.3-1.7a12 12 0 0 0 5.7 1.5c6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.2-3.5-8.4"/></symbol>
+  </defs>
+</svg>
+
+<nav id="navbar">
+  <a href="#home" class="nav-logo" aria-label="UzLeeder home">
+    <svg class="crown-sm" viewBox="0 0 64 56" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path fill="#c9a14a" d="M8 48 L14 18 L24 30 L32 12 L40 30 L50 18 L56 48 Z"/>
+      <circle cx="14" cy="18" r="3.2" fill="#fff"/><circle cx="32" cy="12" r="3.8" fill="#fff"/><circle cx="50" cy="18" r="3.2" fill="#fff"/>
+    </svg>
+    <span class="txt">UzLeeder</span>
+  </a>
+  <div class="nav-right">
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about"><svg class="ico" aria-hidden="true"><use href="#i-user"/></svg><span data-i18n="nav_about">About</span></a></li>
+      <li><a href="#portfolio"><svg class="ico" aria-hidden="true"><use href="#i-briefcase"/></svg><span data-i18n="nav_portfolio">Portfolio</span></a></li>
+      <li><a href="#services"><svg class="ico" aria-hidden="true"><use href="#i-wrench"/></svg><span data-i18n="nav_services">Services</span></a></li>
+      <li><a href="#tools"><svg class="ico" aria-hidden="true"><use href="#i-sparkle"/></svg><span data-i18n="nav_tools">AI Tools</span></a></li>
+      <li><a href="#stack"><svg class="ico" aria-hidden="true"><use href="#i-code"/></svg><span data-i18n="nav_stack">Tech Stack</span></a></li>
+      <li><a href="#platforms"><svg class="ico" aria-hidden="true"><use href="#i-apps"/></svg><span data-i18n="nav_platforms">Platforms</span></a></li>
+      <li><a href="#certificates"><svg class="ico" aria-hidden="true"><use href="#i-award"/></svg><span data-i18n="nav_certificates">Certificates</span></a></li>
+      <li><a href="#pricing"><svg class="ico" aria-hidden="true"><use href="#i-tag"/></svg><span data-i18n="nav_pricing">Pricing</span></a></li>
+      <li><a href="#contact"><svg class="ico" aria-hidden="true"><use href="#i-send"/></svg><span data-i18n="nav_contact">Contact</span></a></li>
+    </ul>
+    <div class="lang-wrap" id="langWrap">
+      <button class="lang-btn" id="langBtn" aria-label="Select language" aria-haspopup="true" aria-expanded="false">
+        <svg class="ico" aria-hidden="true"><use href="#i-globe"/></svg>
+        <span class="lang-label" id="langLabel">EN</span>
+        <svg class="ico chev" aria-hidden="true"><use href="#i-chev"/></svg>
+      </button>
+      <div class="lang-menu" role="menu" aria-label="Language">
+        <div class="lang-opt active" data-lang="en" role="menuitem" tabindex="0"><span class="flag" aria-hidden="true">🇬🇧</span> English</div>
+        <div class="lang-opt" data-lang="uz" role="menuitem" tabindex="0"><span class="flag" aria-hidden="true">🇺🇿</span> O'zbek</div>
+        <div class="lang-opt" data-lang="tg" role="menuitem" tabindex="0"><span class="flag" aria-hidden="true">🇹🇯</span> Tojik</div>
+        <div class="lang-opt" data-lang="ru" role="menuitem" tabindex="0"><span class="flag" aria-hidden="true">🇷🇺</span> Русский</div>
+      </div>
+    </div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark and light theme">
+      <span class="knob"><svg class="ico sun" aria-hidden="true"><use href="#i-sun"/></svg><svg class="ico moon" aria-hidden="true"><use href="#i-moon"/></svg></span>
+    </button>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation menu" aria-controls="navLinks" aria-expanded="false">☰</button>
+  </div>
+</nav>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-text reveal">
+      <div class="tag">
+        <svg class="crown-tag" viewBox="0 0 64 56" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path fill="#e0bd66" d="M8 48 L14 18 L24 30 L32 12 L40 30 L50 18 L56 48 Z"/>
+          <circle cx="14" cy="18" r="3.2" fill="#fff"/><circle cx="32" cy="12" r="3.8" fill="#fff"/><circle cx="50" cy="18" r="3.2" fill="#fff"/>
+        </svg>
+        UzLeeder · <span data-i18n="tag">For Leaders</span>
+      </div>
+      <h1 data-i18n="hero_title">Hi, I'm <span>Mekhriddin</span> Abdualim</h1>
+      <div class="hero-role"><span id="typed"></span><span class="cursor"></span></div>
+      <p data-i18n="hero_desc">I build modern, fast, and beautiful websites for businesses, academies, and brands — powered by clean code and smart AI tools.</p>
+      <div class="hero-btns">
+        <a href="#portfolio" class="btn btn-gold"><span data-i18n="btn_work">View My Work</span> <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a href="https://t.me/uzleeder" target="_blank" rel="noopener" class="btn btn-tg"><svg class="ico" aria-hidden="true"><use href="#i-send"/></svg> Telegram</a>
+        <a href="#contact" class="btn btn-outline" data-i18n="btn_contact">Contact Me</a>
+      </div>
+      <div class="hero-stats">
+        <div class="s"><b>2+</b><span data-i18n="stat_projects">Projects</span></div>
+        <div class="s"><b>100%</b><span data-i18n="stat_support">Client Support</span></div>
+        <div class="s"><b>Fast</b><span data-i18n="stat_delivery">Delivery</span></div>
+      </div>
+    </div>
+
+    <div class="photo-card reveal" style="transition-delay:.15s">
+      <div class="photo-wrap">
+        <img src="https://i.postimg.cc/13t61VWL/image.png" alt="Portrait of Mekhriddin Abdualim, founder of UzLeeder" width="140" height="140" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+      </div>
+      <div class="photo-name">Mekhriddin Abdualim</div>
+      <div class="photo-role" data-i18n="photo_role">Founder · AI Web Developer</div>
+      <div class="photo-contacts">
+        <a class="contact-row" href="mailto:uzleeder@gmail.com"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg><span>uzleeder@gmail.com</span></a>
+        <a class="contact-row" href="tel:+998916395110"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg><span>+998 91 639 51 10</span></a>
+        <a class="contact-row" href="https://t.me/uzleeder" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-send"/></svg><span>@uzleeder</span></a>
+        <a class="contact-row" href="https://wa.me/998916395110" target="_blank" rel="noopener"><svg class="ico ico-fill" aria-hidden="true"><use href="#i-whatsapp"/></svg><span>@uzleeder</span></a>
+        <a class="contact-row" href="https://github.com/uzleeder" target="_blank" rel="noopener"><svg class="ico ico-fill" aria-hidden="true"><use href="#i-github"/></svg><span>github.com/uzleeder</span></a>
+        <a class="contact-row" href="https://leeder.com" target="_blank" rel="noopener">
+          <svg class="ico" aria-hidden="true"><use href="#i-globe"/></svg><span>leeder.com</span>
+          <span style="margin-left:auto;background:rgba(201,161,74,.18);color:var(--gold2);font-size:.6rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:.15rem .5rem;border-radius:999px;border:1px solid rgba(201,161,74,.3)" data-i18n="soon">Soon</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker" data-i18n="about_kicker">About Me</span>
+      <h2 data-i18n="about_title">Who is Mekhriddin?</h2>
+      <p data-i18n="about_sub">A young AI web developer from Tashkent City, Uzbekistan 🇺🇿 — building the future one website at a time.</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p data-i18n="about_p1">I'm Mekhriddin Abdualim, founder of <strong style="color:var(--gold)">UzLeeder</strong> — a web development brand built for leaders. I specialize in creating modern, professional websites for English academies, tutoring centers, and small businesses, using the latest AI-powered tools.</p>
+        <p data-i18n="about_p2">My goal is simple: to give every business a strong online presence — fast, beautiful, and affordable. I handle everything from design to delivery, with free support after launch.</p>
+        <p data-i18n="about_p3">Based in Tashkent City, Uzbekistan 🇺🇿 — working with clients across the country.</p>
+        <div class="skills">
+          <span class="skill">HTML & CSS</span><span class="skill">JavaScript</span>
+          <span class="skill" data-i18n="skill_resp">Responsive Design</span><span class="skill">UI/UX</span>
+          <span class="skill" data-i18n="skill_ai">AI Tools</span><span class="skill" data-i18n="skill_tg">Telegram Integration</span>
+          <span class="skill">Python</span>
+        </div>
+      </div>
+      <div class="about-card reveal" style="transition-delay:.15s">
+        <div class="about-stat"><b>2+</b><span data-i18n="as_delivered">Websites delivered</span></div>
+        <div class="about-stat"><b>100%</b><span data-i18n="as_satisfaction">Client satisfaction</span></div>
+        <div class="about-stat"><b>3–5</b><span data-i18n="as_days">Days average delivery</span></div>
+        <div class="about-stat" style="margin-bottom:0"><b>∞</b><span data-i18n="as_support">Free post-launch support</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="portfolio-section" id="portfolio">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker" data-i18n="port_kicker">Portfolio</span>
+      <h2 data-i18n="port_title">My Recent Projects</h2>
+      <p data-i18n="port_sub">Every project is built with care, clean code, and a focus on results.</p>
+    </div>
+    <div class="portfolio-grid">
+      <div class="proj reveal">
+        <div class="proj-badges">
+          <span class="proj-cert"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 L9 17 L4 12"/></svg>UzLeeder Certified</span>
+          <span class="proj-tag" data-i18n="tag_live">Live</span>
+        </div>
+        <a class="proj-thumb" href="https://shokirov-academy.vercel.app" target="_blank" rel="noopener" aria-label="Shokirov Math Academy — open site">
+          <img id="shokirovThumb" src="projects/shokirov-academy-dark.png" data-dark="projects/shokirov-academy-dark.png" data-light="projects/shokirov-academy-light.png" alt="Shokirov Math Academy landing page preview" loading="lazy" width="2560" height="1600"/>
+        </a>
+        <h3>Shokirov Math Academy</h3>
+        <div class="proj-price">$800</div>
+        <p data-i18n="proj2">A full-stack education platform built for a real math academy — far more than a landing page. Behind JWT role-based auth it ships three dashboards: student, teacher and director. Applicants apply online; the teacher reviews and enrols them, then manages attendance, payments, grades, feedback and homework, while the director oversees payments academy-wide. The learning core packs 31 DTM-book topics with 5,653 auto-graded exercises, a competitive rating system, profiles, UZ/EN languages and dark/light themes — powered by a Node.js + Express serverless API on Vercel with a Postgres (Neon) database.</p>
+        <div class="proj-tech"><span class="tech">React</span><span class="tech">Node.js</span><span class="tech">Express</span><span class="tech">PostgreSQL</span><span class="tech">JWT</span></div>
+        <a class="btn btn-gold proj-view" href="https://shokirov-academy.vercel.app" target="_blank" rel="noopener"><span data-i18n="proj_view">View site</span> <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn proj-contract" href="contract-shokirov.html" target="_blank" rel="noopener"><span data-i18n="proj_contract">View contract</span> <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="proj reveal" style="transition-delay:.08s">
+        <div class="proj-badges">
+          <span class="proj-cert"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 L9 17 L4 12"/></svg>UzLeeder Certified</span>
+          <span class="proj-tag sale" data-i18n="tag_sale">For Sale</span>
+        </div>
+        <div class="proj-thumb">
+          <video src="projects/markethub-cover.mp4" poster="projects/markethub-cover.png" autoplay muted loop playsinline preload="metadata" aria-label="MarketHub preview"></video>
+        </div>
+        <h3>MarketHub — B2B Travel Portal</h3>
+        <div class="proj-price">$2500+ <small data-i18n="proj_negotiable">or let's talk</small></div>
+        <p data-i18n="proj_mh">A complete, ready-to-deploy B2B travel booking portal for consolidators and ticketing desks. Partner agencies sign in to their own private area and submit booking requests; your team prices each order against consolidator discount rules, captures the airline PNR and auto-sends a branded PDF invoice. Multi-company SaaS with role-based access (super-admin · admin · operator · agency), a GDS itinerary reader that recognises 1,100+ airlines from raw PNR text, 2FA, a full audit log, analytics and account inventory. Invite-only and private by design.</p>
+        <div class="proj-tech"><span class="tech">Python</span><span class="tech">Flask</span><span class="tech">SQLite</span><span class="tech">2FA</span><span class="tech">Docker</span><span class="tech">Multi-tenant</span></div>
+        <a class="btn btn-gold proj-view" href="https://t.me/uzleeder" target="_blank" rel="noopener"><span data-i18n="proj_buy">Inquire</span> <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn proj-contract" href="certificate-markethub.html" target="_blank" rel="noopener"><span data-i18n="proj_certificate">View certificate</span> <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="proj reveal" style="transition-delay:.16s">
+        <span class="proj-tag" data-i18n="tag_soon">Coming Soon</span>
+        <div class="proj-icon"><svg class="ico" aria-hidden="true"><use href="#i-rocket"/></svg></div>
+        <h3 data-i18n="proj3_title">Your Project</h3>
+        <p data-i18n="proj3">This could be your website! I'm ready to build a professional online presence for your business — fast, beautiful, and affordable.</p>
+        <div class="proj-tech"><span class="tech" data-i18n="tech_custom">Custom Design</span><span class="tech" data-i18n="tech_mobile">Mobile Ready</span><span class="tech" data-i18n="tech_fast">Fast Delivery</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker" data-i18n="svc_kicker">Services</span>
+      <h2 data-i18n="svc_title">What I Can Build For You</h2>
+      <p data-i18n="svc_sub">Professional websites tailored to your business needs.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc reveal">
+        <div class="ic"><svg class="ico" aria-hidden="true"><use href="#i-grad"/></svg></div>
+        <h3 data-i18n="svc1_title">Academy Website</h3>
+        <p data-i18n="svc1">Full website for academies and tutoring centers — courses, pricing, contact & online registration.</p>
+        <span class="price-badge" data-i18n="price_academy">$200 – $2000</span>
+      </div>
+      <div class="svc reveal" style="transition-delay:.08s">
+        <div class="ic"><svg class="ico" aria-hidden="true"><use href="#i-code"/></svg></div>
+        <h3 data-i18n="svc2_title">Professional Websites</h3>
+        <p data-i18n="svc2">Professional websites — from a one-page landing to a complete multi-page site with a backend, built for your business.</p>
+        <span class="price-badge" data-i18n="price_web">$200 – $4000+</span>
+      </div>
+      <div class="svc reveal" style="transition-delay:.16s">
+        <div class="ic"><svg class="ico" aria-hidden="true"><use href="#i-palette"/></svg></div>
+        <h3 data-i18n="svc3_title">Custom Web Design</h3>
+        <p data-i18n="svc3">Fully custom design with unique branding, colors, and layout — built just for you.</p>
+        <span class="price-badge" data-i18n="from250">from $250</span>
+      </div>
+      <div class="svc reveal" style="transition-delay:.24s">
+        <div class="ic"><svg class="ico" aria-hidden="true"><use href="#i-sparkle"/></svg></div>
+        <h3 data-i18n="svc9_title">AI Agent & API Integration</h3>
+        <p data-i18n="svc9">Custom AI agents, chatbots and API integrations that connect your tools and automate real work.</p>
+        <span class="price-badge" data-i18n="price_ai">from $500</span>
+      </div>
+      <div class="svc reveal">
+        <div class="ic"><svg class="ico" aria-hidden="true"><use href="#i-building"/></svg></div>
+        <h3 data-i18n="svc10_title">B2B Portal & Platform</h3>
+        <p data-i18n="svc10">Full-stack business portals with role-based panels, auth, database and dashboards — like a real SaaS.</p>
+        <span class="price-badge" data-i18n="price_b2b">from $1000</span>
+      </div>
+      <div class="svc reveal" style="transition-delay:.08s">
+        <div class="ic"><svg class="ico" aria-hidden="true"><use href="#i-send"/></svg></div>
+        <h3 data-i18n="svc11_title">Telegram Bot & Automation</h3>
+        <p data-i18n="svc11">Telegram bots and no-code automations that handle orders, leads and repetitive tasks for you.</p>
+        <span class="price-badge" data-i18n="price_bot">from $100</span>
+      </div>
+      <div class="svc reveal" style="transition-delay:.16s">
+        <div class="ic"><svg class="ico" aria-hidden="true"><use href="#i-wrench"/></svg></div>
+        <h3 data-i18n="svc4_title">Website Maintenance</h3>
+        <p data-i18n="svc4">Updates, fixes, and improvements for existing websites. Always free for my clients.</p>
+        <span class="price-badge" data-i18n="free_clients">Free for clients</span>
+      </div>
+      <div class="svc reveal" style="transition-delay:.24s">
+        <div class="ic"><svg class="ico" aria-hidden="true"><use href="#i-logo"/></svg></div>
+        <h3 data-i18n="svc5_title">Logo Design</h3>
+        <p data-i18n="svc5">Unique, professional logos that capture your brand identity and make you stand out.</p>
+        <span class="price-badge" data-i18n="from15">from $15</span>
+      </div>
+      <div class="svc reveal">
+        <div class="ic"><svg class="ico" aria-hidden="true"><use href="#i-video"/></svg></div>
+        <h3 data-i18n="svc6_title">AI Video & Photo</h3>
+        <p data-i18n="svc6">Stunning AI-generated videos and images for your brand, ads, and social media.</p>
+        <span class="price-badge" data-i18n="from10">from $10</span>
+      </div>
+      <div class="svc reveal" style="transition-delay:.08s">
+        <div class="ic"><svg class="ico" aria-hidden="true"><use href="#i-edit"/></svg></div>
+        <h3 data-i18n="svc7_title">Email Writing</h3>
+        <p data-i18n="svc7">Professional, persuasive emails for outreach, sales, and business communication.</p>
+        <span class="price-badge" data-i18n="from10b">from $10</span>
+      </div>
+      <div class="svc reveal" style="transition-delay:.16s">
+        <div class="ic"><svg class="ico" aria-hidden="true"><use href="#i-slides"/></svg></div>
+        <h3 data-i18n="svc8_title">Presentations</h3>
+        <p data-i18n="svc8">Eye-catching, professional slide decks for business, pitches, and education.</p>
+        <span class="price-badge" data-i18n="from15b">from $15</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tools-section" id="tools">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker" data-i18n="tools_kicker">My Toolkit</span>
+      <h2 data-i18n="tools_title">AI Tools I Work With</h2>
+      <p data-i18n="tools_sub">The apps and platforms I use every day to design, build, and deliver fast.</p>
+    </div>
+    <div class="tools-grid">
+      <a class="tool-card reveal" data-desc="desc_claude" href="https://claude.ai" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/claude-color.svg" alt="Claude" loading="lazy" width="46" height="46"/></div><span>Claude</span></a>
+      <a class="tool-card reveal" style="transition-delay:.06s" data-desc="desc_chatgpt" href="https://chatgpt.com" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/openai.svg" alt="ChatGPT" loading="lazy" width="46" height="46"/></div><span>ChatGPT</span></a>
+      <a class="tool-card reveal" style="transition-delay:.12s" data-desc="desc_cursor" href="https://cursor.com" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/cursor.svg" alt="Cursor" loading="lazy" width="46" height="46"/></div><span>Cursor</span></a>
+      <a class="tool-card reveal" style="transition-delay:.18s" data-desc="desc_midjourney" href="https://www.midjourney.com" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/midjourney.svg" alt="Midjourney" loading="lazy" width="46" height="46"/></div><span>Midjourney</span></a>
+      <a class="tool-card reveal" data-desc="desc_canva" href="https://www.canva.com" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://svgl.app/library/canva.svg" alt="Canva" loading="lazy" width="46" height="46"/></div><span>Canva</span></a>
+      <a class="tool-card reveal" style="transition-delay:.06s" data-desc="desc_figma" href="https://www.figma.com" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/figma-color.svg" alt="Figma" loading="lazy" width="46" height="46"/></div><span>Figma</span></a>
+      <a class="tool-card reveal" style="transition-delay:.12s" data-desc="desc_heygen" href="https://www.heygen.com" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://www.google.com/s2/favicons?domain=heygen.com&sz=128" alt="HeyGen" loading="lazy" width="46" height="46"/></div><span>HeyGen</span></a>
+      <a class="tool-card reveal" style="transition-delay:.18s" data-desc="desc_elevenlabs" href="https://elevenlabs.io" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/elevenlabs.svg" alt="ElevenLabs" loading="lazy" width="46" height="46"/></div><span>ElevenLabs</span></a>
+      <a class="tool-card reveal" data-desc="desc_notion" href="https://www.notion.so" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/notion.svg" alt="Notion AI" loading="lazy" width="46" height="46"/></div><span>Notion AI</span></a>
+      <a class="tool-card reveal" style="transition-delay:.06s" data-desc="desc_runway" href="https://runwayml.com" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/runway.svg" alt="Runway" loading="lazy" width="46" height="46"/></div><span>Runway</span></a>
+      <a class="tool-card reveal" style="transition-delay:.12s" data-desc="desc_gamma" href="https://gamma.app" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://www.google.com/s2/favicons?domain=gamma.app&sz=128" alt="Gamma" loading="lazy" width="46" height="46"/></div><span>Gamma</span></a>
+      <a class="tool-card reveal" style="transition-delay:.18s" data-desc="desc_zapier" href="https://zapier.com" target="_blank" rel="noopener"><div class="tool-badge"><svg viewBox="0 0 24 24" style="width:100%;height:100%;color:#FF4A00" aria-label="Zapier"><use href="#i-zapier"/></svg></div><span>Zapier</span></a>
+      <a class="tool-card reveal" data-desc="desc_n8n" href="https://n8n.io" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/n8n-color.svg" alt="n8n" loading="lazy" width="46" height="46"/></div><span>n8n</span></a>
+      <a class="tool-card reveal" style="transition-delay:.06s" data-desc="desc_claudecode" href="https://claude.com/product/claude-code" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/claudecode-color.svg" alt="Claude Code" loading="lazy" width="46" height="46"/></div><span>Claude Code</span></a>
+      <a class="tool-card reveal" style="transition-delay:.12s" data-desc="desc_gemini" href="https://gemini.google.com" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/gemini-color.svg" alt="Gemini" loading="lazy" width="46" height="46"/></div><span>Gemini</span></a>
+      <a class="tool-card reveal" style="transition-delay:.18s" data-desc="desc_perplexity" href="https://www.perplexity.ai" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/perplexity-color.svg" alt="Perplexity" loading="lazy" width="46" height="46"/></div><span>Perplexity</span></a>
+      <a class="tool-card reveal" data-desc="desc_replit" href="https://replit.com" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/replit-color.svg" alt="Replit" loading="lazy" width="46" height="46"/></div><span>Replit</span></a>
+      <a class="tool-card reveal" style="transition-delay:.06s" data-desc="desc_grammarly" href="https://www.grammarly.com" target="_blank" rel="noopener"><div class="tool-badge"><svg viewBox="0 0 24 24" style="width:100%;height:100%;color:#15C39A" aria-label="Grammarly"><use href="#i-grammarly"/></svg></div><span>Grammarly</span></a>
+      <a class="tool-card reveal" style="transition-delay:.12s" data-desc="desc_higgsfield" href="https://higgsfield.ai" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://www.google.com/s2/favicons?domain=higgsfield.ai&sz=128" alt="Higgsfield" loading="lazy" width="46" height="46"/></div><span>Higgsfield</span></a>
+      <a class="tool-card reveal" style="transition-delay:.18s" data-desc="desc_lovable" href="https://lovable.dev" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/lovable-color.svg" alt="Lovable" loading="lazy" width="46" height="46"/></div><span>Lovable</span></a>
+      <a class="tool-card reveal" data-desc="desc_kling" href="https://klingai.com" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/kling-color.svg" alt="Kling" loading="lazy" width="46" height="46"/></div><span>Kling</span></a>
+      <a class="tool-card reveal" style="transition-delay:.06s" data-desc="desc_leonardo" href="https://leonardo.ai" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://www.google.com/s2/favicons?domain=leonardo.ai&sz=128" alt="Leonardo AI" loading="lazy" width="46" height="46"/></div><span>Leonardo AI</span></a>
+      <a class="tool-card reveal" style="transition-delay:.12s" data-desc="desc_notebooklm" href="https://notebooklm.google" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://www.google.com/s2/favicons?domain=notebooklm.google&sz=128" alt="NotebookLM" loading="lazy" width="46" height="46"/></div><span>NotebookLM</span></a>
+      <a class="tool-card reveal" style="transition-delay:.18s" data-desc="desc_openclaw" href="https://openclaw.ai" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://www.google.com/s2/favicons?domain=openclaw.ai&sz=128" alt="OpenClaw" loading="lazy" width="46" height="46"/></div><span>OpenClaw</span></a>
+    </div>
+  </div>
+</section>
+
+<section id="stack">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker" data-i18n="stack_kicker">My Stack</span>
+      <h2 data-i18n="stack_title">Programming Languages &amp; Tech</h2>
+      <p data-i18n="stack_sub">The languages and frameworks behind every website and system I build.</p>
+    </div>
+    <div class="tools-grid">
+      <a class="tool-card reveal" data-desc="desc_python" href="https://www.python.org" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" loading="lazy" width="46" height="46"/></div><span>Python</span></a>
+      <a class="tool-card reveal" style="transition-delay:.06s" data-desc="desc_html5" href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" loading="lazy" width="46" height="46"/></div><span>HTML5</span></a>
+      <a class="tool-card reveal" style="transition-delay:.12s" data-desc="desc_css3" href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" loading="lazy" width="46" height="46"/></div><span>CSS3</span></a>
+      <a class="tool-card reveal" style="transition-delay:.18s" data-desc="desc_javascript" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" loading="lazy" width="46" height="46"/></div><span>JavaScript</span></a>
+      <a class="tool-card reveal" data-desc="desc_nodejs" href="https://nodejs.org" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" loading="lazy" width="46" height="46"/></div><span>Node.js</span></a>
+      <a class="tool-card reveal" style="transition-delay:.06s" data-desc="desc_sql" href="https://www.mysql.com" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL" loading="lazy" width="46" height="46"/></div><span>SQL</span></a>
+      <a class="tool-card reveal" style="transition-delay:.12s" data-desc="desc_typescript" href="https://www.typescriptlang.org" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" loading="lazy" width="46" height="46"/></div><span>TypeScript</span></a>
+      <a class="tool-card reveal" data-desc="desc_git" href="https://git-scm.com" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" loading="lazy" width="46" height="46"/></div><span>Git</span></a>
+      <a class="tool-card reveal" style="transition-delay:.06s" data-desc="desc_github" href="https://github.com" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" loading="lazy" width="46" height="46"/></div><span>GitHub</span></a>
+      <div class="tool-card reveal stack-tagline" style="transition-delay:.12s"><span class="cursive-tag">with AI</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="platforms">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker" data-i18n="platforms_kicker">Beyond Code</span>
+      <h2 data-i18n="platforms_title">Google &amp; Microsoft Ecosystems</h2>
+      <p data-i18n="platforms_sub">I work fluently across both major productivity and cloud platforms.</p>
+    </div>
+
+    <div class="platform-group">
+      <h3 class="stack-subhead" data-i18n="platforms_google_label">Google</h3>
+      <div class="tools-grid">
+        <a class="tool-card reveal" data-desc="desc_gmail" href="https://mail.google.com" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://svgl.app/library/gmail.svg" alt="Gmail" loading="lazy" width="46" height="46"/></div><span>Gmail</span></a>
+        <a class="tool-card reveal" style="transition-delay:.06s" data-desc="desc_gdrive" href="https://drive.google.com" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://svgl.app/library/drive.svg" alt="Google Drive" loading="lazy" width="46" height="46"/></div><span>Drive</span></a>
+        <a class="tool-card reveal" style="transition-delay:.12s" data-desc="desc_gsheets" href="https://sheets.google.com" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://svgl.app/library/google-sheets.svg" alt="Google Sheets" loading="lazy" width="46" height="46"/></div><span>Sheets</span></a>
+        <a class="tool-card reveal" style="transition-delay:.18s" data-desc="desc_gcalendar" href="https://calendar.google.com" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://svgl.app/library/google-calendar.svg" alt="Google Calendar" loading="lazy" width="46" height="46"/></div><span>Calendar</span></a>
+        <a class="tool-card reveal" data-desc="desc_gmeet" href="https://meet.google.com" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://svgl.app/library/google-meet.svg" alt="Google Meet" loading="lazy" width="46" height="46"/></div><span>Meet</span></a>
+        <a class="tool-card reveal" style="transition-delay:.06s" data-desc="desc_ganalytics" href="https://analytics.google.com" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://svgl.app/library/google-analytics.svg" alt="Google Analytics" loading="lazy" width="46" height="46"/></div><span>Analytics</span></a>
+        <a class="tool-card reveal" style="transition-delay:.12s" data-desc="desc_gcloud" href="https://cloud.google.com" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://svgl.app/library/google-cloud.svg" alt="Google Cloud" loading="lazy" width="46" height="46"/></div><span>Cloud</span></a>
+        <a class="tool-card reveal" style="transition-delay:.18s" data-desc="desc_gdocs" href="https://docs.google.com" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/googledocs.svg" alt="Google Docs" loading="lazy" width="46" height="46"/></div><span>Docs</span></a>
+        <a class="tool-card reveal" data-desc="desc_gslides" href="https://slides.google.com" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://svgl.app/library/google-slides.svg" alt="Google Slides" loading="lazy" width="46" height="46"/></div><span>Slides</span></a>
+        <a class="tool-card reveal" style="transition-delay:.06s" data-desc="desc_gforms" href="https://forms.google.com" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/googleforms.svg" alt="Google Forms" loading="lazy" width="46" height="46"/></div><span>Forms</span></a>
+        <a class="tool-card reveal" style="transition-delay:.12s" data-desc="desc_gtranslate" href="https://translate.google.com" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/googletranslate.svg" alt="Google Translate" loading="lazy" width="46" height="46"/></div><span>Translate</span></a>
+        <a class="tool-card reveal" style="transition-delay:.18s" data-desc="desc_gphotos" href="https://photos.google.com" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/googlephotos.svg" alt="Google Photos" loading="lazy" width="46" height="46"/></div><span>Photos</span></a>
+        <a class="tool-card reveal" data-desc="desc_gchat" href="https://chat.google.com" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://svgl.app/library/google-chat.svg" alt="Google Chat" loading="lazy" width="46" height="46"/></div><span>Chat</span></a>
+        <a class="tool-card reveal" style="transition-delay:.06s" data-desc="desc_gmaps" href="https://maps.google.com" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://svgl.app/library/googleMaps.svg" alt="Google Maps" loading="lazy" width="46" height="46"/></div><span>Maps</span></a>
+        <a class="tool-card reveal" style="transition-delay:.12s" data-desc="desc_firebase" href="https://firebase.google.com" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://svgl.app/library/firebase.svg" alt="Firebase" loading="lazy" width="46" height="46"/></div><span>Firebase</span></a>
+        <a class="tool-card reveal" style="transition-delay:.18s" data-desc="desc_gads" href="https://ads.google.com" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://www.google.com/s2/favicons?domain=ads.google.com&sz=128" alt="Google Ads" loading="lazy" width="46" height="46"/></div><span>Ads</span></a>
+        <a class="tool-card reveal" data-desc="desc_gclassroom" href="https://classroom.google.com" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://svgl.app/library/google-classroom.svg" alt="Google Classroom" loading="lazy" width="46" height="46"/></div><span>Classroom</span></a>
+      </div>
+    </div>
+
+    <div class="platform-group">
+      <h3 class="stack-subhead" data-i18n="platforms_ms_label">Microsoft</h3>
+      <div class="tools-grid">
+        <a class="tool-card reveal" data-desc="desc_msoffice" href="https://www.microsoft.com/microsoft-365" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://svgl.app/library/microsoft-office.svg" alt="Microsoft Office" loading="lazy" width="46" height="46"/></div><span>Office</span></a>
+        <a class="tool-card reveal" style="transition-delay:.06s" data-desc="desc_word" href="https://www.microsoft.com/microsoft-365/word" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://svgl.app/library/microsoft-word.svg" alt="Word" loading="lazy" width="46" height="46"/></div><span>Word</span></a>
+        <a class="tool-card reveal" style="transition-delay:.12s" data-desc="desc_excel" href="https://www.microsoft.com/microsoft-365/excel" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://svgl.app/library/microsoft-excel.svg" alt="Excel" loading="lazy" width="46" height="46"/></div><span>Excel</span></a>
+        <a class="tool-card reveal" style="transition-delay:.18s" data-desc="desc_powerpoint" href="https://www.microsoft.com/microsoft-365/powerpoint" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://svgl.app/library/microsoft-powerpoint.svg" alt="PowerPoint" loading="lazy" width="46" height="46"/></div><span>PowerPoint</span></a>
+        <a class="tool-card reveal" data-desc="desc_outlook" href="https://outlook.com" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://svgl.app/library/microsoft-outlook.svg" alt="Outlook" loading="lazy" width="46" height="46"/></div><span>Outlook</span></a>
+        <a class="tool-card reveal" style="transition-delay:.06s" data-desc="desc_teams" href="https://www.microsoft.com/microsoft-teams/" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://svgl.app/library/microsoft-teams.svg" alt="Microsoft Teams" loading="lazy" width="46" height="46"/></div><span>Teams</span></a>
+        <a class="tool-card reveal" style="transition-delay:.12s" data-desc="desc_onedrive" href="https://onedrive.live.com" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://svgl.app/library/microsoft-onedrive.svg" alt="OneDrive" loading="lazy" width="46" height="46"/></div><span>OneDrive</span></a>
+        <a class="tool-card reveal" style="transition-delay:.18s" data-desc="desc_azure" href="https://azure.microsoft.com" target="_blank" rel="noopener"><div class="tool-badge"><img src="https://svgl.app/library/azure.svg" alt="Microsoft Azure" loading="lazy" width="46" height="46"/></div><span>Azure</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="certificates">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker" data-i18n="certs_kicker">Proof of Skill</span>
+      <h2 data-i18n="certs_title">Certificates</h2>
+      <p data-i18n="certs_sub">Verified courses and projects I've completed to keep leveling up.</p>
+    </div>
+
+    <div class="cert-featured reveal">
+      <span class="cert-featured-badge text-only" data-i18n="certs_featured_badge">Government Certified</span>
+      <div class="cert-featured-grid">
+        <a class="cert-featured-img-wrap" href="https://omp.aistudy.uz/certificate?id=571190df-acda-476e-12f3-08de38a4e16c" target="_blank" rel="noopener">
+          <img src="certs/cert_5million.png" alt="Five Million AI Leaders certificate" loading="lazy"/>
+        </a>
+        <div class="cert-featured-body">
+          <h3>Five Million AI Leaders</h3>
+          <p data-i18n="certs_featured_desc">A joint initiative between the governments of the United Arab Emirates and the Republic of Uzbekistan, training and empowering five million people in AI prompt engineering — aligned with Uzbekistan's Strategy for the Development of AI Technologies through 2030.</p>
+          <div class="cert-featured-meta">
+            <span>AI Study · Dec 2025</span>
+            <span>ID: 5MP 0133939</span>
+          </div>
+          <a class="btn btn-gold" href="https://omp.aistudy.uz/certificate?id=571190df-acda-476e-12f3-08de38a4e16c" target="_blank" rel="noopener">
+            <span data-i18n="certs_verify">Verify</span> <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="cert-featured reverse reveal" style="transition-delay:.1s">
+      <span class="cert-featured-badge"><img class="badge-logo" src="https://www.google.com/s2/favicons?domain=google.com&sz=128" alt="Google" width="20" height="20" loading="lazy"/><span data-i18n="certs_featured2_badge">Google Cloud · AI</span></span>
+      <div class="cert-featured-grid">
+        <a class="cert-featured-img-wrap" href="https://coursera.org/verify/31BWV0R3HJEE" target="_blank" rel="noopener">
+          <img src="certs/cert_1.png" alt="Introduction to Generative AI certificate" loading="lazy"/>
+        </a>
+        <div class="cert-featured-body">
+          <h3>Introduction to Generative AI</h3>
+          <p data-i18n="certs_featured2_desc">A Google Cloud course covering how generative AI works, its real-world applications, and the tools behind modern AI systems — the foundation of the AI-powered websites and solutions I build.</p>
+          <div class="cert-featured-meta">
+            <span>Google Cloud · Jul 2026</span>
+            <span>Coursera</span>
+          </div>
+          <a class="btn btn-gold" href="https://coursera.org/verify/31BWV0R3HJEE" target="_blank" rel="noopener">
+            <span data-i18n="certs_verify">Verify</span> <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="cert-grid">
+      <a class="cert-card reveal" style="transition-delay:.06s" href="https://coursera.org/verify/6PUKAX42PIKO" target="_blank" rel="noopener">
+        <img class="cert-thumb" src="certs/cert_2.png" alt="Collaborating with G Suite Apps certificate" loading="lazy"/>
+        <div class="cert-body">
+          <h3>Collaborating with G Suite Apps</h3>
+          <div class="cert-meta"><span>Coursera · Sep 2025</span><span class="cert-verify"><span data-i18n="certs_verify">Verify</span> <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span></div>
+        </div>
+      </a>
+      <a class="cert-card reveal" style="transition-delay:.12s" href="https://coursera.org/verify/VFHYU0GGA16R" target="_blank" rel="noopener">
+        <img class="cert-thumb" src="certs/cert_3.png" alt="Creating Marketing Designs with Canva certificate" loading="lazy"/>
+        <div class="cert-body">
+          <h3>Creating Marketing Designs with Canva</h3>
+          <div class="cert-meta"><span>Coursera · Apr 2025</span><span class="cert-verify"><span data-i18n="certs_verify">Verify</span> <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span></div>
+        </div>
+      </a>
+      <a class="cert-card reveal" style="transition-delay:.18s" href="https://coursera.org/verify/PB4DCYTI7UBM" target="_blank" rel="noopener">
+        <img class="cert-thumb" src="certs/cert_4.png" alt="Getting Started with Microsoft Excel certificate" loading="lazy"/>
+        <div class="cert-body">
+          <h3>Getting Started with Microsoft Excel</h3>
+          <div class="cert-meta"><span>Coursera · Feb 2025</span><span class="cert-verify"><span data-i18n="certs_verify">Verify</span> <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span></div>
+        </div>
+      </a>
+      <a class="cert-card reveal" href="https://coursera.org/verify/42JZNG341E3X" target="_blank" rel="noopener">
+        <img class="cert-thumb" src="certs/cert_5.png" alt="Use Canva to Design Digital Course Collateral certificate" loading="lazy"/>
+        <div class="cert-body">
+          <h3>Use Canva to Design Digital Course Collateral</h3>
+          <div class="cert-meta"><span>Coursera · Aug 2024</span><span class="cert-verify"><span data-i18n="certs_verify">Verify</span> <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span></div>
+        </div>
+      </a>
+      <a class="cert-card reveal" style="transition-delay:.06s" href="https://coursera.org/verify/VITQ57TCQYI5" target="_blank" rel="noopener">
+        <img class="cert-thumb" src="certs/cert_6.png" alt="Organic Marketing: Facebook Groups For Small Businesses certificate" loading="lazy"/>
+        <div class="cert-body">
+          <h3>Organic Marketing: Facebook Groups For Small Businesses</h3>
+          <div class="cert-meta"><span>Coursera · Aug 2024</span><span class="cert-verify"><span data-i18n="certs_verify">Verify</span> <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span></div>
+        </div>
+      </a>
+      <a class="cert-card reveal" style="transition-delay:.12s" href="https://coursera.org/verify/NITFN8K2TXRG" target="_blank" rel="noopener">
+        <img class="cert-thumb" src="certs/cert_7.png" alt="Google Ads for Beginners certificate" loading="lazy"/>
+        <div class="cert-body">
+          <h3>Google Ads for Beginners</h3>
+          <div class="cert-meta"><span>Coursera · Aug 2024</span><span class="cert-verify"><span data-i18n="certs_verify">Verify</span> <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span></div>
+        </div>
+      </a>
+      <a class="cert-card reveal" style="transition-delay:.18s" href="https://coursera.org/verify/9A1EXUMO6GAS" target="_blank" rel="noopener">
+        <img class="cert-thumb" src="certs/cert_8.png" alt="Small Business Marketing Using YouTube certificate" loading="lazy"/>
+        <div class="cert-body">
+          <h3>Small Business Marketing Using YouTube</h3>
+          <div class="cert-meta"><span>Coursera · Aug 2024</span><span class="cert-verify"><span data-i18n="certs_verify">Verify</span> <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="pricing-section" id="pricing">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker" data-i18n="price_kicker">Pricing</span>
+      <h2 data-i18n="price_title">Simple, Transparent Pricing</h2>
+      <p data-i18n="price_sub">No hidden fees. What you see is what you pay.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="plan reveal">
+        <div class="plan-name">Starter</div>
+        <div class="plan-price" data-i18n="price_starter">$200</div>
+        <div class="plan-period" data-i18n="one_time">one-time payment</div>
+        <ul class="plan-features">
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="f_landing">Landing page (1 page)</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="f_mobile">Mobile responsive</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="f_contact">Contact section</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="f_tg">Telegram integration</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="f_3day">3-day delivery</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="f_support">Free support</span></li>
+        </ul>
+        <a href="https://t.me/uzleeder" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;justify-content:center" data-i18n="get_started">Get Started</a>
+      </div>
+      <div class="plan featured reveal" style="transition-delay:.1s">
+        <div class="plan-badge" data-i18n="popular">Most Popular</div>
+        <div class="plan-name">Professional</div>
+        <div class="plan-price" data-i18n="price_pro">$600</div>
+        <div class="plan-period" data-i18n="one_time">one-time payment</div>
+        <ul class="plan-features">
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="f_multi">Multi-page website</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="f_custom">Custom design & branding</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="f_reg">Registration form</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="f_tgphone">Telegram + phone integration</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="f_cms">CMS (editable content)</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="f_5day">5-day delivery</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="f_forever">Free support forever</span></li>
+        </ul>
+        <a href="https://t.me/uzleeder" target="_blank" rel="noopener" class="btn btn-gold" style="width:100%;justify-content:center"><span data-i18n="get_started">Get Started</span> <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="plan reveal" style="transition-delay:.2s">
+        <div class="plan-name">Custom</div>
+        <div class="plan-price" data-i18n="price_custom">$1500+</div>
+        <div class="plan-period" data-i18n="based_req">based on requirements</div>
+        <ul class="plan-features">
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="f_everything">Everything in Professional</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="f_adv">Advanced animations</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="f_backend">Backend integration</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="f_domain">Domain setup help</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="f_priority">Priority delivery</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="f_lifetime">Lifetime free support</span></li>
+        </ul>
+        <a href="https://t.me/uzleeder" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;justify-content:center" data-i18n="lets_talk">Let's Talk</a>
+      </div>
+      <div class="plan reveal" style="transition-delay:.3s">
+        <div class="plan-name">Enterprise</div>
+        <div class="plan-price" data-i18n="price_ent">$4000+</div>
+        <div class="plan-period" data-i18n="based_req">based on requirements</div>
+        <ul class="plan-features">
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="f_everything_custom">Everything in Custom</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="f_platform">Full-stack web platform</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="f_panels">Multi-role admin panels</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="f_dbapi">Database, auth & API</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="f_deploy">Deployment & training</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="f_lifetime">Lifetime free support</span></li>
+        </ul>
+        <a href="https://t.me/uzleeder" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;justify-content:center" data-i18n="lets_talk">Let's Talk</a>
+      </div>
+    </div>
+    <div class="sec-head reveal" style="margin-top:4rem">
+      <span class="kicker" data-i18n="creative_kicker">Creative Services</span>
+      <h2 data-i18n="creative_title">More Than Just Websites</h2>
+      <p data-i18n="creative_sub">Logos, AI media, emails and presentations — everything your brand needs.</p>
+    </div>
+    <div class="pricing-grid" style="max-width:1080px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+      <div class="plan reveal">
+        <div class="ic" style="width:48px;height:48px;border-radius:12px;display:grid;place-items:center;margin-bottom:1rem;background:linear-gradient(135deg,#f59e0b,#fbbf24)"><svg class="ico" style="width:24px;height:24px;color:#fff" aria-hidden="true"><use href="#i-logo"/></svg></div>
+        <div class="plan-name" data-i18n="svc5_title">Logo Design</div>
+        <div class="plan-price">$15</div>
+        <div class="plan-period" data-i18n="starting_from">starting from</div>
+      </div>
+      <div class="plan reveal" style="transition-delay:.08s">
+        <div class="ic" style="width:48px;height:48px;border-radius:12px;display:grid;place-items:center;margin-bottom:1rem;background:linear-gradient(135deg,#ef4444,#f87171)"><svg class="ico" style="width:24px;height:24px;color:#fff" aria-hidden="true"><use href="#i-video"/></svg></div>
+        <div class="plan-name" data-i18n="svc6_title">AI Video & Photo</div>
+        <div class="plan-price">$10</div>
+        <div class="plan-period" data-i18n="starting_from">starting from</div>
+      </div>
+      <div class="plan reveal" style="transition-delay:.16s">
+        <div class="ic" style="width:48px;height:48px;border-radius:12px;display:grid;place-items:center;margin-bottom:1rem;background:linear-gradient(135deg,#0ea5e9,#38bdf8)"><svg class="ico" style="width:24px;height:24px;color:#fff" aria-hidden="true"><use href="#i-edit"/></svg></div>
+        <div class="plan-name" data-i18n="svc7_title">Email Writing</div>
+        <div class="plan-price">$10</div>
+        <div class="plan-period" data-i18n="starting_from">starting from</div>
+      </div>
+      <div class="plan reveal" style="transition-delay:.24s">
+        <div class="ic" style="width:48px;height:48px;border-radius:12px;display:grid;place-items:center;margin-bottom:1rem;background:linear-gradient(135deg,#ec4899,#f472b6)"><svg class="ico" style="width:24px;height:24px;color:#fff" aria-hidden="true"><use href="#i-slides"/></svg></div>
+        <div class="plan-name" data-i18n="svc8_title">Presentations</div>
+        <div class="plan-price">$15</div>
+        <div class="plan-period" data-i18n="starting_from">starting from</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="padding:4rem 1.5rem">
+  <div class="wrap reveal">
+    <div class="contact-box">
+      <div>
+        <h2 data-i18n="contact_title">Let's Work Together</h2>
+        <p data-i18n="contact_sub">Ready to get your business online? Send me a message below, or reach me on Telegram — I'll get back to you fast and we'll build something great together.</p>
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="field">
+            <label for="cf-name" data-i18n="form_name">Your name</label>
+            <input type="text" id="cf-name" name="name" autocomplete="name" autocapitalize="words" required maxlength="80" data-i18n-ph="form_name_ph" placeholder="e.g. John Doe"/>
+          </div>
+          <div class="field">
+            <label for="cf-email" data-i18n="form_email">Email</label>
+            <input type="email" id="cf-email" name="email" inputmode="email" autocomplete="email" autocapitalize="off" autocorrect="off" spellcheck="false" required maxlength="120" data-i18n-ph="form_email_ph" placeholder="you@example.com"/>
+          </div>
+          <div class="field">
+            <label for="cf-message" data-i18n="form_msg">Message</label>
+            <textarea id="cf-message" name="message" required maxlength="2000" data-i18n-ph="form_msg_ph" placeholder="Tell me about your project..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-gold form-submit">
+            <span class="spinner" aria-hidden="true"></span>
+            <svg class="ico" aria-hidden="true"><use href="#i-send"/></svg>
+            <span class="btn-label" data-i18n="form_send">Send Message</span>
+          </button>
+        </form>
+        <div class="contact-btns" style="margin-top:1.5rem">
+          <a href="https://t.me/uzleeder" target="_blank" rel="noopener" class="btn btn-tg"><svg class="ico" aria-hidden="true"><use href="#i-send"/></svg> <span data-i18n="msg_tg">Message on Telegram</span></a>
+          <a href="mailto:uzleeder@gmail.com" class="btn btn-outline"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg> <span data-i18n="send_email">Send Email</span></a>
+        </div>
+      </div>
+      <div class="info-list">
+        <a class="info-row" href="mailto:uzleeder@gmail.com"><div class="ic"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg></div><div><b>uzleeder@gmail.com</b><span>Email</span></div></a>
+        <a class="info-row" href="tel:+998916395110"><div class="ic"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg></div><div><b>+998 91 639 51 10</b><span data-i18n="phone_label">Phone</span></div></a>
+        <a class="info-row" href="https://t.me/uzleeder" target="_blank" rel="noopener"><div class="ic"><svg class="ico" aria-hidden="true"><use href="#i-send"/></svg></div><div><b>@uzleeder</b><span>Telegram</span></div></a>
+        <div class="info-row"><div class="ic"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></div><div><b data-i18n="loc_city">Tashkent City, Uzbekistan 🇺🇿</b><span data-i18n="loc_label">Location</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="foot-logo">
+    <svg class="foot-crown" viewBox="0 0 64 56" xmlns="http://www.w3.org/2000/svg" aria-label="UzLeeder Crown">
+      <path fill="#c9a14a" d="M8 48 L14 18 L24 30 L32 12 L40 30 L50 18 L56 48 Z"/>
+      <circle cx="14" cy="18" r="3.2" fill="#fff"/><circle cx="32" cy="12" r="3.8" fill="#fff"/><circle cx="50" cy="18" r="3.2" fill="#fff"/>
+    </svg>
+    <div class="foot-logo-text"><span class="uz">Uz</span><span class="leeder">Leeder</span></div>
+    <div class="foot-logo-sub" data-i18n="tag">For Leaders</div>
+  </div>
+  <p>© 2026 <a href="https://t.me/uzleeder" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.3rem;vertical-align:-.2em"><svg class="crown-mini" viewBox="0 0 64 56" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#c9a14a" d="M8 48 L14 18 L24 30 L32 12 L40 30 L50 18 L56 48 Z"/><circle cx="14" cy="18" r="3.2" fill="#fff"/><circle cx="32" cy="12" r="3.8" fill="#fff"/><circle cx="50" cy="18" r="3.2" fill="#fff"/></svg>UzLeeder</a> · Mekhriddin Abdualim · <span data-i18n="loc_city">Tashkent City, Uzbekistan 🇺🇿</span></p>
+</footer>
+
+<div class="toast-wrap" id="toastWrap" aria-live="polite" aria-atomic="true"></div>
+
+<script>
+/* ===== Configuration ===== */
+// Backend endpoint that receives the contact form. When you deploy the
+// server (see server/ folder), change this to its full URL, e.g.
+// "https://your-api.onrender.com/api/contact". Empty string = same origin.
+const API_BASE = "";
+const CONTACT_ENDPOINT = API_BASE + "/api/contact";
+
+/* ===== Translations ===== */
+const i18n = {
+  en: {
+    tag: "For Leaders", nav_about: "About", nav_portfolio: "Portfolio", nav_services: "Services", nav_tools: "AI Tools", nav_stack: "Tech Stack", nav_platforms: "Platforms", nav_certificates: "Certificates", nav_pricing: "Pricing", nav_contact: "Contact",
+    hero_title: 'Hi, I\'m <span>Mekhriddin</span> Abdualim', hero_desc: "I build modern, fast, and beautiful websites for businesses, academies, and brands — clean code, smart AI, and real results.",
+    btn_work: "View My Work", btn_contact: "Contact Me", stat_projects: "Projects", stat_support: "Client Support", stat_delivery: "Delivery",
+    photo_role: "Founder · AI Web Developer", soon: "Soon",
+    about_kicker: "About Me", about_title: "Who is Mekhriddin?", about_sub: "A young AI web developer from Tashkent City, Uzbekistan 🇺🇿 — building the future one website at a time.",
+    about_p1: 'I\'m Mekhriddin Abdualim, founder of <strong style="color:var(--gold)">UzLeeder</strong> — a web development brand built for leaders. I create modern, professional websites for academies, tutoring centers, and small businesses, powered by the latest AI tools.',
+    about_p2: "My goal is simple: give every business a strong online presence — fast, beautiful, and affordable. I handle everything from design to launch, and I stay around with free support afterward.",
+    about_p3: "Based in Tashkent City, Uzbekistan 🇺🇿 — working with clients all across the country.",
+    skill_resp: "Responsive Design", skill_ai: "AI Tools", skill_tg: "Telegram Integration",
+    as_delivered: "Websites delivered", as_satisfaction: "Client satisfaction", as_days: "Days average delivery", as_support: "Free post-launch support",
+    port_kicker: "Portfolio", port_title: "My Recent Projects", port_sub: "Every project is built with care, clean code, and a focus on results.",
+    tag_live: "Live", tag_soon: "Coming Soon", tag_sale: "For Sale", proj_buy: "Inquire", proj_negotiable: "or let's talk", proj_contract: "View contract", proj_certificate: "View certificate",
+    proj_mh: "A complete, ready-to-deploy B2B travel booking portal for consolidators and ticketing desks. Partner agencies sign in to their own private area and submit booking requests; your team prices each order against consolidator discount rules, captures the airline PNR and auto-sends a branded PDF invoice. Multi-company SaaS with role-based access (super-admin · admin · operator · agency), a GDS itinerary reader that recognises 1,100+ airlines from raw PNR text, 2FA, a full audit log, analytics and account inventory. Invite-only and private by design.",
+    proj1: "A fully featured website for an English language academy in Sariosiyo — with course listings, registration form, Telegram integration and CMS support.",
+    proj2_title: "Shokirov Math Academy", proj2: "A full-stack education platform built for a real math academy — far more than a landing page. Behind JWT role-based auth it ships three dashboards: student, teacher and director. Applicants apply online; the teacher reviews and enrols them, then manages attendance, payments, grades, feedback and homework, while the director oversees payments academy-wide. The learning core packs 31 DTM-book topics with 5,653 auto-graded exercises, a competitive rating system, profiles, UZ/EN languages and dark/light themes — powered by a Node.js + Express serverless API on Vercel with a Postgres (Neon) database.",
+    proj3_title: "Your Project", proj3: "This could be your website! I'm ready to build a professional online presence for your business — fast, beautiful, and affordable.",
+    tech_anim: "Animations", tech_resp: "Responsive", tech_custom: "Custom Design", tech_mobile: "Mobile Ready", tech_fast: "Fast Delivery", proj_view: "View site",
+    svc_kicker: "Services", svc_title: "What I Can Build For You", svc_sub: "Professional solutions, tailored to what your business actually needs.",
+    svc1_title: "Academy Website", svc1: "Full website for English academies and tutoring centers — courses, pricing, contact & registration.",
+    svc2_title: "Professional Websites", svc2: "Professional websites — from a one-page landing to a complete multi-page site with a backend, built for your business.",
+    svc9_title: "AI Agent & API Integration", svc9: "Custom AI agents, chatbots and API integrations that connect your tools and automate real work.",
+    svc10_title: "B2B Portal & Platform", svc10: "Full-stack business portals with role-based panels, auth, database and dashboards — like a real SaaS.",
+    svc11_title: "Telegram Bot & Automation", svc11: "Telegram bots and no-code automations that handle orders, leads and repetitive tasks for you.",
+    svc3_title: "Custom Web Design", svc3: "Fully custom design with unique branding, colors, and layout — built just for you.",
+    svc4_title: "Website Maintenance", svc4: "Updates, fixes, and improvements for existing websites. Always free for my clients.",
+    svc5_title: "Logo Design", svc5: "Unique, professional logos that capture your brand identity and make you stand out.",
+    svc6_title: "AI Video & Photo", svc6: "Stunning AI-generated videos and images for your brand, ads, and social media.",
+    svc7_title: "Email Writing", svc7: "Professional, persuasive emails for outreach, sales, and business communication.",
+    svc8_title: "Presentations", svc8: "Eye-catching, professional slide decks for business, pitches, and education.",
+    from200: "from $200", from150: "from $150", from250: "from $250", free_clients: "Free for clients",
+    price_academy: "$200 – $2000", price_web: "$200 – $4000+", price_ai: "from $500", price_b2b: "from $1000", price_bot: "from $100",
+    price_starter: "$200", price_pro: "$600", price_custom: "$1500+", price_ent: "$4000+",
+    from15: "from $15", from10: "from $10", from10b: "from $10", from15b: "from $15",
+    creative_kicker: "Creative Services", creative_title: "More Than Just Websites", creative_sub: "Logos, AI media, emails and presentations — everything your brand needs.", starting_from: "starting from",
+    tools_kicker: "My Toolkit", tools_title: "AI Tools I Work With", tools_sub: "The apps and platforms I use every day to design, build, and deliver fast. Tap any icon to see what it does.",
+    desc_claude: "I can build entire code systems and full-stack apps from scratch.",
+    desc_chatgpt: "I brainstorm ideas, write content, and solve problems fast.",
+    desc_cursor: "I write and debug code right inside the editor, AI-assisted.",
+    desc_midjourney: "I generate stunning visuals and concept art from text.",
+    desc_canva: "I design social posts, banners, and marketing graphics quickly.",
+    desc_figma: "I design and prototype clean, modern user interfaces.",
+    desc_heygen: "I create talking AI avatar videos for marketing and demos.",
+    desc_elevenlabs: "I generate realistic AI voiceovers in any language.",
+    desc_notion: "I organize projects, notes, and client info in one place.",
+    desc_runway: "I edit and generate AI video for ads and promos.",
+    desc_gamma: "I build polished presentations and pitch decks in minutes.",
+    desc_zapier: "I connect apps and automate repetitive tasks automatically.",
+    desc_claudecode: "I handle large coding tasks straight from the terminal.",
+    desc_gemini: "I research, summarize, and analyze information at speed.",
+    desc_perplexity: "I search the web and get accurate, cited answers instantly.",
+    desc_replit: "I build and deploy small apps directly in the browser.",
+    desc_grammarly: "I polish every email and message for perfect grammar.",
+    desc_higgsfield: "I create AI-powered cinematic video effects and camera moves.",
+    desc_lovable: "I turn ideas into working web apps in minutes.",
+    desc_kling: "I generate cinematic AI video clips from text or images.",
+    desc_leonardo: "I create custom AI artwork and product visuals.",
+    desc_notebooklm: "I turn documents into summarized notes and audio overviews.",
+    desc_openclaw: "I act as a personal AI assistant that gets real tasks done.",
+    stack_kicker: "My Stack", stack_title: "Programming Languages & Tech", stack_sub: "The languages and frameworks behind every website and system I build.",
+    desc_python: "I use Python for scripting, automation, and backend logic.",
+    desc_html5: "I structure every page with clean, semantic HTML5.",
+    desc_css3: "I style and animate interfaces with modern CSS3.",
+    desc_javascript: "I bring websites to life with interactive JavaScript.",
+    desc_nodejs: "I build backend servers and APIs with Node.js.",
+    desc_sql: "I design and query databases to store client data.",
+    desc_typescript: "I write safer, typed JavaScript for bigger projects.",
+    desc_git: "I track every change and manage code with Git.",
+    desc_github: "I host, version, and collaborate on code with GitHub.",
+    platforms_kicker: "Beyond Code", platforms_title: "Google &amp; Microsoft Ecosystems", platforms_sub: "I work fluently across both major productivity and cloud platforms.",
+    platforms_google_label: "Google", platforms_ms_label: "Microsoft",
+    desc_gmail: "I manage all client communication through Gmail.",
+    desc_gdrive: "I store and share project files securely with Google Drive.",
+    desc_gsheets: "I track budgets, leads, and project data in Google Sheets.",
+    desc_gcalendar: "I schedule meetings and deadlines with Google Calendar.",
+    desc_gmeet: "I hold client calls and demos over Google Meet.",
+    desc_ganalytics: "I track website traffic and visitor behavior with Google Analytics.",
+    desc_gcloud: "I deploy and host apps on Google Cloud.",
+    desc_gdocs: "I draft and share documents collaboratively in Google Docs.",
+    desc_gslides: "I build quick presentations with Google Slides.",
+    desc_gforms: "I collect leads and registrations with Google Forms.",
+    desc_gtranslate: "I translate content across languages with Google Translate.",
+    desc_gphotos: "I store and organize project photos in Google Photos.",
+    desc_gchat: "I message teams and clients quickly in Google Chat.",
+    desc_gmaps: "I add locations and directions with Google Maps.",
+    desc_firebase: "I build and host backends with Firebase.",
+    desc_gads: "I run and optimize ad campaigns with Google Ads.",
+    desc_gclassroom: "I set up online classes for academies in Google Classroom.",
+    desc_msoffice: "I prepare polished documents with Microsoft Office.",
+    desc_word: "I write proposals and reports in Microsoft Word.",
+    desc_excel: "I build spreadsheets and analyze data in Excel.",
+    desc_powerpoint: "I design client presentations in PowerPoint.",
+    desc_outlook: "I manage business email and calendars in Outlook.",
+    desc_teams: "I collaborate and meet with clients on Microsoft Teams.",
+    desc_onedrive: "I back up and sync files with OneDrive.",
+    desc_azure: "I deploy and manage cloud infrastructure on Azure.",
+    certs_kicker: "Proof of Skill", certs_title: "Certificates", certs_sub: "Verified courses and projects I've completed to keep leveling up.", certs_verify: "Verify",
+    certs_featured_badge: "Government Certified", certs_featured_desc: "A joint initiative between the governments of the United Arab Emirates and the Republic of Uzbekistan, training and empowering five million people in AI prompt engineering — aligned with Uzbekistan's Strategy for the Development of AI Technologies through 2030.",
+    certs_featured2_badge: "Google Cloud · AI", certs_featured2_desc: "A Google Cloud course covering how generative AI works, its real-world applications, and the tools behind modern AI systems — the foundation of the AI-powered websites and solutions I build.",
+    desc_n8n: "I automate workflows between all my other tools, no-code.",
+    price_kicker: "Pricing", price_title: "Simple, Transparent Pricing", price_sub: "No hidden fees. What you see is what you pay.",
+    one_time: "one-time payment", based_req: "based on requirements", popular: "Most Popular", get_started: "Get Started", lets_talk: "Let's Talk",
+    f_landing: "Landing page (1 page)", f_mobile: "Mobile responsive", f_contact: "Contact section", f_tg: "Telegram integration", f_3day: "3-day delivery", f_support: "Free support",
+    f_multi: "Multi-page website", f_custom: "Custom design & branding", f_reg: "Registration form", f_tgphone: "Telegram + phone integration", f_cms: "CMS (editable content)", f_5day: "5-day delivery", f_forever: "Free support forever",
+    f_everything: "Everything in Professional", f_adv: "Advanced animations", f_backend: "Backend integration", f_domain: "Domain setup help", f_priority: "Priority delivery", f_lifetime: "Lifetime free support",
+    f_everything_custom: "Everything in Custom", f_platform: "Full-stack web platform", f_panels: "Multi-role admin panels", f_dbapi: "Database, auth & API", f_deploy: "Deployment & training",
+    contact_title: "Let's Work Together", contact_sub: "Ready to take your business online? Drop me a message below or reach out on Telegram — I'll reply fast, and we'll build something great together.",
+    msg_tg: "Message on Telegram", send_email: "Send Email", phone_label: "Phone", loc_city: "Tashkent City, Uzbekistan 🇺🇿", loc_label: "Location",
+    form_name: "Your name", form_name_ph: "e.g. John Doe", form_email: "Email", form_email_ph: "you@example.com",
+    form_msg: "Message", form_msg_ph: "Tell me about your project...", form_send: "Send Message", form_sending: "Sending...",
+    form_ok: "Message sent! I'll reply soon. 🎉", form_err: "Something went wrong. Please try again or use Telegram.",
+    form_invalid: "Please fill in all fields with a valid email.",
+    roles: ["AI Web Developer", "Senior Vibe Coder", "Expert Prompting Engineer", "Founder of UzLeeder", "UI/UX Designer", "Freelance Developer"]
+  },
+  uz: {
+    tag: "Liderlar uchun", nav_about: "Men haqimda", nav_portfolio: "Portfolio", nav_services: "Xizmatlar", nav_tools: "AI vositalar", nav_stack: "Texnologiyalar", nav_platforms: "Platformalar", nav_certificates: "Sertifikatlar", nav_pricing: "Narxlar", nav_contact: "Aloqa",
+    hero_title: 'Salom, men <span>Mekhriddin</span> Abdualim', hero_desc: "Bizneslar, akademiyalar va brendlar uchun tez ishlaydigan, zamonaviy va chiroyli saytlar yarataman — toza kod va zamonaviy AI vositalari bilan.",
+    btn_work: "Ishlarimni ko'rish", btn_contact: "Bog'lanish", stat_projects: "Loyihalar", stat_support: "Mijozlarga yordam", stat_delivery: "Yetkazib berish",
+    photo_role: "Asoschi · AI Veb-dasturchi", soon: "Tez kunda",
+    about_kicker: "Men haqimda", about_title: "Mekhriddin kim?", about_sub: "Toshkent City'dan yosh AI veb-dasturchi — har bir sayt bilan kelajakni quruvchi 🇺🇿",
+    about_p1: 'Men — Mekhriddin Abdualim, liderlar uchun yaratilgan <strong style="color:var(--gold)">UzLeeder</strong> veb-dasturlash brendining asoschisiman. Akademiyalar, o\'quv markazlari va kichik bizneslar uchun zamonaviy, professional saytlarni eng so\'nggi AI vositalari yordamida quraman.',
+    about_p2: "Maqsadim oddiy: har bir biznesni internetda kuchli qilib ko'rsatish — tez, chiroyli va hamyonbop tarzda. Dizayndan tortib topshirishgacha hammasini o'zim bajaraman, sayt ishga tushgach ham bepul yordam beraman.",
+    about_p3: "Toshkent City, O'zbekistonda joylashganman 🇺🇿 — butun mamlakat bo'ylab mijozlar bilan ishlayman.",
+    skill_resp: "Moslashuvchan dizayn", skill_ai: "AI vositalari", skill_tg: "Telegram integratsiya",
+    as_delivered: "Yetkazilgan saytlar", as_satisfaction: "Mijoz mamnuniyati", as_days: "O'rtacha yetkazib berish kuni", as_support: "Bepul keyingi yordam",
+    port_kicker: "Portfolio", port_title: "So'nggi loyihalarim", port_sub: "Har bir loyihani mehr bilan, toza kod va natijaga qarab quraman.",
+    tag_live: "Faol", tag_soon: "Tez kunda", tag_sale: "Sotuvda", proj_buy: "So'rov yuborish", proj_negotiable: "yoki kelishamiz", proj_contract: "Shartnomani ko'rish", proj_certificate: "Sertifikatni ko'rish",
+    proj_mh: "Konsolidatorlar va biletlash markazlari uchun tayyor, deploy qilishga shay B2B sayohat-buyurtma portali. Hamkor agentliklar o'z shaxsiy hududiga kirib, buyurtma so'rovlarini yuboradi; jamoangiz har bir buyurtmani konsolidator chegirma qoidalariga qarab narxlaydi, aviakompaniya PNR'ini kiritadi va brendli PDF hisob-fakturani avtomatik yuboradi. Ko'p kompaniyali SaaS — rolli kirish (super-admin · admin · operator · agentlik), 1100+ aviakompaniyani PNR matnidan taniydigan GDS marshrut o'quvchisi, 2FA, to'liq audit jurnali, analitika va hisob-inventari bilan. Faqat taklif asosida, dizayni bo'yicha maxfiy.",
+    proj1: "Sariosiyodagi ingliz tili akademiyasi uchun to'liq sayt — kurslar ro'yxati, ro'yxatdan o'tish formasi, Telegram integratsiyasi va CMS qo'llab-quvvatlash bilan.",
+    proj2_title: "Shokirov Math Academy", proj2: "Haqiqiy matematika akademiyasi uchun qurilgan full-stack ta'lim platformasi — shunchaki landing emas. JWT rolli autentifikatsiya ortida uchta panel bor: talaba, o'qituvchi va direktor. Arizachilar onlayn ariza beradi; o'qituvchi ko'rib chiqib qabul qiladi va talabalarni o'zi yaratadi, so'ng davomat, to'lovlar, baholar, feedback va vazifalarni boshqaradi, direktor esa akademiya bo'ylab to'lovlarni nazorat qiladi. O'quv qismida DTM kitobidan 31 mavzu va 5 653 avtomatik tekshiriladigan mashq, reyting (musobaqa) tizimi, profillar, UZ/EN tillar va dark/light rejimlar bor — Node.js + Express serverless API (Vercel) va Postgres (Neon) bazasida ishlaydi.",
+    proj3_title: "Sizning loyihangiz", proj3: "Bu sizning saytingiz bo'lishi mumkin! Men biznesingiz uchun professional onlayn mavjudlik yaratishga tayyorman — tez, chiroyli va hamyonbop.",
+    tech_anim: "Animatsiyalar", tech_resp: "Moslashuvchan", tech_custom: "Maxsus dizayn", tech_mobile: "Mobil tayyor", tech_fast: "Tez yetkazish", proj_view: "Saytni ko'rish",
+    svc_kicker: "Xizmatlar", svc_title: "Siz uchun nima qila olaman", svc_sub: "Biznesingiz ehtiyojiga moslab tayyorlangan professional yechimlar.",
+    svc1_title: "Akademiya sayti", svc1: "Ingliz tili akademiyalari va o'quv markazlari uchun to'liq sayt — kurslar, narxlar, aloqa va ro'yxat.",
+    svc2_title: "Professional saytlar", svc2: "Professional saytlar — bir sahifali landingdan tortib backend bilan to'liq ko'p sahifali saytgacha, biznesingiz uchun.",
+    svc9_title: "AI Agent & API integratsiya", svc9: "Maxsus AI agentlar, chatbotlar va API integratsiyalari — vositalaringizni bog'lab, ishni avtomatlashtiradi.",
+    svc10_title: "B2B portal va platforma", svc10: "Rolli panellar, auth, baza va dashboardlar bilan full-stack biznes portallari — haqiqiy SaaS kabi.",
+    svc11_title: "Telegram bot va avtomatlashtirish", svc11: "Buyurtma, mijoz va takroriy vazifalarni bajaradigan Telegram botlar va kodsiz avtomatlashtirishlar.",
+    svc3_title: "Maxsus veb-dizayn", svc3: "Noyob brending, ranglar va tartib bilan to'liq maxsus dizayn — faqat siz uchun.",
+    svc4_title: "Sayt texnik xizmati", svc4: "Mavjud saytlar uchun yangilanishlar, tuzatishlar va yaxshilanishlar. Mijozlarim uchun har doim bepul.",
+    svc5_title: "Logo dizayni", svc5: "Brendingizni aks ettiruvchi noyob, professional logolar — ajralib turishingiz uchun.",
+    svc6_title: "AI Video va Rasm", svc6: "Brendingiz, reklama va ijtimoiy tarmoqlar uchun ajoyib AI video va rasmlar.",
+    svc7_title: "Email yozish", svc7: "Murojaat, savdo va biznes muloqoti uchun professional, ishonarli emaillar.",
+    svc8_title: "Taqdimotlar", svc8: "Biznes, pitch va ta'lim uchun e'tiborni tortadigan professional slaydlar.",
+    from200: "$200 dan", from150: "$150 dan", from250: "$250 dan", free_clients: "Mijozlar uchun bepul",
+    price_academy: "$200 – $2000", price_web: "$200 – $4000+", price_ai: "$500 dan", price_b2b: "$1000 dan", price_bot: "$100 dan",
+    price_starter: "$200", price_pro: "$600", price_custom: "$1500+", price_ent: "$4000+",
+    from15: "$15 dan", from10: "$10 dan", from10b: "$10 dan", from15b: "$15 dan",
+    creative_kicker: "Ijodiy xizmatlar", creative_title: "Faqat saytlar emas", creative_sub: "Logolar, AI media, emaillar va taqdimotlar — brendingizga kerak bo'lgan hamma narsa.", starting_from: "boshlang'ich narx",
+    tools_kicker: "Ish vositalarim", tools_title: "Men ishlatadigan AI vositalar", tools_sub: "Loyihalarni tez va sifatli yaratish uchun har kuni foydalanadigan dastur va platformalar. Har bir belgini bosib, u nima qila olishini ko'ring.",
+    desc_claude: "Men to'liq kod tizimlari va ilovalarni noldan yarata olaman.",
+    desc_chatgpt: "Men g'oyalar tug'diraman, matn yozaman va muammolarni tez hal qilaman.",
+    desc_cursor: "Men muharrir ichida AI yordamida kod yozaman va xatolarni tuzataman.",
+    desc_midjourney: "Men matndan ajoyib rasm va konsept-art yarataman.",
+    desc_canva: "Men ijtimoiy tarmoq posti, banner va reklama grafikasini tez yarataman.",
+    desc_figma: "Men toza, zamonaviy interfeys dizaynini yarataman va prototiplayman.",
+    desc_heygen: "Men reklama va taqdimot uchun gapiruvchi AI avatar videolarini yarataman.",
+    desc_elevenlabs: "Men istalgan tilda tabiiy AI ovoz yozuvini yarataman.",
+    desc_notion: "Men loyihalar, eslatmalar va mijoz ma'lumotlarini bir joyda tartiblayman.",
+    desc_runway: "Men reklama va promo uchun AI video tahrirlayman va yarataman.",
+    desc_gamma: "Men bir necha daqiqada chiroyli taqdimot va pitch-dek yarataman.",
+    desc_zapier: "Men dasturlarni bog'lab, takroriy vazifalarni avtomatlashtiraman.",
+    desc_claudecode: "Men katta kod vazifalarini terminal orqali bajaraman.",
+    desc_gemini: "Men ma'lumotni tez izlayman, xulosalayman va tahlil qilaman.",
+    desc_perplexity: "Men internetdan aniq, manbali javoblarni tezda topaman.",
+    desc_replit: "Men brauzerda to'g'ridan-to'g'ri kichik ilovalar yarataman va joylayman.",
+    desc_grammarly: "Men har bir email va xabarni grammatik jihatdan sayqallayman.",
+    desc_higgsfield: "Men AI asosidagi sinematik video effekt va kamera harakatlarini yarataman.",
+    desc_lovable: "Men g'oyalarni bir necha daqiqada ishlaydigan veb-ilovaga aylantiraman.",
+    desc_kling: "Men matn yoki rasmdan sinematik AI video kliplar yarataman.",
+    desc_leonardo: "Men maxsus AI san'at va mahsulot vizuallarini yarataman.",
+    desc_notebooklm: "Men hujjatlarni qisqacha eslatma va audio sharhga aylantiraman.",
+    desc_openclaw: "Men shaxsiy AI yordamchi sifatida haqiqiy vazifalarni bajaraman.",
+    stack_kicker: "Mening arsenalim", stack_title: "Dasturlash tillari va texnologiyalar", stack_sub: "Men quradigan har bir sayt va tizim ortidagi tillar va freymvorklar.",
+    desc_python: "Skript yozish, avtomatlashtirish va backend logikasi uchun Python ishlataman.",
+    desc_html5: "Har bir sahifani toza, semantik HTML5 bilan quraman.",
+    desc_css3: "Interfeyslarni zamonaviy CSS3 bilan bezayman va animatsiyalayman.",
+    desc_javascript: "Saytlarni interaktiv JavaScript bilan jonlantiraman.",
+    desc_nodejs: "Backend server va API-larni Node.js bilan quraman.",
+    desc_sql: "Mijoz ma'lumotlarini saqlash uchun bazalar yarataman va so'rov yozaman.",
+    desc_typescript: "Katta loyihalar uchun xavfsizroq, tipli JavaScript yozaman.",
+    desc_git: "Git bilan har bir o'zgarishni kuzataman va kodni boshqaraman.",
+    desc_github: "GitHub orqali kodni saqlayman, versiyalayman va hamkorlik qilaman.",
+    platforms_kicker: "Kod bilan cheklanmayman", platforms_title: "Google va Microsoft ekotizimlari", platforms_sub: "Ikkala yirik unumdorlik va bulutli platformada ham erkin ishlayman.",
+    platforms_google_label: "Google", platforms_ms_label: "Microsoft",
+    desc_gmail: "Mijozlar bilan barcha yozishmalarni Gmail orqali boshqaraman.",
+    desc_gdrive: "Loyiha fayllarini Google Drive'da xavfsiz saqlayman va ulashaman.",
+    desc_gsheets: "Byudjet, mijozlar va loyiha ma'lumotlarini Google Sheets'da kuzataman.",
+    desc_gcalendar: "Uchrashuv va muddatlarni Google Calendar orqali rejalashtiraman.",
+    desc_gmeet: "Mijozlar bilan qo'ng'iroq va namoyishlarni Google Meet orqali o'tkazaman.",
+    desc_ganalytics: "Sayt trafigi va tashrif buyuruvchilar xatti-harakatini Google Analytics bilan kuzataman.",
+    desc_gcloud: "Ilovalarni Google Cloud'da joylashtiraman va boshqaraman.",
+    desc_gdocs: "Hujjatlarni Google Docs'da birgalikda yozaman va ulashaman.",
+    desc_gslides: "Google Slides bilan tezkor taqdimotlar yarataman.",
+    desc_gforms: "Google Forms orqali mijoz va ro'yxatga olish ma'lumotlarini yig'aman.",
+    desc_gtranslate: "Google Translate bilan kontentni tillarga tarjima qilaman.",
+    desc_gphotos: "Loyiha suratlarini Google Photos'da saqlayman va tartiblayman.",
+    desc_gchat: "Jamoa va mijozlar bilan Google Chat orqali tez xabar almashaman.",
+    desc_gmaps: "Google Maps bilan manzil va yo'nalishlarni qo'shaman.",
+    desc_firebase: "Firebase bilan backend quraman va joylashtiraman.",
+    desc_gads: "Google Ads bilan reklama kampaniyalarini boshqaraman va optimallashtiraman.",
+    desc_gclassroom: "Akademiyalar uchun Google Classroom'da onlayn darslarni sozlayman.",
+    desc_msoffice: "Sifatli hujjatlarni Microsoft Office bilan tayyorlayman.",
+    desc_word: "Taklif va hisobotlarni Microsoft Word'da yozaman.",
+    desc_excel: "Jadval va ma'lumotlar tahlilini Excel'da qilaman.",
+    desc_powerpoint: "Mijozlar uchun taqdimotlarni PowerPoint'da yarataman.",
+    desc_outlook: "Biznes email va kalendarni Outlook orqali boshqaraman.",
+    desc_teams: "Mijozlar bilan Microsoft Teams orqali hamkorlik qilaman va uchrashaman.",
+    desc_onedrive: "Fayllarni OneDrive bilan zaxiralayman va sinxronlashtiraman.",
+    desc_azure: "Bulut infratuzilmasini Azure'da joylashtiraman va boshqaraman.",
+    certs_kicker: "Ko'nikma isboti", certs_title: "Sertifikatlar", certs_sub: "O'zimni doimiy rivojlantirish uchun tugatgan, tasdiqlangan kurs va loyihalarim.", certs_verify: "Tasdiqlash",
+    certs_featured_badge: "Davlat tomonidan tasdiqlangan", certs_featured_desc: "Birlashgan Arab Amirliklari va O'zbekiston Respublikasi hukumatlarining qo'shma tashabbusi — besh million kishini AI uchun prompt yozishga o'rgatish va kuchaytirish, O'zbekistonning 2030-yilgacha AI texnologiyalarini rivojlantirish strategiyasiga mos ravishda.",
+    certs_featured2_badge: "Google Cloud · AI", certs_featured2_desc: "Google Cloud kursi — generativ AI qanday ishlashi, uning amaliy qo'llanilishi va zamonaviy AI tizimlari ortidagi vositalar haqida. Bu men quradigan AI asosidagi saytlar va yechimlarning poydevori.",
+    desc_n8n: "Men barcha vositalarim orasida kodsiz avtomatlashtirilgan jarayon quraman.",
+    price_kicker: "Narxlar", price_title: "Oddiy va shaffof narxlar", price_sub: "Yashirin to'lovlar yo'q. Ko'rganingiz — to'laganingiz.",
+    one_time: "bir martalik to'lov", based_req: "talablarga asoslangan", popular: "Eng ommabop", get_started: "Boshlash", lets_talk: "Gaplashamiz",
+    f_landing: "Landing sahifa (1 sahifa)", f_mobile: "Mobil moslashuvchan", f_contact: "Aloqa bo'limi", f_tg: "Telegram integratsiya", f_3day: "3 kunda yetkazish", f_support: "Bepul yordam",
+    f_multi: "Ko'p sahifali sayt", f_custom: "Maxsus dizayn va brending", f_reg: "Ro'yxatdan o'tish formasi", f_tgphone: "Telegram + telefon integratsiya", f_cms: "CMS (tahrirlanadigan kontent)", f_5day: "5 kunda yetkazish", f_forever: "Abadiy bepul yordam",
+    f_everything: "Professional'dagi hamma narsa", f_adv: "Ilg'or animatsiyalar", f_backend: "Backend integratsiya", f_domain: "Domen sozlash yordami", f_priority: "Ustuvor yetkazish", f_lifetime: "Umrbod bepul yordam",
+    f_everything_custom: "Custom'dagi hamma narsa", f_platform: "Full-stack veb-platforma", f_panels: "Ko'p rolli admin panellar", f_dbapi: "Baza, auth va API", f_deploy: "Deploy va o'rgatish",
+    contact_title: "Keling, birga ishlaymiz", contact_sub: "Biznesingizni internetga olib chiqishga tayyormisiz? Quyida xabar qoldiring yoki Telegramga yozing — tez javob beraman, keyin birga zo'r natija chiqaramiz.",
+    msg_tg: "Telegram orqali yozish", send_email: "Email yuborish", phone_label: "Telefon", loc_city: "Toshkent City, O'zbekiston 🇺🇿", loc_label: "Manzil",
+    form_name: "Ismingiz", form_name_ph: "masalan, Akmal Valiyev", form_email: "Email", form_email_ph: "siz@example.com",
+    form_msg: "Xabar", form_msg_ph: "Loyihangiz haqida yozing...", form_send: "Xabar yuborish", form_sending: "Yuborilmoqda...",
+    form_ok: "Xabaringiz yuborildi! Tez orada javob beraman. 🎉", form_err: "Xatolik yuz berdi. Qayta urinib ko'ring yoki Telegramdan foydalaning.",
+    form_invalid: "Iltimos, barcha maydonlarni to'g'ri email bilan to'ldiring.",
+    roles: ["AI Veb-dasturchi", "Senior Vibe Coder", "Expert Prompting Engineer", "UzLeeder asoschisi", "UI/UX Dizayner", "Frilanser dasturchi"]
+  },
+  tg: {
+    tag: "Барои пешвоён", nav_about: "Дар бораи ман", nav_portfolio: "Портфолио", nav_services: "Хизматрасонӣ", nav_tools: "Абзорҳои AI", nav_stack: "Технологияҳо", nav_platforms: "Платформаҳо", nav_certificates: "Сертификатҳо", nav_pricing: "Нархҳо", nav_contact: "Тамос",
+    hero_title: 'Салом, ман <span>Меҳриддин</span> Абдуалим', hero_desc: "Барои бизнес, академия ва брендҳо сайтҳои муосир, зуд ва зебо месозам — коди тоза, AI-и зирак ва натиҷаи воқеӣ.",
+    btn_work: "Корҳои ман", btn_contact: "Тамос гиред", stat_projects: "Лоиҳаҳо", stat_support: "Дастгирии муштарӣ", stat_delivery: "Расонидан",
+    photo_role: "Асосгузор · Барномасози AI", soon: "Ба зудӣ",
+    about_kicker: "Дар бораи ман", about_title: "Меҳриддин кист?", about_sub: "Барномасози ҷавони AI аз Тошканд Сити, Ӯзбекистон 🇺🇿 — бо ҳар сайт ояндаро месозад.",
+    about_p1: 'Ман Меҳриддин Абдуалим, асосгузори <strong style="color:var(--gold)">UzLeeder</strong> — бренди веб-барномасозӣ барои пешвоён. Барои академияҳо, марказҳои таълимӣ ва бизнесҳои хурд сайтҳои муосиру касбӣ месозам — бо абзорҳои навтарини AI.',
+    about_p2: "Мақсадам содда аст: ба ҳар бизнес ҳузури қавӣ дар интернет диҳам — зуд, зебо ва арзон. Лоиҳаро аз тарроҳӣ то оғоз худам мебарам ва пас аз он ҳам бо дастгирии ройгон дар канори шумо мемонам.",
+    about_p3: "Дар Тошканд Сити, Ӯзбекистон 🇺🇿 ҷойгирам — бо муштариён дар саросари кишвар кор мекунам.",
+    skill_resp: "Тарроҳии мутобиқшаванда", skill_ai: "Абзорҳои AI", skill_tg: "Интегратсияи Telegram",
+    as_delivered: "Сайтҳои расонидашуда", as_satisfaction: "Қаноатмандии муштарӣ", as_days: "Рӯзҳои миёнаи расонидан", as_support: "Дастгирии ройгони баъдӣ",
+    port_kicker: "Портфолио", port_title: "Лоиҳаҳои охирини ман", port_sub: "Ҳар лоиҳа бо ғамхорӣ, коди тоза ва диққат ба натиҷа сохта мешавад.",
+    tag_live: "Фаъол", tag_soon: "Ба зудӣ", tag_sale: "Барои фурӯш", proj_buy: "Дархост", proj_negotiable: "ё муроҷиат кунед", proj_contract: "Дидани шартнома", proj_certificate: "Дидани сертификат",
+    proj_mh: "Портали омодаи B2B барои фармоиши сафар — барои консолидаторҳо ва марказҳои билетфурӯшӣ. Агентиҳои ҳамкор ба ҳудуди шахсии худ ворид шуда, дархости фармоиш мефиристанд; дастаи шумо ҳар фармоишро аз рӯи қоидаҳои тахфифи консолидатор нарх мегузорад, PNR-и ширкати ҳавопаймоиро ворид мекунад ва ҳисоб-фактураи брендии PDF-ро худкор мефиристад. SaaS-и бисёркомпания — дастрасии нақшдор (super-admin · admin · оператор · агентӣ), хонандаи масири GDS, ки 1100+ ширкати ҳавопаймоиро аз матни PNR мешиносад, 2FA, журнали пурраи аудит, таҳлил ва инвентари ҳисоб. Танҳо бо даъват ва бо тарҳ маҳфӣ.",
+    proj1: "Сайти пурра барои академияи забони англисӣ дар Сариосиё — бо рӯйхати курсҳо, шакли сабт, интегратсияи Telegram ва дастгирии CMS.",
+    proj2_title: "Shokirov Math Academy", proj2: "Платформаи таълимии full-stack барои академияи воқеии математика — на танҳо landing. Дар паси аутентификатсияи нақшдори JWT се панел ҳаст: донишҷӯ, муаллим ва директор. Довталабон онлайн ариза медиҳанд; муаллим дида қабул мекунад ва донишҷӯёнро худаш эҷод мекунад, сипас давомат, пардохтҳо, баҳоҳо, feedback ва вазифаҳоро идора мекунад, директор бошад пардохтҳоро дар саросари академия назорат мекунад. Қисми таълимӣ 31 мавзӯъ аз китоби DTM ва 5 653 машқи худкортафтишшаванда, системаи рейтинг, профилҳо, забонҳои UZ/EN ва мавзӯъҳои dark/light дорад — дар API-и serverless-и Node.js + Express (Vercel) ва пойгоҳи Postgres (Neon) кор мекунад.",
+    proj3_title: "Лоиҳаи шумо", proj3: "Ин метавонад сайти шумо бошад! Ман омодаам барои бизнеси шумо ҳузури касбии онлайн созам — зуд, зебо ва арзон.",
+    tech_anim: "Анимуатсияҳо", tech_resp: "Мутобиқшаванда", tech_custom: "Тарроҳии махсус", tech_mobile: "Барои мобил омода", tech_fast: "Расонидани зуд", proj_view: "Сайтро дидан",
+    svc_kicker: "Хизматрасонӣ", svc_title: "Барои шумо чӣ сохта метавонам", svc_sub: "Ҳалли касбӣ, мутобиқ ба ниёзҳои воқеии бизнеси шумо.",
+    svc1_title: "Сайти академия", svc1: "Сайти пурра барои академияҳои англисӣ ва марказҳои таълимӣ — курсҳо, нархҳо, тамос ва сабт.",
+    svc2_title: "Вебсайтҳои касбӣ", svc2: "Вебсайтҳои касбӣ — аз landing-и яксаҳифагӣ то вебсайти пурраи бисёрсаҳифагӣ бо backend, барои бизнеси шумо.",
+    svc9_title: "AI Agent ва интегратсияи API", svc9: "Агентҳои AI-и махсус, чатботҳо ва интегратсияи API — абзорҳоятонро пайваст карда, корро худкор мекунад.",
+    svc10_title: "Портал ва платформаи B2B", svc10: "Порталҳои тиҷоратии full-stack бо панелҳои нақшдор, auth, пойгоҳи додаҳо ва dashboard — мисли SaaS-и воқеӣ.",
+    svc11_title: "Боти Telegram ва худкорсозӣ", svc11: "Ботҳои Telegram ва худкорсозиҳои бе код, ки фармоиш, муштарӣ ва вазифаҳои такрориро иҷро мекунанд.",
+    svc3_title: "Тарроҳии махсуси веб", svc3: "Тарроҳии комилан махсус бо брендинг, рангҳо ва тартиби нодир — танҳо барои шумо.",
+    svc4_title: "Хизмати техникии сайт", svc4: "Навсозӣ, ислоҳ ва беҳсозӣ барои сайтҳои мавҷуда. Барои муштариёни ман ҳамеша ройгон.",
+    svc5_title: "Тарроҳии лого", svc5: "Логоҳои нодир ва касбӣ, ки ҳувияти брендатонро инъикос мекунанд ва шуморо барҷаста месозанд.",
+    svc6_title: "Видео ва Аксҳои AI", svc6: "Видео ва аксҳои аҷоиби AI барои бренд, реклама ва шабакаҳои иҷтимоии шумо.",
+    svc7_title: "Навиштани Email", svc7: "Email-ҳои касбӣ ва бовариноки барои муроҷиат, фурӯш ва иртиботи тиҷоратӣ.",
+    svc8_title: "Презентатсияҳо", svc8: "Слайдҳои касбӣ ва ҷолиб барои тиҷорат, пешниҳод ва таълим.",
+    from200: "аз $200", from150: "аз $150", from250: "аз $250", free_clients: "Барои муштариён ройгон",
+    price_academy: "$200 – $2000", price_web: "$200 – $4000+", price_ai: "аз $500", price_b2b: "аз $1000", price_bot: "аз $100",
+    price_starter: "$200", price_pro: "$600", price_custom: "$1500+", price_ent: "$4000+",
+    from15: "аз $15", from10: "аз $10", from10b: "аз $10", from15b: "аз $15",
+    creative_kicker: "Хизматҳои эҷодӣ", creative_title: "На танҳо сайтҳо", creative_sub: "Логоҳо, медиаи AI, email-ҳо ва презентатсияҳо — ҳама чизе ки брендатон ниёз дорад.", starting_from: "аз нарх",
+    tools_kicker: "Абзорҳои корам", tools_title: "Абзорҳои AI, ки истифода мебарам", tools_sub: "Барномаю платформаҳое, ки ҳар рӯз барои сохтан ва расонидани зуд истифода мебарам. Ба ҳар нишона зада бинед, ки он чӣ кор карда метавонад.",
+    desc_claude: "Ман метавонам системаҳои пурраи код ва барномаҳоро аз сифр созам.",
+    desc_chatgpt: "Ман ғояҳо пешниҳод мекунам, матн менависам ва масъалаҳоро зуд ҳал мекунам.",
+    desc_cursor: "Ман дар дохили муҳаррир бо ёрии AI код менависам ва хатоҳоро ислоҳ мекунам.",
+    desc_midjourney: "Ман аз матн тасвирҳои аҷиб ва консепт-арт месозам.",
+    desc_canva: "Ман пости шабакаи иҷтимоӣ, баннер ва графикаи рекламавиро зуд месозам.",
+    desc_figma: "Ман интерфейси тоза ва муосирро тарроҳӣ ва прототип месозам.",
+    desc_heygen: "Ман видеоҳои аватари AI-и гуяндаро барои реклама ва намоиш месозам.",
+    desc_elevenlabs: "Ман бо ҳар забон садои табиии AI месозам.",
+    desc_notion: "Ман лоиҳаҳо, ёддоштҳо ва маълумоти муштариёнро дар як ҷо тартиб медиҳам.",
+    desc_runway: "Ман видеои AI-ро барои реклама ва промо таҳрир ва эҷод мекунам.",
+    desc_gamma: "Ман дар якчанд дақиқа презентатсия ва pitch-deck месозам.",
+    desc_zapier: "Ман барномаҳоро пайваст карда, вазифаҳои такрориро худкор мекунам.",
+    desc_claudecode: "Ман вазифаҳои калони кодро тавассути терминал иҷро мекунам.",
+    desc_gemini: "Ман маълумотро зуд ҷустуҷӯ, ҷамъбаст ва таҳлил мекунам.",
+    desc_perplexity: "Ман дар интернет ҷавобҳои дақиқ ва боэътимодро зуд меёбам.",
+    desc_replit: "Ман дар браузер мустақим барномаҳои хурд месозам ва ҷойгир мекунам.",
+    desc_grammarly: "Ман ҳар email ва паёмро аз ҷиҳати грамматикӣ такмил медиҳам.",
+    desc_higgsfield: "Ман эффектҳои синамоии видеои AI ва ҳаракати камераро месозам.",
+    desc_lovable: "Ман ғояҳоро дар якчанд дақиқа ба барномаи веби фаъол табдил медиҳам.",
+    desc_kling: "Ман аз матн ё расм видеои синамоии AI месозам.",
+    desc_leonardo: "Ман санъат ва визуали махсуси AI месозам.",
+    desc_notebooklm: "Ман ҳуҷҷатҳоро ба ёддошти мухтасар ва шарҳи аудио табдил медиҳам.",
+    desc_openclaw: "Ман ҳамчун ёрдамчии шахсии AI вазифаҳои воқеиро иҷро мекунам.",
+    stack_kicker: "Абзорхонаи ман", stack_title: "Забонҳои барномасозӣ ва технологияҳо", stack_sub: "Забонҳо ва фреймворкҳое, ки дар пушти ҳар сайт ва системаи сохтаам меистанд.",
+    desc_python: "Барои скрипт, худкорсозӣ ва мантиқи backend Python истифода мебарам.",
+    desc_html5: "Ҳар саҳифаро бо HTML5-и тоза ва семантикӣ месозам.",
+    desc_css3: "Интерфейсҳоро бо CSS3-и муосир зебо ва анимутсия мекунам.",
+    desc_javascript: "Сайтҳоро бо JavaScript-и интерактивӣ ҷон мебахшам.",
+    desc_nodejs: "Серверҳои backend ва API-ро бо Node.js месозам.",
+    desc_sql: "Барои нигоҳ доштани маълумоти муштарӣ пойгоҳи додаҳо месозам ва пурсиш менависам.",
+    desc_typescript: "Барои лоиҳаҳои калон JavaScript-и бехатар ва типдор менависам.",
+    desc_git: "Бо Git ҳар тағйиротро пайгирӣ мекунам ва кодро идора мекунам.",
+    desc_github: "Тавассути GitHub код нигоҳ медорам, версия мекунам ва ҳамкорӣ мекунам.",
+    platforms_kicker: "На танҳо код", platforms_title: "Экосистемаҳои Google ва Microsoft", platforms_sub: "Дар ҳарду платформаи бузурги маҳсулнокӣ ва абрӣ равон кор мекунам.",
+    platforms_google_label: "Google", platforms_ms_label: "Microsoft",
+    desc_gmail: "Ҳамаи мукотиботро бо муштариён тавассути Gmail идора мекунам.",
+    desc_gdrive: "Файлҳои лоиҳаро дар Google Drive бехатар нигоҳ медорам ва мубодила мекунам.",
+    desc_gsheets: "Буҷет, муштариён ва маълумоти лоиҳаро дар Google Sheets пайгирӣ мекунам.",
+    desc_gcalendar: "Вохӯриҳо ва мӯҳлатҳоро тавассути Google Calendar ба нақша мегирам.",
+    desc_gmeet: "Занг ва намоишҳоро бо муштариён тавассути Google Meet мегузаронам.",
+    desc_ganalytics: "Трафики сайт ва рафтори бозадидкунандагонро бо Google Analytics пайгирӣ мекунам.",
+    desc_gcloud: "Барномаҳоро дар Google Cloud ҷойгир ва идора мекунам.",
+    desc_gdocs: "Ҳуҷҷатҳоро дар Google Docs якҷоя менависам ва мубодила мекунам.",
+    desc_gslides: "Бо Google Slides презентатсияи зуд месозам.",
+    desc_gforms: "Тавассути Google Forms муштариён ва маълумоти сабтро ҷамъ мекунам.",
+    desc_gtranslate: "Мундариҷаро бо Google Translate ба забонҳо тарҷума мекунам.",
+    desc_gphotos: "Суратҳои лоиҳаро дар Google Photos нигоҳ медорам ва тартиб медиҳам.",
+    desc_gchat: "Бо гурӯҳ ва муштариён тавассути Google Chat зуд паём мефиристам.",
+    desc_gmaps: "Бо Google Maps ҷойгиршавӣ ва масирро илова мекунам.",
+    desc_firebase: "Бо Firebase backend месозам ва ҷойгир мекунам.",
+    desc_gads: "Бо Google Ads кампанияи рекламавиро идора ва беҳтар мекунам.",
+    desc_gclassroom: "Барои академияҳо дар Google Classroom дарсҳои онлайнро танзим мекунам.",
+    desc_msoffice: "Ҳуҷҷатҳои сифатнокро бо Microsoft Office омода мекунам.",
+    desc_word: "Пешниҳод ва гузоришҳоро дар Microsoft Word менависам.",
+    desc_excel: "Ҷадвал ва таҳлили маълумотро дар Excel анҷом медиҳам.",
+    desc_powerpoint: "Презентатсияи муштариёнро дар PowerPoint месозам.",
+    desc_outlook: "Email ва тақвими тиҷоратро тавассути Outlook идора мекунам.",
+    desc_teams: "Бо муштариён тавассути Microsoft Teams ҳамкорӣ мекунам ва вохӯрӣ мекунам.",
+    desc_onedrive: "Файлҳоро бо OneDrive нусхабардорӣ ва ҳамоҳанг мекунам.",
+    desc_azure: "Инфрасохтори абрро дар Azure ҷойгир ва идора мекунам.",
+    certs_kicker: "Далели маҳорат", certs_title: "Сертификатҳо", certs_sub: "Барои пешрафти доимӣ анҷомдодаи курс ва лоиҳаҳои тасдиқшудаам.", certs_verify: "Тасдиқ",
+    certs_featured_badge: "Аз ҷониби давлат тасдиқшуда", certs_featured_desc: "Ташаббуси муштараки ҳукуматҳои Аморати Муттаҳидаи Араб ва Ҷумҳурии Ӯзбекистон — омӯзиш ва тавонмандсозии панҷ миллион нафар дар соҳаи муҳандисии дархости AI, мутобиқ бо Стратегияи рушди технологияҳои AI-и Ӯзбекистон то соли 2030.",
+    certs_featured2_badge: "Google Cloud · AI", certs_featured2_desc: "Курси Google Cloud — дар бораи он ки AI-и генеративӣ чӣ гуна кор мекунад, истифодаи амалии он ва абзорҳои пушти системаҳои муосири AI. Ин пойгоҳи сайтҳо ва ҳалли AI-и сохтаи ман аст.",
+    desc_n8n: "Ман байни ҳамаи абзорҳоям равандҳои худкорро бе код месозам.",
+    price_kicker: "Нархҳо", price_title: "Нархҳои содда ва шаффоф", price_sub: "Пардохтҳои пинҳон нест. Он чӣ мебинед — ҳамон пардохт мекунед.",
+    one_time: "пардохти яккарата", based_req: "вобаста ба талабот", popular: "Маъмултарин", get_started: "Оғоз кардан", lets_talk: "Сӯҳбат мекунем",
+    f_landing: "Саҳифаи фуруд (1 саҳифа)", f_mobile: "Мутобиқ ба мобил", f_contact: "Бахши тамос", f_tg: "Интегратсияи Telegram", f_3day: "Расонидан дар 3 рӯз", f_support: "Дастгирии ройгон",
+    f_multi: "Сайти бисёрсаҳифагӣ", f_custom: "Тарроҳӣ ва брендинги махсус", f_reg: "Шакли сабт", f_tgphone: "Интегратсияи Telegram + телефон", f_cms: "CMS (мундариҷаи таҳриршаванда)", f_5day: "Расонидан дар 5 рӯз", f_forever: "Дастгирии ройгони абадӣ",
+    f_everything: "Ҳама чизи Professional", f_adv: "Анимуатсияҳои пешрафта", f_backend: "Интегратсияи backend", f_domain: "Кӯмак дар танзими домен", f_priority: "Расонидани афзалиятнок", f_lifetime: "Дастгирии ройгони якумрӣ",
+    f_everything_custom: "Ҳама чизи Custom", f_platform: "Платформаи full-stack", f_panels: "Панелҳои админи бисёрнақш", f_dbapi: "Пойгоҳи додаҳо, auth ва API", f_deploy: "Ҷойгиркунӣ ва омӯзиш",
+    contact_title: "Биёед якҷоя кор кунем", contact_sub: "Омодаед бизнесатонро ба интернет бароред? Дар поён паём гузоред ё ба Telegram нависед — зуд ҷавоб медиҳам ва якҷоя чизи аъло месозем.",
+    msg_tg: "Тавассути Telegram навиштан", send_email: "Email фиристодан", phone_label: "Телефон", loc_city: "Тошканд Сити, Ӯзбекистон 🇺🇿", loc_label: "Ҷойгиршавӣ",
+    form_name: "Номи шумо", form_name_ph: "масалан, Аҳмад Валиев", form_email: "Email", form_email_ph: "shumo@example.com",
+    form_msg: "Паём", form_msg_ph: "Дар бораи лоиҳаи худ нависед...", form_send: "Паём фиристодан", form_sending: "Фиристода истодааст...",
+    form_ok: "Паёми шумо фиристода шуд! Ба зудӣ ҷавоб медиҳам. 🎉", form_err: "Хатогӣ рух дод. Бори дигар кӯшиш кунед ё аз Telegram истифода баред.",
+    form_invalid: "Лутфан ҳама майдонҳоро бо email-и дуруст пур кунед.",
+    roles: ["Барномасози AI", "Senior Vibe Coder", "Expert Prompting Engineer", "Асосгузори UzLeeder", "Тарроҳи UI/UX", "Барномасози фриланс"]
+  },
+  ru: {
+    tag: "Для лидеров", nav_about: "Обо мне", nav_portfolio: "Портфолио", nav_services: "Услуги", nav_tools: "AI-инструменты", nav_stack: "Технологии", nav_platforms: "Платформы", nav_certificates: "Сертификаты", nav_pricing: "Цены", nav_contact: "Контакты",
+    hero_title: 'Привет, я <span>Мехриддин</span> Абдуалим', hero_desc: "Создаю современные, быстрые и красивые сайты для бизнеса, академий и брендов — чистый код, умный AI и реальный результат.",
+    btn_work: "Мои работы", btn_contact: "Связаться", stat_projects: "Проекты", stat_support: "Поддержка клиентов", stat_delivery: "Доставка",
+    photo_role: "Основатель · AI Веб-разработчик", soon: "Скоро",
+    about_kicker: "Обо мне", about_title: "Кто такой Мехриддин?", about_sub: "Молодой AI веб-разработчик из Ташкент Сити, Узбекистан 🇺🇿 — создающий будущее по одному сайту.",
+    about_p1: 'Я Мехриддин Абдуалим, основатель <strong style="color:var(--gold)">UzLeeder</strong> — бренда веб-разработки для лидеров. Создаю современные, профессиональные сайты для академий, учебных центров и малого бизнеса — с новейшими AI-инструментами.',
+    about_p2: "Моя цель проста: дать каждому бизнесу сильное присутствие в интернете — быстро, красиво и доступно. Веду проект от дизайна до запуска и остаюсь рядом с бесплатной поддержкой после.",
+    about_p3: "Нахожусь в Ташкент Сити, Узбекистан 🇺🇿 — работаю с клиентами по всей стране.",
+    skill_resp: "Адаптивный дизайн", skill_ai: "AI-инструменты", skill_tg: "Интеграция Telegram",
+    as_delivered: "Сданных сайтов", as_satisfaction: "Удовлетворённость клиентов", as_days: "Дней в среднем на доставку", as_support: "Бесплатная поддержка после запуска",
+    port_kicker: "Портфолио", port_title: "Мои недавние проекты", port_sub: "Каждый проект создаётся с заботой, чистым кодом и фокусом на результат.",
+    tag_live: "Активен", tag_soon: "Скоро", tag_sale: "На продажу", proj_buy: "Запросить", proj_negotiable: "или обсудим", proj_contract: "Открыть договор", proj_certificate: "Открыть сертификат",
+    proj_mh: "Готовый к развёртыванию B2B-портал бронирования для консолидаторов и билетных отделов. Агентства-партнёры входят в свою приватную зону и отправляют заявки; ваша команда рассчитывает каждый заказ по правилам скидок консолидатора, вносит PNR авиакомпании и автоматически отправляет брендированный PDF-счёт. Мультикомпанийный SaaS — ролевой доступ (супер-админ · админ · оператор · агентство), чтение маршрута GDS с распознаванием 1100+ авиакомпаний из текста PNR, 2FA, полный аудит-лог, аналитика и учёт аккаунтов. Только по приглашению, приватный по своей сути.",
+    proj1: "Полноценный сайт для академии английского языка в Сариосие — с курсами, формой регистрации, интеграцией Telegram и поддержкой CMS.",
+    proj2_title: "Shokirov Math Academy", proj2: "Full-stack образовательная платформа для настоящей математической академии — не просто лендинг. За ролевой JWT-аутентификацией — три панели: ученик, преподаватель и директор. Абитуриенты подают заявку онлайн; преподаватель просматривает и зачисляет их, сам создаёт учеников, затем ведёт посещаемость, оплаты, оценки, отзывы и домашние задания, а директор контролирует платежи по всей академии. Учебное ядро — 31 тема из книги DTM и 5 653 автопроверяемых упражнения, система рейтинга, профили, языки UZ/EN и тёмная/светлая темы — работает на serverless API Node.js + Express (Vercel) с базой Postgres (Neon).",
+    proj3_title: "Ваш проект", proj3: "Это может быть ваш сайт! Я готов создать профессиональное онлайн-присутствие для вашего бизнеса — быстро, красиво и доступно.",
+    tech_anim: "Анимации", tech_resp: "Адаптивный", tech_custom: "Индивидуальный дизайн", tech_mobile: "Готов для мобильных", tech_fast: "Быстрая доставка", proj_view: "Открыть сайт",
+    svc_kicker: "Услуги", svc_title: "Что я могу создать для вас", svc_sub: "Профессиональные решения под реальные задачи вашего бизнеса.",
+    svc1_title: "Сайт академии", svc1: "Полный сайт для академий английского и учебных центров — курсы, цены, контакты и регистрация.",
+    svc2_title: "Профессиональные сайты", svc2: "Профессиональные сайты — от одностраничного лендинга до полноценного многостраничного сайта с бэкендом, для вашего бизнеса.",
+    svc9_title: "AI-агент и интеграция API", svc9: "Кастомные AI-агенты, чат-боты и интеграции API — соединяют ваши инструменты и автоматизируют работу.",
+    svc10_title: "B2B-портал и платформа", svc10: "Full-stack бизнес-порталы с ролевыми панелями, авторизацией, базой и дашбордами — как настоящий SaaS.",
+    svc11_title: "Telegram-бот и автоматизация", svc11: "Telegram-боты и no-code автоматизации для заказов, заявок и рутинных задач.",
+    svc3_title: "Индивидуальный веб-дизайн", svc3: "Полностью индивидуальный дизайн с уникальным брендингом, цветами и макетом — только для вас.",
+    svc4_title: "Обслуживание сайта", svc4: "Обновления, исправления и улучшения для существующих сайтов. Всегда бесплатно для моих клиентов.",
+    svc5_title: "Дизайн логотипа", svc5: "Уникальные, профессиональные логотипы, отражающие айдентику вашего бренда.",
+    svc6_title: "AI Видео и Фото", svc6: "Потрясающие AI-видео и изображения для вашего бренда, рекламы и соцсетей.",
+    svc7_title: "Написание Email", svc7: "Профессиональные, убедительные письма для рассылок, продаж и бизнес-общения.",
+    svc8_title: "Презентации", svc8: "Яркие, профессиональные слайды для бизнеса, питчей и образования.",
+    from200: "от $200", from150: "от $150", from250: "от $250", free_clients: "Бесплатно для клиентов",
+    price_academy: "$200 – $2000", price_web: "$200 – $4000+", price_ai: "от $500", price_b2b: "от $1000", price_bot: "от $100",
+    price_starter: "$200", price_pro: "$600", price_custom: "$1500+", price_ent: "$4000+",
+    from15: "от $15", from10: "от $10", from10b: "от $10", from15b: "от $15",
+    creative_kicker: "Креативные услуги", creative_title: "Не только сайты", creative_sub: "Логотипы, AI-медиа, письма и презентации — всё, что нужно вашему бренду.", starting_from: "от",
+    tools_kicker: "Мой инструментарий", tools_title: "AI-инструменты, с которыми я работаю", tools_sub: "Приложения и платформы, которые я использую каждый день для быстрой и качественной работы. Нажмите на значок, чтобы узнать, что он умеет.",
+    desc_claude: "Я создаю целые кодовые системы и приложения с нуля.",
+    desc_chatgpt: "Я придумываю идеи, пишу тексты и быстро решаю задачи.",
+    desc_cursor: "Я пишу и отлаживаю код прямо в редакторе с помощью AI.",
+    desc_midjourney: "Я создаю впечатляющие изображения и концепт-арт из текста.",
+    desc_canva: "Я быстро создаю посты, баннеры и рекламную графику.",
+    desc_figma: "Я проектирую и прототипирую чистые, современные интерфейсы.",
+    desc_heygen: "Я создаю видео с говорящими AI-аватарами для рекламы и демо.",
+    desc_elevenlabs: "Я генерирую реалистичную AI-озвучку на любом языке.",
+    desc_notion: "Я организую проекты, заметки и данные клиентов в одном месте.",
+    desc_runway: "Я монтирую и генерирую AI-видео для рекламы и промо.",
+    desc_gamma: "Я создаю готовые презентации и питч-деки за минуты.",
+    desc_zapier: "Я связываю приложения и автоматизирую рутинные задачи.",
+    desc_claudecode: "Я выполняю сложные задачи по коду прямо из терминала.",
+    desc_gemini: "Я быстро ищу, суммирую и анализирую информацию.",
+    desc_perplexity: "Я мгновенно нахожу точные ответы со ссылками на источники.",
+    desc_replit: "Я создаю и запускаю небольшие приложения прямо в браузере.",
+    desc_grammarly: "Я довожу до идеала грамматику каждого письма и сообщения.",
+    desc_higgsfield: "Я создаю кинематографичные AI-видеоэффекты и движения камеры.",
+    desc_lovable: "Я превращаю идеи в рабочие веб-приложения за минуты.",
+    desc_kling: "Я создаю кинематографичные AI-видеоролики из текста или изображений.",
+    desc_leonardo: "Я создаю уникальную AI-графику и визуалы для продуктов.",
+    desc_notebooklm: "Я превращаю документы в краткие заметки и аудио-обзоры.",
+    desc_openclaw: "Я работаю как личный AI-ассистент, который реально выполняет задачи.",
+    stack_kicker: "Мой стек", stack_title: "Языки программирования и технологии", stack_sub: "Языки и фреймворки, на которых построен каждый созданный мной сайт и система.",
+    desc_python: "Использую Python для скриптов, автоматизации и backend-логики.",
+    desc_html5: "Структурирую каждую страницу чистым, семантичным HTML5.",
+    desc_css3: "Оформляю и анимирую интерфейсы современным CSS3.",
+    desc_javascript: "Оживляю сайты с помощью интерактивного JavaScript.",
+    desc_nodejs: "Создаю backend-серверы и API на Node.js.",
+    desc_sql: "Проектирую базы данных и пишу запросы для хранения данных клиентов.",
+    desc_typescript: "Пишу более безопасный, типизированный JavaScript для больших проектов.",
+    desc_git: "Отслеживаю каждое изменение и управляю кодом через Git.",
+    desc_github: "Храню код, веду версии и работаю совместно через GitHub.",
+    platforms_kicker: "Не только код", platforms_title: "Экосистемы Google и Microsoft", platforms_sub: "Свободно работаю в обеих крупных экосистемах — продуктивности и облачных сервисов.",
+    platforms_google_label: "Google", platforms_ms_label: "Microsoft",
+    desc_gmail: "Веду всю переписку с клиентами через Gmail.",
+    desc_gdrive: "Храню и делюсь файлами проектов через Google Drive.",
+    desc_gsheets: "Веду бюджеты, лиды и данные проектов в Google Sheets.",
+    desc_gcalendar: "Планирую встречи и дедлайны в Google Calendar.",
+    desc_gmeet: "Провожу звонки и демо с клиентами в Google Meet.",
+    desc_ganalytics: "Отслеживаю трафик и поведение посетителей через Google Analytics.",
+    desc_gcloud: "Разворачиваю и размещаю приложения в Google Cloud.",
+    desc_gdocs: "Пишу и делюсь документами совместно в Google Docs.",
+    desc_gslides: "Быстро создаю презентации в Google Slides.",
+    desc_gforms: "Собираю заявки и регистрации через Google Forms.",
+    desc_gtranslate: "Перевожу контент на разные языки через Google Translate.",
+    desc_gphotos: "Храню и организую фото проектов в Google Photos.",
+    desc_gchat: "Быстро общаюсь с командой и клиентами в Google Chat.",
+    desc_gmaps: "Добавляю адреса и маршруты с помощью Google Maps.",
+    desc_firebase: "Создаю и размещаю бэкенды на Firebase.",
+    desc_gads: "Веду и оптимизирую рекламные кампании в Google Ads.",
+    desc_gclassroom: "Настраиваю онлайн-занятия для академий в Google Classroom.",
+    desc_msoffice: "Готовлю аккуратные документы в Microsoft Office.",
+    desc_word: "Пишу предложения и отчёты в Microsoft Word.",
+    desc_excel: "Строю таблицы и анализирую данные в Excel.",
+    desc_powerpoint: "Создаю презентации для клиентов в PowerPoint.",
+    desc_outlook: "Веду деловую почту и календарь в Outlook.",
+    desc_teams: "Сотрудничаю и провожу встречи с клиентами в Microsoft Teams.",
+    desc_onedrive: "Резервирую и синхронизирую файлы через OneDrive.",
+    desc_azure: "Развёртываю и управляю облачной инфраструктурой в Azure.",
+    certs_kicker: "Подтверждение навыков", certs_title: "Сертификаты", certs_sub: "Подтверждённые курсы и проекты, которые я прошёл, чтобы постоянно расти профессионально.", certs_verify: "Проверить",
+    certs_featured_badge: "Государственная сертификация", certs_featured_desc: "Совместная инициатива правительств ОАЭ и Республики Узбекистан по обучению и развитию пяти миллионов человек в области промпт-инжиниринга для ИИ — в рамках Стратегии развития технологий ИИ Узбекистана до 2030 года.",
+    certs_featured2_badge: "Google Cloud · AI", certs_featured2_desc: "Курс от Google Cloud о том, как работает генеративный ИИ, его практическое применение и инструменты за современными ИИ-системами — фундамент сайтов и решений на базе ИИ, которые я создаю.",
+    desc_n8n: "Я связываю все мои инструменты в единый автоматический процесс без кода.",
+    price_kicker: "Цены", price_title: "Простые, прозрачные цены", price_sub: "Никаких скрытых платежей. Что видите — то и платите.",
+    one_time: "разовый платёж", based_req: "по требованиям", popular: "Самый популярный", get_started: "Начать", lets_talk: "Обсудим",
+    f_landing: "Лендинг (1 страница)", f_mobile: "Адаптивный под мобильные", f_contact: "Раздел контактов", f_tg: "Интеграция Telegram", f_3day: "Доставка за 3 дня", f_support: "Бесплатная поддержка",
+    f_multi: "Многостраничный сайт", f_custom: "Индивидуальный дизайн и брендинг", f_reg: "Форма регистрации", f_tgphone: "Интеграция Telegram + телефон", f_cms: "CMS (редактируемый контент)", f_5day: "Доставка за 5 дней", f_forever: "Бесплатная поддержка навсегда",
+    f_everything: "Всё из Professional", f_adv: "Продвинутые анимации", f_backend: "Интеграция backend", f_domain: "Помощь с доменом", f_priority: "Приоритетная доставка", f_lifetime: "Пожизненная бесплатная поддержка",
+    f_everything_custom: "Всё из Custom", f_platform: "Full-stack веб-платформа", f_panels: "Админ-панели с ролями", f_dbapi: "База данных, auth и API", f_deploy: "Развёртывание и обучение",
+    contact_title: "Давайте работать вместе", contact_sub: "Готовы вывести бизнес в интернет? Напишите мне ниже или в Telegram — отвечу быстро, и вместе сделаем что-то классное.",
+    msg_tg: "Написать в Telegram", send_email: "Отправить Email", phone_label: "Телефон", loc_city: "Ташкент Сити, Узбекистан", loc_label: "Локация",
+    form_name: "Ваше имя", form_name_ph: "например, Иван Петров", form_email: "Email", form_email_ph: "you@example.com",
+    form_msg: "Сообщение", form_msg_ph: "Расскажите о вашем проекте...", form_send: "Отправить сообщение", form_sending: "Отправка...",
+    form_ok: "Сообщение отправлено! Скоро отвечу. 🎉", form_err: "Что-то пошло не так. Попробуйте снова или напишите в Telegram.",
+    form_invalid: "Пожалуйста, заполните все поля и укажите корректный email.",
+    roles: ["AI Веб-разработчик", "Senior Vibe Coder", "Expert Prompting Engineer", "Основатель UzLeeder", "UI/UX Дизайнер", "Фриланс-разработчик"]
+  }
+};
+
+const labels = { en: "EN", uz: "UZ", tg: "TJ", ru: "RU" };
+const LANG_KEY = "uzleeder_lang";
+const THEME_KEY = "uzleeder_theme";
+
+let curLang = "en";
+let typeTimer = null, rIdx = 0, cIdx = 0, deleting = false;
+const typedEl = document.getElementById("typed");
+
+/* ===== Language ===== */
+function applyLang(lang) {
+  if (!i18n[lang]) lang = "en";
+  curLang = lang;
+  const dict = i18n[lang];
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    if (dict[key] != null) el.innerHTML = dict[key];
+  });
+  // placeholders
+  document.querySelectorAll("[data-i18n-ph]").forEach(el => {
+    const key = el.getAttribute("data-i18n-ph");
+    if (dict[key] != null) el.setAttribute("placeholder", dict[key]);
+  });
+  refreshToolTooltips();
+  if (window.__cmsProjects) translateProjects();
+  document.getElementById("langLabel").textContent = labels[lang];
+  document.documentElement.lang = lang;
+  document.querySelectorAll(".lang-opt").forEach(o => o.classList.toggle("active", o.dataset.lang === lang));
+  try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
+  // restart typing with new roles
+  clearTimeout(typeTimer); rIdx = 0; cIdx = 0; deleting = false; typedEl.textContent = "";
+  typeLoop();
+}
+
+function typeLoop() {
+  const roles = i18n[curLang].roles;
+  const word = roles[rIdx];
+  if (!deleting) {
+    typedEl.textContent = word.slice(0, ++cIdx);
+    if (cIdx === word.length) { deleting = true; typeTimer = setTimeout(typeLoop, 1600); return; }
+  } else {
+    typedEl.textContent = word.slice(0, --cIdx);
+    if (cIdx === 0) { deleting = false; rIdx = (rIdx + 1) % roles.length; }
+  }
+  typeTimer = setTimeout(typeLoop, deleting ? 55 : 95);
+}
+
+// language dropdown
+const langWrap = document.getElementById("langWrap");
+document.getElementById("langBtn").addEventListener("click", e => { e.stopPropagation(); langWrap.classList.toggle("open"); });
+document.querySelectorAll(".lang-opt").forEach(o => o.addEventListener("click", () => { applyLang(o.dataset.lang); langWrap.classList.remove("open"); }));
+document.addEventListener("click", () => langWrap.classList.remove("open"));
+
+/* ===== Theme ===== */
+const root = document.documentElement;
+let theme = root.getAttribute("data-theme") || "dark";
+// Address-bar / status-bar color on Android Chrome & iOS Safari
+const THEME_COLORS = { dark: "#0b0f1a", light: "#f7f5ef" };
+function applyTheme(t) {
+  theme = t === "light" ? "light" : "dark";
+  root.setAttribute("data-theme", theme);
+  const meta = document.getElementById("themeColor");
+  if (meta) meta.setAttribute("content", THEME_COLORS[theme]);
+  // swap project thumbnails to match the visitor's theme
+  document.querySelectorAll("[data-dark][data-light]").forEach(img => {
+    const next = img.getAttribute("data-" + theme);
+    if (next && img.getAttribute("src") !== next) img.setAttribute("src", next);
+  });
+  try { localStorage.setItem(THEME_KEY, theme); } catch (e) {}
+}
+document.getElementById("themeToggle").addEventListener("click", () => applyTheme(theme === "dark" ? "light" : "dark"));
+
+/* ===== Mobile menu ===== */
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+menuBtn.addEventListener("click", () => {
+  const open = navLinks.classList.toggle("open");
+  menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+});
+navLinks.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
+  navLinks.classList.remove("open");
+  menuBtn.setAttribute("aria-expanded", "false");
+}));
+
+/* ===== Navbar scroll ===== */
+window.addEventListener("scroll", () => {
+  document.getElementById("navbar").style.padding = window.scrollY > 60 ? ".7rem 2.5rem" : "1rem 2.5rem";
+});
+
+/* ===== Reveal on scroll ===== */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("show"); io.unobserve(e.target); } });
+}, { threshold: .12 });
+document.querySelectorAll(".reveal").forEach((el, i) => { el.style.transitionDelay = (i % 4 * .08) + "s"; io.observe(el); });
+
+/* ===== Toast notifications ===== */
+function toast(message, type) {
+  const wrap = document.getElementById("toastWrap");
+  const el = document.createElement("div");
+  el.className = "toast " + (type || "");
+  const icon = type === "err" ? "#i-alert" : "#i-check";
+  el.innerHTML = '<svg class="ico"><use href="' + icon + '"/></svg><span></span>';
+  el.querySelector("span").textContent = message;
+  wrap.appendChild(el);
+  requestAnimationFrame(() => el.classList.add("show"));
+  setTimeout(() => {
+    el.classList.remove("show");
+    setTimeout(() => el.remove(), 400);
+  }, 4500);
+}
+
+/* ===== Tool hover tooltips ===== */
+document.querySelectorAll(".tool-card[data-desc]").forEach(card => card.setAttribute("tabindex", "0"));
+function refreshToolTooltips() {
+  const dict = i18n[curLang];
+  document.querySelectorAll(".tool-card[data-desc]").forEach(card => {
+    const text = dict[card.getAttribute("data-desc")];
+    if (text != null) card.setAttribute("data-tooltip", text);
+  });
+}
+
+/* ===== Contact form ===== */
+const form = document.getElementById("contactForm");
+if (form) {
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    const dict = i18n[curLang];
+    const data = {
+      name: form.elements.name.value.trim(),
+      email: form.elements.email.value.trim(),
+      message: form.elements.message.value.trim()
+    };
+
+    // client-side validation
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email);
+    if (!data.name || !data.message || !emailOk) {
+      toast(dict.form_invalid, "err");
+      return;
+    }
+
+    const btn = form.querySelector(".form-submit");
+    btn.classList.add("loading");
+    btn.disabled = true;
+
+    try {
+      const res = await fetch(CONTACT_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      toast(dict.form_ok, "ok");
+      form.reset();
+    } catch (err) {
+      console.error("Contact form error:", err);
+      toast(dict.form_err, "err");
+    } finally {
+      btn.classList.remove("loading");
+      btn.disabled = false;
+    }
+  });
+}
+
+/* ===== Admin CMS: apply remote content (text overrides + dynamic projects) ===== */
+const CMS_TAGS = { live: { cls: "", key: "tag_live" }, sale: { cls: "sale", key: "tag_sale" }, soon: { cls: "", key: "tag_soon" } };
+
+function translateProjects() {
+  const list = window.__cmsProjects || [];
+  document.querySelectorAll(".portfolio-grid [data-cmsproj]").forEach(card => {
+    const p = list[+card.getAttribute("data-cmsproj")];
+    if (!p) return;
+    const pEl = card.querySelector(".proj-p");
+    if (pEl) pEl.textContent = (p.desc && (p.desc[curLang] || p.desc.en)) || "";
+    const btn = card.querySelector(".proj-btnlabel");
+    if (btn) btn.textContent = (p.btn && (p.btn[curLang] || p.btn.en)) || i18n[curLang].proj_view || "View";
+  });
+}
+
+function renderProjects(list) {
+  const grid = document.querySelector("#portfolio .portfolio-grid");
+  if (!grid) return;
+  window.__cmsProjects = list;
+  grid.innerHTML = "";
+  list.forEach((p, idx) => {
+    const t = CMS_TAGS[p.tag] || CMS_TAGS.live;
+    const card = document.createElement("div");
+    card.className = "proj reveal show";
+    card.setAttribute("data-cmsproj", idx);
+    card.style.transitionDelay = (idx % 3 * 0.08) + "s";
+
+    const tag = document.createElement("span");
+    tag.className = "proj-tag " + t.cls;
+    tag.setAttribute("data-i18n", t.key);
+    card.appendChild(tag);
+
+    if (p.image) {
+      const a = document.createElement("a");
+      a.className = "proj-thumb"; a.href = p.link || "#"; a.target = "_blank"; a.rel = "noopener";
+      const img = document.createElement("img");
+      img.src = p.image; img.alt = (p.title || "") + " preview"; img.loading = "lazy";
+      a.appendChild(img); card.appendChild(a);
+    } else {
+      const ic = document.createElement("div");
+      ic.className = "proj-icon";
+      ic.innerHTML = '<svg class="ico" aria-hidden="true"><use href="#i-rocket"/></svg>';
+      card.appendChild(ic);
+    }
+
+    const h = document.createElement("h3");
+    h.textContent = p.title || ""; card.appendChild(h);
+    const desc = document.createElement("p");
+    desc.className = "proj-p"; card.appendChild(desc);
+    const tech = document.createElement("div");
+    tech.className = "proj-tech";
+    (p.tech || []).forEach(tx => { const s = document.createElement("span"); s.className = "tech"; s.textContent = tx; tech.appendChild(s); });
+    card.appendChild(tech);
+
+    if (p.link) {
+      const btn = document.createElement("a");
+      btn.className = "btn btn-gold proj-view"; btn.href = p.link; btn.target = "_blank"; btn.rel = "noopener";
+      btn.innerHTML = '<span class="proj-btnlabel"></span> <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg>';
+      card.appendChild(btn);
+    }
+    grid.appendChild(card);
+  });
+}
+
+async function loadRemoteContent() {
+  try {
+    const res = await fetch("/api/content", { cache: "no-store" });
+    if (!res.ok) return;
+    const content = await res.json();
+    if (!content || typeof content !== "object") return;
+    if (content.overrides) {
+      ["en", "uz", "tg", "ru"].forEach(l => { if (content.overrides[l]) Object.assign(i18n[l], content.overrides[l]); });
+    }
+    if (Array.isArray(content.projects) && content.projects.length) renderProjects(content.projects);
+    applyLang(curLang);
+  } catch (e) { /* offline / not deployed yet: keep static defaults */ }
+}
+
+/* ===== Init ===== */
+(function init() {
+  // restore theme — fall back to the phone's system setting on first visit
+  let savedTheme;
+  try { savedTheme = localStorage.getItem(THEME_KEY); } catch (e) {}
+  if (!savedTheme && window.matchMedia) {
+    savedTheme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+  }
+  applyTheme(savedTheme || theme);
+
+  // restore language (fall back to browser language, then English)
+  let savedLang;
+  try { savedLang = localStorage.getItem(LANG_KEY); } catch (e) {}
+  if (!savedLang) {
+    const nav = (navigator.language || "en").slice(0, 2);
+    savedLang = i18n[nav] ? nav : "en";
+  }
+  applyLang(savedLang);
+  loadRemoteContent();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Max — Prompt Engineer &amp; AI-Assisted Developer | UzLeeder</title>
+
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2CG6NP35RM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2CG6NP35RM');
+</script>
+
+<!-- SEO -->
+<meta name="description" content="Max (Mekhriddin Abdualim) — prompt engineer, AI-assisted developer and founder of UzLeeder. Real digital products, AI systems, learning platforms and modern web experiences, built in Tashkent, Uzbekistan."/>
+<meta name="keywords" content="UzLeeder, Max, Mekhriddin Abdualim, prompt engineer, AI-assisted developer, AI systems, RAG, web developer Uzbekistan, Tashkent, sayt yaratish, веб-разработчик Ташкент"/>
+<meta name="author" content="Mekhriddin Abdualim (Max)"/>
+<meta name="robots" content="index, follow"/>
+<meta name="google-site-verification" content="FxK8trRub73FbxGOzZoylFMsx_VsNCN7jBaFdT9_5-U"/>
+<link rel="canonical" href="https://uzleeder.netlify.app/"/>
+
+<!-- PWA / browser chrome (theme-color is updated by JS to match the theme) -->
+<meta name="theme-color" id="themeColor" content="#07090d"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="apple-mobile-web-app-title" content="UzLeeder"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<link rel="icon" type="image/svg+xml" href="/icon.svg"/>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+<link rel="mask-icon" href="/icon.svg" color="#e5243b"/>
+
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="UzLeeder"/>
+<meta property="og:title" content="Max — Prompt Engineer & AI-Assisted Developer | UzLeeder"/>
+<meta property="og:description" content="Engineering products for the AI era. Real products, AI systems and learning platforms — built by Max through UzLeeder."/>
+<meta property="og:url" content="https://uzleeder.netlify.app/"/>
+<meta property="og:image" content="https://uzleeder.netlify.app/og-image.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="UzLeeder — Engineering products for the AI era"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:locale:alternate" content="uz_UZ"/>
+<meta property="og:locale:alternate" content="fa_IR"/>
+<meta property="og:locale:alternate" content="ar_AR"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Max — Prompt Engineer & AI-Assisted Developer | UzLeeder"/>
+<meta name="twitter:description" content="Engineering products for the AI era. Real products, AI systems and learning platforms."/>
+<meta name="twitter:image" content="https://uzleeder.netlify.app/og-image.png"/>
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://uzleeder.netlify.app/#website",
+      "name": "UzLeeder",
+      "alternateName": "Max — UzLeeder",
+      "url": "https://uzleeder.netlify.app/",
+      "publisher": { "@id": "https://uzleeder.netlify.app/#org" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://uzleeder.netlify.app/#org",
+      "name": "UzLeeder",
+      "slogan": "For Leaders",
+      "url": "https://uzleeder.netlify.app/",
+      "logo": "https://uzleeder.netlify.app/icon.svg",
+      "email": "uzleeder@gmail.com",
+      "founder": { "@id": "https://uzleeder.netlify.app/#max" },
+      "address": { "@type": "PostalAddress", "addressLocality": "Tashkent", "addressCountry": "UZ" },
+      "sameAs": ["https://t.me/uzleeder", "https://github.com/uzleeder", "https://www.youtube.com/@uzleeder"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://uzleeder.netlify.app/#max",
+      "name": "Mekhriddin Abdualim",
+      "alternateName": "Max",
+      "url": "https://uzleeder.netlify.app/",
+      "image": "https://i.postimg.cc/13t61VWL/image.png",
+      "jobTitle": "Prompt Engineer & AI-Assisted Developer",
+      "worksFor": { "@id": "https://uzleeder.netlify.app/#org" },
+      "address": { "@type": "PostalAddress", "addressLocality": "Tashkent", "addressCountry": "UZ" },
+      "email": "uzleeder@gmail.com",
+      "sameAs": ["https://t.me/uzleeder", "https://github.com/uzleeder", "https://www.youtube.com/@uzleeder"]
+    },
+    {
+      "@type": "ItemList",
+      "name": "Selected work",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "item": { "@type": "CreativeWork", "name": "Shokirov Math Academy", "url": "https://shokirov-academy.vercel.app", "creator": { "@id": "https://uzleeder.netlify.app/#org" }, "genre": "Education platform" } },
+        { "@type": "ListItem", "position": 2, "item": { "@type": "CreativeWork", "name": "MarketHub — B2B Travel Portal", "creator": { "@id": "https://uzleeder.netlify.app/#org" }, "genre": "B2B SaaS" } }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet"/>
+<link rel="preload" as="image" href="projects/markethub-cover.png"/>
+<link rel="stylesheet" href="style.css?v=5.4"/>
+
+<!-- Apply saved theme before first paint (no flash); mark JS as available -->
+<script>
+  (function () {
+    var d = document.documentElement;
+    d.classList.add("js");
+    try {
+      var t = localStorage.getItem("uzleeder_theme");
+      if (t !== "light" && t !== "dark") {
+        t = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+      }
+      d.setAttribute("data-theme", t);
+      var m = document.querySelector('meta[name="theme-color"]');
+      if (m) m.setAttribute("content", t === "light" ? "#f6f7f9" : "#07090d");
+      var l = localStorage.getItem("uzleeder_lang");
+      if (l === "fa" || l === "ar") { d.setAttribute("dir", "rtl"); d.setAttribute("lang", l); }
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <!-- Primary brand symbol: red outer Λ + inner chevron (ink on light, white on dark) -->
+    <symbol id="brand-mark" viewBox="0 0 48 44"><path d="M4 41 24 5l20 36" style="fill:none;stroke:var(--accent);stroke-width:7;stroke-miterlimit:10"/><path d="M14 41 24 23l10 18" style="fill:none;stroke:var(--mark-inner);stroke-width:5.5;stroke-miterlimit:10"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7Z"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+    <symbol id="i-out" viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5L7 4.5Z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><rect x="6" y="4.5" width="4" height="15" rx="1" fill="currentColor" stroke="none"/><rect x="14" y="4.5" width="4" height="15" rx="1" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
+    <symbol id="i-expand" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></symbol>
+    <symbol id="i-youtube" viewBox="0 0 24 24"><path d="M2.5 17a24.1 24.1 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.6 49.6 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.1 24.1 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.6 49.6 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.3-1.8-1.3-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8 0 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"/></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.2-.2.3-.8 1-.9 1.1-.2.2-.4.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.4-.5.1-.2 0-.4 0-.5s-.7-1.6-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.5-.3M12 21.8h-.1a9.9 9.9 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.7-.2-.4a9.9 9.9 0 0 1-1.5-5.3C2 6.9 6.5 2.5 12 2.5c2.6 0 5.1 1 7 2.9a9.8 9.8 0 0 1 2.9 7c0 5.4-4.4 9.9-9.9 9.9M20.5 3.4A11.8 11.8 0 0 0 12 0C5.5 0 .1 5.3.1 11.9c0 2.1.6 4.1 1.6 5.9L0 24l6.3-1.7a12 12 0 0 0 5.7 1.5c6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.2-3.5-8.4"/></symbol>
+  </defs>
+</svg>
+
+<a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+
+<!-- Brand intro (every page load; skipped for reduced motion; click/key skips):
+     "<" → U·z·L·e·e·d·e·r typed → ">" → white "<For leaders>" typed → brackets turn into the Λ mark → loading 0–100% -->
+<div class="intro" id="intro" aria-hidden="true">
+  <div class="intro-stage">
+    <div class="intro-text">
+      <div class="intro-main">
+        <span class="ib ib-l"><svg viewBox="0 0 48 44" aria-hidden="true"><path d="M4 41 24 5l20 36"/></svg></span><span class="ch uz" style="--i:0">U</span><span class="ch uz" style="--i:1">z</span><span class="ch" style="--i:2">L</span><span class="ch" style="--i:3">e</span><span class="ch" style="--i:4">e</span><span class="ch" style="--i:5">d</span><span class="ch" style="--i:6">e</span><span class="ch" style="--i:7">r</span><span class="ib ib-r"><svg viewBox="0 0 48 44" aria-hidden="true"><path d="M4 41 24 5l20 36"/></svg></span>
+      </div>
+      <div class="intro-sub"><span class="cs" style="--i:0">&lt;</span><span class="cs" style="--i:1">F</span><span class="cs" style="--i:2">o</span><span class="cs" style="--i:3">r</span><span class="cs" style="--i:4">&nbsp;</span><span class="cs" style="--i:5">l</span><span class="cs" style="--i:6">e</span><span class="cs" style="--i:7">a</span><span class="cs" style="--i:8">d</span><span class="cs" style="--i:9">e</span><span class="cs" style="--i:10">r</span><span class="cs" style="--i:11">s</span><span class="cs" style="--i:12">&gt;</span></div>
+    </div>
+    <svg class="intro-mark" viewBox="0 0 48 44"><path class="i-out" d="M4 41 24 5l20 36"/><path class="i-in" d="M14 41 24 23l10 18"/></svg>
+  </div>
+  <div class="intro-load"><div class="intro-bar"><i id="introFill"></i></div><span class="intro-pct" id="introPct">0%</span></div>
+</div>
+
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="nav" id="navbar">
+  <a href="#home" class="logo" aria-label="UzLeeder — home">
+    <svg class="logo-mark" width="30" height="28" aria-hidden="true"><use href="#brand-mark"/></svg>
+    <span class="logo-text"><span class="logo-word"><span class="uz">Uz</span><span class="lee">Leeder</span></span><span class="logo-tag">For Leaders</span></span>
+  </a>
+  <nav class="nav-menu" id="navMenu" aria-label="Primary">
+    <a href="#work" data-i18n="nav_work">Work</a>
+    <a href="#ai" data-i18n="nav_ai">AI</a>
+    <a href="#about" data-i18n="nav_about">About</a>
+    <a href="#team" data-i18n="nav_team">Team</a>
+    <a href="#uzleeder">UzLeeder</a>
+    <a href="#contact" data-i18n="nav_contact">Contact</a>
+  </nav>
+  <div class="nav-tools">
+    <div class="lang" id="langWrap">
+      <button class="lang-btn" id="langBtn" type="button" aria-label="Select language" aria-haspopup="true" aria-expanded="false">
+        <svg class="ico" aria-hidden="true"><use href="#i-globe"/></svg><span id="langLabel">EN</span><svg class="ico chev" aria-hidden="true"><use href="#i-chev"/></svg>
+      </button>
+      <div class="lang-menu" role="menu" aria-label="Language">
+        <button type="button" class="lang-opt active" data-lang="en" role="menuitemradio" aria-checked="true">English</button>
+        <button type="button" class="lang-opt" data-lang="uz" role="menuitemradio" aria-checked="false">O'zbek</button>
+        <button type="button" class="lang-opt" data-lang="fa" role="menuitemradio" aria-checked="false" lang="fa" dir="rtl">فارسی</button>
+        <button type="button" class="lang-opt" data-lang="ar" role="menuitemradio" aria-checked="false" lang="ar" dir="rtl">العربية</button>
+      </div>
+    </div>
+    <button class="theme-btn" id="themeToggle" type="button" aria-label="Toggle dark and light theme">
+      <svg class="ico sun" aria-hidden="true"><use href="#i-sun"/></svg><svg class="ico moon" aria-hidden="true"><use href="#i-moon"/></svg>
+    </button>
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-controls="navMenu" aria-expanded="false"><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home" aria-labelledby="heroTitle">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow reveal"><span class="dot" aria-hidden="true"></span><span data-i18n="hero_eyebrow">UzLeeder · AI era / 2026</span></p>
+      <h1 class="hero-title reveal" id="heroTitle" data-i18n="hero_title">Engineering products for the <em>AI era.</em></h1>
+      <p class="hero-role reveal" aria-live="off"><span class="role-prefix">Max —</span> <span id="typed">Prompt Engineer</span><span class="caret" aria-hidden="true"></span></p>
+      <p class="hero-desc reveal" data-i18n="hero_desc">I'm Max — a prompt engineer and AI-assisted developer building real digital products, AI systems, learning platforms and modern web experiences through UzLeeder.</p>
+      <div class="hero-actions reveal">
+        <a href="#work" class="btn btn-primary"><span data-i18n="btn_work">View work</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a href="#uzleeder" class="btn btn-ghost" data-i18n="btn_about">About UzLeeder</a>
+        <a href="#contact" class="btn-link" data-i18n="btn_contact">Contact</a>
+      </div>
+      <dl class="hero-facts reveal">
+        <div><dt data-i18n="hf_based">Based in</dt><dd data-i18n="hf_city">Tashkent, Uzbekistan</dd></div>
+        <div><dt data-i18n="hf_shipped">Shipped</dt><dd data-i18n="hf_products">2 production products</dd></div>
+        <div><dt data-i18n="hf_focus">Focus</dt><dd data-i18n="hf_focus_v">AI systems · Web products</dd></div>
+      </dl>
+    </div>
+
+    <figure class="showcase reveal" aria-label="Project showcase: MarketHub">
+      <div class="showcase-bar">
+        <span class="sc-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="sc-label"><span class="sc-live" aria-hidden="true"></span><span data-i18n="sc_now">Now showing</span></span>
+        <span class="sc-index">01 / 02</span>
+      </div>
+      <div class="showcase-media">
+        <video id="heroVideo" src="projects/markethub-cover.mp4" poster="projects/markethub-cover.png" muted loop playsinline preload="metadata" aria-label="MarketHub product walkthrough (silent)"></video>
+      </div>
+      <figcaption class="showcase-foot">
+        <button class="sc-play" id="heroPlay" type="button" aria-label="Pause video" aria-pressed="true">
+          <svg class="ico ico-pause" aria-hidden="true"><use href="#i-pause"/></svg><svg class="ico ico-play" aria-hidden="true"><use href="#i-play"/></svg>
+        </button>
+        <div class="sc-meta">
+          <b>MarketHub — B2B Travel Portal</b>
+          <span>Python · Flask · SQLite · 2FA</span>
+          <div class="sc-track" aria-hidden="true"><div class="sc-fill" id="heroFill"></div></div>
+        </div>
+        <button class="sc-case" type="button" data-open-case="markethub"><span data-i18n="cs_open">View case study</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      </figcaption>
+    </figure>
+  </div>
+  <div class="container hero-foot" aria-hidden="true">
+    <span>BUILD WITH AI</span><span>ENGINEER WITH INTELLIGENCE</span><span>CREATE WHAT COMES NEXT</span>
+  </div>
+</section>
+
+<!-- ============ 01 · SELECTED WORK ============ -->
+<section class="section" id="work" aria-labelledby="workTitle">
+  <span id="portfolio" class="anchor-alias" aria-hidden="true"></span>
+  <div class="container">
+    <header class="sec-head reveal">
+      <p class="sec-kicker"><span class="sec-num">01</span><span data-i18n="work_kicker">Selected work</span></p>
+      <h2 id="workTitle" data-i18n="work_title">Real products. Real engineering.</h2>
+      <p class="sec-sub" data-i18n="port_sub">Every project here is shipped, working software — the proof behind everything else on this page.</p>
+    </header>
+
+    <div class="work-list" id="workList">
+      <article class="work-item reveal" data-case="shokirov">
+        <div class="work-media">
+          <a class="media-frame" href="https://shokirov-academy.vercel.app" target="_blank" rel="noopener" aria-label="Shokirov Math Academy — open the live site">
+            <img id="shokirovThumb" src="projects/shokirov-academy-dark.png" data-dark="projects/shokirov-academy-dark.png" data-light="projects/shokirov-academy-light.png" alt="Shokirov Math Academy platform — landing page" loading="lazy" decoding="async" width="2560" height="1600"/>
+          </a>
+          <span class="work-num" aria-hidden="true">01</span>
+        </div>
+        <div class="work-body">
+          <div class="work-tags"><span class="pill pill-live" data-i18n="tag_live">Live</span><span class="pill" data-i18n="certified">UzLeeder Certified</span></div>
+          <h3 class="work-title">Shokirov Math Academy</h3>
+          <p class="work-lead" data-i18n="w1_lead">A full-stack education platform for a real math academy — student, teacher and director dashboards behind role-based auth, with online admissions, attendance, payments, grades and homework.</p>
+          <dl class="work-meta">
+            <div><dt data-i18n="m_category">Category</dt><dd data-i18n="w1_cat">Education platform</dd></div>
+            <div><dt data-i18n="m_role">Role</dt><dd data-i18n="w1_role">Full-stack: product, UI, API, database</dd></div>
+            <div><dt data-i18n="m_tech">Technology</dt><dd>React · Node.js · Express · PostgreSQL · JWT</dd></div>
+            <div><dt data-i18n="m_value">Project value</dt><dd>$800</dd></div>
+          </dl>
+          <p class="work-why"><b data-i18n="m_why">Why it matters</b><span data-i18n="w1_why">One system runs admissions, teaching and payments for the whole academy — and gives students 5,653 auto-graded exercises across 31 DTM-book topics.</span></p>
+          <div class="work-actions">
+            <button class="btn btn-primary" type="button" data-open-case="shokirov"><span data-i18n="cs_open">View case study</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            <a class="btn btn-ghost" href="https://shokirov-academy.vercel.app" target="_blank" rel="noopener"><span data-i18n="proj_view">View site</span><svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a>
+            <a class="btn-link" href="contract-shokirov.html" target="_blank" rel="noopener" data-i18n="proj_contract">View contract</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="work-item reverse reveal" data-case="markethub">
+        <div class="work-media">
+          <div class="media-frame">
+            <video class="lazy-video" data-src="projects/markethub-cover.mp4" poster="projects/markethub-cover.png" muted loop playsinline preload="none" aria-label="MarketHub product walkthrough (silent)"></video>
+          </div>
+          <span class="work-num" aria-hidden="true">02</span>
+        </div>
+        <div class="work-body">
+          <div class="work-tags"><span class="pill pill-sale" data-i18n="tag_sale">For Sale</span><span class="pill" data-i18n="certified">UzLeeder Certified</span></div>
+          <h3 class="work-title">MarketHub — B2B Travel Portal</h3>
+          <p class="work-lead" data-i18n="w2_lead">A ready-to-deploy B2B booking portal for travel consolidators. Agencies submit requests from private areas; the team prices each order against discount rules, captures the airline PNR and sends a branded PDF invoice automatically.</p>
+          <dl class="work-meta">
+            <div><dt data-i18n="m_category">Category</dt><dd data-i18n="w2_cat">B2B SaaS · Travel</dd></div>
+            <div><dt data-i18n="m_role">Role</dt><dd data-i18n="w2_role">Sole author: product, backend, security, UI</dd></div>
+            <div><dt data-i18n="m_tech">Technology</dt><dd>Python · Flask · SQLite · 2FA · Docker</dd></div>
+            <div><dt data-i18n="m_value">Project value</dt><dd>$2500+ <small data-i18n="proj_negotiable">or let's talk</small></dd></div>
+          </dl>
+          <p class="work-why"><b data-i18n="m_why">Why it matters</b><span data-i18n="w2_why">Multi-company SaaS with role-based access, 2FA and a full audit log — plus a GDS itinerary reader that recognises 1,100+ airlines from raw PNR text.</span></p>
+          <div class="work-actions">
+            <button class="btn btn-primary" type="button" data-open-case="markethub"><span data-i18n="cs_open">View case study</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            <a class="btn btn-ghost" href="https://t.me/uzleeder" target="_blank" rel="noopener"><span data-i18n="proj_buy">Inquire</span><svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a>
+            <a class="btn-link" href="certificate-markethub.html" target="_blank" rel="noopener" data-i18n="proj_certificate">View certificate</a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <a class="work-next reveal" href="#contact">
+      <span class="work-next-k" data-i18n="next_k">03 — Next</span>
+      <span class="work-next-t" data-i18n="next_t">Your product could be the next case study.</span>
+      <span class="work-next-a" aria-hidden="true"><svg class="ico"><use href="#i-arrow"/></svg></span>
+    </a>
+  </div>
+</section>
+
+<!-- ============ 02 · WHAT I BUILD ============ -->
+<section class="section section-alt" id="build" aria-labelledby="buildTitle">
+  <div class="container">
+    <header class="sec-head reveal">
+      <p class="sec-kicker"><span class="sec-num">02</span><span data-i18n="build_kicker">What I build</span></p>
+      <h2 id="buildTitle" data-i18n="build_title">Systems, not just screens.</h2>
+    </header>
+    <ol class="build-grid">
+      <li class="build-item reveal"><span class="build-n">01</span><h3 data-i18n="b1_t">AI Systems</h3><p data-i18n="b1_d">RAG applications, knowledge-based assistants, AI workflows and agentic pipelines.</p></li>
+      <li class="build-item reveal"><span class="build-n">02</span><h3 data-i18n="b2_t">AI-Assisted Products</h3><p data-i18n="b2_d">Modern applications engineered with AI in the loop — faster iteration, the same engineering discipline.</p></li>
+      <li class="build-item reveal"><span class="build-n">03</span><h3 data-i18n="b3_t">Web Applications</h3><p data-i18n="b3_d">Production-oriented websites and platforms with auth, databases and admin panels.</p></li>
+      <li class="build-item reveal"><span class="build-n">04</span><h3 data-i18n="b4_t">Learning Systems</h3><p data-i18n="b4_d">Educational platforms and personal learning systems — like the Shokirov Math Academy platform.</p></li>
+      <li class="build-item reveal"><span class="build-n">05</span><h3 data-i18n="b5_t">Automation</h3><p data-i18n="b5_d">Multi-step workflows, Telegram bots and integrations that take repetitive work off people.</p></li>
+      <li class="build-item reveal"><span class="build-n">06</span><h3 data-i18n="b6_t">Digital Products</h3><p data-i18n="b6_d">From concept to deployment: product thinking, design, build and launch.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ 03 · AI ENGINEERING ============ -->
+<section class="section section-ai" id="ai" aria-labelledby="aiTitle">
+  <div class="container">
+    <header class="sec-head reveal">
+      <p class="sec-kicker"><span class="sec-num">03</span><span data-i18n="ai_kicker">AI engineering</span></p>
+      <h2 id="aiTitle" data-i18n="ai_title">AI isn't decoration. It's part of the engineering.</h2>
+      <p class="sec-sub" data-i18n="ai_sub">How I actually work with models — the methods behind the products.</p>
+    </header>
+
+    <div class="pipeline reveal" id="pipeline">
+      <p class="pipe-title" data-i18n="pipe_title">How an idea becomes a product</p>
+      <ol class="pipe">
+        <li><b data-i18n="p1">Idea</b><span data-i18n="p1d">a real problem</span></li>
+        <li><b data-i18n="p2">Prompt</b><span data-i18n="p2d">instructions &amp; constraints</span></li>
+        <li><b data-i18n="p3">Model</b><span data-i18n="p3d">the right model per step</span></li>
+        <li><b data-i18n="p4">Logic</b><span data-i18n="p4d">code, rules, data</span></li>
+        <li><b data-i18n="p5">System</b><span data-i18n="p5d">APIs, databases, auth</span></li>
+        <li><b data-i18n="p6">Product</b><span data-i18n="p6d">shipped software</span></li>
+        <li><b data-i18n="p7">User</b><span data-i18n="p7d">real people use it</span></li>
+      </ol>
+    </div>
+
+    <div class="ai-grid">
+      <article class="ai-cap reveal" tabindex="0"><span class="ai-n">A</span><h3 data-i18n="ai1_t">Prompt Engineering</h3><p data-i18n="ai1_d">Designing system-level instructions, constraints, behaviour and output structures for reliable AI applications.</p><div class="ai-peek" aria-hidden="true"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/claude-color.svg" alt="" width="22" height="22" loading="lazy" decoding="async"/><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/openai.svg" alt="" width="22" height="22" loading="lazy" decoding="async"/><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/gemini-color.svg" alt="" width="22" height="22" loading="lazy" decoding="async"/></div><div class="ai-tools"><p class="ai-tools-k" data-i18n="ai_tools_label">Tools I use here</p><ul><li><span class="ai-logo"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/claude-color.svg" alt="" width="28" height="28" loading="lazy" decoding="async"/></span><span><b>Claude</b><em data-i18n="tx_1_claude">long, structured system prompts</em></span></li><li><span class="ai-logo"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/openai.svg" alt="" width="28" height="28" loading="lazy" decoding="async"/></span><span><b>ChatGPT</b><em data-i18n="tx_1_chatgpt">fast prompt iteration and testing</em></span></li><li><span class="ai-logo"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/gemini-color.svg" alt="" width="28" height="28" loading="lazy" decoding="async"/></span><span><b>Gemini</b><em data-i18n="tx_1_gemini">comparing outputs across models</em></span></li></ul></div></article>
+      <article class="ai-cap reveal" tabindex="0"><span class="ai-n">B</span><h3 data-i18n="ai2_t">System Prompt Design</h3><p data-i18n="ai2_d">Defining roles, rules, tone and failure behaviour so a model acts consistently inside a product.</p><div class="ai-peek" aria-hidden="true"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/claude-color.svg" alt="" width="22" height="22" loading="lazy" decoding="async"/><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/openai.svg" alt="" width="22" height="22" loading="lazy" decoding="async"/><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/gemini-color.svg" alt="" width="22" height="22" loading="lazy" decoding="async"/></div><div class="ai-tools"><p class="ai-tools-k" data-i18n="ai_tools_label">Tools I use here</p><ul><li><span class="ai-logo"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/claude-color.svg" alt="" width="28" height="28" loading="lazy" decoding="async"/></span><span><b>Claude</b><em data-i18n="tx_2_claude">roles, rules and tone for assistants</em></span></li><li><span class="ai-logo"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/openai.svg" alt="" width="28" height="28" loading="lazy" decoding="async"/></span><span><b>ChatGPT</b><em data-i18n="tx_2_chatgpt">custom assistant behaviour</em></span></li><li><span class="ai-logo"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/gemini-color.svg" alt="" width="28" height="28" loading="lazy" decoding="async"/></span><span><b>Gemini</b><em data-i18n="tx_2_gemini">checking consistency across models</em></span></li></ul></div></article>
+      <article class="ai-cap reveal" tabindex="0"><span class="ai-n">C</span><h3 data-i18n="ai3_t">RAG</h3><p data-i18n="ai3_d">Connecting models to controlled knowledge sources so answers are grounded in relevant information.</p><div class="ai-peek" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=notebooklm.google&sz=128" alt="" width="22" height="22" loading="lazy" decoding="async"/><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/perplexity-color.svg" alt="" width="22" height="22" loading="lazy" decoding="async"/><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/claude-color.svg" alt="" width="22" height="22" loading="lazy" decoding="async"/></div><div class="ai-tools"><p class="ai-tools-k" data-i18n="ai_tools_label">Tools I use here</p><ul><li><span class="ai-logo"><img src="https://www.google.com/s2/favicons?domain=notebooklm.google&sz=128" alt="" width="28" height="28" loading="lazy" decoding="async"/></span><span><b>NotebookLM</b><em data-i18n="tx_3_notebooklm">answers grounded in my own documents</em></span></li><li><span class="ai-logo"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/perplexity-color.svg" alt="" width="28" height="28" loading="lazy" decoding="async"/></span><span><b>Perplexity</b><em data-i18n="tx_3_perplexity">cited, source-backed research</em></span></li><li><span class="ai-logo"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/claude-color.svg" alt="" width="28" height="28" loading="lazy" decoding="async"/></span><span><b>Claude</b><em data-i18n="tx_3_claude">reasoning over the provided context</em></span></li></ul></div></article>
+      <article class="ai-cap reveal" tabindex="0"><span class="ai-n">D</span><h3 data-i18n="ai4_t">Knowledge-Base-Constrained Responses</h3><p data-i18n="ai4_d">Keeping answers inside an approved knowledge base — and saying "I don't know" when the source is silent.</p><div class="ai-peek" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=notebooklm.google&sz=128" alt="" width="22" height="22" loading="lazy" decoding="async"/><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/claude-color.svg" alt="" width="22" height="22" loading="lazy" decoding="async"/><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/openai.svg" alt="" width="22" height="22" loading="lazy" decoding="async"/></div><div class="ai-tools"><p class="ai-tools-k" data-i18n="ai_tools_label">Tools I use here</p><ul><li><span class="ai-logo"><img src="https://www.google.com/s2/favicons?domain=notebooklm.google&sz=128" alt="" width="28" height="28" loading="lazy" decoding="async"/></span><span><b>NotebookLM</b><em data-i18n="tx_4_notebooklm">responses limited to uploaded sources</em></span></li><li><span class="ai-logo"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/claude-color.svg" alt="" width="28" height="28" loading="lazy" decoding="async"/></span><span><b>Claude</b><em data-i18n="tx_4_claude">"answer only from the context" rules</em></span></li><li><span class="ai-logo"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/openai.svg" alt="" width="28" height="28" loading="lazy" decoding="async"/></span><span><b>ChatGPT</b><em data-i18n="tx_4_chatgpt">knowledge files with strict instructions</em></span></li></ul></div></article>
+      <article class="ai-cap reveal" tabindex="0"><span class="ai-n">E</span><h3 data-i18n="ai5_t">AI Workflow Orchestration</h3><p data-i18n="ai5_d">Chaining steps — retrieve, reason, generate, check — so several capabilities complete one larger task.</p><div class="ai-peek" aria-hidden="true"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/n8n-color.svg" alt="" width="22" height="22" loading="lazy" decoding="async"/><img src="https://www.google.com/s2/favicons?domain=zapier.com&sz=128" alt="" width="22" height="22" loading="lazy" decoding="async"/><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/claude-color.svg" alt="" width="22" height="22" loading="lazy" decoding="async"/></div><div class="ai-tools"><p class="ai-tools-k" data-i18n="ai_tools_label">Tools I use here</p><ul><li><span class="ai-logo"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/n8n-color.svg" alt="" width="28" height="28" loading="lazy" decoding="async"/></span><span><b>n8n</b><em data-i18n="tx_5_n8n">multi-step AI workflows</em></span></li><li><span class="ai-logo"><img src="https://www.google.com/s2/favicons?domain=zapier.com&sz=128" alt="" width="28" height="28" loading="lazy" decoding="async"/></span><span><b>Zapier</b><em data-i18n="tx_5_zapier">connecting apps to AI steps</em></span></li><li><span class="ai-logo"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/claude-color.svg" alt="" width="28" height="28" loading="lazy" decoding="async"/></span><span><b>Claude</b><em data-i18n="tx_5_claude">the reasoning step inside a flow</em></span></li></ul></div></article>
+      <article class="ai-cap reveal" tabindex="0"><span class="ai-n">F</span><h3 data-i18n="ai6_t">AI-Assisted Development</h3><p data-i18n="ai6_d">Building software with Claude Code, Cursor and similar tools, while architecture, review and testing stay human-owned.</p><div class="ai-peek" aria-hidden="true"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/claudecode-color.svg" alt="" width="22" height="22" loading="lazy" decoding="async"/><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/cursor.svg" alt="" width="22" height="22" loading="lazy" decoding="async"/><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/replit-color.svg" alt="" width="22" height="22" loading="lazy" decoding="async"/><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/lovable-color.svg" alt="" width="22" height="22" loading="lazy" decoding="async"/></div><div class="ai-tools"><p class="ai-tools-k" data-i18n="ai_tools_label">Tools I use here</p><ul><li><span class="ai-logo"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/claudecode-color.svg" alt="" width="28" height="28" loading="lazy" decoding="async"/></span><span><b>Claude Code</b><em data-i18n="tx_6_claudecode">large coding tasks from the terminal</em></span></li><li><span class="ai-logo"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/cursor.svg" alt="" width="28" height="28" loading="lazy" decoding="async"/></span><span><b>Cursor</b><em data-i18n="tx_6_cursor">AI pair-programming in the editor</em></span></li><li><span class="ai-logo"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/replit-color.svg" alt="" width="28" height="28" loading="lazy" decoding="async"/></span><span><b>Replit</b><em data-i18n="tx_6_replit">quick builds and deploys in the browser</em></span></li><li><span class="ai-logo"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/lovable-color.svg" alt="" width="28" height="28" loading="lazy" decoding="async"/></span><span><b>Lovable</b><em data-i18n="tx_6_lovable">from idea to working prototype</em></span></li></ul></div></article>
+      <article class="ai-cap reveal" tabindex="0"><span class="ai-n">G</span><h3 data-i18n="ai7_t">Multi-Model Workflows</h3><p data-i18n="ai7_d">Choosing the right model for each step — reasoning, writing, vision, voice — instead of forcing one model to do everything.</p><div class="ai-peek" aria-hidden="true"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/claude-color.svg" alt="" width="22" height="22" loading="lazy" decoding="async"/><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/openai.svg" alt="" width="22" height="22" loading="lazy" decoding="async"/><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/gemini-color.svg" alt="" width="22" height="22" loading="lazy" decoding="async"/><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/perplexity-color.svg" alt="" width="22" height="22" loading="lazy" decoding="async"/></div><div class="ai-tools"><p class="ai-tools-k" data-i18n="ai_tools_label">Tools I use here</p><ul><li><span class="ai-logo"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/claude-color.svg" alt="" width="28" height="28" loading="lazy" decoding="async"/></span><span><b>Claude</b><em data-i18n="tx_7_claude">reasoning and long documents</em></span></li><li><span class="ai-logo"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/openai.svg" alt="" width="28" height="28" loading="lazy" decoding="async"/></span><span><b>ChatGPT</b><em data-i18n="tx_7_chatgpt">writing and brainstorming</em></span></li><li><span class="ai-logo"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/gemini-color.svg" alt="" width="28" height="28" loading="lazy" decoding="async"/></span><span><b>Gemini</b><em data-i18n="tx_7_gemini">fast research and analysis</em></span></li><li><span class="ai-logo"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/perplexity-color.svg" alt="" width="28" height="28" loading="lazy" decoding="async"/></span><span><b>Perplexity</b><em data-i18n="tx_7_perplexity">live web search with citations</em></span></li></ul></div></article>
+      <article class="ai-cap reveal" tabindex="0"><span class="ai-n">H</span><h3 data-i18n="ai8_t">Content Generation Pipelines</h3><p data-i18n="ai8_d">Repeatable pipelines for text, image, video and voice with tools like Midjourney, Runway, Kling and ElevenLabs.</p><div class="ai-peek" aria-hidden="true"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/midjourney.svg" alt="" width="22" height="22" loading="lazy" decoding="async"/><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/runway.svg" alt="" width="22" height="22" loading="lazy" decoding="async"/><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/kling-color.svg" alt="" width="22" height="22" loading="lazy" decoding="async"/><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/elevenlabs.svg" alt="" width="22" height="22" loading="lazy" decoding="async"/><img src="https://www.google.com/s2/favicons?domain=heygen.com&sz=128" alt="" width="22" height="22" loading="lazy" decoding="async"/></div><div class="ai-tools"><p class="ai-tools-k" data-i18n="ai_tools_label">Tools I use here</p><ul><li><span class="ai-logo"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/midjourney.svg" alt="" width="28" height="28" loading="lazy" decoding="async"/></span><span><b>Midjourney</b><em data-i18n="tx_8_midjourney">images and concept art</em></span></li><li><span class="ai-logo"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/runway.svg" alt="" width="28" height="28" loading="lazy" decoding="async"/></span><span><b>Runway</b><em data-i18n="tx_8_runway">AI video editing and generation</em></span></li><li><span class="ai-logo"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/kling-color.svg" alt="" width="28" height="28" loading="lazy" decoding="async"/></span><span><b>Kling</b><em data-i18n="tx_8_kling">cinematic clips from text or images</em></span></li><li><span class="ai-logo"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/elevenlabs.svg" alt="" width="28" height="28" loading="lazy" decoding="async"/></span><span><b>ElevenLabs</b><em data-i18n="tx_8_elevenlabs">realistic voiceovers</em></span></li><li><span class="ai-logo"><img src="https://www.google.com/s2/favicons?domain=heygen.com&sz=128" alt="" width="28" height="28" loading="lazy" decoding="async"/></span><span><b>HeyGen</b><em data-i18n="tx_8_heygen">AI avatar videos</em></span></li></ul></div></article>
+      <article class="ai-cap reveal" tabindex="0"><span class="ai-n">I</span><h3 data-i18n="ai9_t">Intelligent Automation</h3><p data-i18n="ai9_d">n8n, Zapier and custom code that let AI act on real tools — forms, messages, spreadsheets and APIs.</p><div class="ai-peek" aria-hidden="true"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/n8n-color.svg" alt="" width="22" height="22" loading="lazy" decoding="async"/><img src="https://www.google.com/s2/favicons?domain=zapier.com&sz=128" alt="" width="22" height="22" loading="lazy" decoding="async"/><img src="https://www.google.com/s2/favicons?domain=openclaw.ai&sz=128" alt="" width="22" height="22" loading="lazy" decoding="async"/></div><div class="ai-tools"><p class="ai-tools-k" data-i18n="ai_tools_label">Tools I use here</p><ul><li><span class="ai-logo"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/n8n-color.svg" alt="" width="28" height="28" loading="lazy" decoding="async"/></span><span><b>n8n</b><em data-i18n="tx_9_n8n">automations with AI nodes</em></span></li><li><span class="ai-logo"><img src="https://www.google.com/s2/favicons?domain=zapier.com&sz=128" alt="" width="28" height="28" loading="lazy" decoding="async"/></span><span><b>Zapier</b><em data-i18n="tx_9_zapier">no-code app automations</em></span></li><li><span class="ai-logo"><img src="https://www.google.com/s2/favicons?domain=openclaw.ai&sz=128" alt="" width="28" height="28" loading="lazy" decoding="async"/></span><span><b>OpenClaw</b><em data-i18n="tx_9_openclaw">a personal AI assistant for real tasks</em></span></li></ul></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 · UZLEEDER ============ -->
+<section class="section section-brand" id="uzleeder" aria-labelledby="brandTitle">
+  <div class="container brand-grid">
+    <div class="brand-copy">
+      <header class="sec-head reveal">
+        <p class="sec-kicker"><span class="sec-num">04</span><span>UzLeeder</span></p>
+        <h2 id="brandTitle" data-i18n="brand_title">An AI-first technology and digital product brand.</h2>
+      </header>
+      <p class="brand-lead reveal" data-i18n="brand_lead">UzLeeder is the brand Max founded to build products and systems with modern software engineering and AI — for leaders who want working tools, not decoration.</p>
+      <div class="brand-cols">
+        <div class="reveal">
+          <h3 class="mini-head" data-i18n="brand_what">What we build</h3>
+          <ul class="brand-list">
+            <li data-i18n="bw1">AI systems</li>
+            <li data-i18n="bw2">Web products</li>
+            <li data-i18n="bw3">Learning platforms</li>
+            <li data-i18n="bw4">Automation</li>
+            <li data-i18n="bw5">Digital experiences</li>
+          </ul>
+        </div>
+        <div class="reveal">
+          <h3 class="mini-head" data-i18n="brand_vision">Vision</h3>
+          <ol class="vision">
+            <li><span>01</span><b data-i18n="v1">Start from Uzbekistan.</b></li>
+            <li><span>02</span><b data-i18n="v2">Build across Central Asia.</b></li>
+            <li><span>03</span><b data-i18n="v3">Scale globally.</b></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <figure class="emblem-figure reveal">
+      <!-- inline copy of emblem.svg: the ring (lettering, dotted circle, studs) rotates; the centre mark stays still -->
+      <svg class="emblem-live" viewBox="0 0 200 200" width="360" height="360" role="img" aria-label="Official UzLeeder emblem — For Leaders, established 2026">
+        <defs>
+          <path id="emTopLive" d="M 23,100 A 77,77 0 0 1 177,100" fill="none"/>
+          <path id="emBotLive" d="M 177,100 A 77,77 0 0 1 23,100" fill="none"/>
+        </defs>
+        <circle cx="100" cy="100" r="99" fill="#1c2233"/>
+        <circle cx="100" cy="100" r="91" fill="none" stroke="#f0384e" stroke-width="1.8"/>
+        <g class="em-ring">
+          <circle cx="100" cy="100" r="72" fill="none" stroke="#f0384e" stroke-width="1.3" stroke-dasharray="0 4.6" stroke-linecap="round"/>
+          <circle cx="28" cy="100" r="2.3" fill="#f0384e"/>
+          <circle cx="172" cy="100" r="2.3" fill="#f0384e"/>
+          <g font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-weight="800" fill="#f0384e">
+            <text font-size="12.5" letter-spacing="4.6"><textPath href="#emTopLive" startOffset="50%" text-anchor="middle">UZLEEDER</textPath></text>
+            <text font-size="9" letter-spacing="3.2"><textPath href="#emBotLive" startOffset="50%" text-anchor="middle">·FOR·LEADERS·</textPath></text>
+          </g>
+        </g>
+        <g class="em-core">
+          <path d="M74 116 100 66l26 50" fill="none" stroke="#f0384e" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M85 116 100 84l15 32" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="100" cy="61" r="4.8" fill="#ffffff"/>
+          <text x="100" y="137" text-anchor="middle" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="9.5" font-weight="800" letter-spacing="2" fill="#f0384e">EST. 2026</text>
+        </g>
+      </svg>
+      <figcaption><span data-i18n="emblem_cap">Official emblem</span> · EST. 2026</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ 05 · MAX ============ -->
+<section class="section" id="about" aria-labelledby="maxTitle">
+  <div class="container max-grid">
+    <div class="max-copy">
+      <header class="sec-head reveal">
+        <p class="sec-kicker"><span class="sec-num">05</span><span data-i18n="max_kicker">Founder</span></p>
+        <h2 id="maxTitle" class="max-name">Max.</h2>
+        <p class="max-roles" data-i18n="max_roles">Prompt Engineer · AI-Assisted Developer · Founder, UzLeeder</p>
+      </header>
+      <blockquote class="max-quote reveal" data-i18n="max_quote">"I don't want to simply use AI tools. I build products around them."</blockquote>
+      <div class="max-text reveal">
+        <p data-i18n="about_p1">I'm Max (Mekhriddin Abdualim), founder of UzLeeder, based in Tashkent, Uzbekistan. I work with an engineer's mindset: understand the problem, design the system, then use AI to move faster without cutting corners.</p>
+        <p data-i18n="about_p2">My work sits where product building meets AI workflows — full-stack platforms, automation and AI-assisted development. I learn by shipping: every project is an experiment that ends as working software.</p>
+        <p data-i18n="about_p3">I'm certified in AI prompt engineering through the Five Million AI Leaders programme and in generative AI through Google Cloud — and I keep learning with every build.</p>
+      </div>
+      <ul class="principles reveal">
+        <li><b data-i18n="pr1">Engineering mindset</b><span data-i18n="pr1d">Systems first, screens second.</span></li>
+        <li><b data-i18n="pr2">Product building</b><span data-i18n="pr2d">Shipped beats perfect.</span></li>
+        <li><b data-i18n="pr3">AI workflows</b><span data-i18n="pr3d">Models as tools, not magic.</span></li>
+        <li><b data-i18n="pr4">Experimentation</b><span data-i18n="pr4d">Test, measure, iterate.</span></li>
+      </ul>
+    </div>
+    <aside class="founder-card reveal" aria-label="Contact Max">
+      <div class="founder-photo">
+        <img src="https://i.postimg.cc/13t61VWL/image.png" alt="Portrait of Max (Mekhriddin Abdualim), founder of UzLeeder" width="160" height="160" loading="lazy" decoding="async" referrerpolicy="no-referrer"/>
+      </div>
+      <div class="founder-name">Mekhriddin Abdualim <span>“Max”</span></div>
+      <div class="founder-role" data-i18n="photo_role">Founder · UzLeeder</div>
+      <ul class="founder-links">
+        <li><a href="mailto:uzleeder@gmail.com"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg>uzleeder@gmail.com</a></li>
+        <li><a href="tel:+998916395110"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>+998 91 639 51 10</a></li>
+        <li><a href="https://t.me/uzleeder" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-send"/></svg>@uzleeder</a></li>
+        <li><a href="https://wa.me/998916395110" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-whatsapp"/></svg>WhatsApp</a></li>
+        <li><a href="https://github.com/uzleeder" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-github"/></svg>github.com/uzleeder</a></li>
+        <li><a href="https://leeder.com" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-globe"/></svg>leeder.com <em class="soon" data-i18n="soon">Soon</em></a></li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ 06 · TEAM ============ -->
+<section class="section section-alt" id="team" aria-labelledby="teamTitle">
+  <div class="container">
+    <header class="sec-head reveal">
+      <p class="sec-kicker"><span class="sec-num">06</span><span data-i18n="team_kicker">Team</span></p>
+      <h2 id="teamTitle" data-i18n="team_title">Max's team.</h2>
+      <p class="sec-sub" data-i18n="team_sub">One human founder. An AI crew where every model has a job — and nobody takes a day off.</p>
+      <p class="team-count" data-i18n="team_count">1 human · 12 AI teammates</p>
+    </header>
+
+    <div class="team-lead">
+      <article class="tm-card tm-founder reveal">
+        <span class="tm-avatar tm-avatar-brand"><svg viewBox="0 0 48 44" width="46" height="42" aria-hidden="true"><use href="#brand-mark"/></svg></span>
+        <div class="tm-body">
+          <span class="tm-badge tm-badge-human" data-i18n="team_human">Human</span>
+          <h3>Max</h3>
+          <p class="tm-role" data-i18n="tm_max_r">Founder · CEO · Lead Developer</p>
+          <p class="tm-desc" data-i18n="tm_max_d">Sets the direction, designs the systems and makes the final call — and answers for every release.</p>
+        </div>
+      </article>
+      <article class="tm-card tm-cofounder reveal">
+        <span class="tm-avatar"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/claude-color.svg" alt="" width="46" height="46" loading="lazy" decoding="async"/></span>
+        <div class="tm-body">
+          <span class="tm-badge" data-i18n="team_ai">AI</span>
+          <h3>Claude</h3>
+          <p class="tm-role" data-i18n="tm_claude_r">Co-Founder · Chief Architect</p>
+          <p class="tm-desc" data-i18n="tm_claude_d">Thinks through systems with me, challenges plans and writes the heavy code.</p>
+          <span class="tm-status"><i aria-hidden="true"></i><span data-i18n="team_ai">AI</span> · <span data-i18n="team_online">online</span></span>
+        </div>
+      </article>
+    </div>
+
+    <ul class="team-grid">
+      <li class="tm-card reveal"><span class="tm-avatar"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/claudecode-color.svg" alt="" width="40" height="40" loading="lazy" decoding="async"/></span><div class="tm-body"><h3>Claude Code</h3><p class="tm-role" data-i18n="tm_claudecode_r">Senior Engineer</p><p class="tm-desc" data-i18n="tm_claudecode_d">Ships large coding tasks straight from the terminal.</p><span class="tm-status"><i aria-hidden="true"></i><span data-i18n="team_ai">AI</span> · <span data-i18n="team_online">online</span></span></div></li>
+      <li class="tm-card reveal"><span class="tm-avatar"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/codex-color.svg" alt="" width="40" height="40" loading="lazy" decoding="async"/></span><div class="tm-body"><h3>Codex</h3><p class="tm-role" data-i18n="tm_codex_r">Software Engineer</p><p class="tm-desc" data-i18n="tm_codex_d">A second pair of hands on code — refactors, tests and reviews.</p><span class="tm-status"><i aria-hidden="true"></i><span data-i18n="team_ai">AI</span> · <span data-i18n="team_online">online</span></span></div></li>
+      <li class="tm-card reveal"><span class="tm-avatar"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/openai.svg" alt="" width="40" height="40" loading="lazy" decoding="async"/></span><div class="tm-body"><h3>ChatGPT</h3><p class="tm-role" data-i18n="tm_chatgpt_r">Writer & Adviser</p><p class="tm-desc" data-i18n="tm_chatgpt_d">Drafts copy, emails and ideas — and gives a second opinion.</p><span class="tm-status"><i aria-hidden="true"></i><span data-i18n="team_ai">AI</span> · <span data-i18n="team_online">online</span></span></div></li>
+      <li class="tm-card reveal"><span class="tm-avatar"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/gemini-color.svg" alt="" width="40" height="40" loading="lazy" decoding="async"/></span><div class="tm-body"><h3>Gemini</h3><p class="tm-role" data-i18n="tm_gemini_r">Research Analyst</p><p class="tm-desc" data-i18n="tm_gemini_d">Researches, summarises and analyses information fast.</p><span class="tm-status"><i aria-hidden="true"></i><span data-i18n="team_ai">AI</span> · <span data-i18n="team_online">online</span></span></div></li>
+      <li class="tm-card reveal"><span class="tm-avatar"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/perplexity-color.svg" alt="" width="40" height="40" loading="lazy" decoding="async"/></span><div class="tm-body"><h3>Perplexity</h3><p class="tm-role" data-i18n="tm_perplexity_r">Fact-Checker</p><p class="tm-desc" data-i18n="tm_perplexity_d">Checks claims against live, cited sources.</p><span class="tm-status"><i aria-hidden="true"></i><span data-i18n="team_ai">AI</span> · <span data-i18n="team_online">online</span></span></div></li>
+      <li class="tm-card reveal"><span class="tm-avatar"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/cursor.svg" alt="" width="40" height="40" loading="lazy" decoding="async"/></span><div class="tm-body"><h3>Cursor</h3><p class="tm-role" data-i18n="tm_cursor_r">Pair Programmer</p><p class="tm-desc" data-i18n="tm_cursor_d">Codes alongside me inside the editor.</p><span class="tm-status"><i aria-hidden="true"></i><span data-i18n="team_ai">AI</span> · <span data-i18n="team_online">online</span></span></div></li>
+      <li class="tm-card reveal"><span class="tm-avatar"><img src="https://www.google.com/s2/favicons?domain=higgsfield.ai&sz=128" alt="" width="40" height="40" loading="lazy" decoding="async"/></span><div class="tm-body"><h3>Higgsfield</h3><p class="tm-role" data-i18n="tm_higgsfield_r">Creative Director · Video</p><p class="tm-desc" data-i18n="tm_higgsfield_d">Cinematic camera moves and AI video effects.</p><span class="tm-status"><i aria-hidden="true"></i><span data-i18n="team_ai">AI</span> · <span data-i18n="team_online">online</span></span></div></li>
+      <li class="tm-card reveal"><span class="tm-avatar"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/midjourney.svg" alt="" width="40" height="40" loading="lazy" decoding="async"/></span><div class="tm-body"><h3>Midjourney</h3><p class="tm-role" data-i18n="tm_midjourney_r">Visual Designer</p><p class="tm-desc" data-i18n="tm_midjourney_d">Concept art, visuals and brand imagery.</p><span class="tm-status"><i aria-hidden="true"></i><span data-i18n="team_ai">AI</span> · <span data-i18n="team_online">online</span></span></div></li>
+      <li class="tm-card reveal"><span class="tm-avatar"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/elevenlabs.svg" alt="" width="40" height="40" loading="lazy" decoding="async"/></span><div class="tm-body"><h3>ElevenLabs</h3><p class="tm-role" data-i18n="tm_elevenlabs_r">Voice Artist</p><p class="tm-desc" data-i18n="tm_elevenlabs_d">Realistic voiceovers in any language.</p><span class="tm-status"><i aria-hidden="true"></i><span data-i18n="team_ai">AI</span> · <span data-i18n="team_online">online</span></span></div></li>
+      <li class="tm-card reveal"><span class="tm-avatar"><img src="https://www.google.com/s2/favicons?domain=notebooklm.google&sz=128" alt="" width="40" height="40" loading="lazy" decoding="async"/></span><div class="tm-body"><h3>NotebookLM</h3><p class="tm-role" data-i18n="tm_notebooklm_r">Knowledge Librarian</p><p class="tm-desc" data-i18n="tm_notebooklm_d">Turns documents into notes and audio overviews.</p><span class="tm-status"><i aria-hidden="true"></i><span data-i18n="team_ai">AI</span> · <span data-i18n="team_online">online</span></span></div></li>
+      <li class="tm-card reveal"><span class="tm-avatar"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/n8n-color.svg" alt="" width="40" height="40" loading="lazy" decoding="async"/></span><div class="tm-body"><h3>n8n</h3><p class="tm-role" data-i18n="tm_n8n_r">Operations Manager</p><p class="tm-desc" data-i18n="tm_n8n_d">Runs the automations that connect everything.</p><span class="tm-status"><i aria-hidden="true"></i><span data-i18n="team_ai">AI</span> · <span data-i18n="team_online">online</span></span></div></li>
+    </ul>
+    <p class="team-note reveal" data-i18n="team_note">Roles describe how Max actually uses each tool. Final decisions — and responsibility for every release — stay human.</p>
+  </div>
+</section>
+
+<!-- ============ 07 · TECHNOLOGY ============ -->
+<section class="section section-alt" id="stack" aria-labelledby="stackTitle">
+  <span id="tools" class="anchor-alias" aria-hidden="true"></span><span id="platforms" class="anchor-alias" aria-hidden="true"></span>
+  <div class="container">
+    <header class="sec-head reveal">
+      <p class="sec-kicker"><span class="sec-num">07</span><span data-i18n="stack_kicker">Technology</span></p>
+      <h2 id="stackTitle" data-i18n="stack_title">Grouped by purpose.</h2>
+      <p class="sec-sub" data-i18n="stack_sub">Only what I use in real work — nothing listed just because it's popular.</p>
+    </header>
+    <div class="stack">
+      <div class="stack-row reveal"><h3 data-i18n="st_ai">AI &amp; models</h3><ul><li tabindex="0"><span class="st-ico" aria-hidden="true"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/claude-color.svg" alt="" width="30" height="30" loading="lazy" decoding="async"/></span><span class="st-name">Claude</span></li><li tabindex="0"><span class="st-ico" aria-hidden="true"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/claudecode-color.svg" alt="" width="30" height="30" loading="lazy" decoding="async"/></span><span class="st-name">Claude Code</span></li><li tabindex="0"><span class="st-ico" aria-hidden="true"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/openai.svg" alt="" width="30" height="30" loading="lazy" decoding="async"/></span><span class="st-name">ChatGPT</span></li><li tabindex="0"><span class="st-ico" aria-hidden="true"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/gemini-color.svg" alt="" width="30" height="30" loading="lazy" decoding="async"/></span><span class="st-name">Gemini</span></li><li tabindex="0"><span class="st-ico" aria-hidden="true"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/cursor.svg" alt="" width="30" height="30" loading="lazy" decoding="async"/></span><span class="st-name">Cursor</span></li><li tabindex="0"><span class="st-ico" aria-hidden="true"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/perplexity-color.svg" alt="" width="30" height="30" loading="lazy" decoding="async"/></span><span class="st-name">Perplexity</span></li><li tabindex="0"><span class="st-ico" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=notebooklm.google&sz=128" alt="" width="30" height="30" loading="lazy" decoding="async"/></span><span class="st-name">NotebookLM</span></li></ul></div>
+      <div class="stack-row reveal"><h3 data-i18n="st_lang">Languages</h3><ul><li tabindex="0"><span class="st-ico" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="" width="30" height="30" loading="lazy" decoding="async"/></span><span class="st-name">Python</span></li><li tabindex="0"><span class="st-ico" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="" width="30" height="30" loading="lazy" decoding="async"/></span><span class="st-name">JavaScript</span></li><li tabindex="0"><span class="st-ico" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="" width="30" height="30" loading="lazy" decoding="async"/></span><span class="st-name">TypeScript</span></li><li tabindex="0"><span class="st-ico" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="" width="30" height="30" loading="lazy" decoding="async"/></span><span class="st-name">HTML</span></li><li tabindex="0"><span class="st-ico" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="" width="30" height="30" loading="lazy" decoding="async"/></span><span class="st-name">CSS</span></li><li tabindex="0"><span class="st-ico" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="" width="30" height="30" loading="lazy" decoding="async"/></span><span class="st-name">SQL</span></li></ul></div>
+      <div class="stack-row reveal"><h3 data-i18n="st_fb">Frontend &amp; backend</h3><ul><li tabindex="0"><span class="st-ico" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="" width="30" height="30" loading="lazy" decoding="async"/></span><span class="st-name">React</span></li><li tabindex="0"><span class="st-ico" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="" width="30" height="30" loading="lazy" decoding="async"/></span><span class="st-name">Node.js</span></li><li tabindex="0"><span class="st-ico" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="" width="30" height="30" loading="lazy" decoding="async"/></span><span class="st-name">Express</span></li><li tabindex="0"><span class="st-ico" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" alt="" width="30" height="30" loading="lazy" decoding="async"/></span><span class="st-name">Flask</span></li><li tabindex="0"><span class="st-ico" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netlify/netlify-original.svg" alt="" width="30" height="30" loading="lazy" decoding="async"/></span><span class="st-name">Netlify Functions</span></li></ul></div>
+      <div class="stack-row reveal"><h3 data-i18n="st_data">Data &amp; security</h3><ul><li tabindex="0"><span class="st-ico" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="" width="30" height="30" loading="lazy" decoding="async"/></span><span class="st-name">PostgreSQL (Neon)</span></li><li tabindex="0"><span class="st-ico" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" alt="" width="30" height="30" loading="lazy" decoding="async"/></span><span class="st-name">SQLite</span></li><li tabindex="0"><span class="st-ico" aria-hidden="true"><img src="https://svgl.app/library/firebase.svg" alt="" width="30" height="30" loading="lazy" decoding="async"/></span><span class="st-name">Firebase</span></li><li tabindex="0"><span class="st-ico" aria-hidden="true"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/jsonwebtokens.svg" alt="" width="30" height="30" loading="lazy" decoding="async"/></span><span class="st-name">JWT auth</span></li><li tabindex="0"><span class="st-ico" aria-hidden="true"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e01e37' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='4' y='11' width='16' height='10' rx='2'/%3E%3Cpath d='M8 11V7a4 4 0 0 1 8 0v4'/%3E%3Ccircle cx='12' cy='16' r='1.3' fill='%23e01e37'/%3E%3C/svg%3E" alt="" width="30" height="30" loading="lazy" decoding="async"/></span><span class="st-name">2FA</span></li></ul></div>
+      <div class="stack-row reveal"><h3 data-i18n="st_deploy">Deployment</h3><ul><li tabindex="0"><span class="st-ico" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg" alt="" width="30" height="30" loading="lazy" decoding="async"/></span><span class="st-name">Vercel</span></li><li tabindex="0"><span class="st-ico" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netlify/netlify-original.svg" alt="" width="30" height="30" loading="lazy" decoding="async"/></span><span class="st-name">Netlify</span></li><li tabindex="0"><span class="st-ico" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="" width="30" height="30" loading="lazy" decoding="async"/></span><span class="st-name">Docker</span></li><li tabindex="0"><span class="st-ico" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="" width="30" height="30" loading="lazy" decoding="async"/></span><span class="st-name">Git &amp; GitHub</span></li><li tabindex="0"><span class="st-ico" aria-hidden="true"><img src="https://svgl.app/library/google-cloud.svg" alt="" width="30" height="30" loading="lazy" decoding="async"/></span><span class="st-name">Google Cloud</span></li></ul></div>
+      <div class="stack-row reveal"><h3 data-i18n="st_auto">Automation</h3><ul><li tabindex="0"><span class="st-ico" aria-hidden="true"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/n8n-color.svg" alt="" width="30" height="30" loading="lazy" decoding="async"/></span><span class="st-name">n8n</span></li><li tabindex="0"><span class="st-ico" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=zapier.com&sz=128" alt="" width="30" height="30" loading="lazy" decoding="async"/></span><span class="st-name">Zapier</span></li><li tabindex="0"><span class="st-ico" aria-hidden="true"><img src="https://svgl.app/library/telegram.svg" alt="" width="30" height="30" loading="lazy" decoding="async"/></span><span class="st-name">Telegram bots</span></li></ul></div>
+      <div class="stack-row reveal"><h3 data-i18n="st_media">Creative AI &amp; design</h3><ul><li tabindex="0"><span class="st-ico" aria-hidden="true"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/midjourney.svg" alt="" width="30" height="30" loading="lazy" decoding="async"/></span><span class="st-name">Midjourney</span></li><li tabindex="0"><span class="st-ico" aria-hidden="true"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/runway.svg" alt="" width="30" height="30" loading="lazy" decoding="async"/></span><span class="st-name">Runway</span></li><li tabindex="0"><span class="st-ico" aria-hidden="true"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/kling-color.svg" alt="" width="30" height="30" loading="lazy" decoding="async"/></span><span class="st-name">Kling</span></li><li tabindex="0"><span class="st-ico" aria-hidden="true"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/elevenlabs.svg" alt="" width="30" height="30" loading="lazy" decoding="async"/></span><span class="st-name">ElevenLabs</span></li><li tabindex="0"><span class="st-ico" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=heygen.com&sz=128" alt="" width="30" height="30" loading="lazy" decoding="async"/></span><span class="st-name">HeyGen</span></li><li tabindex="0"><span class="st-ico" aria-hidden="true"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/figma-color.svg" alt="" width="30" height="30" loading="lazy" decoding="async"/></span><span class="st-name">Figma</span></li><li tabindex="0"><span class="st-ico" aria-hidden="true"><img src="https://svgl.app/library/canva.svg" alt="" width="30" height="30" loading="lazy" decoding="async"/></span><span class="st-name">Canva</span></li></ul></div>
+      <div class="stack-row reveal"><h3 data-i18n="st_work">Workspace</h3><ul><li tabindex="0"><span class="st-ico" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=workspace.google.com&sz=128" alt="" width="30" height="30" loading="lazy" decoding="async"/></span><span class="st-name">Google Workspace</span></li><li tabindex="0"><span class="st-ico" aria-hidden="true"><img src="https://svgl.app/library/microsoft-office.svg" alt="" width="30" height="30" loading="lazy" decoding="async"/></span><span class="st-name">Microsoft 365</span></li><li tabindex="0"><span class="st-ico" aria-hidden="true"><img src="https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/notion.svg" alt="" width="30" height="30" loading="lazy" decoding="async"/></span><span class="st-name">Notion</span></li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 08 · PROOF ============ -->
+<section class="section section-proof" id="proof" aria-labelledby="proofTitle">
+  <div class="container">
+    <header class="sec-head reveal">
+      <p class="sec-kicker"><span class="sec-num">08</span><span data-i18n="proof_kicker">Proof</span></p>
+      <h2 id="proofTitle" data-i18n="proof_title">Numbers we can verify.</h2>
+    </header>
+    <ul class="proof">
+      <li class="reveal"><b data-count="2">2</b><span data-i18n="pf1">products shipped — one live, one ready to deploy</span></li>
+      <li class="reveal"><b data-count="5653">5,653</b><span data-i18n="pf2">auto-graded exercises in Shokirov Math Academy</span></li>
+      <li class="reveal"><b data-count="31">31</b><span data-i18n="pf3">DTM-book topics structured for exam practice</span></li>
+      <li class="reveal"><b data-count="1100" data-suffix="+">1,100+</b><span data-i18n="pf4">airlines recognised by MarketHub's GDS reader</span></li>
+      <li class="reveal"><b data-count="9">9</b><span data-i18n="pf5">verified certificates, including Google Cloud</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 09 · CERTIFICATES ============ -->
+<section class="section" id="certificates" aria-labelledby="certTitle">
+  <div class="container">
+    <header class="sec-head reveal">
+      <p class="sec-kicker"><span class="sec-num">09</span><span data-i18n="certs_kicker">Certificates</span></p>
+      <h2 id="certTitle" data-i18n="certs_title">Verified learning.</h2>
+      <p class="sec-sub" data-i18n="certs_sub">Courses and programmes I've completed — each one links to its official verification.</p>
+    </header>
+
+    <div class="cert-feature">
+      <article class="cert-lead reveal">
+        <a class="cert-img" href="certs/cert_5million.png" data-lightbox data-title="Five Million AI Leaders" data-meta="AI Study · Dec 2025 · ID 5MP 0133939" data-verify="https://omp.aistudy.uz/certificate?id=571190df-acda-476e-12f3-08de38a4e16c">
+          <img src="certs/cert_5million.png" alt="Five Million AI Leaders certificate" loading="lazy" decoding="async"/>
+          <span class="cert-zoom" aria-hidden="true"><svg class="ico"><use href="#i-expand"/></svg></span>
+        </a>
+        <div class="cert-info">
+          <span class="pill" data-i18n="certs_featured_badge">Government Certified</span>
+          <h3>Five Million AI Leaders</h3>
+          <p data-i18n="certs_featured_desc">A joint initiative of the governments of the UAE and Uzbekistan, training five million people in AI prompt engineering — aligned with Uzbekistan's AI strategy through 2030.</p>
+          <p class="cert-meta">AI Study · Dec 2025 · ID 5MP 0133939</p>
+          <a class="btn-link" href="https://omp.aistudy.uz/certificate?id=571190df-acda-476e-12f3-08de38a4e16c" target="_blank" rel="noopener"><span data-i18n="certs_verify">Verify</span> ↗</a>
+        </div>
+      </article>
+      <article class="cert-lead reveal">
+        <a class="cert-img" href="certs/cert_1.png" data-lightbox data-title="Introduction to Generative AI" data-meta="Google Cloud · Coursera · Jul 2026" data-verify="https://coursera.org/verify/31BWV0R3HJEE">
+          <img src="certs/cert_1.png" alt="Introduction to Generative AI certificate — Google Cloud" loading="lazy" decoding="async"/>
+          <span class="cert-zoom" aria-hidden="true"><svg class="ico"><use href="#i-expand"/></svg></span>
+        </a>
+        <div class="cert-info">
+          <span class="pill" data-i18n="certs_featured2_badge">Google Cloud · AI</span>
+          <h3>Introduction to Generative AI</h3>
+          <p data-i18n="certs_featured2_desc">A Google Cloud course on how generative AI works, where it's used and the tools behind modern AI systems.</p>
+          <p class="cert-meta">Google Cloud · Coursera · Jul 2026</p>
+          <a class="btn-link" href="https://coursera.org/verify/31BWV0R3HJEE" target="_blank" rel="noopener"><span data-i18n="certs_verify">Verify</span> ↗</a>
+        </div>
+      </article>
+    </div>
+
+    <ul class="cert-grid">
+      <li class="reveal"><a class="cert-card" href="certs/cert_2.png" data-lightbox data-title="Collaborating with G Suite Apps" data-meta="Coursera · Sep 2025" data-verify="https://coursera.org/verify/6PUKAX42PIKO"><img src="certs/cert_2.png" alt="Collaborating with G Suite Apps certificate" loading="lazy" decoding="async"/><span class="cc-t">Collaborating with G Suite Apps</span><span class="cc-m">Coursera · Sep 2025</span></a></li>
+      <li class="reveal"><a class="cert-card" href="certs/cert_3.png" data-lightbox data-title="Creating Marketing Designs with Canva" data-meta="Coursera · Apr 2025" data-verify="https://coursera.org/verify/VFHYU0GGA16R"><img src="certs/cert_3.png" alt="Creating Marketing Designs with Canva certificate" loading="lazy" decoding="async"/><span class="cc-t">Creating Marketing Designs with Canva</span><span class="cc-m">Coursera · Apr 2025</span></a></li>
+      <li class="reveal"><a class="cert-card" href="certs/cert_4.png" data-lightbox data-title="Getting Started with Microsoft Excel" data-meta="Coursera · Feb 2025" data-verify="https://coursera.org/verify/PB4DCYTI7UBM"><img src="certs/cert_4.png" alt="Getting Started with Microsoft Excel certificate" loading="lazy" decoding="async"/><span class="cc-t">Getting Started with Microsoft Excel</span><span class="cc-m">Coursera · Feb 2025</span></a></li>
+      <li class="reveal"><a class="cert-card" href="certs/cert_5.png" data-lightbox data-title="Use Canva to Design Digital Course Collateral" data-meta="Coursera · Aug 2024" data-verify="https://coursera.org/verify/42JZNG341E3X"><img src="certs/cert_5.png" alt="Use Canva to Design Digital Course Collateral certificate" loading="lazy" decoding="async"/><span class="cc-t">Use Canva to Design Digital Course Collateral</span><span class="cc-m">Coursera · Aug 2024</span></a></li>
+      <li class="reveal"><a class="cert-card" href="certs/cert_6.png" data-lightbox data-title="Organic Marketing: Facebook Groups for Small Businesses" data-meta="Coursera · Aug 2024" data-verify="https://coursera.org/verify/VITQ57TCQYI5"><img src="certs/cert_6.png" alt="Organic Marketing: Facebook Groups for Small Businesses certificate" loading="lazy" decoding="async"/><span class="cc-t">Organic Marketing: Facebook Groups for Small Businesses</span><span class="cc-m">Coursera · Aug 2024</span></a></li>
+      <li class="reveal"><a class="cert-card" href="certs/cert_7.png" data-lightbox data-title="Google Ads for Beginners" data-meta="Coursera · Aug 2024" data-verify="https://coursera.org/verify/NITFN8K2TXRG"><img src="certs/cert_7.png" alt="Google Ads for Beginners certificate" loading="lazy" decoding="async"/><span class="cc-t">Google Ads for Beginners</span><span class="cc-m">Coursera · Aug 2024</span></a></li>
+      <li class="reveal"><a class="cert-card" href="certs/cert_8.png" data-lightbox data-title="Small Business Marketing Using YouTube" data-meta="Coursera · Aug 2024" data-verify="https://coursera.org/verify/9A1EXUMO6GAS"><img src="certs/cert_8.png" alt="Small Business Marketing Using YouTube certificate" loading="lazy" decoding="async"/><span class="cc-t">Small Business Marketing Using YouTube</span><span class="cc-m">Coursera · Aug 2024</span></a></li>
+      <li class="reveal"><a class="cert-card cert-doc" href="certificate.html" target="_blank" rel="noopener"><img src="emblem.svg" alt="" loading="lazy" decoding="async"/><span class="cc-t" data-i18n="doc_title">Official services &amp; pricing document</span><span class="cc-m">UzLeeder · UZL-2026-001</span></a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 10 · SERVICES & PRICING ============ -->
+<section class="section section-alt" id="pricing" aria-labelledby="priceTitle">
+  <span id="services" class="anchor-alias" aria-hidden="true"></span>
+  <div class="container">
+    <header class="sec-head reveal">
+      <p class="sec-kicker"><span class="sec-num">10</span><span data-i18n="price_kicker">Services &amp; pricing</span></p>
+      <h2 id="priceTitle" data-i18n="price_title">Clear scope. Transparent pricing.</h2>
+      <p class="sec-sub" data-i18n="price_sub">No hidden fees. What you see is what you pay.</p>
+    </header>
+
+    <ul class="svc-list">
+      <li class="reveal"><div><h3 data-i18n="svc2_title">Professional Websites</h3><p data-i18n="svc2">From a one-page landing to a complete multi-page site with a backend.</p></div><span class="svc-price" data-i18n="price_web">$200 – $4000+</span></li>
+      <li class="reveal"><div><h3 data-i18n="svc1_title">Academy Website</h3><p data-i18n="svc1">Courses, pricing, contact and online registration.</p></div><span class="svc-price" data-i18n="price_academy">$200 – $2000</span></li>
+      <li class="reveal"><div><h3 data-i18n="svc10_title">B2B Portal &amp; Platform</h3><p data-i18n="svc10">Role-based panels, auth, database and dashboards.</p></div><span class="svc-price" data-i18n="price_b2b">from $1000</span></li>
+      <li class="reveal"><div><h3 data-i18n="svc9_title">AI Agent &amp; API Integration</h3><p data-i18n="svc9">Custom AI agents, chatbots and API integrations.</p></div><span class="svc-price" data-i18n="price_ai">from $500</span></li>
+      <li class="reveal"><div><h3 data-i18n="svc3_title">Custom Web Design</h3><p data-i18n="svc3">Unique branding, colours and layout.</p></div><span class="svc-price" data-i18n="from250">from $250</span></li>
+      <li class="reveal"><div><h3 data-i18n="svc11_title">Telegram Bot &amp; Automation</h3><p data-i18n="svc11">Bots and no-code automations.</p></div><span class="svc-price" data-i18n="price_bot">from $100</span></li>
+      <li class="reveal"><div><h3 data-i18n="svc5_title">Logo Design</h3><p data-i18n="svc5">Unique, professional brand logos.</p></div><span class="svc-price" data-i18n="from15">from $15</span></li>
+      <li class="reveal"><div><h3 data-i18n="svc8_title">Presentations</h3><p data-i18n="svc8">Professional slide decks.</p></div><span class="svc-price" data-i18n="from15b">from $15</span></li>
+      <li class="reveal"><div><h3 data-i18n="svc6_title">AI Video &amp; Photo</h3><p data-i18n="svc6">AI-generated media for ads and social.</p></div><span class="svc-price" data-i18n="from10">from $10</span></li>
+      <li class="reveal"><div><h3 data-i18n="svc7_title">Email Writing</h3><p data-i18n="svc7">Persuasive outreach and sales emails.</p></div><span class="svc-price" data-i18n="from10b">from $10</span></li>
+      <li class="reveal"><div><h3 data-i18n="svc4_title">Website Maintenance</h3><p data-i18n="svc4">Updates, fixes and improvements.</p></div><span class="svc-price" data-i18n="free_clients">Free for clients</span></li>
+    </ul>
+
+    <div class="plans">
+      <article class="plan reveal">
+        <h3 class="plan-name">Starter</h3>
+        <p class="plan-price" data-i18n="price_starter">$200</p>
+        <p class="plan-period" data-i18n="one_time">one-time payment</p>
+        <ul>
+          <li data-i18n="f_landing">Landing page (1 page)</li><li data-i18n="f_mobile">Mobile responsive</li><li data-i18n="f_contact">Contact section</li>
+          <li data-i18n="f_tg">Telegram integration</li><li data-i18n="f_3day">3-day delivery</li><li data-i18n="f_support">Free support</li>
+        </ul>
+        <a href="https://t.me/uzleeder" target="_blank" rel="noopener" class="btn btn-ghost btn-block" data-i18n="get_started">Get Started</a>
+      </article>
+      <article class="plan plan-featured reveal">
+        <span class="plan-badge" data-i18n="popular">Most Popular</span>
+        <h3 class="plan-name">Professional</h3>
+        <p class="plan-price" data-i18n="price_pro">$600</p>
+        <p class="plan-period" data-i18n="one_time">one-time payment</p>
+        <ul>
+          <li data-i18n="f_multi">Multi-page website</li><li data-i18n="f_custom">Custom design &amp; branding</li><li data-i18n="f_reg">Registration form</li>
+          <li data-i18n="f_tgphone">Telegram + phone integration</li><li data-i18n="f_cms">CMS (editable content)</li><li data-i18n="f_5day">5-day delivery</li><li data-i18n="f_forever">Free support forever</li>
+        </ul>
+        <a href="https://t.me/uzleeder" target="_blank" rel="noopener" class="btn btn-primary btn-block"><span data-i18n="get_started">Get Started</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </article>
+      <article class="plan reveal">
+        <h3 class="plan-name">Custom</h3>
+        <p class="plan-price" data-i18n="price_custom">$1500+</p>
+        <p class="plan-period" data-i18n="based_req">based on requirements</p>
+        <ul>
+          <li data-i18n="f_everything">Everything in Professional</li><li data-i18n="f_adv">Advanced animations</li><li data-i18n="f_backend">Backend integration</li>
+          <li data-i18n="f_domain">Domain setup help</li><li data-i18n="f_priority">Priority delivery</li><li data-i18n="f_lifetime">Lifetime free support</li>
+        </ul>
+        <a href="https://t.me/uzleeder" target="_blank" rel="noopener" class="btn btn-ghost btn-block" data-i18n="lets_talk">Let's Talk</a>
+      </article>
+      <article class="plan reveal">
+        <h3 class="plan-name">Enterprise</h3>
+        <p class="plan-price" data-i18n="price_ent">$4000+</p>
+        <p class="plan-period" data-i18n="based_req">based on requirements</p>
+        <ul>
+          <li data-i18n="f_everything_custom">Everything in Custom</li><li data-i18n="f_platform">Full-stack web platform</li><li data-i18n="f_panels">Multi-role admin panels</li>
+          <li data-i18n="f_dbapi">Database, auth &amp; API</li><li data-i18n="f_deploy">Deployment &amp; training</li><li data-i18n="f_lifetime">Lifetime free support</li>
+        </ul>
+        <a href="https://t.me/uzleeder" target="_blank" rel="noopener" class="btn btn-ghost btn-block" data-i18n="lets_talk">Let's Talk</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 11 · CONTACT ============ -->
+<section class="section section-contact" id="contact" aria-labelledby="contactTitle">
+  <div class="container contact-grid">
+    <div class="contact-copy">
+      <header class="sec-head reveal">
+        <p class="sec-kicker"><span class="sec-num">11</span><span data-i18n="nav_contact">Contact</span></p>
+        <h2 id="contactTitle" class="contact-title" data-i18n="contact_title">Let's build something.</h2>
+        <p class="sec-sub" data-i18n="contact_sub">Tell me what you're building. I reply fast — usually the same day, on email or Telegram.</p>
+      </header>
+      <div class="contact-links reveal">
+        <div class="copy-row">
+          <a href="mailto:uzleeder@gmail.com" class="copy-main"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg>uzleeder@gmail.com</a>
+          <button type="button" class="copy-btn" id="copyEmail" data-copy="uzleeder@gmail.com"><svg class="ico" aria-hidden="true"><use href="#i-copy"/></svg><span data-i18n="copy">Copy</span></button>
+        </div>
+        <a href="https://t.me/uzleeder" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-send"/></svg><span data-i18n="msg_tg">Message on Telegram</span><em>@uzleeder</em></a>
+        <a href="https://wa.me/998916395110" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-whatsapp"/></svg>WhatsApp<em>+998 91 639 51 10</em></a>
+        <a href="tel:+998916395110"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg><span data-i18n="phone_label">Phone</span><em>+998 91 639 51 10</em></a>
+        <a href="https://github.com/uzleeder" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-github"/></svg>GitHub<em>uzleeder</em></a>
+        <p class="contact-loc"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg><span data-i18n="loc_city">Tashkent City, Uzbekistan</span></p>
+      </div>
+    </div>
+
+    <form class="contact-form reveal" id="contactForm" novalidate>
+      <div class="field">
+        <label for="cf-name" data-i18n="form_name">Your name</label>
+        <input type="text" id="cf-name" name="name" autocomplete="name" autocapitalize="words" required maxlength="80" data-i18n-ph="form_name_ph" placeholder="e.g. John Doe"/>
+        <span class="field-err" data-i18n="err_name">Please enter your name.</span>
+      </div>
+      <div class="field">
+        <label for="cf-email" data-i18n="form_email">Email</label>
+        <input type="email" id="cf-email" name="email" inputmode="email" autocomplete="email" autocapitalize="off" autocorrect="off" spellcheck="false" required maxlength="120" data-i18n-ph="form_email_ph" placeholder="you@example.com"/>
+        <span class="field-err" data-i18n="err_email">Please enter a valid email address.</span>
+      </div>
+      <div class="field">
+        <label for="cf-message" data-i18n="form_msg">Message</label>
+        <textarea id="cf-message" name="message" required maxlength="2000" rows="5" data-i18n-ph="form_msg_ph" placeholder="Tell me about your project..."></textarea>
+        <span class="field-err" data-i18n="err_msg">Please write a short message.</span>
+      </div>
+      <!-- honeypot: humans never see or fill this; the contact function drops requests that include it -->
+      <div class="hp" aria-hidden="true"><label for="cf-website">Website</label><input type="text" id="cf-website" name="website" tabindex="-1" autocomplete="off"/></div>
+      <button type="submit" class="btn btn-primary form-submit">
+        <span class="spinner" aria-hidden="true"></span>
+        <span class="btn-label" data-i18n="form_send">Send Message</span>
+        <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg>
+      </button>
+      <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="#home" class="logo" aria-label="UzLeeder — back to top">
+        <svg class="logo-mark" width="34" height="31" aria-hidden="true"><use href="#brand-mark"/></svg>
+        <span class="logo-text"><span class="logo-word"><span class="uz">Uz</span><span class="lee">Leeder</span></span><span class="logo-tag">For Leaders</span></span>
+      </a>
+      <p data-i18n="foot_line">AI-era technology. Real products. Real engineering.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="#work" data-i18n="nav_work">Work</a>
+      <a href="#ai" data-i18n="nav_ai">AI</a>
+      <a href="#about" data-i18n="nav_about">About</a>
+      <a href="#uzleeder">UzLeeder</a>
+      <a href="#certificates" data-i18n="certs_kicker">Certificates</a>
+      <a href="#pricing" data-i18n="nav_pricing">Pricing</a>
+      <a href="#contact" data-i18n="nav_contact">Contact</a>
+    </nav>
+    <div class="footer-social">
+      <a href="https://t.me/uzleeder" target="_blank" rel="noopener" aria-label="Telegram"><svg class="ico" aria-hidden="true"><use href="#i-send"/></svg></a>
+      <a href="https://github.com/uzleeder" target="_blank" rel="noopener" aria-label="GitHub"><svg class="ico" aria-hidden="true"><use href="#i-github"/></svg></a>
+      <a href="https://wa.me/998916395110" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="ico" aria-hidden="true"><use href="#i-whatsapp"/></svg></a>
+      <a href="https://www.youtube.com/@uzleeder" target="_blank" rel="noopener" aria-label="YouTube"><svg class="ico" aria-hidden="true"><use href="#i-youtube"/></svg></a>
+      <a href="mailto:uzleeder@gmail.com" aria-label="Email"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg></a>
+      <!-- stamp-style emblem (no disc); inner Λ follows the theme like the logo -->
+      <svg class="footer-emblem" viewBox="0 0 200 200" width="40" height="40" role="img" aria-label="Official UzLeeder emblem">
+        <defs>
+          <path id="ftTop" d="M 23,100 A 77,77 0 0 1 177,100" fill="none"/>
+          <path id="ftBot" d="M 177,100 A 77,77 0 0 1 23,100" fill="none"/>
+        </defs>
+        <g fill="none" style="stroke:var(--accent)">
+          <circle cx="100" cy="100" r="96" stroke-width="5"/>
+          <circle cx="100" cy="100" r="89" stroke-width="2"/>
+          <circle cx="100" cy="100" r="72" stroke-width="2" stroke-dasharray="0 6" stroke-linecap="round"/>
+        </g>
+        <g font-family="'Segoe UI',Arial,sans-serif" font-weight="800" style="fill:var(--accent)">
+          <text font-size="13" letter-spacing="4.6"><textPath href="#ftTop" startOffset="50%" text-anchor="middle">UZLEEDER</textPath></text>
+          <text font-size="9.5" letter-spacing="3.2"><textPath href="#ftBot" startOffset="50%" text-anchor="middle">·FOR·LEADERS·</textPath></text>
+        </g>
+        <path d="M74 118 100 64l26 54" fill="none" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" style="stroke:var(--accent)"/>
+        <path d="M85 118 100 86l15 32" fill="none" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" style="stroke:var(--mark-inner)"/>
+        <circle cx="100" cy="58" r="6" style="fill:var(--accent)"/>
+      </svg>
+    </div>
+  </div>
+  <div class="container footer-base">
+    <span>© <span id="year">2026</span> UzLeeder</span>
+    <span>Max · Mekhriddin Abdualim · <span data-i18n="loc_city">Tashkent City, Uzbekistan</span></span>
+  </div>
+</footer>
+
+<!-- Case study (filled by script.js) -->
+<dialog class="case" id="caseDialog" aria-labelledby="caseTitle">
+  <div class="case-inner" id="caseBody"></div>
+</dialog>
+
+<!-- Certificate lightbox -->
+<dialog class="lightbox" id="lightbox" aria-label="Certificate preview">
+  <button class="lb-close" type="button" data-close aria-label="Close"><svg class="ico" aria-hidden="true"><use href="#i-close"/></svg></button>
+  <img id="lbImg" src="" alt=""/>
+  <div class="lb-cap"><b id="lbTitle"></b><span id="lbMeta"></span><a id="lbVerify" href="#" target="_blank" rel="noopener"><span data-i18n="certs_verify">Verify</span> ↗</a></div>
+</dialog>
+
+<div class="toast-wrap" id="toastWrap" aria-live="polite" aria-atomic="true"></div>
+
+<script src="script.js?v=5.3" defer></script>
+</body>
+</html>

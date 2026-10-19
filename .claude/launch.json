@@ -1,0 +1,13 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "uzleeder",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "server/local-dev.cjs"
+      ],
+      "port": 8080
+    }
+  ]
+}
