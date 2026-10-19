@@ -153,3 +153,4 @@ Hammasi bitta `.env` faylda (git/deploy'ga kirmaydi). Vercel'ga yuklash: `npm ru
 - `contract-shokirov.html` ochiq havolasi — mijoz roziligi / maxfiylik tekshiruvi.
 - UZ / RU / FA / AR tarjimalari — ona tilida so'zlashuvchi tekshiruvi.
 - Telegram yetkazilishi — admin → Settings → System health "Delivered" ko'rsatguncha tasdiqlanmagan.
+"# uzleeder-agency" 
