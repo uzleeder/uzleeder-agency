@@ -5,7 +5,7 @@
   "use strict";
   var SU = window.SU, $ = function (s, r) { return (r || document).querySelector(s); }, $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var root = document.documentElement;
-  var SITE = "https://uzleeder.vercel.app";
+  var SITE = "https://uzleeder.uz";
   var seed = []; try { seed = JSON.parse($("#su-seed").textContent); } catch (e) {}
   var list = seed, filter = "all";
 

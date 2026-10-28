@@ -83,7 +83,7 @@
         grp(3, row("areas", "Areas") + row("motivation", "Motivation") + row("collaboration", "Collaboration") + row("availability", "Availability") + row("additional", "Additional")) +
         '<fieldset class="pa-acks"><legend>Required</legend>' +
         '<label class="pp-check"><input type="checkbox" name="truth"/><span>My application is truthful to the best of my knowledge.</span></label>' +
-        '<label class="pp-check"><input type="checkbox" name="conditions"/><span>I have read and acknowledge the <a href="/partners#conditions" target="_blank" rel="noopener">partnership conditions</a> (version ' + esc(v) + ").</span></label>" +
+        '<label class="pp-check"><input type="checkbox" name="conditions"/><span>I have read and acknowledge the <a href="/partners/policy" target="_blank" rel="noopener">Partner Program Policy</a> and the <a href="/partners#conditions" target="_blank" rel="noopener">partnership conditions</a> (version ' + esc(v) + ").</span></label>" +
         '<label class="pp-check"><input type="checkbox" name="privacy"/><span>I have read the separate <a href="/partners#privacy" target="_blank" rel="noopener">privacy notice</a> (version ' + esc(v) + ").</span></label></fieldset>" +
         '<fieldset class="pa-acks pa-optional"><legend>Optional</legend><label class="pp-check"><input type="checkbox" name="updates"/><span>Also contact me about future collaboration opportunities. You can change this later.</span></label></fieldset>' +
         '<p class="pa-small pp-muted">The time and the notice version of each acknowledgement are stored with your application. This is an acknowledgement, not a universal electronic signature or a confidentiality agreement.</p>';

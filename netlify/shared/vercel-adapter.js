@@ -36,8 +36,8 @@ function makeRes() {
   return res;
 }
 
-module.exports = handler => async (event, context) => {
-  connectLambda(event);                                    // gives Netlify Blobs this invocation's credentials
+module.exports = (handler, { legacy = true } = {}) => async (event, context) => {
+  if (legacy) connectLambda(event); // Modern Functions supply the full Blobs context, including strong reads.
   const req = makeReq(event), res = makeRes();
   try {
     await handler(req, res);

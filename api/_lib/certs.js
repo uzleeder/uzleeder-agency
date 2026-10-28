@@ -27,7 +27,7 @@ const now = () => new Date().toISOString();
 const str = (v, max) => (typeof v === "string" ? v.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, "").replace(/\s+/g, " ").trim().slice(0, max) : "");
 const pick = (v, list, d) => (list.includes(v) ? v : d);
 const clone = o => JSON.parse(JSON.stringify(o));
-const SITE = () => (process.env.SITE_URL || "https://uzleeder.vercel.app").replace(/\/+$/, "");
+const SITE = () => (process.env.SITE_URL || "https://uzleeder.uz").replace(/\/+$/, "");
 
 /* ---------- document types ---------- */
 const TYPES = {
@@ -80,7 +80,7 @@ async function saveTemplate(type, p, who) {
     enabled: p.enabled !== false,
     title: str(p.title, 60).toUpperCase() || "VENTURE RECORD CERTIFICATE",
     subtitle: loc(p.subtitle, 80), statement: loc(p.statement, 400),
-    signatory: p.signatory && str(p.signatory.name, 80) ? { name: str(p.signatory.name, 80), role: str(p.signatory.role, 80) } : null,
+    signatory: p.signatory && str(p.signatory.name, 80) ? Object.assign({ name: str(p.signatory.name, 80), role: str(p.signatory.role, 80) }, p.signatory.sign === true ? { sign: true } : {}) : null,
     lang: pick(p.lang, LANGS, "en")
   };
   const text = [next.title].concat(Object.values(next.subtitle), Object.values(next.statement), next.signatory ? [next.signatory.role] : []).join(" ");

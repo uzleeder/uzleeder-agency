@@ -1,6 +1,8 @@
 // UzLeeder Venture Record Certificate — PDF renderer (A4 landscape, fonts embedded, vector QR).
 // Input is the immutable issuance snapshot (api/_lib/certs.js → issue); the output bytes are stored with their SHA-256.
-// Design rules (do not relax): no seals, no emblems, no signature images, no accreditation marks; the legal note is always printed.
+// Design rules (do not relax): no seals, no emblems, no accreditation marks; the legal note is always printed.
+// Signature image: only the founder's own handwritten signature (api/_lib/sign-founder.png), and only when the template's
+// signatory has `sign: true` — set by the founder in the Control Center (owner decision, 2026-10-28). Never for another person.
 // Fonts: PT Serif / PT Sans (ParaType, SIL Open Font License — api/_lib/fonts/OFL.txt), Latin + Cyrillic for EN / UZ / RU.
 const fs = require("fs"), path = require("path");
 const { PDFDocument, rgb, degrees } = require("pdf-lib");
@@ -10,7 +12,9 @@ const qrcode = require("qrcode-generator");
 const TEMPLATE_ID = "UZL-CERT-A4L";
 const FONT_DIR = path.join(__dirname, "fonts");
 const FILES = { serif: "PT_Serif-Web-Regular.ttf", serifBold: "PT_Serif-Web-Bold.ttf", serifItalic: "PT_Serif-Web-Italic.ttf", sans: "PT_Sans-Web-Regular.ttf", sansBold: "PT_Sans-Web-Bold.ttf" };
-let fontBytes = null;
+const SIGN_FILE = path.join(__dirname, "sign-founder.png");
+let fontBytes = null, signBytes;
+const loadSign = () => signBytes !== undefined ? signBytes : (signBytes = fs.existsSync(SIGN_FILE) ? fs.readFileSync(SIGN_FILE) : null);
 const loadFonts = () => fontBytes || (fontBytes = Object.fromEntries(Object.entries(FILES).map(([k, f]) => [k, fs.readFileSync(path.join(FONT_DIR, f))])));
 
 const hex = h => rgb(parseInt(h.slice(1, 3), 16) / 255, parseInt(h.slice(3, 5), 16) / 255, parseInt(h.slice(5, 7), 16) / 255);
@@ -177,6 +181,13 @@ async function render(snap) {
     label(t.signatory, 210, fy + 64);
     text(tpl.signatory.name, 210, fy + 50, F.serifBold, 11, C.ink);
     if (tpl.signatory.role) text(tpl.signatory.role, 210, fy + 37, F.sans, 8.5, C.soft);
+    /* founder's handwritten signature — right of the name, crossing the footer rule like real ink */
+    const sb = tpl.signatory.sign ? loadSign() : null;
+    if (sb) {
+      const img = await pdf.embedPng(sb), sw = 104, sh = sw * img.height / img.width;
+      const tw = Math.max(F.serifBold.widthOfTextAtSize(tpl.signatory.name, 11), tpl.signatory.role ? F.sans.widthOfTextAtSize(tpl.signatory.role, 8.5) : 0);
+      p.drawImage(img, { x: Math.min(210 + tw + 14, 470), y: fy + 34, width: sw, height: sh });
+    }
   }
   // the legal note — always printed, readable size
   const noteX = 210, noteW = 290;

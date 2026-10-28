@@ -4,4 +4,4 @@ Disallow: /admin
 Disallow: /admin.html
 Disallow: /api/
 
-Sitemap: https://uzleeder.vercel.app/sitemap.xml
+Sitemap: https://uzleeder.uz/sitemap.xml

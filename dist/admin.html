@@ -1814,6 +1814,7 @@ async function vcTemplates() {
     Object.keys(VC_LANG).map(l => '<div class="full"><label class="lbl">Statement — ' + VC_LANG[l] + ' <span class="faint">(empty = standard statement)</span></label><textarea class="inp" rows="2" data-stm="' + l + '" maxlength="400"' + dis + ">" + esc((t.statement || {})[l] || "") + "</textarea></div>").join("") +
     '<div><label class="lbl">Authorised signatory <span class="faint">(optional — a real, authorised person)</span></label><input class="inp" data-t="sigName" value="' + esc((t.signatory || {}).name || "") + '" maxlength="80"' + dis + "/></div>" +
     '<div><label class="lbl">Signatory role</label><input class="inp" data-t="sigRole" value="' + esc((t.signatory || {}).role || "") + '" maxlength="80"' + dis + "/></div>" +
+    '<div><label class="lbl"><input type="checkbox" data-t="sigSign"' + ((t.signatory || {}).sign ? " checked" : "") + dis + '/> Founder's handwritten signature <span class="faint">(only when the signatory above is the founder — the image is the founder's own signature)</span></label></div>' +
     '<div class="full"><label class="lbl"><input type="checkbox" data-t="enabled"' + (t.enabled !== false ? " checked" : "") + dis + ' style="accent-color:var(--gold)"/> Available for new certificates</label></div></div>' +
     '<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">' + (edit ? '<button class="btn btn-gold btn-sm" type="button" data-tsave="' + t.type + '">' + ico("check") + "Save as new version</button>" : "") +
     Object.keys(VC_LANG).map(l => '<button class="btn btn-ghost btn-sm" type="button" data-tprev="' + t.type + '" data-l="' + l + '">' + ico("eye") + "Preview " + l.toUpperCase() + "</button>").join("") + "</div>" +
@@ -1826,7 +1827,7 @@ async function vcTemplates() {
   $$("[data-tsave]", v).forEach(b => b.addEventListener("click", async () => {
     const c = b.closest("[data-tpl]"), t = S.vc.templates.find(x => x.type === b.dataset.tsave), val = k => $('[data-t="' + k + '"]', c);
     const body = { type: t.type, rev: t.version, title: val("title").value, lang: val("lang").value, enabled: val("enabled").checked, subtitle: {}, statement: {},
-      signatory: val("sigName").value.trim() ? { name: val("sigName").value, role: val("sigRole").value } : null };
+      signatory: val("sigName").value.trim() ? { name: val("sigName").value, role: val("sigRole").value, sign: !!(val("sigSign") && val("sigSign").checked) } : null };
     Object.keys(VC_LANG).forEach(l => { body.subtitle[l] = $('[data-sub="' + l + '"]', c).value; body.statement[l] = $('[data-stm="' + l + '"]', c).value; });
     const r = await wsa("certs.templateSave", body);
     if (!r.ok) return toast(r.data.error || "Could not save the template.", "err");
@@ -2040,9 +2041,9 @@ const CARD_FIELDS = [
   ["summary", "Short description", "Building modern digital products with software engineering and AI.", "text"],
   ["city", "City", "Tashkent", "text"],
   ["country", "Country", "Uzbekistan", "text"],
-  ["website", "Website", "https://uzleeder.netlify.app/", "url"],
+  ["website", "Website", "https://uzleeder.uz/", "url"],
   ["linkedin", "LinkedIn URL", "https://www.linkedin.com/in/uzleeder", "url"],
-  ["url", "Published address", "https://uzleeder.vercel.app/card", "url"]
+  ["url", "Published address", "https://uzleeder.uz/card", "url"]
 ];
 
 VIEWS.contact = function () {

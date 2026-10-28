@@ -127,7 +127,7 @@
     <table>
       <thead><tr><th>Word</th><th>Red</th><th>White (ink on light)</th><th>Click while it shows →</th></tr></thead>
       <tbody>
-        <tr><td class="mono">&lt;<span class="w">Uz</span><span class="r">Leeder</span>&gt;</td><td class="r">Leeder</td><td>Uz</td><td><a href="https://uzleeder.vercel.app/?ref=crafted" target="_blank" rel="noopener">uzleeder.vercel.app</a></td></tr>
+        <tr><td class="mono">&lt;<span class="w">Uz</span><span class="r">Leeder</span>&gt;</td><td class="r">Leeder</td><td>Uz</td><td><a href="https://uzleeder.uz/?ref=crafted" target="_blank" rel="noopener">uzleeder.vercel.app</a></td></tr>
         <tr><td class="mono">&lt;<span class="r">Lee</span><span class="w">Codes</span>&gt;</td><td class="r">Lee</td><td>Codes</td><td><a href="https://t.me/leecodes" target="_blank" rel="noopener">t.me/leecodes</a></td></tr>
         <tr><td class="mono">&lt;<span class="r">Max's</span><span class="w"> Code</span>&gt;</td><td class="r">Max's</td><td>Code</td><td><a href="https://t.me/maxscode" target="_blank" rel="noopener">t.me/maxscode</a></td></tr>
       </tbody>
@@ -221,7 +221,7 @@
 <script id="crafted-src">
 /* UzLeeder digital signature — "Crafted by UzLeeder" badge for websites UzLeeder builds.
  *
- *   <script src="https://uzleeder.vercel.app/crafted.js" defer><\/script>
+ *   <script src="https://uzleeder.uz/crafted.js" defer><\/script>
  *   <uzleeder-crafted></uzleeder-crafted>
  *
  * Attributes (all optional):
@@ -239,7 +239,7 @@
  */
 (function () {
   if (!window.customElements || customElements.get("uzleeder-crafted")) return;
-  var HOME = "https://uzleeder.vercel.app/?ref=crafted";
+  var HOME = "https://uzleeder.uz/?ref=crafted";
   var LABEL_DEFAULT = "Crafted by UzLeeder (opens uzleeder.vercel.app)";
   // each word in two colours, like the wordmark ([text, "ink" | "red"]), and where it links while it is shown
   var WORDS = [
@@ -379,14 +379,14 @@
     var muted = dark ? "#8e97ab" : "#5b6377", ink = dark ? "#ffffff" : "#1c2233", red = dark ? "#f0384e" : "#e01e37";
     return "<!-- UzLeeder digital signature (" + (dark ? "dark" : "light") + ", static) -->\n" +
       '<div style="display:flex;justify-content:center;padding:14px 0">\n' +
-      '  <a href="https://uzleeder.vercel.app/?ref=crafted" target="_blank" rel="noopener" aria-label="Crafted by UzLeeder" style="display:inline-flex;align-items:center;gap:12px;text-decoration:none">\n' +
+      '  <a href="https://uzleeder.uz/?ref=crafted" target="_blank" rel="noopener" aria-label="Crafted by UzLeeder" style="display:inline-flex;align-items:center;gap:12px;text-decoration:none">\n' +
       '    <span aria-hidden="true" style="font:600 11px/1 ui-monospace,Consolas,monospace;letter-spacing:.28em;text-transform:uppercase;color:' + muted + '">Crafted by</span>\n' +
       '    <svg viewBox="0 0 48 44" width="22" height="20" aria-hidden="true" style="overflow:visible"><path d="M4 41 24 5l20 36" fill="none" stroke="' + red + '" stroke-width="7" stroke-miterlimit="10"/><path d="M14 41 24 23l10 18" fill="none" stroke="' + ink + '" stroke-width="5.5" stroke-miterlimit="10"/></svg>\n' +
       '    <span aria-hidden="true" style="font:800 17px/1 Outfit,\'Segoe UI\',system-ui,sans-serif;letter-spacing:-.02em"><span style="color:' + ink + '">Uz</span><span style="color:' + red + '">Leeder</span></span>\n' +
       "  </a>\n</div>";
   }
   var SNIP = {
-    embed: '<script src="https://uzleeder.vercel.app/crafted.js" defer>' + CLOSE + '\n<uzleeder-crafted theme="dark"></uzleeder-crafted>',
+    embed: '<script src="https://uzleeder.uz/crafted.js" defer>' + CLOSE + '\n<uzleeder-crafted theme="dark"></uzleeder-crafted>',
     inline: '<uzleeder-crafted theme="dark"></uzleeder-crafted>\n<script>\n' + SRC + '\n' + CLOSE,
     htmlDark: plain(true), htmlLight: plain(false)
   };

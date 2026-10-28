@@ -3,7 +3,7 @@
 Max (Mekhriddin Abdualim) va UzLeeder brendining sayti hamda **UzLeeder Control Center** (admin).
 Brend: **Bold Red** (qizil Λ + to'q ko'k, "FOR LEADERS"). Rang shablonlari admin → Design sahifasida.
 
-Asosiy deploy: **Vercel** — https://uzleeder.vercel.app (canonical domen). Netlify — zaxira (faqat eski API).
+Asosiy deploy: **Netlify** — https://uzleeder.uz (canonical domen). Static sayt va 12 serverless funksiya Netlify orqali ishlaydi; storage — Netlify Blobs. Domen Netlify’da sozlangan; Eskizda Netlify nameserverlari saqlangan. DNS tarqalishi va domen HTTPS tasdig‘i hali kutilmoqda.
 
 ## Fayllar tuzilishi
 

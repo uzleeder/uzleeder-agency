@@ -28,6 +28,7 @@
     };
     return '<p class="pp-version">Version <b>' + esc(n.version) + "</b>. Plain-language summary; the final wording must be reviewed for the applicable jurisdiction and the actual legal relationship. " +
       "Acknowledging these notices is not a universal electronic signature and not a comprehensive confidentiality agreement.</p>" +
+      '<p class="pp-version">The full rules are in the <a href="/partners/policy">UzLeeder Partner Program Policy</a> (version ' + esc(n.version) + "). The conditions below summarise it.</p>" +
       block("conditions", "Partnership conditions", n.conditions) + block("privacy", "Privacy notice", n.privacy) +
       '<dl class="pp-facts"><div><dt>Responsible organization</dt><dd>' + esc(c.organization || "Not configured yet — applications stay closed until it is") + "</dd></div>" +
       "<div><dt>Privacy contact</dt><dd>" + (c.contact ? '<a href="mailto:' + esc(c.contact) + '">' + esc(c.contact) + "</a>" : "Not configured yet") + "</dd></div>" +

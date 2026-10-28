@@ -52,7 +52,7 @@ check("empty list shows an empty state", SU.directory([], "en").includes("su-emp
 // the homepage carries the section right after Work, pre-rendered
 // the standalone page
 const page = fs.readFileSync(path.join(ROOT, "startups.html"), "utf8");
-check("page: SEO title, description and canonical", page.includes("<title>Startups &amp; Ventures | UzLeeder</title>") && page.includes('<link rel="canonical" href="https://uzleeder.vercel.app/startups"/>') && page.includes('property="og:image"'));
+check("page: SEO title, description and canonical", page.includes("<title>Startups &amp; Ventures | UzLeeder</title>") && page.includes('<link rel="canonical" href="https://uzleeder.uz/startups"/>') && page.includes('property="og:image"'));
 check("page: hero, founder's vision, ventures — in that order", (a => a[0] > 0 && a[0] < a[1] && a[1] < a[2])([page.indexOf("Building What <em>Comes Next.</em>"), page.indexOf("Ideas become products. Products become possibilities."), page.indexOf('id="ventures"')]) && page.includes("SALAAM NEW ERA."));
 check("page: cards pre-rendered, seed and scripts inlined", (page.slice(page.indexOf('id="suGrid"'), page.indexOf('id="suDetail"')).match(/<article class="su-card/g) || []).length === seed.length && !page.includes("/*__") && !page.includes("<!--__"));
 check("page: one h1 in the directory view", (page.slice(page.indexOf("<main"), page.indexOf('id="suDetail"')).match(/<h1/g) || []).length === 1);

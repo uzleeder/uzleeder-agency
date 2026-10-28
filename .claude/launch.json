@@ -8,6 +8,12 @@
         "server/local-dev.cjs"
       ],
       "port": 8080
+    },
+    {
+      "name": "academy-2000",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "2000", "--bind", "127.0.0.1", "--directory", "C:/Users/Max Miller.DESKTOP-LF582V9/Documents/Claude/uzleeder-academy"],
+      "port": 2000
     }
   ]
 }

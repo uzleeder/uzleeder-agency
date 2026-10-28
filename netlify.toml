@@ -1,22 +1,24 @@
-# Netlify — the same site as Vercel (uzleeder.vercel.app), with the same server code:
+# Netlify — production host for uzleeder.uz, with shared server code:
 #   static files: dist/ only (build/netlify-dist.cjs — never api/, server/, build/, archive/ or any .env file)
-#   API: netlify/functions/* wrap the unchanged Vercel handlers in api/ (netlify/shared/vercel-adapter.js)
+#   API: netlify/web-functions/* wrap the shared handlers in api/ using the modern Functions runtime
 #   storage: Netlify Blobs (api/_lib/blob-netlify.js) — separate from Vercel's data
 # Keep routes and headers in step with vercel.json.
 
 [build]
   command = "node build/netlify-dist.cjs"
   publish = "dist"
-  functions = "netlify/functions"
+  functions = "netlify/web-functions"
 
 [build.environment]
   NODE_VERSION = "22"
   AWS_LAMBDA_JS_RUNTIME = "nodejs22.x"
 
 [functions]
-  node_bundler = "zisi"
+  node_bundler = "esbuild"
+  external_node_modules = ["@netlify/blobs", "@vercel/blob", "pdf-lib", "@pdf-lib/fontkit", "qrcode-generator", "@resvg/resvg-wasm"]
   # read with fs at runtime (certificate PDFs), so they are not found by require-tracing
-  included_files = ["api/_lib/fonts/**", "api/_lib/partner-notices.json", "api/_lib/startups-seed.json"]
+  # Include installed dependencies explicitly: Windows CLI tracing drops external CJS packages from ESM functions.
+  included_files = ["api/**", "node_modules/**"]
 
 # ---------- old addresses ----------
 [[redirects]]
@@ -52,6 +54,14 @@
 [[redirects]]
   from = "/partners/apply/"
   to = "/partner-apply.html"
+  status = 200
+[[redirects]]
+  from = "/partners/policy"
+  to = "/partner-policy.html"
+  status = 200
+[[redirects]]
+  from = "/partners/policy/"
+  to = "/partner-policy.html"
   status = 200
 [[redirects]]
   from = "/partners"
@@ -136,6 +146,16 @@
 [[redirects]]
   from = "/startups/"
   to = "/startups.html"
+  status = 200
+# per-startup link previews: card image + the page with that startup's Open Graph tags (api/og.js)
+[[redirects]]
+  from = "/startups/:slug/card.png"
+  to = "/.netlify/functions/og?s=:slug"
+  status = 200
+  force = true
+[[redirects]]
+  from = "/startups/:slug"
+  to = "/.netlify/functions/og?page=:slug"
   status = 200
 [[redirects]]
   from = "/startups/*"

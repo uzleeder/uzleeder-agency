@@ -8,7 +8,9 @@ const { getStore } = require("@netlify/blobs");
 
 const STORE = process.env.UZL_NETLIFY_STORE || "uzleeder";
 // strong consistency: a write is visible to the very next read (records, numbering, partner revisions rely on it)
-const store = () => getStore({ name: STORE, consistency: "strong" });
+// Inside Netlify Functions the context comes from the runtime. Maintenance scripts run elsewhere pass the site and a token.
+const store = () => getStore(Object.assign({ name: STORE, consistency: "strong" },
+  process.env.UZL_NETLIFY_SITE_ID && process.env.UZL_NETLIFY_TOKEN ? { siteID: process.env.UZL_NETLIFY_SITE_ID, token: process.env.UZL_NETLIFY_TOKEN } : {}));
 const notFound = name => { const e = new Error("The requested blob does not exist"); e.name = "BlobNotFoundError"; e.pathname = name; return e; };
 const toInput = data => {
   if (typeof data === "string") return data;

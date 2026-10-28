@@ -1,6 +1,6 @@
 /* UzLeeder digital signature — "Crafted by UzLeeder" badge for websites UzLeeder builds.
  *
- *   <script src="https://uzleeder.vercel.app/crafted.js" defer></script>
+ *   <script src="https://uzleeder.uz/crafted.js" defer></script>
  *   <uzleeder-crafted></uzleeder-crafted>
  *
  * Attributes (all optional):
@@ -18,7 +18,7 @@
  */
 (function () {
   if (!window.customElements || customElements.get("uzleeder-crafted")) return;
-  var HOME = "https://uzleeder.vercel.app/?ref=crafted";
+  var HOME = "https://uzleeder.uz/?ref=crafted";
   var LABEL_DEFAULT = "Crafted by UzLeeder (opens uzleeder.vercel.app)";
   // each word in two colours, like the wordmark ([text, "ink" | "red"]), and where it links while it is shown
   var WORDS = [

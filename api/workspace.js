@@ -788,7 +788,7 @@ A["certs.templatePreview"] = async (p, res, req, who) => {
   const t = await certs.template(str(p.type, 20));
   const render = require("./_lib/certpdf").render;
   const lang = ["en", "uz", "ru"].includes(p.lang) ? p.lang : t.lang;
-  const bytes = await render({ preview: true, number: "UZL-SAMPLE", type: t.type, lang, issuedAt: new Date().toISOString(), verifyUrl: "https://uzleeder.vercel.app/verify/UZL-SAMPLE", verifyCode: "XXXXXXXXXX", templateVersion: t.version, recordVersion: 1,
+  const bytes = await render({ preview: true, number: "UZL-SAMPLE", type: t.type, lang, issuedAt: new Date().toISOString(), verifyUrl: "https://uzleeder.uz/verify/UZL-SAMPLE", verifyCode: "XXXXXXXXXX", templateVersion: t.version, recordVersion: 1,
     fields: { ventureName: "Sample Venture", repRole: "founder", representative: "Founder Name", stage: "prototype", member: "Team Member", memberRole: "Product Lead", milestone: "Milestone name", completedOn: "2026-01-15" },
     template: { title: t.title, subtitle: t.subtitle[lang] || "", statement: t.statement[lang] || "", signatory: t.signatory } });
   return sendPdf(res, { bytes, filename: "template-" + t.type + "-v" + t.version + "-" + lang + ".pdf" });

@@ -12,6 +12,14 @@
       "destination": "/partner-apply.html"
     },
     {
+      "source": "/partners/policy",
+      "destination": "/partner-policy.html"
+    },
+    {
+      "source": "/partners/policy/",
+      "destination": "/partner-policy.html"
+    },
+    {
       "source": "/partners",
       "destination": "/partners.html"
     },
@@ -80,8 +88,12 @@
       "destination": "/startups.html"
     },
     {
+      "source": "/startups/:slug/card.png",
+      "destination": "/api/og?s=:slug"
+    },
+    {
       "source": "/startups/:slug",
-      "destination": "/startups.html"
+      "destination": "/api/og?page=:slug"
     }
   ],
   "functions": {

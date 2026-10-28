@@ -185,6 +185,17 @@ const check = (name, ok, got) => results.push((ok ? "PASS " : "FAIL ") + name + 
   check("template change creates version 2 with history", T2.version === 2 && T2.history[0].version === 1);
   check("issued certificates keep their template version", (await W("certs.get", { id: first.id })).json.certificate.templateVersion === 1);
   check("template preview renders", (await W("certs.templatePreview", { type: "venture", lang: "ru" })).buf.slice(0, 5).toString() === "%PDF-");
+  // founder's handwritten signature: off unless the template says sign:true; never invented for other fields
+  check("signature flag is off by default", !T2.signatory.sign);
+  const T3 = (await W("certs.templateSave", { type: "venture", rev: 2, title: "VENTURE RECORD CERTIFICATE", signatory: { name: "Mekhriddin Abdualim", role: "Founder & CEO, UzLeeder", sign: true } })).json.template;
+  check("founder signature flag is saved on the template", T3 && T3.signatory.sign === true && T3.version === 3, T3 && T3.signatory);
+  const imgs = async buf => { const d = await PDFDocument.load(buf); return d.getPages().reduce((n, p) => { const x = p.node.Resources().lookup(require("pdf-lib").PDFName.of("XObject")); return n + (x ? x.keys().length : 0); }, 0); };
+  const { render } = require(API + "_lib/certpdf.js");
+  const snapBase = { number: "UZL-VRC-2026-T00001", type: "venture", lang: "en", issuedAt: "2026-10-28T10:00:00Z", templateVersion: 3, verifyUrl: "https://uzleeder.uz/verify/x", fields: { ventureName: "X", repRole: "founder", representative: "Y", stage: "mvp", market: "UZ" }, template: { title: "VENTURE RECORD CERTIFICATE", subtitle: "", statement: "", signatory: { name: "Mekhriddin Abdualim", role: "Founder & CEO" } } };
+  const noSign = await render(JSON.parse(JSON.stringify(snapBase))), withSign = await render(Object.assign(JSON.parse(JSON.stringify(snapBase)), { template: Object.assign({}, snapBase.template, { signatory: Object.assign({}, snapBase.template.signatory, { sign: true }) }) }));
+  check("PDF has no signature image without the flag", (await imgs(noSign)) === 0);
+  check("PDF carries the founder's signature image with the flag", (await imgs(withSign)) === 1);
+  check("signature is not drawn when there is no signatory", (await imgs(await render(Object.assign(JSON.parse(JSON.stringify(snapBase)), { template: Object.assign({}, snapBase.template, { signatory: null }) })))) === 0);
 
   // workspace request flow
   let wq = (await W("certs.create", { startupId: tport.id, type: "stage", origin: "workspace", request: "Need a stage record for the incubator application" }, EDITOR)).json.certificate;

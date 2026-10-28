@@ -4,7 +4,7 @@
 // (script.js switches the language from <meta name="uzl-lang">). No location-based redirects.
 const fs = require("fs"), path = require("path");
 const PROJECT = path.join(__dirname, "..");
-const DOMAIN = "https://uzleeder.vercel.app";
+const DOMAIN = "https://uzleeder.uz";
 const LANGS = ["en", "uz", "ru", "fa", "ar"];
 const OG = { en: "en_US", uz: "uz_UZ", ru: "ru_RU", fa: "fa_IR", ar: "ar_AR" };
 const TITLE = "Max — Prompt Engineer & AI-Assisted Developer | UzLeeder";   // the V2 title, same in every language
